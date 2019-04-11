@@ -1,0 +1,27 @@
+<header>
+    <div id="operator">
+        Operator: {{@operatorUsername}}
+    </div>
+    <span id="left-logo"></span>
+    <span id="logo"></span>
+</header>
+<nav>
+    <ul>
+        <li>
+            <a href="{{@baseURI}}"><img src="{{@baseURI}}media/icons/home.png" alt="">Home</a>
+            <ul>
+                <li><a href="{{@baseURI}}">Home</a></li>
+                <li><a href="{{@baseURI}}about">About</a></li>
+            </ul>
+        </li>
+        {{@navigation}}
+        <li><a href="{{@baseURI}}inbox"><img src="{{@baseURI}}media/icons/mail.png" alt="">Inbox (<span id="unreadNotificationCount"></span>)</a></li>
+        <li>
+            <a href="{{@baseURI}}account"><img src="{{@baseURI}}media/icons/operator.png" alt="">Operator: {{@operatorUsername}}</a>
+            <ul>
+                <li><a href="{{@baseURI}}account">Account</a></li>
+                <li><a href="{{@baseURI}}logout">Logout</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>

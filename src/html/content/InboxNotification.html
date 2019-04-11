@@ -1,0 +1,22 @@
+<div class="display button-bar">
+    <a class="button delete-button confirm-button" href="javascript: deleteNotification('{{@id}}')"><img src="{{@baseURI}}media/icons/alias_delete.png" alt="">Delete</a>
+    <a class="button" href="{{@baseURI}}inbox">Back</a>
+</div>
+<h2 class="region-title">Notification Profile</h2>
+<table class="table-display">
+    <tbody>
+        <tr>
+            <td>Title</td>
+            <td>{{@title}}</td>
+            <td>Date</td>
+            <td>{{@date}}</td>
+        </tr>
+    <tr>
+        <td>Message</td>
+        <td colspan="4">
+            <textarea readonly class="no-edit">{{@message}}</textarea>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<script src="{{@baseURI}}scripts/viewNotification.js"></script>

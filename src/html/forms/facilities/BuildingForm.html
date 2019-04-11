@@ -1,0 +1,30 @@
+<div class="button-bar">
+    <span class="button form-submit-button" id="building"><img src="{{@baseURI}}media/icons/save.png" alt="">Save</span>
+    <a class="button" href="{{@cancelLink}}"><img src="{{@baseURI}}media/icons/delete.png" alt="">Cancel</a>
+</div>
+<form id="building-form" class="table-form" onsubmit="{{@formScript}}">
+    <h2 class="region-title"><img src="{{@baseURI}}media/icons/building.png" alt="">Building Profile</h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td>Building Code</td>
+            <td><input type="text" id="code" name="code" value="{{@code}}"></td>
+            <td>Building Name</td>
+            <td><input type="text" id="name" name="name" value="{{@name}}"></td>
+        </tr>
+        <tr>
+            <td>Street Address</td>
+            <td><input type="text" id="streetAddress" name="streetAddress" value="{{@streetAddress}}"></td>
+            <td>City</td>
+            <td><input type="text" id="city" name="city" value="{{@city}}"></td>
+        </tr>
+        <tr>
+            <td>State</td>
+            <td><input type="text" id="state" name="state" value="{{@state}}"></td>
+            <td>Zip Code</td>
+            <td><input type="text" id="zipCode" name="zipCode" value="{{@zipCode}}"></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script src="{{@baseURI}}scripts/facilities/building.js"></script>

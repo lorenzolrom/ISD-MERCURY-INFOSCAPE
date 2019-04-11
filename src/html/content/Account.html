@@ -1,0 +1,26 @@
+<div class="display button-bar">
+    <a class="button" href="{{@baseURI}}account/changepassword"><img src="{{@baseURI}}media/icons/privs_edit.png" alt="">Change Password</a>
+</div>
+<h2 class="region-title"><img src="{{@baseURI}}media/icons/user.png" alt="">Account Profile</h2>
+<table class="table-display">
+    <tbody>
+    <tr>
+        <td>First Name</td>
+        <td>{{@firstName}}</td>
+        <td>Last Name</td>
+        <td>{{@lastName}}</td>
+    </tr>
+    <tr>
+        <td>Username</td>
+        <td>{{@username}}</td>
+        <td>E-Mail</td>
+        <td>{{@email}}</td>
+    </tr>
+    <tr>
+        <td>Roles</td>
+        <td colspan="4">
+            <textarea readonly class="no-edit">{{@roleList}}</textarea>
+        </td>
+    </tr>
+    </tbody>
+</table>

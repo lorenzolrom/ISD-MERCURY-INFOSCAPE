@@ -1,0 +1,36 @@
+<div class="button-bar">
+    <span id="search" class="button form-submit-button"><img src="{{@baseURI}}media/icons/search.png" alt="">Search</span>
+    <a href="buildings/new" class="button"><img src="{{@baseURI}}media/icons/building_add.png" alt="">New</a>
+</div>
+<form id="search-form" class="search-form" onsubmit="return searchBuildings()">
+    <input type="hidden" name="submitted" value="true">
+    <table class="table-display">
+        <tbody>
+            <tr>
+                <td>Code</td>
+                <td><input type="text" id="code" name="code" value="{{@code}}"></td>
+                <td>Name</td>
+                <td><input type="text" id="name" name="name" value="{{@name}}"></td>
+            </tr>
+        </tbody>
+        <tbody class="additional-fields">
+            <tr>
+                <td>Street Address</td>
+                <td><input type="text" id="streetAddress" name="streetAddress" value="{{@streetAddress}}"></td>
+                <td>City</td>
+                <td><input type="text" id="city" name="city" value="{{@city}}"></td><td></td>
+            </tr>
+            <tr>
+                <td>State</td>
+                <td><input type="text" id="state" name="state" value="{{@state}}"></td>
+                <td>Zip Code</td>
+                <td><input type="text" id="zipCode" name="zipCode" value="{{@zipCode}}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="button-bar">
+        <span class="button-noveil search-additional-field-toggle">Show More</span>
+    </div>
+</form>
+<div id="results"></div>
+<script src="{{@baseURI}}scripts/facilities/building.js"></script>
