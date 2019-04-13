@@ -1,3 +1,9 @@
+.required::after {
+    content: "*";
+    font-weight: 600;
+    color: #CC0000;
+}
+
 /* Button Bar */
 
 div.button-bar {
@@ -54,4 +60,9 @@ form.search-form > div.button-bar {
     float: right;
     text-align: right;
     border-bottom: none;
+}
+
+/* Table forms */
+form table select, form table input {
+    width: 100%;
 }

@@ -119,7 +119,7 @@ function saveChanges(id)
         }
         else
         {
-            showNotifications('error', [json.data.errors]);
+            showNotifications('error', json.data.errors);
             unveil();
         }
     });
@@ -172,7 +172,7 @@ function deleteBuilding(id)
         }
         else
         {
-            showNotifications('error', [json.data.errors]);
+            showNotifications('error', json.data.errors);
             unveil();
         }
     });

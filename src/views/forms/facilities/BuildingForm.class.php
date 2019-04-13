@@ -38,9 +38,4 @@ class BuildingForm extends Form
             $this->setVariable('zipCode', htmlentities($details['zipCode']));
         }
     }
-
-    public function validateForm(): array
-    {
-        return array();
-    }
 }

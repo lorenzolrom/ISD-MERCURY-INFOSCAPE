@@ -29,7 +29,7 @@ class BuildingEditPage extends ModelPage
      */
     public function __construct(?string $buildingId)
     {
-        parent::__construct("buildings/$buildingId", 'facilitiescore_facilities-w');
+        parent::__construct("buildings/$buildingId", 'facilitiescore_facilities-w', 'buildings');
 
         $details = $this->response->getBody();
 

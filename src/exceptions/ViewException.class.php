@@ -19,10 +19,10 @@ namespace exceptions;
  */
 class ViewException extends MercuryException
 {
-    const VIEW_NOT_FOUND = 201;
-    const TEMPLATE_NOT_FOUND = 202;
-    const ELEMENT_NOT_FOUND = 203;
-    const PAGE_NOT_FOUND = 204;
+    const VIEW_NOT_FOUND = 601;
+    const TEMPLATE_NOT_FOUND = 602;
+    const ELEMENT_NOT_FOUND = 603;
+    const PAGE_NOT_FOUND = 604;
 
     const MESSAGES = array(
         self::VIEW_NOT_FOUND => "View Not Found",

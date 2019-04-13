@@ -14,12 +14,20 @@
 namespace views\pages;
 
 
+use views\elements\Sidebar;
+
 abstract class ApplicationPage extends UserDocument
 {
-    public function __construct(?string $permission = NULL)
+    public function __construct(?string $permission = NULL, ?string $section = NULL)
     {
         parent::__construct($permission);
 
         $this->setVariable("content", self::templateFileContents("ApplicationPage", self::TEMPLATE_PAGE));
+
+        if($section !== NULL)
+        {
+            $sidebar = new Sidebar($section);
+            $this->setVariable("sidebar", $sidebar->getTemplate());
+        }
     }
 }

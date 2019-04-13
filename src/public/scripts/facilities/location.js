@@ -18,12 +18,12 @@ function saveChanges(id)
         }
         else if(json.code === 409)
         {
-            showNotifications('error', json.data);
+            showNotifications('error', json.data.errors);
             unveil();
         }
         else
         {
-            showNotifications('error', [json.data.errors]);
+            showNotifications('error', json.data.errors);
             unveil();
         }
     });
@@ -51,12 +51,12 @@ function createLocation(buildingId)
         }
         else if(json.code === 409)
         {
-            showNotifications('error', json.data);
+            showNotifications('error', json.data.errors);
             unveil();
         }
         else
         {
-            showNotifications('error', [json.data.errors]);
+            showNotifications('error', json.data.errors);
             unveil();
         }
     });

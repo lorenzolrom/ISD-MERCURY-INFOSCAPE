@@ -27,7 +27,7 @@ class BuildingCreatePage extends ApplicationPage
      */
     public function __construct()
     {
-        parent::__construct('facilitiescore_facilities-w');
+        parent::__construct('facilitiescore_facilities-w', 'buildings');
 
         $this->setVariable("tabTitle", "Building (New)");
 

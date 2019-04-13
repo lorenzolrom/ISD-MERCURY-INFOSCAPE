@@ -33,6 +33,7 @@ class ChangePasswordPage extends ApplicationPage
 
     /**
      * @return array
+     * @throws \exceptions\InfoCentralException
      */
     public function validateForm(): array
     {

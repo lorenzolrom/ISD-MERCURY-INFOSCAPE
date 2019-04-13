@@ -14,7 +14,6 @@
 namespace views\pages;
 
 use exceptions\EntryNotFoundException;
-use utilities\InfoCentralConnection;
 
 class InboxViewPage extends ModelPage
 {

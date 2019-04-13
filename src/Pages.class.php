@@ -18,16 +18,15 @@
 abstract class Pages
 {
     const HEADER = array(
-        array(
+        'buildings' => array(
             'title' => 'Buildings',
             'permission' => 'facilitiescore_facilities-r',
             'link' => 'buildings',
             'icon' => 'building.png',
         ),
-        array(
+        'inventory' => array(
             'title' => 'Inventory',
             'permission' => 'itsm_inventory',
-            'link' => '#',
             'icon' => 'inventory.png',
             'pages' => array(
                 array(
@@ -38,30 +37,44 @@ abstract class Pages
                 array(
                     'title' => 'Commodities',
                     'link' => 'inventory/commodities',
-                    'permission' => 'itsm_inventory-commodities-rw'
+                    'permission' => 'itsm_inventory-commodities-r'
                 ),
                 array(
                     'title' => 'Purchase Orders',
                     'link' => 'inventory/purchaseorders',
-                    'permission' => 'itsm_inventory-purchaseorders-rw'
+                    'permission' => 'itsm_inventory-purchaseorders-r'
                 ),
                 array(
                     'title' => 'Returns',
                     'link' => 'inventory/returns',
-                    'permission' => 'itsm_inventory-returns-rw'
+                    'permission' => 'itsm_inventory-returns-r'
+                ),
+                array(
+                    'title' => 'Discards',
+                    'link' => 'inventory/discards',
+                    'permission' => 'itsm_inventory-discards-r'
+                ),
+                array(
+                    'title' => 'Warehouses',
+                    'link' => 'inventory/warehouses',
+                    'permission' => 'itsm_inventory-warehouses-r'
+                ),
+                array(
+                    'title' => 'Vendors',
+                    'link' => 'inventory/vendors',
+                    'permission' => 'itsm_inventory-vendors-r'
                 )
             )
         ),
-        array(
+        'hosts' => array(
             'title' => 'Hosts',
             'permission' => 'itsm_devices',
             'link' => 'hosts',
             'icon' => 'computer.png',
         ),
-        array(
+        'monitor' => array(
             'title' => 'Monitor',
             'permission' => 'itsmmonitor',
-            'link' => '#',
             'icon' => 'monitor.png',
             'pages' => array(
                 array(
@@ -76,10 +89,9 @@ abstract class Pages
                 )
             )
         ),
-        array(
+        'web' => array(
             'title' => 'Web',
             'permission' => 'itsm_web',
-            'link' => '#',
             'icon' => 'hostname.png',
             'pages' => array(
                 array(
@@ -104,16 +116,15 @@ abstract class Pages
                 )
             )
         ),
-        array(
+        'applications' => array(
             'title' => 'Applications',
             'permission' => 'itsm_ait',
             'link' => 'applications',
             'icon' => 'apps.png',
         ),
-        array(
+        'tickets' => array(
             'title' => 'Tickets',
             'permission' => 'servicenter',
-            'link' => '#',
             'icon' => 'ticket.png',
             'pages' => array(
                 array(
@@ -138,31 +149,31 @@ abstract class Pages
                 )
             )
         ),
-        array(
-            'title' => 'Settings',
+        'settings' => array(
+            'title' => 'Admin',
             'permission' => 'settings',
-            'link' => 'settings/users',
+            'link' => 'admin/users',
             'icon' => 'admin.png',
             'pages' => array(
                 array(
                     'title' => 'Users',
                     'permission' => 'settings',
-                    'link' => 'settings/users'
+                    'link' => 'admin/users'
                 ),
                 array(
                     'title' => 'Roles',
                     'permission' => 'settings',
-                    'link' => 'settings/roles'
+                    'link' => 'admin/roles'
                 ),
                 array(
                     'title' => 'Notifications',
                     'permission' => 'settings',
-                    'link' => 'settings/notifications'
+                    'link' => 'admin/notifications'
                 ),
                 array(
                     'title' => 'Bulletins',
                     'permission' => 'settings',
-                    'link' => 'settings/bulletins'
+                    'link' => 'admin/bulletins'
                 )
             )
         )

@@ -7,22 +7,22 @@
     <table class="table-display">
         <tbody>
         <tr>
-            <td>Building Code</td>
-            <td><input type="text" id="code" name="code" value="{{@code}}"></td>
-            <td>Building Name</td>
-            <td><input type="text" id="name" name="name" value="{{@name}}"></td>
+            <td class="required">Building Code</td>
+            <td><input maxlength="32" type="text" id="code" name="code" value="{{@code}}"></td>
+            <td class="required">Building Name</td>
+            <td><input maxlength="64" type="text" id="name" name="name" value="{{@name}}"></td>
         </tr>
         <tr>
-            <td>Street Address</td>
+            <td class="required">Street Address</td>
             <td><input type="text" id="streetAddress" name="streetAddress" value="{{@streetAddress}}"></td>
-            <td>City</td>
+            <td class="required">City</td>
             <td><input type="text" id="city" name="city" value="{{@city}}"></td>
         </tr>
         <tr>
-            <td>State</td>
-            <td><input type="text" id="state" name="state" value="{{@state}}"></td>
-            <td>Zip Code</td>
-            <td><input type="text" id="zipCode" name="zipCode" value="{{@zipCode}}"></td>
+            <td class="required">State</td>
+            <td><input maxlength="2" type="text" id="state" name="state" value="{{@state}}"></td>
+            <td class="required">Zip Code</td>
+            <td><input maxlength="5" type="text" id="zipCode" name="zipCode" value="{{@zipCode}}"></td>
         </tr>
         </tbody>
     </table>

@@ -13,9 +13,6 @@
 
 namespace views\pages\facilities;
 
-
-use exceptions\EntryNotFoundException;
-use utilities\InfoCentralConnection;
 use views\forms\facilities\LocationForm;
 use views\pages\ModelPage;
 
@@ -23,7 +20,7 @@ class LocationEditPage extends ModelPage
 {
     public function __construct(?string $locationId)
     {
-        parent::__construct("locations/$locationId", 'facilitiescore_facilities-w');
+        parent::__construct("locations/$locationId", 'facilitiescore_facilities-w', 'buildings');
 
         $details = $this->response->getBody();
 

@@ -1,0 +1,45 @@
+<div class="button-bar">
+    <span id="search" class="button form-submit-button"><img src="{{@baseURI}}media/icons/search.png" alt="">Search</span>
+    <a href="commodities/new" class="button"><img src="{{@baseURI}}media/icons/inventory_add.png" alt="">New</a>
+    <a href="assettypes" class="button"><img src="{{@baseURI}}media/icons/tools.png" alt="">Manage Asset Types</a>
+</div>
+<form id="search-form" class="search-form" onsubmit="return searchCommodities()">
+    <input type="hidden" name="submitted" value="true">
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td>Code</td>
+            <td><input type="text" id="code" name="code" value="{{@code}}"></td>
+            <td>Name</td>
+            <td><input type="text" id="name" name="name" value="{{@name}}"></td>
+        </tr>
+        </tbody>
+        <tbody class="additional-fields">
+        <tr>
+            <td>Type</td>
+            <td>
+                <select name="commodityType[]" id="commodityType" size="3" multiple>
+                    {{@commodityTypeSelect}}
+                </select>
+            </td>
+            <td>Asset Type</td>
+            <td>
+                <select name="assetType[]" id="assetType" size="3" multiple>
+                    {{@assetTypeSelect}}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Manufacturer</td>
+            <td><input type="text" id="manufacturer" name="model" value="{{@manufacturer}}"></td>
+            <td>Model</td>
+            <td><input type="text" id="model" name="model" value="{{@model}}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="button-bar">
+        <span class="button-noveil search-additional-field-toggle">Show More</span>
+    </div>
+</form>
+<div id="results"></div>
+<script src="{{@baseURI}}scripts/itsm/commodities.js"></script>

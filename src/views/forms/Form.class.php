@@ -20,8 +20,6 @@ abstract class Form extends View
 {
     protected $fields;
 
-    abstract public function validateForm(): array;
-
     /**
      * Converts post submission into a valid array, with non-submitted entries set to null
      * and non-valid fields omitted

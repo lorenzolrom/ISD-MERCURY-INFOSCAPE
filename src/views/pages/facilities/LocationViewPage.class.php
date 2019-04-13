@@ -20,7 +20,7 @@ class LocationViewPage extends ModelPage
 {
     public function __construct(int $locationId)
     {
-        parent::__construct("locations/$locationId", "facilitiescore_facilities-r");
+        parent::__construct("locations/$locationId", "facilitiescore_facilities-r", 'buildings');
 
         $location = $this->response->getBody();
         $this->setVariable("content", self::templateFileContents("facilities/Location", self::TEMPLATE_CONTENT));

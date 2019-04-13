@@ -7,16 +7,16 @@
     <table class="table-display">
         <tbody>
         <tr>
-            <td>Building Code</td>
+            <td class="required">Building Code</td>
             <td>{{@buildingCode}}</td>
-            <td>Building Name</td>
+            <td class="required">Building Name</td>
             <td>{{@buildingName}}</td>
         </tr>
         <tr>
-            <td>Location Code</td>
-            <td><input type="text" id="code" name="code" value="{{@code}}"></td>
-            <td>Location Name</td>
-            <td><input type="text" id="name" name="name" value="{{@name}}"></td>
+            <td class="required">Location Code</td>
+            <td><input maxlength=32 type="text" id="code" name="code" value="{{@code}}"></td>
+            <td class="required">Location Name</td>
+            <td><input maxlength=64 type="text" id="name" name="name" value="{{@name}}"></td>
         </tr>
         </tbody>
     </table>
