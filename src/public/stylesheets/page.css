@@ -10,6 +10,7 @@
     --border-color: #D3D3D3;
     --drop-down-link-hover: #FF6363;
     --heading-color: #0054A5;
+    --content-background: linear-gradient(#D5DFE5, #FFFFFF);
 
     --shadow: 0px 3px 4px #444;
     --md-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -172,7 +173,7 @@ div#wrapper {
 div#content {
     flex: 1 0 auto;
     display: flex;
-    background-image: linear-gradient(#D5DFE5, #FFFFFF);
+    background-image: var(--content-background);
 }
 
 /* Sidebar */
@@ -269,7 +270,7 @@ h1 {
 /* Veil */
 
 div#veil {
-    background-image: linear-gradient(#D5DFE5, #FFFFFF);
+    background-image: var(--content-background);
     z-index: 996;
     cursor: not-allowed;
 

@@ -8,15 +8,16 @@ function searchBuildings()
     let city = $('#city').val();
     let state = $('#state').val();
     let zipCode = $('#zipCode').val();
-
-    apiRequest("POST", "buildings/search", {
+    let search = {
         code: code,
         name: name,
         streetAddress: streetAddress,
         city: city,
         state: state,
         zipCode: zipCode
-    }).done(function(json){
+    };
+
+    apiRequest("POST", "buildings/search", search).done(function(json){
 
         let rows = [];
         let refs = [];
@@ -44,6 +45,8 @@ function searchBuildings()
             refs: refs,
             rows: rows
         });
+
+        setSearchCookie('buildingSearch', search);
 
         unveil();
     });
@@ -177,3 +180,20 @@ function deleteBuilding(id)
         }
     });
 }
+
+$(document).ready(function(){
+    let last =  getCookie('buildingSearch');
+
+    if(last !== "")
+    {
+        last = JSON.parse(window.atob(last));
+        $('#code').val(last.code);
+        $('#name').val(last.name);
+        $('#streetAddress').val(last.streetAddress);
+        $('#city').val(last.city);
+        $('#state').val(last.state);
+        $('#zipCode').val(last.zipCode);
+
+        searchBuildings();
+    }
+});

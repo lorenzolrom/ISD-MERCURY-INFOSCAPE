@@ -27,6 +27,7 @@ abstract class Pages
         'inventory' => array(
             'title' => 'Inventory',
             'permission' => 'itsm_inventory',
+            'link' => 'inventory/assets',
             'icon' => 'inventory.png',
             'pages' => array(
                 array(
@@ -75,19 +76,8 @@ abstract class Pages
         'monitor' => array(
             'title' => 'Monitor',
             'permission' => 'itsmmonitor',
+            'link' => 'monitor',
             'icon' => 'monitor.png',
-            'pages' => array(
-                array(
-                    'title' => 'Host Monitor',
-                    'link' => 'monitor/hosts',
-                    'permission' => 'itsmmonitor-hosts-r'
-                ),
-                array(
-                    'title' => 'Service Monitor',
-                    'link' => 'monitor/services',
-                    'permission' => 'itsmmonitor-services-r'
-                )
-            )
         ),
         'web' => array(
             'title' => 'Web',
@@ -175,6 +165,16 @@ abstract class Pages
                     'permission' => 'settings',
                     'link' => 'admin/bulletins'
                 )
+            )
+        )
+    );
+
+    const MENUS = array(
+        'home' => array(
+            'title' => Config::OPTIONS['appName'],
+            'pages' => array(
+                'title' => 'Change Password',
+                'link' => 'account/changepassword'
             )
         )
     );

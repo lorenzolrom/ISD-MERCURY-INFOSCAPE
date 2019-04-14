@@ -1,0 +1,18 @@
+<div class="button-bar">
+    <span class="button form-submit-button" id="warehouse"><img src="{{@baseURI}}media/icons/save.png" alt="">Save</span>
+    <a class="button" href="{{@cancelLink}}"><img src="{{@baseURI}}media/icons/delete.png" alt="">Cancel</a>
+</div>
+<form id="warehouse-form" class="table-form" onsubmit="{{@formScript}}">
+    <h2 class="region-title"><img src="{{@baseURI}}media/icons/inventory.png" alt="">Warehouse Profile</h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td class="required">Warehouse Code</td>
+            <td><input maxlength="32" type="text" id="code" name="code" value="{{@code}}"></td>
+            <td class="required">Warehouse Name</td>
+            <td><input maxlength="64" type="text" id="name" name="name" value="{{@name}}"></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script src="{{@baseURI}}scripts/itsm/warehouses.js"></script>

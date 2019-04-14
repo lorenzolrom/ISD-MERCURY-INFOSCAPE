@@ -39,6 +39,9 @@ class InventoryController extends Controller
             case "assettypes":
                 $assetTypes = new AssetTypeController($this->request);
                 return $assetTypes->getPage();
+            case 'warehouses':
+                $warehouses = new WarehouseController($this->request);
+                return $warehouses->getPage();
         }
 
         throw new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND);

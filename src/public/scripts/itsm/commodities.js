@@ -12,14 +12,16 @@ function searchCommodities()
     let commodityTypes = $('#commodityType').val();
     let assetTypes = $('#assetType').val();
 
-    apiRequest("POST", "commodities/search", {
+    let search = {
         code: code,
         name: name,
         manufacturer: manufacturer,
         model: model,
         commodityType: commodityTypes,
         assetType: assetTypes
-    }).done(function(json){
+    };
+
+    apiRequest("POST", "commodities/search", search).done(function(json){
         let rows = [];
         let refs = [];
 
@@ -47,6 +49,8 @@ function searchCommodities()
             refs: refs,
             rows: rows
         });
+
+        setSearchCookie('commoditySearch', search);
 
         unveil();
     });
@@ -137,3 +141,21 @@ function deleteCommodity(id)
         }
     });
 }
+
+$(document).ready(function(){
+    let last =  getCookie('commoditySearch');
+
+    if(last !== "")
+    {
+        last = JSON.parse(window.atob(last));
+        $('#code').val(last.code);
+        $('#name').val(last.name);
+        $('#manufacturer').val(last.manufacturer);
+        $('#model').val(last.model);
+
+        $('#commodityType').val(last.commodityType);
+        $('#assetType').val(last.assetType);
+
+        searchCommodities();
+    }
+});
