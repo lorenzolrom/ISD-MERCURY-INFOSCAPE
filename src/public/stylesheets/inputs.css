@@ -29,6 +29,7 @@ div.button-bar {
     cursor: pointer;
     line-height: 19px;
     vertical-align: middle;
+    position: relative;
 }
 
 .button:hover {
@@ -40,10 +41,10 @@ div.button-bar {
     background: linear-gradient(#8B0000, #FF0000, #FF0000 ,#FF0000, #8B0000, #8B0000, #8B0000);
 }
 
-.button img, .button-noveil {
+.button img, .button-noveil img {
     max-height: 16px;
     margin-right: 5px;
-    vertical-align: middle;
+    vertical-align: text-top;
 }
 
 /* Search forms */
@@ -65,4 +66,8 @@ form.search-form > div.button-bar {
 /* Table forms */
 form table select, form table input {
     width: 100%;
+}
+
+form table input[type='checkbox'], form table input[type='radio'] {
+    width: auto !important;
 }

@@ -33,6 +33,9 @@ class InventoryController extends Controller
     {
         switch($this->request->next())
         {
+            case "assets":
+                $asset = new AssetController($this->request);
+                return $asset->getPage();
             case "commodities":
                 $commodity = new CommodityController($this->request);
                 return $commodity->getPage();

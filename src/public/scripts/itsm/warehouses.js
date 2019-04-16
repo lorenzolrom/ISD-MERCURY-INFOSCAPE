@@ -12,15 +12,14 @@ function loadWarehouses()
 
             rows.push([
                 v.code,
-                v.name,
-                (v.closed ? "✓" : "")
+                v.name
             ]);
         });
 
         setupTable({
             target:'results',
             type:'table',
-            header: ['Code', 'Name', 'Closed'],
+            header: ['Code', 'Name'],
             sortColumn: 0,
             sortMethod: "asc",
             linkColumn: 0,

@@ -5,85 +5,104 @@ function setupTable(data)
 {
     let display = document.getElementById(data.target);
 
-    if(data.type === 'table')
+    let table = document.createElement('table');
+
+    // Create header
+    let header = document.createElement("thead");
+    let headerRow = document.createElement("tr");
+
+    for(let i = 0; i < data.header.length; i++)
     {
-        let table = document.createElement('table');
+        let th = document.createElement("th");
+        th.appendChild(document.createTextNode(data.header[i]));
 
-        // Create header
-        let header = document.createElement("thead");
-        let headerRow = document.createElement("tr");
+        headerRow.appendChild(th);
+    }
+    header.appendChild(headerRow);
 
-        for(let i = 0; i < data.header.length; i++)
+    table.appendChild(header);
+
+    let body = document.createElement('tbody');
+
+    // Create data rows
+    for(let i = 0; i < data.rows.length; i++)
+    {
+        let row = document.createElement("tr");
+
+        for(let j = 0; j < data.rows[i].length; j++)
         {
-            let th = document.createElement("th");
-            th.appendChild(document.createTextNode(data.header[i]));
+            let td = document.createElement("td");
 
-            headerRow.appendChild(th);
-        }
-        header.appendChild(headerRow);
-
-        table.appendChild(header);
-
-        let body = document.createElement('tbody');
-
-        // Create data rows
-        for(let i = 0; i < data.rows.length; i++)
-        {
-            let row = document.createElement("tr");
-
-            for(let j = 0; j < data.rows[i].length; j++)
+            // Check for link column
+            if(typeof(data.linkColumn) !== 'undefined')
             {
-                let td = document.createElement("td");
-
-                // Check for link column
-                if(typeof(data.linkColumn) !== 'undefined')
+                if(data.linkColumn === j)
                 {
-                    if(data.linkColumn === j)
-                    {
-                        let a = document.createElement("a");
-                        a.appendChild(document.createTextNode(data.rows[i][j]));
+                    let a = document.createElement("a");
+                    a.appendChild(document.createTextNode(data.rows[i][j]));
 
-                        $(a).attr("href", data.href + data.refs[i]);
+                    $(a).attr("href", data.href + data.refs[i]);
 
-                        td.appendChild(a);
-                    }
-                    else
-                    {
-                        td.appendChild(document.createTextNode(data.rows[i][j]));
-                    }
+                    td.appendChild(a);
                 }
                 else
                 {
-                    td.appendChild(document.createTextNode(data.rows[i][j]));
-                }
+                    let value = "";
 
-                row.appendChild(td);
+                    if(data.rows[i][j] !== null)
+                        value = data.rows[i][j];
+                    td.appendChild(document.createTextNode(value));
+                }
+            }
+            else
+            {
+                td.appendChild(document.createTextNode(data.rows[i][j]));
             }
 
-            body.appendChild(row);
+            row.appendChild(td);
         }
 
-        table.appendChild(body);
+        body.appendChild(row);
+    }
 
-        // Remove loading image
-        while(display.firstChild)
-            display.removeChild(display.firstChild);
+    table.appendChild(body);
 
-        display.appendChild(table);
+    // Remove loading image
+    while(display.firstChild)
+        display.removeChild(display.firstChild);
 
-        if(typeof(data.sortColumn) == 'undefined')
-            data.sortColumn = 0;
-        if(typeof(data.sortMethod) == 'undefined')
-            data.sortMethod = 'desc';
+    display.appendChild(table);
 
-        $(table).DataTable({
+    if(typeof(data.sortColumn) == 'undefined')
+        data.sortColumn = 0;
+    if(typeof(data.sortMethod) == 'undefined')
+        data.sortMethod = 'desc';
+
+    let settings = {
             'pageLength': 25,
             'order': [[data.sortColumn, data.sortMethod]],
             'oLanguage': {
                 'sSearch': 'Filter:'
             }
-        });
+        };
+
+    if(typeof(data.checkboxes) !== 'undefined')
+    {
+        settings.columnDefs = [
+            {
+                'targets': data.checkboxColumn,
+                'checkboxes': {
+                    'selectRow': true
+                }
+            }
+        ];
+
+        settings.select = {
+            'style': 'multi'
+        };
     }
+
+    $(table).DataTable(settings);
 }
 
 /**
@@ -265,12 +284,17 @@ function apiRequest(type, path, data, base64 = false)
  */
 function setSearchCookie(name, data)
 {
-    document.cookie = name + "=" + window.btoa(JSON.stringify(data));
+    document.cookie = "ML_" + name + "=" + window.btoa(JSON.stringify(data));
 }
 
+/**
+ * Returns the value of the cookie with the specified name
+ * @param name
+ * @returns {string}
+ */
 function getCookie(name)
 {
-    name += "=";
+    name = "ML_" + name + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
 
     let cookies = decodedCookie.split(';');
@@ -291,6 +315,27 @@ function getCookie(name)
     }
 
     return "";
+}
+
+/**
+ * Removes all cookies except those starting with 'ML_', which are used to save past search history/actions
+ */
+function clearCookies()
+{
+    let cookies = document.cookie.split(";");
+
+    for(let i = 0; i < cookies.length; i++)
+    {
+        let equals = cookies[i].indexOf("=");
+        let name = equals > -1 ? cookies[i].substr(0, equals) : cookies[i];
+
+        if(name.indexOf("ML_") !== -1)
+        {
+            document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        }
+    }
+
+    showNotifications('notice', ['Session cache has been cleared']);
 }
 
 /**
@@ -464,6 +509,7 @@ function showNotifications(type, items)
 
     // Show
     $(notifications).fadeIn();
+    notificationSetup();
     unveil();
 }
 
