@@ -36,7 +36,7 @@ function searchBuildings()
         });
 
         setupTable({
-            target: 'results',
+            target: 'building-results',
             type: 'table',
             header: ['Code', 'Name', 'Street Address', 'City', 'State', 'Zip Code'],
             sortColumn: 0,
@@ -182,10 +182,15 @@ function deleteBuilding(id)
 }
 
 $(document).ready(function(){
+    if(!document.getElementById("building-results"))
+        return;
+
     let last =  getCookie('buildingSearch');
 
     if(last !== "")
     {
+        veil();
+
         last = JSON.parse(window.atob(last));
         $('#code').val(last.code);
         $('#name').val(last.name);

@@ -39,7 +39,7 @@ function searchCommodities()
         });
 
         setupTable({
-            target: 'results',
+            target: 'commodity-results',
             type: 'table',
             header: ['Code', 'Name', 'Type', 'Asset Type', 'Manufacturer', 'Model'],
             sortColumn: 0,
@@ -143,10 +143,15 @@ function deleteCommodity(id)
 }
 
 $(document).ready(function(){
+    if(!document.getElementById("commodity-results"))
+        return;
+
     let last =  getCookie('commoditySearch');
 
     if(last !== "")
     {
+        veil();
+
         last = JSON.parse(window.atob(last));
         $('#code').val(last.code);
         $('#name').val(last.name);

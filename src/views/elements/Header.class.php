@@ -40,9 +40,10 @@ class Header extends View
             if(!in_array($section['permission'], $permissions))
                 continue;
 
-            $link = isset($section['link']) ? '{{@baseURI}}' . $section['link'] : "#";
-
-            $sectionString = "<li>\n<a href='$link'><img src='{{@baseURI}}media/icons/{$section['icon']}' alt=''>{$section['title']}</a>\n";
+            if(isset($section['link']))
+                $sectionString = "<li>\n<a class='nav-item' href='{{@baseURI}}{$section['link']}'><img src='{{@baseURI}}media/icons/{$section['icon']}' alt=''>{$section['title']}</a>\n";
+            else
+                $sectionString = "<li>\n<span class='nav-item'><img src='{{@baseURI}}media/icons/{$section['icon']}' alt=''>{$section['title']}</span>\n";
 
             if(isset($section['pages']))
             {

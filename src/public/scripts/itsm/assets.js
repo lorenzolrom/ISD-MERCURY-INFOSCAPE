@@ -1,3 +1,5 @@
+let childrenLoaded = false;
+
 function addToWorksheet()
 {
     let table = $('#results table')[0];
@@ -101,7 +103,7 @@ function searchAssets()
         });
 
         setupTable({
-            target: 'results',
+            target: 'asset-results',
             checkboxes: true,
             checkboxColumn: 1,
             header: ['In W.S.', '', 'Asset Tag', 'Code', 'Name', 'Asset Type', 'Serial Number', 'Location', 'Warehouse', 'Verified', 'R.O. #'],
@@ -120,11 +122,53 @@ function searchAssets()
     return false;
 }
 
+function loadReturns(assetTag){}
+
+function loadChildren(assetTag)
+{
+    if(childrenLoaded)
+        return;
+
+    apiRequest("GET", "assets/" + assetTag + "/children", {}).done(function(json){
+        let rows = [];
+        let refs = [];
+
+        console.log(json.data);
+
+        $.each(json.data, function(i, v){
+            refs.push(v.assetTag);
+
+            rows.push([
+                v.assetTag,
+                v.commodityName
+            ]);
+        });
+
+        setupTable({
+            target: 'children-region',
+            header: ['Asset Tag', 'Commodity Name'],
+            sortColumn: 0,
+            linkColumn: 0,
+            href: baseURI + "inventory/assets/",
+            refs: refs,
+            rows: rows
+        });
+
+        childrenLoaded = true;
+    });
+}
+
+// Auto-search
 $(document).ready(function(){
+    if(!document.getElementById("asset-results"))
+        return;
+
     let last = getCookie('assetSearch');
 
     if(last !== "")
     {
+        veil();
+
         last = JSON.parse(window.atob(last));
         $("#assetTag").val(last.assetTag);
         $("#serialNumber").val(last.serialNumber);
@@ -155,4 +199,52 @@ $(document).ready(function(){
 
         searchAssets();
     }
+});
+
+// Hide appropriate buttons on view page
+$(document).ready(function(){
+    if(!document.getElementById("asset-display"))
+        return;
+
+    // Unlink/Link to parent
+    if($('#parentAssetTag').text().length > 0)
+        $('#linkToParent-button').hide();
+    else
+    {
+        $('#parent-info').hide();
+        $('#unlinkFromParent-button').hide();
+    }
+
+    // Verify
+    if($('#verifyDate').text().length > 0)
+        $('#verify-button').hide();
+    else
+        $('#unVerify-button').hide();
+
+    // Location
+    if($('#locationCode').text().length > 0)
+        $('#assignToLocation-button').hide();
+    else
+    {
+        $('.location-info').hide();
+        $('#changeLocation-button').hide();
+    }
+
+    // Warehouse
+    if($('#warehouseCode').text().length > 0)
+        $('#returnToWarehouse-button').hide();
+    else
+    {
+        $('#warehouse-info').hide();
+        $('#changeWarehouse-button').hide();
+    }
+
+    // Discarded
+    if($('#discardDate').text().length > 0)
+    {
+        $('.hideIfDiscarded').hide();
+        $('#verify-info').hide();
+    }
+    else
+        $('#discard-info').hide();
 });

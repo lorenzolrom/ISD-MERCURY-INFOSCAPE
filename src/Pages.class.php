@@ -27,7 +27,6 @@ abstract class Pages
         'inventory' => array(
             'title' => 'Inventory',
             'permission' => 'itsm_inventory',
-            'link' => 'inventory/assets',
             'icon' => 'inventory.png',
             'pages' => array(
                 array(
@@ -142,7 +141,6 @@ abstract class Pages
         'settings' => array(
             'title' => 'Admin',
             'permission' => 'settings',
-            'link' => 'admin/users',
             'icon' => 'admin.png',
             'pages' => array(
                 array(

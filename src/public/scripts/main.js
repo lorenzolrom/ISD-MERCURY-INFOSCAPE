@@ -126,6 +126,27 @@ function notificationSetup()
     $('#notifications-dismiss').click(function(){$('#notifications').fadeOut()});
 }
 
+function navigationSetup()
+{
+    $('span.nav-item').each(function(i, v){
+        $(v).click(function(){
+
+            let dropdown = $(this).next();
+
+            if($(dropdown).css('visibility') === "visible")
+            {
+                $(dropdown).css('visibility', 'hidden');
+                $(dropdown).css('opacity', '0');
+            }
+            else
+            {
+                $(dropdown).css('visibility', 'visible');
+                $(dropdown).css('opacity', '1');
+            }
+        })
+    });
+}
+
 /**
  * Initialize date pickers
  */
@@ -268,13 +289,21 @@ function apiRequest(type, path, data, base64 = false)
     if(!base64)
         data = window.btoa(JSON.stringify(data));
 
-    return $.ajax({
+    let result = $.ajax({
         type: type,
         url: '/!api-request?requestType=' + type + "&path=" + path + "&body=" + data,
         dataType: 'json',
         cache: false,
         async: true
     });
+
+    if(result.code === 500)
+    {
+        showNotifications('error', ['The API request did not produce a valid response']);
+        unveil();
+    }
+
+    return result;
 }
 
 /**
@@ -379,7 +408,7 @@ function setupLoadingImage()
     $('.wait').each(function(i,v){
 
         let loadingImage = document.createElement("img");
-        $(loadingImage).attr('src', '../media/animations/wait.gif');
+        $(loadingImage).attr('src', baseURI + 'media/animations/wait.gif');
         $(loadingImage).attr('alt', '');
         v.appendChild(loadingImage);
 
@@ -528,6 +557,7 @@ $(document).ready(function(){
     setupSearchAdditionalFields();
     setupBackButtons();
     setupExpandableRegions();
+    //navigationSetup();
 
     setupLoadingImage();
 

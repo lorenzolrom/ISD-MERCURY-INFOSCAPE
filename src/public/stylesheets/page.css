@@ -93,17 +93,21 @@ nav > ul > li {
     padding-right: 5px;
 }
 
-nav ul li:hover > a {
+nav > ul > li > span.nav-item {
+    cursor: default;
+}
+
+nav ul li:hover > .nav-item {
     color: #D3D3D3;
 }
 
-nav ul li a {
+nav ul li .nav-item, nav ul li a {
     vertical-align: middle;
     text-decoration: none;
     display: block;
 }
 
-nav > ul > li > a {
+nav > ul > li > .nav-item {
     color: #FFF;
     line-height: 25px;
     font-size: 1.1rem;
@@ -111,7 +115,7 @@ nav > ul > li > a {
     text-align: center;
 }
 
-nav > ul > li > a > img {
+nav > ul > li > .nav-item > img {
     vertical-align: top;
     margin-right: 3px;
     margin-top: 3px;
