@@ -45,6 +45,9 @@ class InventoryController extends Controller
             case 'warehouses':
                 $warehouses = new WarehouseController($this->request);
                 return $warehouses->getPage();
+            case 'vendors':
+                $vendors = new VendorController($this->request);
+                return $vendors->getPage();
         }
 
         throw new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND);

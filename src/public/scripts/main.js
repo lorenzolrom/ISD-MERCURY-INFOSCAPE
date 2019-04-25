@@ -291,7 +291,7 @@ function apiRequest(type, path, data, base64 = false)
 
     let result = $.ajax({
         type: type,
-        url: '/!api-request?requestType=' + type + "&path=" + path + "&body=" + data,
+        url: baseURI + '!api-request?requestType=' + type + "&path=" + path + "&body=" + data,
         dataType: 'json',
         cache: false,
         async: true
@@ -302,6 +302,8 @@ function apiRequest(type, path, data, base64 = false)
         showNotifications('error', ['The API request did not produce a valid response']);
         unveil();
     }
+
+    console.log(result);
 
     return result;
 }
