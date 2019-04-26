@@ -201,6 +201,31 @@ $(document).ready(function(){
     }
 });
 
+function saveChanges(asset)
+{
+    let assetTag = $('#assetTag').val();
+    let serialNumber = $('#serialNumber').val();
+    let notes = $('#notes').val();
+
+    apiRequest('PUT', 'assets/' + asset, {
+        assetTag: assetTag,
+        serialNumber: serialNumber,
+        notes: notes
+    }).done(function(json){
+        if(json.code === 204)
+        {
+            window.location.replace (baseURI + "inventory/assets/" + assetTag + "/?NOTICE=Asset updated");
+        }
+        else
+        {
+            showNotifications('error', json.data.errors);
+            unveil();
+        }
+    });
+
+    return false;
+}
+
 // Hide appropriate buttons on view page
 $(document).ready(function(){
     if(!document.getElementById("asset-display"))

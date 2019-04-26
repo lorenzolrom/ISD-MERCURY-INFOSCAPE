@@ -168,9 +168,6 @@ table.table-display tr td:nth-child(2n) {
 }
 
 table.table-display textarea.no-edit {
-    height: 100px;
-    width: 500px;
-    resize: none;
     background-color: #EEE;
     color: #333;
     border: 1px solid var(--border-color);

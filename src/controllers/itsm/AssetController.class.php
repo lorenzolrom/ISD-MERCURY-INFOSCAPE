@@ -15,6 +15,7 @@ namespace controllers\itsm;
 
 
 use controllers\Controller;
+use views\pages\itsm\AssetEditPage;
 use views\pages\itsm\AssetSearchPage;
 use views\pages\itsm\AssetViewPage;
 use views\View;
@@ -40,7 +41,13 @@ class AssetController extends Controller
             case "worksheet":
                 die('worksheet');
             default:
-                return new AssetViewPage($param);
+                switch($this->request->next())
+                {
+                    case 'edit':
+                        return new AssetEditPage($param);
+                    default:
+                        return new AssetViewPage($param);
+                }
         }
     }
 }

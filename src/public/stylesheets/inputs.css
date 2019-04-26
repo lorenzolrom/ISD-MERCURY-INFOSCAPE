@@ -72,3 +72,9 @@ form table select, form table input {
 form table input[type='checkbox'], form table input[type='radio'] {
     width: auto !important;
 }
+
+table.table-display textarea {
+    height: 100px;
+    width: 500px;
+    resize: none;
+}
