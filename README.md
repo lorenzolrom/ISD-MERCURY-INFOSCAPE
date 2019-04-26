@@ -1,8 +1,8 @@
 ![netcenter](src/public/media/logo.png)
 # NetCenter v4
 LLR Technologies & Associated Services  
-NetCenter Network Administrative Toolbox  
-Built on top of Mercury MERLOT  
+Network Central Administrative Toolbox  
+Built on the MERCURY platform
 
 ## Development Team
 
@@ -150,18 +150,22 @@ data, and to process data.  For example, all the attributes associated with a Us
 model class located within the back-end service:
 
 ```php
-namespace models;
+namespace models\facilities;
 
-class User extends Model
+class Building extends Model
 {
     private $id;
-    private $username;
-    private $firstName;
-    private $lastName;
-    private $email;
-    private $password;
-    private $disabled;
-    private $authType;
+    private $code;
+    private $name;
+    private $streetAddress;
+    private $city;
+    private $state;
+    private $zipCode;
+    private $createDate;
+    private $createUser;
+    private $lastModifyDate;
+    private $lastModifyUser;
+        
     /**
      * @return int
      */
@@ -177,41 +181,64 @@ class User extends Model
 While the front-end might represent the page displayed for searching volumes like this:
 
 ```php
-namespace views;
+namespace views\pages\facilities;
 
-class SearchPage extends UserBasePage
+use views\pages\ModelPage;
+
+class BuildingViewPage extends ModelPage
 {
-    public function __construct()
+    public function __construct(?string $buildingId)
     {
-        parent::__construct();
-        parent::setVariable("pageTitle","Search");
-        parent::setVariable("content", self::templateFileContents("Search"));
+        parent::__construct("buildings/$buildingId", "facilitiescore_facilities-r", 'buildings');
+
+        $building = $this->response->getBody();
+
+        $this->setVariable("content", self::templateFileContents("facilities/Building", self::TEMPLATE_CONTENT));
+
+        $this->setVariable("tabTitle", "Building - " . htmlentities($building['name']));
+
+        $this->setVariable('id', $building['id']);
+        $this->setVariable('code', htmlentities($building['code']));
+        $this->setVariable('name', htmlentities($building['name']));
+        $this->setVariable('streetAddress', htmlentities($building['streetAddress']));
+        $this->setVariable('city', htmlentities($building['city']));
+        $this->setVariable('state', htmlentities($building['state']));
+        $this->setVariable('zipCode', htmlentities($building['zipCode']));
+        $this->setVariable('createDate', htmlentities($building['createDate']));
+        $this->setVariable('createUser', htmlentities($building['createUser']));
+        $this->setVariable('lastModifyDate', htmlentities($building['lastModifyDate']));
+        $this->setVariable('lastModifyUser', htmlentities($building['lastModifyUser']));
     }
 }
 ```
 
-In the above example, SearchPage is a distant child of the abstract View class, which contains functions for loading and 
+In the above example, BuildingView is a distant child of the abstract View class, which contains functions for loading and 
 manipulating HTML stored in separate template files such as this:
 
 ```html
-<nav class="center blue-grey lighten-3" id="searchBar">
-    <div class="nav-wrapper">
-        <form method="POST">
-            <div class="input-field">
-                <input name="search" id="search" type="search">
-                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                <i class="material-icons">close</i>
-            </div>
-        </form>
-    </div>
-</nav>
-<div id="results">
-
-</div>
-<script>
-    var result = {{@resultString}};
-    getResults(result);
-</script>
+<h2 class="region-title"><img src="{{@baseURI}}media/icons/building.png" alt="">Building Profile</h2>
+<table class="table-display">
+    <tbody>
+        <tr>
+            <td>Building Code</td>
+            <td>{{@code}}</td>
+            <td>Building Name</td>
+            <td>{{@name}}</td>
+        </tr>
+        <tr>
+            <td>Street Address</td>
+            <td>{{@streetAddress}}</td>
+            <td>City</td>
+            <td>{{@city}}</td>
+        </tr>
+        <tr>
+            <td>State</td>
+            <td>{{@state}}</td>
+            <td>Zip Code</td>
+            <td>{{@zipCode}}</td>
+        </tr>
+    </tbody>
+</table>
 ```
 
 Placeholder variables, surrounded with {{@}}, are used by the following function in the abstract View class:
@@ -236,24 +263,40 @@ In the back-end service there is a class called ControllerFactory with the follo
 ```php
 public static function getController(HTTPRequest $request): Controller
 {
-    $route = $request->next();
-    switch($route)
-    {
-        case "volumes":
-            return new VolumeController($request);
-        case "users":
-            return new UserController($request);
-        case "roles":
-            return new RoleController($request);
-        case "permissions":
-            return new PermissionController($request);
-        case "currentUser":
-            return new CurrentUserController($request);
-        case "authenticate":
-            return new AuthenticateController($request);
-        default:
-            throw new ControllerNotFoundException($route);
-    }
+        $route = $request->next();
+        switch($route)
+        {
+            case "commodities":
+                return new CommodityController($request);
+            case "warehouses":
+                return new WarehouseController($request);
+            case "vendors":
+                return new VendorController($request);
+            case "assets":
+                return new AssetController($request);
+            case "vhosts":
+                return new VHostController($request);
+            case "registrars":
+                return new RegistrarController($request);
+            case "applications":
+                return new ApplicationController($request);
+            case "buildings":
+                return new BuildingController($request);
+            case "locations":
+                return new LocationController($request);
+            case "users":
+                return new UserController($request);
+            case "roles":
+                return new RoleController($request);
+            case "permissions":
+                return new PermissionController($request);
+            case "currentUser":
+                return new CurrentUserController($request);
+            case "authenticate":
+                return new AuthenticateController($request);
+            default:
+                throw new ControllerNotFoundException($route);
+        }
 }
 ```
 
@@ -943,6 +986,88 @@ private function loginUser(): HTTPResponse
 
 Exceptions thrown by the UserOperator will determine whether the HTTP response of 'CREATED' is actually returned.
 
+### Auditing
+
+Several models and database tables record the date an object was created, when it was last modified, and what user performed 
+either operation.  This does not record changes to the columns themselves, and is non-standard across the many different 
+types of models used by the applications.
+
+To try and solve this, I've created a new model called History:
+
+```php
+namespace models;
+
+
+use database\HistoryDatabaseHandler;
+
+class History extends Model
+{
+    private $id;
+    private $action;
+    private $table;
+    private $index;
+    private $username;
+    private $time;
+}
+
+...
+```
+
+This model will (very crudely) store information about each operation a user performed in one table regardless of the 
+object/table the operation was performed on.  A separate, HistoryItem table was created that records changes in each
+column.
+
+The HistoryRecorder class will dump all attributes (including private) from the supplied object and compare them to new values.
+
+```php
+class HistoryRecorder
+{
+    public const CREATE = 'CREATE';
+    public const MODIFY = 'MODIFY';
+    public const DELETE = 'DELETE';
+
+    /**
+     * @param string $tableName
+     * @param string $action
+     * @param string $index
+     * @param Model $currentState
+     * @param array $newValues
+     * @return void
+     * @throws \exceptions\DatabaseException
+     * @throws \exceptions\EntryNotFoundException
+     * @throws \exceptions\SecurityException
+     */
+    public static function writeHistory(string $tableName, string $action, string $index, Model $currentState, array $newValues = array()): void
+    {
+        $rawOldValues = (array)$currentState;
+        $oldValues = array();
+
+        foreach(array_keys($rawOldValues) as $varName)
+        {
+            $parts =  explode(str_split($varName)[0], $varName);
+            $shortVarName = $parts[sizeof($parts) - 1];
+
+            $oldValues[$shortVarName] = $rawOldValues[$varName];
+        }
+
+        $record = HistoryDatabaseHandler::insert($tableName, $action, $index, CurrentUserController::currentUser()->getUsername(), date('Y-m-d H:i:s'));
+
+        $oldValues = get_object_vars($currentState);
+
+        foreach(array_keys($newValues) as $varName)
+        {
+            if(!isset($oldValues[$varName]))
+                $oldValues[$varName] = NULL;
+
+            if($newValues[$varName] !== $oldValues[$varName])
+                HistoryDatabaseHandler::insertHistoryItem($record->getId(), $varName, $oldValues[$varName], $newValues[$varName]);
+        }
+
+        return;
+    }
+}
+```
+
 ## Unit Testing
 
 ### API
@@ -1047,6 +1172,152 @@ UserOperator, which will start a sequence of calls that will end with the mock p
 an array of fake user details.  The final call to getFirstName() on the resulting MockUser object should yield the
 name 'Tommy', since this was hard-coded into the prepared statement.
 
+## Deployment
+
+### Prerequisites 
+
+NetCenter version 4 is comprised of two software packages: MERCURY INFOCENTRAL and MERCURY MERLOT.  Both items require 
+the following:
+
+* Apache web server running on a UNIX-based operating system
+* Personal Home Page version 7.3 (minimum)
+
+INFOCENTRAL requires a MySQL-compatible database on-top of the above requirements.
+
+The recommended configuration for both software packages is that they be on separate virtual hosts (e.g. ic.your.domain 
+and merlot.your.domain), however they can also be placed in nested folders--though I suspect symlinks will be required.
+
+### Database Applications
+
+A series of .sql scripts has been included under the /docs folder in this repository; they are organized by the 
+'modules' leftover from FASTAPPS.  Each one is prefixed with a roman numeral; each script must be run in the order of 
+those numerals (scripts with the same numeral can be run in any order amongst themselves).  While these scripts were 
+used to create the initial NetCenter database, minor adjustments have been done, and new scripts are on the to-do list.
+
+Running these scripts will create the necessary schema and default entries needed for a base FASTAPPS NetCenter 
+installation.  Please also run the setup.sql script located under /src to add tables created specifically for 
+INFOCENTRAL.
+
+Ensure that you have created a user with the appropriate permissions in your database.
+
+### Web Applications
+
+The following documents the steps used to set up INFOCENTRAL and MERLOT on the LLR Network web services platform:
+
+Create two webroots in the /var/www directory on a unix-based operating system running the Apache web server.
+
+```$xslt
+    mkdir /var/www/isd-infocentral
+    mkdir /var/www/isd-merlot
+```
+
+Create two virtual hosts with the following apache configuration files for both INFOCENTRAL and MERLOT, those should be 
+placed under /etc/apache2/sites-available (or equivalent)  
+
+```apacheconfig
+<VirtualHost *:80>
+        ServerName ic.your.domain
+        DocumentRoot /var/www/ind-infocentral/public
+        <Directory "/var/www/ind-infocentral/public">
+                Options -Indexes
+        </Directory>
+
+        # the following two lines are for local log rotation
+        ErrorLog "|/usr/bin/rotatelogs -l /var/log/ws-sitelogs/ic.your.domain/error.%Y-%m-%d.log 86400"
+        CustomLog "|/usr/bin/rotatelogs -l /var/log/ws-sitelogs/ic.your.domain/access.%Y-%m-%d.log 86400" common
+        
+        RewriteEngine on
+        RewriteCond %{SERVER_NAME} =ic.your.domain
+        RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
+</VirtualHost>
+```
+
+Enable both config files:
+
+```
+    sudo a2ensite 010-ins-ic.your.domain.conf
+    sudo service apache2 reload
+```
+
+This will now activate the /public folder that will be created in both webroots.
+
+Clone the repositories listed under the 'Code Repositories' section into both webroots (one for each application). Move
+the contents of /src from the clone into the webroot, so the /public folder is directly beneath it.
+
+### Configuration
+
+INFOCENTRAL has the following base configuration file:
+
+```php
+abstract class Config_Generic // THIS FILE MUST BE RENAMED Config.class.php
+{
+    const OPTIONS = array(
+        'baseURL' => 'https://api.example.com',
+        'baseURI' => '/',
+
+        'databaseHost' => 'your.server',
+        'databaseName' => 'your_database',
+        'databaseUser' => 'your_user',
+        'databasePassword' => 'your_password',
+
+        'allowMultipleSessions' => FALSE,
+
+        'ldapEnabled' => FALSE,
+        'ldapDomainController' => 'domain.local',
+        'ldapDomain' => 'DOMAIN', // Domain prefix for user accounts
+        'ldapDomainDn' => 'dc=domain, dc=local',
+
+        'ldapUsername' => 'domain_admin',
+        'ldapPassword' => 'domain_password',
+
+        'emailEnabled' => FALSE,
+        'emailHost' => 'ssl://email_server',
+        'emailPort' => 000,
+        'emailAuth' => TRUE,
+        'emailUsername' => 'email_username',
+        'emailPassword' => 'email_password',
+        'emailFromAddress' => 'some@email.com',
+        'emailFromName' => 'Some Name'
+
+    );
+}
+```
+
+The first two options must be edited to reflect the web environment INFOCENTRAL is running off of.  The baseURL is the 
+FQDN, including protocol, of the server.  BaseURI defines any sub-directories that INFOCENTRAL is under. The database 
+information should be edited appropriately.
+
+MERLOT has the following base configuration file:
+
+```php
+abstract class Config_Generic
+{
+    const OPTIONS = array(
+        'appName' => 'Merlot',
+
+        'baseURL' => 'https://your.domain',
+        'baseURI' => '/',
+
+        'cookieName' => 'MERLOT',
+
+        'icURL' => 'https://infocentral.url/',
+        'icSecret' => 'INFOCENTRAL_SECRET'
+    );
+}
+```
+
+The baseURL and baseURI options refer to the web environment MERLOT will be running off of.  AppName and cookieName are 
+optional configurations that determine the display name of the app in browsers and the name of the cookie, respectively. 
+The icURL option should point to the FQDN and subdirectory of the virtual host running INFOCENTRAL.  The icSecret should
+be the 'secret' token generated for this installation of MERLOT.  
+
+There is currently no web-based way of generating a secret token, it will need to be manually created in the INFOCENTRAL 
+database (in the Secret table) and issued to the MERLOT client.
+
+If The following steps have succeeded, there should be a functional INFOCENTRAL server and MERLOT client.  If I remember 
+correctly the default username is 'isdadmin' and the default password is 'isdpassword'--a fresh installation has not been
+attempted with the MERCURY platform, I can only attest to the fresh install working under FASTAPPS. 
+
 ## Code Repositories
 
 [ISD-MERCURY-INFOCENTRAL (back-end)](https://github.com/lorenzolrom/ISD-MERCURY-INFOCENTRAL)  
@@ -1056,16 +1327,15 @@ name 'Tommy', since this was hard-coded into the prepared statement.
 
 | Date       | User | Title            | Description |
 |:-----------|:-----|:-----------------|: -----------|
-| 2019-02-15 | Both | Created Document | Imported information from requirements document and started filling in each section |
-| 2019-02-19 | ARP  | Design patterns  | Added list of software design patterns and examples from existing program|
-| 2019-02-20 | Both | Layering         | Added basic information to the layering section |
+| 2019-02-15 | LLR | Created Document | Imported information from requirements document and started filling in each section |
+| 2019-02-19 | LLR  | Design patterns  | Added list of software design patterns and examples from existing program|
+| 2019-02-20 | LLR | Layering         | Added basic information to the layering section |
 | 2019-02-25 | LLR  | Patterns         | Added data mapper and gateway patterns |
 | 2019-02-26 | LLR  | Layers           | Added diagram of layers and renamed some |
 | 2019-02-26 | LLR  | Exceptions       | Added list of current exceptions and method for processing |
 | 2019-03-04 | LLR  | Code Repos       | Added links to code repos and URLs to production |
-| 2019-03-20 | ERP  | Exceptions       | Added more exceptions for routing |
-| 2019-04-05 | Both | Performance      | Added information on improving performance, and the refactoring for PostGreSQL switch |
+| 2019-03-20 | LLR  | Exceptions       | Added more exceptions for routing |
+| 2019-04-05 | LLR | Performance      | Added information on improving performance, and the refactoring for PostGreSQL switch |
 | 2019-04-12 | LLR  | Refactoring      | Added information about re-factoring of the API |
 | 2019-04-15 | LLR  | Unit Testing     | Adding section on unit testing |
-| 2019-04-19 | ERP  | Front-End Test   | Added testing information for the front-end |
 | 2019-04-25 | LLR  | NetCenter docs   | Merged InfoCentral with NetCenter documentation |
