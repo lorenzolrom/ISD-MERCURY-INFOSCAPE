@@ -41,9 +41,9 @@ class Header extends View
                 continue;
 
             if(isset($section['link']))
-                $sectionString = "<li>\n<a class='nav-item' href='{{@baseURI}}{$section['link']}'><img src='{{@baseURI}}media/icons/{$section['icon']}' alt=''>{$section['title']}</a>\n";
+                $sectionString = "<li><a class='nav-item' href='{{@baseURI}}{$section['link']}'><img src='{{@baseURI}}media/icons/{$section['icon']}' alt=''>{$section['title']}</a>\n";
             else
-                $sectionString = "<li>\n<span class='nav-item'><img src='{{@baseURI}}media/icons/{$section['icon']}' alt=''>{$section['title']}</span>\n";
+                $sectionString = "<li><span class='nav-item'><img src='{{@baseURI}}media/icons/{$section['icon']}' alt=''>{$section['title']}</span>\n";
 
             if(isset($section['pages']))
             {
@@ -59,7 +59,7 @@ class Header extends View
                 $sectionString .= "</ul>\n";
             }
 
-            $sectionString .= "</li>\n";
+            $sectionString .= "</li>";
 
             $navigation .= $sectionString;
         }

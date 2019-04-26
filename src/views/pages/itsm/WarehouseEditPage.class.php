@@ -21,7 +21,7 @@ class WarehouseEditPage extends ModelPage
 {
     public function __construct(?string $warehouseId)
     {
-        parent::__construct("warehouses/$warehouseId", 'itsm_inventory-warehouses-w', 'inventory');
+        parent::__construct("warehouses/$warehouseId", 'itsm_inventory-warehouses-r', 'inventory');
 
         $details = $this->response->getBody();
 

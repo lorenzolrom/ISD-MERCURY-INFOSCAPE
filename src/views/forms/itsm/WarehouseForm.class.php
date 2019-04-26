@@ -30,7 +30,7 @@ class WarehouseForm extends Form
         if($details !== NULL)
         {
             $this->setVariable("code", $details['code']);
-            $this->setVariable("name", $details['name']);
+            $this->setVariable("name", htmlentities($details['name']));
         }
     }
 }

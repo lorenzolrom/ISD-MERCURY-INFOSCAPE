@@ -303,8 +303,6 @@ function apiRequest(type, path, data, base64 = false)
         unveil();
     }
 
-    console.log(result);
-
     return result;
 }
 

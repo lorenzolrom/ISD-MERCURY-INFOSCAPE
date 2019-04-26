@@ -1,0 +1,42 @@
+<div class="button-bar">
+    <span class="button form-submit-button" id="vendor"><img src="{{@baseURI}}media/icons/save.png" alt="">Save</span>
+    <a class="button delete-button confirm-button" href="javascript: deleteVendor('{{@id}}')"><img src="{{@baseURI}}media/icons/inventory_delete.png" alt="">Delete</a>
+    <a class="button" href="{{@cancelLink}}"><img src="{{@baseURI}}media/icons/delete.png" alt="">Cancel</a>
+</div>
+<form id="vendor-form" class="table-form" onsubmit="{{@formScript}}">
+    <h2 class="region-title"><img src="{{@baseURI}}media/icons/inventory.png" alt="">Vendor Profile</h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td class="required">Vendor Code</td>
+            <td><input maxlength="32" type="text" id="code" name="code" value="{{@code}}"></td>
+            <td class="required">Vendor Name</td>
+            <td><input type="text" id="name" name="name" value="{{@name}}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <h2 class="region-title"><img src="{{@baseURI}}media/icons/user.png" alt="">Contact Information</h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td class="required">Street Address</td>
+            <td><input type="text" id="streetAddress" value="{{@streetAddress}}"></td>
+            <td class="required">City</td>
+            <td><input type="text" id="city" value="{{@city}}"></td>
+        </tr>
+        <tr>
+            <td class="required">State</td>
+            <td><input maxlength="2" type="text" id="state" value="{{@state}}"></td>
+            <td class="required">Zip Code</td>
+            <td><input maxlength="5" type="text" id="zipCode" value="{{@zipCode}}"></td>
+        </tr>
+        <tr>
+            <td class="required">Phone</td>
+            <td><input type="text" id="phone" value="{{@phone}}"></td>
+            <td>Fax</td>
+            <td><input type="text" id="fax" value="{{@fax}}"></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script src="{{@baseURI}}scripts/itsm/vendors.js"></script>

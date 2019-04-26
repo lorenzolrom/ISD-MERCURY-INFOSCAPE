@@ -15,6 +15,8 @@ namespace controllers\itsm;
 
 
 use controllers\Controller;
+use views\pages\itsm\VendorCreatePage;
+use views\pages\itsm\VendorEditPage;
 use views\pages\itsm\VendorListPage;
 use views\View;
 
@@ -26,6 +28,7 @@ class VendorController extends Controller
      * @throws \exceptions\InfoCentralException
      * @throws \exceptions\SecurityException
      * @throws \exceptions\ViewException
+     * @throws \exceptions\EntryNotFoundException
      */
     public function getPage(): View
     {
@@ -35,8 +38,10 @@ class VendorController extends Controller
         {
             case null:
                 return new VendorListPage();
+            case 'new':
+                return new VendorCreatePage();
             default:
-                die("view: $param");
+                return new VendorEditPage($param);
         }
     }
 }
