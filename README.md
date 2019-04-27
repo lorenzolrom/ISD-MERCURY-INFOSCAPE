@@ -1318,6 +1318,20 @@ If The following steps have succeeded, there should be a functional INFOCENTRAL 
 correctly the default username is 'isdadmin' and the default password is 'isdpassword'--a fresh installation has not been
 attempted with the MERCURY platform, I can only attest to the fresh install working under FASTAPPS. 
 
+## Future Goals
+
+* Migrate all features of NetCenter v3 to v4
+* Remove 'createDate', 'createUser', 'lastModifyDate', and 'lastModifyUser' from all tables, replace with History
+* Create GLASSPANE dashboard for network status
+* Implement discard orders for assets
+* Tie web logs to virtual hosts
+
+### Horizon Goals
+
+* Web Management integration with web servers (create webroots, config files?)
+* LDAP management utility (view accounts, change basic details)
+* User-configured 'saved searches' for ServiCenter tickets
+
 ## Code Repositories
 
 [ISD-MERCURY-INFOCENTRAL (back-end)](https://github.com/lorenzolrom/ISD-MERCURY-INFOCENTRAL)  
