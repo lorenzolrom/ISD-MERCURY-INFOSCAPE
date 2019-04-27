@@ -118,7 +118,7 @@ nav > ul > li > .nav-item {
     text-align: center;
 }
 
-nav > ul > li > .nav-item > img {
+nav > ul > li img {
     vertical-align: top;
     margin-right: 3px;
     margin-top: 3px;
