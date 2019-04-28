@@ -34,9 +34,5 @@ class BuildingViewPage extends ModelPage
         $this->setVariable('city', htmlentities($building['city']));
         $this->setVariable('state', htmlentities($building['state']));
         $this->setVariable('zipCode', htmlentities($building['zipCode']));
-        $this->setVariable('createDate', htmlentities($building['createDate']));
-        $this->setVariable('createUser', htmlentities($building['createUser']));
-        $this->setVariable('lastModifyDate', htmlentities($building['lastModifyDate']));
-        $this->setVariable('lastModifyUser', htmlentities($building['lastModifyUser']));
     }
 }

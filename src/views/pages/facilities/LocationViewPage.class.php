@@ -33,9 +33,5 @@ class LocationViewPage extends ModelPage
         $this->setVariable("id", $location['id']);
         $this->setVariable("code", $location['code']);
         $this->setVariable("name", $location['name']);
-        $this->setVariable("createDate", $location['createDate']);
-        $this->setVariable("createUser", $location['createUser']);
-        $this->setVariable("lastModifyUser", $location['lastModifyUser']);
-        $this->setVariable("lastModifyDate", $location['lastModifyDate']);
     }
 }
