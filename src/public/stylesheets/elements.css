@@ -173,6 +173,12 @@ table.table-display textarea.no-edit {
     border: 1px solid var(--border-color);
 }
 
+table.table-display a > img {
+    vertical-align: middle;
+    padding-right: 3px;
+    height: 16px;
+}
+
 /* Collapsible regions */
 
 h2.region-expand {

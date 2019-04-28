@@ -48,6 +48,7 @@ class Header extends View
             if(isset($section['pages']))
             {
                 $sectionString .= "<ul>\n";
+
                 foreach($section['pages'] as $page)
                 {
                     if(!in_array($page['permission'], $permissions))

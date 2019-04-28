@@ -80,7 +80,7 @@ abstract class Pages
                 )
             )
         ),
-        'hosts' => array(
+        'devices' => array(
             'title' => 'Devices',
             'permission' => 'itsm_devices',
             'icon' => 'computer.png',
@@ -89,7 +89,7 @@ abstract class Pages
                     'title' => 'Hosts',
                     'permission' => 'itsm_devices-hosts-r',
                     'link' => 'hosts',
-                    'icon' => 'registration.gif'
+                    'icon' => 'interface.png'
                 )
             )
         ),

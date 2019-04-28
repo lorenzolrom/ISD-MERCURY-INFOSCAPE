@@ -21,6 +21,7 @@ use controllers\facilities\BuildingController;
 use controllers\facilities\LocationController;
 use controllers\HomeController;
 use controllers\InboxController;
+use controllers\itsm\HostController;
 use controllers\itsm\InventoryController;
 use controllers\LoginController;
 use controllers\LogoutController;
@@ -39,6 +40,8 @@ class ControllerFactory
     {
         switch($request->next())
         {
+            case "hosts":
+                return new HostController($request);
             case "inventory":
                 return new InventoryController($request);
             case "buildings":

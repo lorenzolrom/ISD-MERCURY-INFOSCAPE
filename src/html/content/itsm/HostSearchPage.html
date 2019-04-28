@@ -1,0 +1,44 @@
+<div class="button-bar">
+    <span id="search" class="button form-submit-button"><img src="{{@baseURI}}media/icons/search.png" alt="">Search</span>
+    <a href="hosts/new" class="button"><img src="{{@baseURI}}media/icons/interface_add.png" alt="">New</a>
+</div>
+<form id="search-form" class="search-form" onsubmit="return searchHosts()">
+    <input type="hidden" name="submitted" value="true">
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td>I.P. Address</td>
+            <td><input type="text" id="ipAddress"></td>
+            <td>MAC Address</td>
+            <td><input type="text" id="macAddress"></td>
+        </tr>
+        <tr>
+            <td>Asset #</td>
+            <td><input type="text" id="assetTag"></td>
+        </tr>
+        </tbody>
+        <tbody class="additional-fields">
+        <tr>
+            <td>System Name</td>
+            <td><input type="text" id="systemName"></td>
+            <td>System CPU</td>
+            <td><input type="text" id="systemCPU"></td>
+        </tr>
+        <tr>
+            <td>System RAM</td>
+            <td><input type="text" id="systemRAM"></td>
+            <td>System OS</td>
+            <td><input type="text" id="systemOS"></td>
+        </tr>
+        <tr>
+            <td>System Domain</td>
+            <td><input type="text" id="systemDomain"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="button-bar">
+        <span class="button-noveil search-additional-field-toggle">Show More</span>
+    </div>
+</form>
+<div id="host-results"></div>
+<script src="{{@baseURI}}scripts/itsm/hosts.js"></script>
