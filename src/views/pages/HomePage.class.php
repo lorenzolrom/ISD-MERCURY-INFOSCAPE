@@ -20,5 +20,6 @@ class HomePage extends ApplicationPage
     {
         parent::__construct();
         $this->setVariable("tabTitle", \Config::OPTIONS['appName'] . " Home");
+        $this->setVariable('content', self::templateFileContents('Home', self::TEMPLATE_CONTENT));
     }
 }

@@ -1,3 +1,30 @@
+/* Homepage Banner */
+
+div#home-banner {
+    margin-top: 15px;
+    margin-left: 15px;
+    font-size: 2em;
+    padding: 10px;
+    width: 650px;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid #700000;
+    background: #C3271B;
+    color: #FFF;
+    font-family: "Times New Roman", serif;
+}
+p#dev-message {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+p#dev-message img {
+    vertical-align: middle;
+    height: 16px;
+    width: 16px;
+    margin-right: 3px;
+}
+
 /* Notifications */
 
 div#notifications {
@@ -149,6 +176,10 @@ h2.region-title img {
     height: 19px;
 }
 
+a.history-link {
+    float: right;
+}
+
 table.table-display {
     border-spacing: 20px 5px;
 }
@@ -209,3 +240,34 @@ h2.region-expand-collapsed::before, h2.region-expand-expanded::before {
 .region-expand + .region {
     display: none;
 }
+
+/* Dialog */
+div.ui-dialog-titlebar {
+    background: var(--heading-color);
+    color: #FFF;
+}
+
+/* Dialog table */
+table.dialog-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table.dialog-table td {
+    padding: 3px;
+}
+
+table.dialog-table tr td:first-child {
+    font-weight: 600;
+}
+
+table.dialog-table th {
+    font-weight: bold;
+}
+
+table.dialog-table tr:first-child {
+    border-bottom: 1px solid #000;
+    text-align: left;
+}
+
+table.dialog-table tr

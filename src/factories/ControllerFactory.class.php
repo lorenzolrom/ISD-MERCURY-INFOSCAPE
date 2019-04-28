@@ -19,6 +19,7 @@ use controllers\AccountController;
 use controllers\Controller;
 use controllers\facilities\BuildingController;
 use controllers\facilities\LocationController;
+use controllers\HistoryController;
 use controllers\HomeController;
 use controllers\InboxController;
 use controllers\itsm\HostController;
@@ -48,6 +49,8 @@ class ControllerFactory
                 return new BuildingController($request);
             case "locations":
                 return new LocationController($request);
+            case "history":
+                return new HistoryController($request);
             case "logout":
                 return new LogoutController($request);
             case "login":

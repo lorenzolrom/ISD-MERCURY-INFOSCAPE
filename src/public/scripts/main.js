@@ -41,7 +41,18 @@ function setupTable(data)
                     let a = document.createElement("a");
                     a.appendChild(document.createTextNode(data.rows[i][j]));
 
-                    $(a).attr("href", data.href + data.refs[i]);
+                    let href = data.href;
+
+                    if(data.usePlaceholder === true)
+                    {
+                        href = href.replace('{{%}}', data.refs[i]);
+                    }
+                    else
+                    {
+                        href += data.refs[i];
+                    }
+
+                    $(a).attr("href", href);
 
                     td.appendChild(a);
                 }
@@ -319,6 +330,7 @@ function setSearchCookie(name, data)
 /**
  * Returns the value of the cookie with the specified name
  * @param name
+ *
  * @returns {string}
  */
 function getCookie(name)
@@ -444,6 +456,11 @@ function setupBackButtons()
     $('.back-button').click(function(){window.location.href='..';});
 }
 
+function setupHistoryBackButtons()
+{
+    $('.browser-back').click(function(){window.history.back();});
+}
+
 function setupExpandableRegions()
 {
     // Add listeners to region expand buttons
@@ -556,6 +573,7 @@ $(document).ready(function(){
     tinymceSetup();
     setupSearchAdditionalFields();
     setupBackButtons();
+    setupHistoryBackButtons();
     setupExpandableRegions();
     //navigationSetup();
 
