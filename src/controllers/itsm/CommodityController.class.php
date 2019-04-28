@@ -18,7 +18,6 @@ use controllers\Controller;
 use views\pages\itsm\CommodityCreatePage;
 use views\pages\itsm\CommodityEditPage;
 use views\pages\itsm\CommoditySearchPage;
-use views\pages\itsm\CommodityViewPage;
 use views\View;
 
 class CommodityController extends Controller
