@@ -131,7 +131,7 @@ abstract class Pages
             )
         ),
         'applications' => array(
-            'title' => 'A.I.T.',
+            'title' => 'AIT',
             'permission' => 'itsm_ait',
             'icon' => 'apps.png',
             'pages' => array(

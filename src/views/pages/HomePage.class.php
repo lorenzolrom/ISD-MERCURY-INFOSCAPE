@@ -14,6 +14,8 @@
 namespace views\pages;
 
 
+use views\elements\BulletinList;
+
 class HomePage extends ApplicationPage
 {
     public function __construct()
@@ -21,5 +23,8 @@ class HomePage extends ApplicationPage
         parent::__construct();
         $this->setVariable("tabTitle", \Config::OPTIONS['appName'] . " Home");
         $this->setVariable('content', self::templateFileContents('Home', self::TEMPLATE_CONTENT));
+
+        $bulletinList = new BulletinList();
+        $this->setVariable('bulletinList', $bulletinList->getTemplate());
     }
 }

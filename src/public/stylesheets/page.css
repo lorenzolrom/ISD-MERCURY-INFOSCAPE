@@ -242,6 +242,10 @@ div#view {
     max-width: 1250px;
     min-width: 619px;
 }
+div#view ul li {
+    list-style-position: inside;
+}
+
 
 /* Footer */
 
