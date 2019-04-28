@@ -16,7 +16,6 @@ namespace controllers\facilities;
 
 use controllers\Controller;
 use views\pages\facilities\LocationEditPage;
-use views\pages\facilities\LocationViewPage;
 use views\View;
 
 class LocationController extends Controller
@@ -33,12 +32,6 @@ class LocationController extends Controller
     {
         $param = $this->request->next();
 
-        switch($this->request->next())
-        {
-            case "edit":
-                return new LocationEditPage((int)$param);
-            default:
-                return new LocationViewPage((int)$param);
-        }
+        return new LocationEditPage((int)$param);
     }
 }

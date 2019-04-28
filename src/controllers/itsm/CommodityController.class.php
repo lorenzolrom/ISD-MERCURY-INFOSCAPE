@@ -42,12 +42,7 @@ class CommodityController extends Controller
             case "new":
                 return new CommodityCreatePage();
             default:
-                switch($this->request->next())
-                {
-                    case "edit":
-                        return new CommodityEditPage($param);
-                }
-                return new CommodityViewPage($param);
+                return new CommodityEditPage($param);
         }
     }
 }

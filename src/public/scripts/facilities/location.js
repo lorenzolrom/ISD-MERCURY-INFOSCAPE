@@ -1,9 +1,10 @@
 /**
  *
  * @param id
+ * @param buildingId
  * @returns {boolean}
  */
-function saveChanges(id)
+function saveChanges(id, buildingId)
 {
     let code = $('#code').val();
     let name = $('#name').val();
@@ -14,15 +15,11 @@ function saveChanges(id)
     }).done(function(json){
         if(json.code === 204)
         {
-            window.location.replace (baseURI + "locations/" + id + "?NOTICE=Location updated");
-        }
-        else if(json.code === 409)
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
+            window.location.replace (baseURI + "buildings/" + buildingId + "?NOTICE=Location updated");
         }
         else
         {
+            console.log(json);
             showNotifications('error', json.data.errors);
             unveil();
         }
@@ -47,7 +44,7 @@ function createLocation(buildingId)
     }).done(function(json){
         if(json.code === 201)
         {
-            window.location.replace (baseURI + "locations/" + json.data.id + "?NOTICE=Location created");
+            window.location.replace (baseURI + "buildings/" + buildingId + "?NOTICE=Location created");
         }
         else if(json.code === 409)
         {

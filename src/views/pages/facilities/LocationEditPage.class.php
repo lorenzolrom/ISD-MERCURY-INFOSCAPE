@@ -36,8 +36,8 @@ class LocationEditPage extends ModelPage
         $this->setVariable("tabTitle", "Location: {$details['buildingName']}/{$details['name']} (Edit)");
 
         $this->setVariable("content", $form->getTemplate());
-        $this->setVariable('cancelLink', "{{@baseURI}}locations/{{@id}}");
-        $this->setVariable("formScript", "return saveChanges('{{@id}}')");
+        $this->setVariable("formScript", "return saveChanges('{{@id}}', '{$details['buildingId']}')");
         $this->setVariable("id", $locationId);
+        $this->setVariable("buildingId", $details['id']);
     }
 }

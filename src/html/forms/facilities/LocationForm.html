@@ -1,9 +1,10 @@
 <div class="button-bar">
     <span class="button form-submit-button" id="location"><img src="{{@baseURI}}media/icons/save.png" alt="">Save</span>
-    <a class="button" href="{{@cancelLink}}"><img src="{{@baseURI}}media/icons/delete.png" alt="">Cancel</a>
+    <a class="button delete-button confirm-button" href="javascript: deleteLocation('{{@id}}', '{{@buildingId}}')"><img src="{{@baseURI}}media/icons/building_delete.png" alt="">Delete</a>
+    <a class="button" href="{{@baseURI}}buildings/{{@buildingId}}"><img src="{{@baseURI}}media/icons/delete.png" alt="">Cancel</a>
 </div>
 <form id="location-form" class="table-form" onsubmit="{{@formScript}}">
-    <h2 class="region-title"><img src="{{@baseURI}}media/icons/building.png" alt="">Location Profile</h2>
+    <h2 class="region-title"><img src="{{@baseURI}}media/icons/building.png" alt="">Location Profile<a class="history-link" href="{{@baseURI}}history/location/{{@id}}"><img src="{{@baseURI}}media/icons/history.png" alt="" title="View History"></a></h2>
     <table class="table-display">
         <tbody>
         <tr>

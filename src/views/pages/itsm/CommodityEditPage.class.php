@@ -21,7 +21,7 @@ class CommodityEditPage extends ModelPage
 {
     public function __construct(?string $commodityId)
     {
-        parent::__construct("commodities/$commodityId", "itsm_inventory-commodities-w", 'inventory');
+        parent::__construct("commodities/$commodityId", "itsm_inventory-commodities-r", 'inventory');
 
         $details = $this->response->getBody();
 

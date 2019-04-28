@@ -50,9 +50,7 @@ class LocationCreatePage extends ApplicationPage
         ));
 
         $this->setVariable("content", $form->getTemplate());
-        $this->setVariable("cancelLink", "{{@baseURI}}buildings/{{@buildingId}}");
         $this->setVariable("formScript", "return createLocation('{{@buildingId}}')");
-
         $this->setVariable("buildingId", $details['id']);
     }
 }
