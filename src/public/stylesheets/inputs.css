@@ -78,3 +78,9 @@ table.table-display textarea {
     width: 500px;
     resize: none;
 }
+
+/* Dialog Forms */
+div.dialog form span {
+    display: block;
+    font-weight: 600;
+}

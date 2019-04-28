@@ -40,6 +40,7 @@ div#notifications {
     right: 15px;
     min-width: 400px;
     max-width: 100%;
+    z-index: 999;
 }
 
 div#notifications.notifications-error {
@@ -247,13 +248,21 @@ div.ui-dialog-titlebar {
     color: #FFF;
 }
 
+div.dialog {
+    display: none;
+}
+
+div.ui-dialog {
+    z-index: 999;
+}
+
 /* Dialog table */
 table.dialog-table {
     border-collapse: collapse;
     width: 100%;
 }
 
-table.dialog-table td {
+table.dialog-table th, table.dialog-table td {
     padding: 3px;
 }
 

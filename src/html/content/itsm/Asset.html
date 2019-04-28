@@ -1,13 +1,13 @@
 <div class="button-bar">
     <a href="{{@baseURI}}inventory/assets/{{@assetTag}}/edit" id="edit-button" class="button hideIfDiscarded"><img src="{{@baseURI}}media/icons/inventory_edit.png" alt="">Edit</a>
-    <a href="javascript: linkToParent()" id="linkToParent-button" class="button hideIfDiscarded"><img src="{{@baseURI}}media/icons/inventory_link.png" alt="">Link To Parent</a>
+    <span id="linkToParent-button" class="button-noveil hideIfDiscarded dialog-show-button"><img src="{{@baseURI}}media/icons/inventory_link.png" alt="">Link To Parent</span>
     <a href="javascript: unlinkFromParent()" id="unlinkFromParent-button" class="button hideIfDiscarded"><img src="{{@baseURI}}media/icons/inventory_link.png" alt="">Unlink From Parent</a>
     <a href="javascript: verify()" id="verify-button" class="button hideIfDiscarded"><img src="{{@baseURI}}media/icons/ok.png" alt="">Verify</a>
     <a href="javascript: unverify()" id="unVerify-button" class="button hideIfDiscarded"><img src="{{@baseURI}}media/icons/delete.png" alt="">Un-Verify</a>
-    <a href="javascript: returnToWarehouse()" id="returnToWarehouse-button" class="button hideIfDiscarded"><img src="{{@baseURI}}media/icons/building_delete.png" alt="">Return To Warehouse</a>
-    <a href="javascript: changeWarehouse()" id="changeWarehouse-button" class="button hideIfDiscarded"><img src="{{@baseURI}}media/icons/building_refresh.png" alt="">Change Warehouse</a>
-    <a href="javascript: assignLocation()" id="assignToLocation-button" class="button hideIfDiscarded"><img src="{{@baseURI}}media/icons/building_add.png" alt="">Assign To Location</a>
-    <a href="javascript: changeLocation()" id="changeLocation-button" class="button hideIfDiscarded"><img src="{{@baseURI}}media/icons/building_refresh.png" alt="">Change Location</a>
+    <span id="returnToWarehouse-button" class="button-noveil dialog-show-button hideIfDiscarded"><img src="{{@baseURI}}media/icons/building_delete.png" alt="">Return To Warehouse</span>
+    <span id="changeWarehouse-button" class="button-noveil dialog-show-button hideIfDiscarded"><img src="{{@baseURI}}media/icons/building_refresh.png" alt="">Change Warehouse</span>
+    <span id="assignToLocation-button" class="button-noveil dialog-show-button hideIfDiscarded"><img src="{{@baseURI}}media/icons/building_add.png" alt="">Assign To Location</span>
+    <span id="changeLocation-button" class="button-noveil dialog-show-button hideIfDiscarded"><img src="{{@baseURI}}media/icons/building_refresh.png" alt="">Change Location</span>
     <a href="javascript: addToWorksheet()" id="addToWorksheet-button" class="button hideIfDiscarded"><img src="{{@baseURI}}media/icons/report_add.png" alt="">Add To Worksheet</a>
     <a class="button" href="{{@baseURI}}inventory/assets"><img src="{{@baseURI}}media/icons/search.png" alt="">New Search</a>
 </div>
@@ -113,4 +113,60 @@
 
 <h2 class="region-title region-expand region-expand-collapsed" onclick="loadChildren('{{@assetTag}}')">Child Assets</h2>
 <div id="children-region" class="region wait"></div>
+
+<!-- Dialog Forms -->
+<div id="linkToParent-button-dialog" class="dialog" title="Link To Parent">
+    <form onsubmit="return linkToParent('{{@assetTag}}')">
+        <p>
+            <span class="required">Parent Asset #</span>
+            <input type="text" id="linkToParentAssetTag">
+        </p>
+        <input type="submit" value="Go">
+    </form>
+</div>
+
+<div id="returnToWarehouse-button-dialog" class="dialog" title="Return To Warehouse">
+    <form onsubmit="return sendToWarehouse('{{@assetTag}}')">
+        <p>
+            <span class="required">Warehouse Code</span>
+            <input type="text" id="returnWarehouseCode">
+        </p>
+        <input type="submit" value="Go">
+    </form>
+</div>
+
+<div id="changeWarehouse-button-dialog" class="dialog" title="Change Warehouse">
+    <form onsubmit="return sendToWarehouse('{{@assetTag}}')">
+        <p>
+            <span class="required">Warehouse Code</span>
+            <input type="text" id="changeWarehouseCode">
+        </p>
+        <input type="submit" value="Go">
+    </form>
+</div>
+
+<div id="assignToLocation-button-dialog" class="dialog" title="Assign To Location">
+    <form onsubmit="return assignToLocation('{{@assetTag}}')">
+        <p>
+            <span class="required">Building Code</span>
+            <input type="text" id="assignBuildingCode">
+            <span class="required">Location Code</span>
+            <input type="text" id="assignLocationCode">
+        </p>
+        <input type="submit" value="Go">
+    </form>
+</div>
+
+<div id="changeLocation-button-dialog" class="dialog" title="Change Location">
+    <form onsubmit="return assignToLocation('{{@assetTag}}')">
+        <p>
+            <span class="required">Building Code</span>
+            <input type="text" id="changeBuildingCode">
+            <span class="required">Location Code</span>
+            <input type="text" id="changeLocationCode">
+        </p>
+        <input type="submit" value="Go">
+    </form>
+</div>
+
 <script src="{{@baseURI}}scripts/itsm/assets.js"></script>

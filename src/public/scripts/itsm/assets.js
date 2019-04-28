@@ -1,4 +1,5 @@
 let childrenLoaded = false;
+let warehouseCodes = [];
 
 function addToWorksheet()
 {
@@ -226,6 +227,27 @@ function saveChanges(asset)
     return false;
 }
 
+/**
+ * Loads warehouse codes from the API if they haven't been loaded before
+ */
+function loadWarehouses()
+{
+    if(warehouseCodes.length !== 0)
+        return warehouseCodes;
+
+    apiRequest('GET', 'warehouses', {}).done(function(json){
+
+        if(json.code === 200)
+        {
+            $.each(json.data, function(i, v){
+                warehouseCodes.push(v.code);
+            });
+        }
+    });
+
+    return warehouseCodes;
+}
+
 // Hide appropriate buttons on view page
 $(document).ready(function(){
     if(!document.getElementById("asset-display"))
@@ -256,12 +278,15 @@ $(document).ready(function(){
     }
 
     // Warehouse
+    let returnToWarehouseButton = $('#returnToWarehouse-button');
+    let changeWarehouseButton = $('#changeWarehouse-button');
+
     if($('#warehouseCode').text().length > 0)
-        $('#returnToWarehouse-button').hide();
+        returnToWarehouseButton.hide();
     else
     {
         $('#warehouse-info').hide();
-        $('#changeWarehouse-button').hide();
+        changeWarehouseButton.hide();
     }
 
     // Discarded
@@ -272,4 +297,19 @@ $(document).ready(function(){
     }
     else
         $('#discard-info').hide();
+
+    // Auto-complete setup
+    $(returnToWarehouseButton).click(function(){
+        setupAutoCompleteList({
+            target: 'returnWarehouseCode',
+            items: loadWarehouses()
+        });
+    });
+
+    $(changeWarehouseButton).click(function(){
+        setupAutoCompleteList({
+            target: 'changeWarehouseCode',
+            items: loadWarehouses()
+        });
+    });
 });

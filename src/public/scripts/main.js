@@ -132,30 +132,12 @@ function loginSetup()
     loginWindow.parent().css('background-image', "url('../media/background.png')");
 }
 
+/**
+ * Sets up the dismiss button for notifications
+ */
 function notificationSetup()
 {
     $('#notifications-dismiss').click(function(){$('#notifications').fadeOut()});
-}
-
-function navigationSetup()
-{
-    $('span.nav-item').each(function(i, v){
-        $(v).click(function(){
-
-            let dropdown = $(this).next();
-
-            if($(dropdown).css('visibility') === "visible")
-            {
-                $(dropdown).css('visibility', 'hidden');
-                $(dropdown).css('opacity', '0');
-            }
-            else
-            {
-                $(dropdown).css('visibility', 'visible');
-                $(dropdown).css('opacity', '1');
-            }
-        })
-    });
 }
 
 /**
@@ -324,7 +306,7 @@ function apiRequest(type, path, data, base64 = false)
  */
 function setSearchCookie(name, data)
 {
-    document.cookie = "ML_" + name + "=" + window.btoa(JSON.stringify(data));
+    document.cookie = "ML_" + name + "=" + window.btoa(JSON.stringify(data)) + ";path=" + baseURI;
 }
 
 /**
@@ -372,7 +354,7 @@ function clearCookies()
 
         if(name.indexOf("ML_") !== -1)
         {
-            document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+            document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=" + baseURI;
         }
     }
 
@@ -397,7 +379,7 @@ function loadUnreadNotificationCount()
     }
 
     let loadingImage = document.createElement("img");
-    $(loadingImage).attr('src', '../media/animations/ajax.gif');
+    $(loadingImage).attr('src', baseURI + 'media/animations/ajax.gif');
     $(loadingImage).attr('alt', '');
 
     unreadCount.appendChild(loadingImage);
@@ -413,7 +395,7 @@ function loadUnreadNotificationCount()
 }
 
 /**
- *
+ * Adds the loading animation to 'wait' elements
  */
 function setupLoadingImage()
 {
@@ -451,16 +433,25 @@ function setupSearchAdditionalFields()
     });
 }
 
+/**
+ * Sets up these buttons to go up a directory
+ */
 function setupBackButtons()
 {
     $('.back-button').click(function(){window.location.href='..';});
 }
 
+/**
+ * Sets up these buttons to go back in browser history
+ */
 function setupHistoryBackButtons()
 {
     $('.browser-back').click(function(){window.history.back();});
 }
 
+/**
+ * Makes it so clicking region headers toggles the region display
+ */
 function setupExpandableRegions()
 {
     // Add listeners to region expand buttons
@@ -481,6 +472,22 @@ function setupExpandableRegions()
 
             $(this).next().hide();
         }
+    });
+}
+
+/**
+ * Causes the click of these buttons to display a dialog with the same id followed by '-dialog'
+ */
+function setupDialogButtons()
+{
+    $('.dialog-show-button').click(function(e){
+        $('#' + $(this).attr('id') + '-dialog').dialog().dialog("option", {
+            position: {
+                my: 'top',
+                at: 'right',
+                of: event
+            }
+        });
     });
 }
 
@@ -560,6 +567,17 @@ function showNotifications(type, items)
 }
 
 /**
+ * Fetches information from the API and sets up an auto-complete list on an input
+ * @param options
+ */
+function setupAutoCompleteList(options)
+{
+    $('#' + options.target).autocomplete({
+        source: options.items
+    });
+}
+
+/**
  * Setup document
  */
 $(document).ready(function(){
@@ -575,12 +593,11 @@ $(document).ready(function(){
     setupBackButtons();
     setupHistoryBackButtons();
     setupExpandableRegions();
-    //navigationSetup();
+    setupDialogButtons();
 
     setupLoadingImage();
 
     loadUnreadNotificationCount();
-    // setInterval(loadUnreadNotificationCount, 30000);
 
     // Fade in notifications if they are present
     $('#notifications').fadeIn();
