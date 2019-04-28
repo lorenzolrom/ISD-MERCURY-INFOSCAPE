@@ -15,6 +15,9 @@
 
     --shadow: 0px 3px 4px #444;
     --md-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+    --bulletin-border-color: #888;
+    --bulletin-shadow: 0px 2px 5px #888;
 }
 
 @font-face {

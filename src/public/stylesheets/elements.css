@@ -1,30 +1,3 @@
-/* Homepage Banner */
-
-div#home-banner {
-    margin-top: 15px;
-    margin-left: 15px;
-    font-size: 2em;
-    padding: 10px;
-    width: 650px;
-    text-align: center;
-    border-radius: 6px;
-    border: 1px solid #700000;
-    background: #C3271B;
-    color: #FFF;
-    font-family: "Times New Roman", serif;
-}
-p#dev-message {
-    margin-top: 15px;
-    margin-left: 15px;
-}
-
-p#dev-message img {
-    vertical-align: middle;
-    height: 16px;
-    width: 16px;
-    margin-right: 3px;
-}
-
 /* Notifications */
 
 div#notifications {
@@ -144,7 +117,7 @@ table.dataTable tbody tr:nth-child(2n + 1) {
 }
 
 table.dataTable thead tr th{
-    background-image: linear-gradient(#0054a5, #2875c1);
+    background: var(--heading-color);
 }
 
 table.dataTable thead tr th div {
@@ -279,4 +252,89 @@ table.dialog-table tr:first-child {
     text-align: left;
 }
 
-table.dialog-table tr
+/* Dev info */
+div#dev-info {
+    background-color: #FFF;
+    border: solid 2px var(--bulletin-border-color);
+    box-shadow: var(--bulletin-shadow);
+    margin-top: 15px;
+    padding: 10px 15px;
+    border-radius: 6px;
+}
+
+div#dev-info p.about-dialog {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+
+div#dev-info table td{
+    font-size: 1.2rem;
+}
+
+div#dev-info table tr td:first-child {
+    font-weight: 600;
+    min-width: 150px;
+}
+/* Bulletins */
+div.bulletin-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+div.bulletin {
+    width: 250px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+    box-sizing: border-box;
+    flex-direction: column;
+    text-align: center;
+    
+    border-radius: 6px;
+    background-color: #fefefe;
+    border: 1px solid var(--bulletin-border-color);
+    box-shadow: var(--bulletin-shadow);
+}
+
+div.bulletin > h2 {
+    color: #FFF;
+    margin-top: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 3px;
+    background-color: var(--heading-color);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+div.bulletin > div {
+    font-size: 1rem;
+    padding: 10px;
+}
+
+/* Homepage Banner */
+
+div#home-banner {
+    margin: 15px;
+    font-size: 2em;
+    padding: 10px;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid var(--bulletin-border-color);
+    box-shadow: var(--bulletin-shadow);
+    background: var(--error);
+    color: #FFF;
+}
+
+p#dev-message {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+p#dev-message img {
+    vertical-align: middle;
+    height: 16px;
+    width: 16px;
+    margin-right: 3px;
+}
