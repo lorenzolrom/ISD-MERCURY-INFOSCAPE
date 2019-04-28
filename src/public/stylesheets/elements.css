@@ -252,34 +252,40 @@ table.dialog-table tr:first-child {
     text-align: left;
 }
 
-/* Dev info */
-div#dev-info {
+/* Main content */
+div.main-content {
     background-color: #FFF;
-    border: solid 2px var(--bulletin-border-color);
+    border: solid 1px var(--bulletin-border-color);
     box-shadow: var(--bulletin-shadow);
     margin-top: 15px;
     padding: 10px 15px;
     border-radius: 6px;
 }
 
-div#dev-info p.about-dialog {
+div.main-content p.about-dialog {
     font-size: 1.6rem;
     margin-bottom: 15px;
 }
 
-div#dev-info table td{
+div.main-content table td{
     font-size: 1.2rem;
 }
 
-div#dev-info table tr td:first-child {
+div.main-content table tr td:first-child {
     font-weight: 600;
     min-width: 150px;
 }
+
+div.main-content#home-content {
+    text-align: center;
+}
+
 /* Bulletins */
 div.bulletin-list {
     display: flex;
     flex-wrap: wrap;
     margin: auto;
+    justify-content: center;
 }
 
 div.bulletin {
@@ -324,7 +330,7 @@ div.bulletin > div {
 /* Homepage Banner */
 
 div#home-banner {
-    margin: 15px;
+    margin-top: 15px;
     font-size: 2em;
     padding: 10px;
     text-align: center;
@@ -333,11 +339,6 @@ div#home-banner {
     box-shadow: var(--bulletin-shadow);
     background: var(--error);
     color: #FFF;
-}
-
-p#dev-message {
-    margin-top: 15px;
-    margin-left: 15px;
 }
 
 p#dev-message img {
