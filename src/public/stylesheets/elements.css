@@ -117,7 +117,7 @@ table.dataTable tbody tr:nth-child(2n + 1) {
 }
 
 table.dataTable thead tr th{
-    background: var(--heading-color);
+    background: var(--primary-color);
 }
 
 table.dataTable thead tr th div {
@@ -135,7 +135,7 @@ table.dataTable a {
 
 /* Display Table */
 h2.region-title {
-    background-color: var(--heading-color);
+    background-color: var(--primary-color);
     color: #FFF;
     font-weight: 600;
     padding: 5px 5px;
@@ -217,7 +217,7 @@ h2.region-expand-collapsed::before, h2.region-expand-expanded::before {
 
 /* Dialog */
 div.ui-dialog-titlebar {
-    background: var(--heading-color);
+    background: var(--primary-color);
     color: #FFF;
 }
 
@@ -276,22 +276,17 @@ div.main-content table tr td:first-child {
     min-width: 150px;
 }
 
-div.main-content#home-content {
-    text-align: center;
-}
-
 /* Bulletins */
 div.bulletin-list {
     display: flex;
     flex-wrap: wrap;
     margin: auto;
-    justify-content: center;
 }
 
 div.bulletin {
     width: 250px;
     margin-top: 15px;
-    margin-left: 15px;
+    margin-right: 15px;
     display: inline-block;
     box-sizing: border-box;
     flex-direction: column;
@@ -309,7 +304,7 @@ div.bulletin > h2 {
     font-size: 1.2rem;
     font-weight: 600;
     padding: 3px;
-    background-color: var(--heading-color);
+    background-color: var(--primary-color);
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
 }
@@ -339,6 +334,10 @@ div#home-banner {
     box-shadow: var(--bulletin-shadow);
     background: var(--error);
     color: #FFF;
+}
+
+p#dev-message {
+    margin-top: 15px;
 }
 
 p#dev-message img {

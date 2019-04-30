@@ -1,4 +1,4 @@
-![netcenter](src/public/media/logo.png)
+![netcenter](docs/images/logo.png)
 # NetCenter v4
 LLR Technologies & Associated Services  
 Network Central Administrative Toolbox  

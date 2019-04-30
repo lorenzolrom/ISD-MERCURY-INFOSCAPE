@@ -42,6 +42,7 @@ class Sidebar extends View
         $section = \Pages::HEADER[$sectionTitle];
 
         $this->setVariable("sectionTitle", $section['title']);
+        $this->setVariable('sectionIcon', $section['icon']);
 
         if(!isset($section['pages']))
             return;
@@ -51,8 +52,13 @@ class Sidebar extends View
 
         foreach($section['pages'] as $page)
         {
+            if(isset($page['icon']))
+                $icon = "<img src='{{@baseURI}}media/icons/{$page['icon']}' alt=''>";
+            else
+                $icon = "";
+
             if(in_array($page['permission'], $permissions))
-                $links .= "<li><a href='{{@baseURI}}{$page['link']}'>{$page['title']}</a></li>\n";
+                $links .= "<li><a href='{{@baseURI}}{$page['link']}'>$icon{$page['title']}</a></li>\n";
         }
 
         $this->setVariable("sectionLinks", $links);
