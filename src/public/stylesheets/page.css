@@ -86,6 +86,13 @@ header span#app-logo {
     background-position: right;
 }
 
+header span#remote-address {
+    font-weight: 600;
+    color: #FFF;
+    position: absolute;
+    right: 5px;
+}
+
 /* Navigation */
 
 nav {
