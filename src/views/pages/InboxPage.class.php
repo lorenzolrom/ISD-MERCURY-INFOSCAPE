@@ -14,7 +14,7 @@
 namespace views\pages;
 
 
-class InboxPage extends ApplicationPage
+class InboxPage extends UserDocument
 {
     public function __construct()
     {

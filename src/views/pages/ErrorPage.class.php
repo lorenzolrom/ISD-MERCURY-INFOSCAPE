@@ -13,7 +13,7 @@
 
 namespace views\pages;
 
-class ErrorPage extends ApplicationPage
+class ErrorPage extends UserDocument
 {
     public function __construct(\Exception $e)
     {

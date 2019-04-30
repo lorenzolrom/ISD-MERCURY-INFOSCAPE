@@ -14,9 +14,9 @@
 namespace views\pages\facilities;
 
 
-use views\pages\ApplicationPage;
+use views\pages\UserDocument;
 
-class BuildingSearchPage extends ApplicationPage
+class BuildingSearchPage extends UserDocument
 {
     public function __construct()
     {

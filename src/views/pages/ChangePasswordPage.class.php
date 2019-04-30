@@ -16,7 +16,7 @@ namespace views\pages;
 
 use views\forms\ChangePasswordForm;
 
-class ChangePasswordPage extends ApplicationPage
+class ChangePasswordPage extends UserDocument
 {
     private $form;
 

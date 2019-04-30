@@ -15,9 +15,9 @@ namespace views\pages\itsm;
 
 
 use views\forms\itsm\VendorForm;
-use views\pages\ApplicationPage;
+use views\pages\UserDocument;
 
-class VendorCreatePage extends ApplicationPage
+class VendorCreatePage extends UserDocument
 {
     public function __construct()
     {

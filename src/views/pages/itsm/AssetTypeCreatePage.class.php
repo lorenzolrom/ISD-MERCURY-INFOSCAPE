@@ -15,9 +15,9 @@ namespace views\pages\itsm;
 
 
 use views\forms\itsm\AssetTypeForm;
-use views\pages\ApplicationPage;
+use views\pages\UserDocument;
 
-class AssetTypeCreatePage extends ApplicationPage
+class AssetTypeCreatePage extends UserDocument
 {
     public function __construct()
     {

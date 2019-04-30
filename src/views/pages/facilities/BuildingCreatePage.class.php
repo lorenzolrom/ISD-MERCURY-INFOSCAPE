@@ -15,9 +15,9 @@ namespace views\pages\facilities;
 
 
 use views\forms\facilities\BuildingForm;
-use views\pages\ApplicationPage;
+use views\pages\UserDocument;
 
-class BuildingCreatePage extends ApplicationPage
+class BuildingCreatePage extends UserDocument
 {
     /**
      * BuildingCreatePage constructor.

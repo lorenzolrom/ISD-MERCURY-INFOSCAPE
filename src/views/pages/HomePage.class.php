@@ -16,7 +16,7 @@ namespace views\pages;
 
 use views\elements\BulletinList;
 
-class HomePage extends ApplicationPage
+class HomePage extends UserDocument
 {
     public function __construct()
     {

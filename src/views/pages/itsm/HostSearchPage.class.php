@@ -14,9 +14,9 @@
 namespace views\pages\itsm;
 
 
-use views\pages\ApplicationPage;
+use views\pages\UserDocument;
 
-class HostSearchPage extends ApplicationPage
+class HostSearchPage extends UserDocument
 {
     public function __construct()
     {

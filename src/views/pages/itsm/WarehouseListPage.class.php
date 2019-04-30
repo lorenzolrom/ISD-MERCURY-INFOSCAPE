@@ -14,9 +14,9 @@
 namespace views\pages\itsm;
 
 
-use views\pages\ApplicationPage;
+use views\pages\UserDocument;
 
-class WarehouseListPage extends ApplicationPage
+class WarehouseListPage extends UserDocument
 {
     public function __construct()
     {

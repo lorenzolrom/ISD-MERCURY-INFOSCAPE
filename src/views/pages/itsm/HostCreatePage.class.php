@@ -15,9 +15,9 @@ namespace views\pages\itsm;
 
 
 use views\forms\itsm\HostForm;
-use views\pages\ApplicationPage;
+use views\pages\UserDocument;
 
-class HostCreatePage extends ApplicationPage
+class HostCreatePage extends UserDocument
 {
     public function __construct()
     {

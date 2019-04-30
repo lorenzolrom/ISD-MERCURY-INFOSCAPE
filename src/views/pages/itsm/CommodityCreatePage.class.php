@@ -15,9 +15,9 @@ namespace views\pages\itsm;
 
 
 use views\forms\itsm\CommodityForm;
-use views\pages\ApplicationPage;
+use views\pages\UserDocument;
 
-class CommodityCreatePage extends ApplicationPage
+class CommodityCreatePage extends UserDocument
 {
     public function __construct()
     {
