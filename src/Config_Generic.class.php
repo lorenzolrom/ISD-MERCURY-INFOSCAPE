@@ -22,6 +22,11 @@ abstract class Config_Generic
         'cookieName' => 'MERLOT',
 
         'icURL' => 'https://infocentral.url/',
-        'icSecret' => 'INFOCENTRAL_SECRET'
+        'icSecret' => 'INFOCENTRAL_SECRET',
+
+        // Optional filter for public pages
+        'ipWhitelist' => array(
+            '10.0.0.0/24'
+        )
     );
 }

@@ -22,8 +22,10 @@ class ControllerFactory
     private const CONTROLLERS = array(
         'hosts' => 'controllers\itsm\HostController',
         'inventory' => 'controllers\itsm\InventoryController',
+
         'buildings' => 'controllers\facilities\BuildingController',
         'locations' => 'controllers\facilities\LocationController',
+
         'history' => 'controllers\HistoryController',
         'logout' => 'controllers\LogoutController',
         'login' => 'controllers\LoginController',
@@ -31,6 +33,8 @@ class ControllerFactory
         'account' => 'controllers\AccountController',
         'about' => 'controllers\AboutController',
         '!api-request' => 'controllers\APIProxyController',
+
+        'inetinfo' => 'controllers\InternalInfoController'
     );
 
     /**

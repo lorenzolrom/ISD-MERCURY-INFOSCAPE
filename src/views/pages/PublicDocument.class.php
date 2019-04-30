@@ -14,17 +14,25 @@
 namespace views\pages;
 
 
+use exceptions\SecurityException;
+use utilities\IPAddressChecker;
 use views\elements\Header;
 use views\View;
 
-class PublicDocument extends View
+abstract class PublicDocument extends View
 {
     /**
      * PublicDocument constructor.
+     * @param bool $useWhitelist
      * @throws \exceptions\ViewException
+     * @throws SecurityException
      */
-    public function __construct()
+    public function __construct(bool $useWhitelist = FALSE)
     {
+        // If whitelist is in use, verify the remote IP is on it
+        if($useWhitelist AND !IPAddressChecker::isRemoteAddressOnWhitelist())
+            throw new SecurityException(SecurityException::MESSAGE[SecurityException::IP_NOT_IN_WHITELIST], SecurityException::IP_NOT_IN_WHITELIST);
+
         $this->setTemplateFromHTML('HTML5Document', self::TEMPLATE_PAGE);
 
         $this->setVariable('content', self::templateFileContents('PublicDocument', self::TEMPLATE_PAGE));
