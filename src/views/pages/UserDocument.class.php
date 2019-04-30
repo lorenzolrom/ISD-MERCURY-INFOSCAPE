@@ -15,6 +15,7 @@ namespace views\pages;
 
 
 use views\elements\Header;
+use views\elements\Navigation;
 
 abstract class UserDocument extends AuthenticatedPage
 {
@@ -33,8 +34,11 @@ abstract class UserDocument extends AuthenticatedPage
         $this->setVariable("content", self::templateFileContents("UserDocument", self::TEMPLATE_PAGE));
 
         // Add header
-        $header = new Header($this->user);
+        $header = new Header();
         $this->setVariable("header", $header->getTemplate());
+
+        $navigation = new Navigation($this->user);
+        $this->setVariable('navigation', $navigation->getTemplate());
 
         $this->setVariable("footer", self::templateFileContents("Footer", self::TEMPLATE_ELEMENT));
     }

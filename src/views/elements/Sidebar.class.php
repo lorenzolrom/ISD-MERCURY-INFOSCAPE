@@ -53,7 +53,7 @@ class Sidebar extends View
         foreach($section['pages'] as $page)
         {
             if(isset($page['icon']))
-                $icon = "<img src='{{@baseURI}}media/icons/{$page['icon']}' alt=''>";
+                $icon = "<img alt='' src='{{@baseURI}}media/icons/{$page['icon']}'>";
             else
                 $icon = "";
 
