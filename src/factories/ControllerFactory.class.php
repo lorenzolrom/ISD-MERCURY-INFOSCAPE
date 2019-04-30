@@ -13,25 +13,26 @@
 
 namespace factories;
 
-
-use controllers\AboutController;
-use controllers\AccountController;
 use controllers\Controller;
-use controllers\facilities\BuildingController;
-use controllers\facilities\LocationController;
-use controllers\HistoryController;
-use controllers\HomeController;
-use controllers\InboxController;
-use controllers\itsm\HostController;
-use controllers\itsm\InventoryController;
-use controllers\LoginController;
-use controllers\LogoutController;
-use controllers\APIProxyController;
 use exceptions\PageNotFoundException;
 use models\HTTPRequest;
 
 class ControllerFactory
 {
+    private const ROUTES = array(
+        'hosts' => 'controllers\itsm\HostController',
+        'inventory' => 'controllers\itsm\InventoryController',
+        'buildings' => 'controllers\facilities\BuildingController',
+        'locations' => 'controllers\facilities\LocationController',
+        'history' => 'controllers\HistoryController',
+        'logout' => 'controllers\LogoutController',
+        'login' => 'controllers\LoginController',
+        'inbox' => 'controllers\InboxController',
+        'account' => 'controllers\AccountController',
+        'about' => 'controllers\AboutController',
+        '!api-request' => 'controllers\APIProxyController',
+    );
+
     /**
      * @param HTTPRequest $request
      * @return Controller
@@ -39,34 +40,15 @@ class ControllerFactory
      */
     public static function getController(HTTPRequest $request): Controller
     {
-        switch($request->next())
-        {
-            case "hosts":
-                return new HostController($request);
-            case "inventory":
-                return new InventoryController($request);
-            case "buildings":
-                return new BuildingController($request);
-            case "locations":
-                return new LocationController($request);
-            case "history":
-                return new HistoryController($request);
-            case "logout":
-                return new LogoutController($request);
-            case "login":
-                return new LoginController($request);
-            case "about":
-                return new AboutController($request);
-            case "inbox":
-                return new InboxController($request);
-            case "account":
-                return new AccountController($request);
-            case "!api-request":
-                return new APIProxyController($request);
-            case null:
-                return new HomeController($request);
-            default:
-                throw new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND);
-        }
+        $route = $request->next();
+
+        if($route == null)
+            $controller = 'controllers\HomeController';
+        else if(!in_array($route, array_keys(self::ROUTES)))
+            throw new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND);
+        else
+            $controller = self::ROUTES[$route];
+
+        return new $controller($request);
     }
 }
