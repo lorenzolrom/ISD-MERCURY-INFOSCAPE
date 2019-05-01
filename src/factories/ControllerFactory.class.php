@@ -20,8 +20,10 @@ use models\HTTPRequest;
 class ControllerFactory
 {
     private const CONTROLLERS = array(
-        'hosts' => 'controllers\itsm\HostController',
-        'inventory' => 'controllers\itsm\InventoryController',
+        'hosts' => 'controllers\devices\HostController',
+        'inventory' => 'controllers\inventory\InventoryController',
+
+        'web' => 'controllers\web\WebController',
 
         'buildings' => 'controllers\facilities\BuildingController',
         'locations' => 'controllers\facilities\LocationController',

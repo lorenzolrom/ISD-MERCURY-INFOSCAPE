@@ -1,0 +1,45 @@
+<div class="button-bar">
+    <span class="button form-submit-button" id="commodity"><img src="{{@baseURI}}media/icons/save.png" alt="">Save</span>
+    <a class="button delete-button confirm-button" href="javascript: deleteCommodity('{{@id}}')"><img src="{{@baseURI}}media/icons/inventory_delete.png" alt="">Delete</a>
+    <a class="button" href="{{@baseURI}}inventory/commodities"><img src="{{@baseURI}}media/icons/delete.png" alt="">Cancel</a>
+</div>
+<form id="commodity-form" class="table-form" onsubmit="{{@formScript}}">
+    <h2 class="region-title"><img src="{{@baseURI}}media/icons/inventory.png" alt="">Commodity Profile<a class="history-link" href="{{@baseURI}}history/commodity/{{@id}}"><img src="{{@baseURI}}media/icons/history.png" alt="" title="View History"></a></h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td class="required">Commodity Code</td>
+            <td><input maxlength="32" type="text" id="code" name="code" value="{{@code}}"></td>
+            <td class="required">Commodity Name</td>
+            <td><input maxlength="64" type="text" id="name" name="name" value="{{@name}}"></td>
+        </tr>
+        <tr>
+            <td class="required">Type</td>
+            <td>
+                <select name="commodityType" id="commodityType">
+                    <option value="">--SELECT--</option>
+                    {{@commodityTypeSelect}}
+                </select>
+            </td>
+            <td class="required">Asset Type</td>
+            <td>
+                <select name="assetType" id="assetType">
+                    <option value="">--SELECT--</option>
+                    {{@assetTypeSelect}}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="required">Manufacturer</td>
+            <td><input type="text" id="manufacturer" name="manufacturer" value="{{@manufacturer}}"></td>
+            <td class="required">Model</td>
+            <td><input type="text" id="model" name="model" value="{{@model}}"></td>
+        </tr>
+        <tr>
+            <td class="required">Unit Cost</td>
+            <td><input type="text" id="unitCost" name="unitCost" value="{{@unitCost}}"></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script src="{{@baseURI}}scripts/inventory/commodities.js"></script>

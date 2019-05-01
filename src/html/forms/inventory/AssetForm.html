@@ -1,0 +1,29 @@
+<div class="button-bar">
+    <span class="button form-submit-button" id="asset"><img src="{{@baseURI}}media/icons/save.png" alt="">Save</span>
+    <a class="button" href="{{@baseURI}}inventory/assets/{{@assetTag}}"><img src="{{@baseURI}}media/icons/delete.png" alt="">Cancel</a>
+</div>
+<form id="asset-form" class="table-form" onsubmit="return saveChanges('{{@assetTag}}')">
+    <h2 class="region-title"><img src="{{@baseURI}}media/icons/inventory.png" alt="">Asset Profile</h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td class="required">Asset #</td>
+            <td><input type="text" id="assetTag" value="{{@assetTag}}"></td>
+            <td>Serial Number</td>
+            <td><input type="text" id="serialNumber" value="{{@serialNumber}}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <h2 class="region-title"><img src="{{@baseURI}}media/icons/bulk.png" alt="">Additional Details</h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td>Notes</td>
+            <td colspan="3">
+                <textarea id="notes">{{@notes}}</textarea>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script src="{{@baseURI}}scripts/inventory/assets.js"></script>

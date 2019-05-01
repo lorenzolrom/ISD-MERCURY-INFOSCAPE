@@ -73,6 +73,18 @@ abstract class View
     }
 
     /**
+     * Bulk sets variables using an associative array
+     * @param array $variables
+     */
+    public function setVariables(array $variables)
+    {
+        foreach(array_keys($variables) as $variableName)
+        {
+            $this->setVariable($variableName, htmlentities($variables[$variableName]));
+        }
+    }
+
+    /**
      * @param string $template
      */
     protected function setTemplate(string $template)

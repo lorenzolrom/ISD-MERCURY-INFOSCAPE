@@ -27,7 +27,8 @@ class HistoryController extends Controller
         'commodity' => 'ITSM_Commodity',
         'host' => 'ITSM_Host',
         'vendor' => 'ITSM_Vendor',
-        'warehouse' => 'ITSM_Warehouse'
+        'warehouse' => 'ITSM_Warehouse',
+        'registrar' => 'ITSM_Registrar'
     );
 
     /**

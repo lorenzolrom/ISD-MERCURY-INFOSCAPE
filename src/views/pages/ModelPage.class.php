@@ -40,16 +40,4 @@ abstract class ModelPage extends UserDocument
         if($this->response->getResponseCode() != '200')
             throw new EntryNotFoundException(EntryNotFoundException::MESSAGES[EntryNotFoundException::PRIMARY_KEY_NOT_FOUND], EntryNotFoundException::PRIMARY_KEY_NOT_FOUND);
     }
-
-    /**
-     * Bulk sets variables using an associative array
-     * @param array $variables
-     */
-    public function setVariables(array $variables)
-    {
-        foreach(array_keys($variables) as $variableName)
-        {
-            $this->setVariable($variableName, $variables[$variableName]);
-        }
-    }
 }

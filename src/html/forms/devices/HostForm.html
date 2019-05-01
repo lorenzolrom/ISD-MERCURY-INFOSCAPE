@@ -1,0 +1,44 @@
+<div class="button-bar">
+    <span class="button form-submit-button" id="host"><img src="{{@baseURI}}media/icons/save.png" alt="">Save</span>
+    <a class="button delete-button confirm-button" href="javascript: deleteHost('{{@id}}')"><img src="{{@baseURI}}media/icons/interface_delete.png" alt="">Delete</a>
+    <a class="button" href="{{@baseURI}}hosts"><img src="{{@baseURI}}media/icons/delete.png" alt="">Cancel</a>
+</div>
+<form id="host-form" class="table-form" onsubmit="{{@formScript}}">
+    <h2 class="region-title"><img src="{{@baseURI}}media/icons/interface.png" alt="">Host Profile<a class="history-link" href="{{@baseURI}}history/host/{{@id}}"><img src="{{@baseURI}}media/icons/history.png" alt="" title="View History"></a></h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td class="required">I.P. Address</td>
+            <td><input maxlength="39" type="text" id="ipAddress" value="{{@ipAddress}}"></td>
+            <td class="required">MAC Address</td>
+            <td><input maxlength="17" type="text" id="macAddress" value="{{@macAddress}}"></td>
+        </tr>
+        <tr>
+            <td class="required"><a href="{{@baseURI}}inventory/assets/{{@assetTag}}"><img src="{{@baseURI}}media/icons/inventory.png" alt="View Asset"></a>Asset #</td>
+            <td><input type="text" id="assetTag" value="{{@assetTag}}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <h2 class="region-title"><img src="{{@baseURI}}media/icons/computer.png" alt="">System Information</h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td>System Name</td>
+            <td><input maxlength="64" type="text" id="systemName" value="{{@systemName}}"></td>
+            <td>System CPU</td>
+            <td><input maxlength="64" type="text" id="systemCPU" value="{{@systemCPU}}"></td>
+        </tr>
+        <tr>
+            <td>System RAM</td>
+            <td><input maxlength="64" type="text" id="systemRAM" value="{{@systemRAM}}"></td>
+            <td>System OS</td>
+            <td><input maxlength="64" type="text" id="systemOS" value="{{@systemOS}}"></td>
+        </tr>
+        <tr>
+            <td>System Domain</td>
+            <td><input maxlength="64" type="text" id="systemDomain" value="{{@systemDomain}}"></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script src="{{@baseURI}}scripts/devices/hosts.js"></script>

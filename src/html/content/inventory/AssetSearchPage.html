@@ -1,0 +1,88 @@
+<div class="button-bar">
+    <span id="search" class="button form-submit-button"><img src="{{@baseURI}}media/icons/search.png" alt="">Search</span>
+    <a class="button" href="assets/worksheet"><img src="{{@baseURI}}media/icons/report.png" alt="">View Worksheet</a>
+    <a class="button" href="javascript: addToWorksheet()"><img src="{{@baseURI}}media/icons/report_add.png" alt="">Add To Worksheet</a>
+</div>
+<form id="search-form" class="search-form" onsubmit="return searchAssets()">
+    <input type="hidden" name="submitted" value="true">
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td>Asset Tag</td>
+            <td><input type="text" id="assetTag"></td>
+            <td>Serial Number</td>
+            <td><input type="text" id="serialNumber"></td>
+        </tr>
+        <tr>
+            <td>Warehouse</td>
+            <td>
+                <input type="checkbox" id="warehouseYes" checked>
+                <label>Yes</label>
+                <input type="checkbox" id="warehouseNo" checked>
+                <label>No</label>
+            </td>
+            <td>Discarded</td>
+            <td>
+                <input type="checkbox" id="discardedYes">
+                <label>Yes</label>
+                <input type="checkbox" id="discardedNo" checked>
+                <label>No</label>
+            </td>
+        </tr>
+        </tbody>
+        <tbody class="additional-fields">
+        <tr>
+            <td>Building Code</td>
+            <td><input type="text" id="buildingCode"></td>
+            <td>Location Code</td>
+            <td><input type="text" id="locationCode"></td>
+        </tr>
+        <tr>
+            <td>Warehouse Code</td>
+            <td><input type="text" id="warehouseCode"></td>
+            <td>PO #</td>
+            <td><input type="text" id="purchaseOrder"></td>
+        </tr>
+        <tr>
+            <td>Manufacturer</td>
+            <td><input type="text" id="manufacturer"></td>
+            <td>Model</td>
+            <td><input type="text" id="model"></td>
+        </tr>
+        <tr>
+            <td>Commodity Code</td>
+            <td><input type="text" id="commodityCode"></td>
+            <td>Commodity Name</td>
+            <td><input type="text" id="commodityName"></td>
+        </tr>
+        <tr>
+            <td>Type</td>
+            <td>
+                <select id="commodityType" size="3" multiple>
+                    {{@commodityTypeSelect}}
+                </select>
+            </td>
+            <td>Asset Type</td>
+            <td>
+                <select id="assetType" size="3" multiple>
+                    {{@assetTypeSelect}}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Verified</td>
+            <td>
+                <input type="checkbox" id="verifiedYes" checked>
+                <label>Yes</label>
+                <input type="checkbox" id="verifiedNo" checked>
+                <label>No</label>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="button-bar">
+        <span class="button-noveil search-additional-field-toggle">Show More</span>
+    </div>
+</form>
+<div id="asset-results"></div>
+<script src="{{@baseURI}}scripts/inventory/assets.js"></script>

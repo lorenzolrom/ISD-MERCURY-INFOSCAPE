@@ -1,0 +1,25 @@
+<div class="button-bar">
+    <span class="button form-submit-button" id="vendor"><img src="{{@baseURI}}media/icons/save.png" alt="">Save</span>
+    <a class="button delete-button confirm-button" href="javascript: deleteRegistrar('{{@id}}')"><img src="{{@baseURI}}media/icons/identity_delete.png" alt="">Delete</a>
+    <a class="button" href="{{@baseURI}}web/registrars"><img src="{{@baseURI}}media/icons/delete.png" alt="">Cancel</a>
+</div>
+<form id="vendor-form" class="table-form" onsubmit="{{@formScript}}">
+    <h2 class="region-title"><img src="{{@baseURI}}media/icons/identity.png" alt="">Registrar Profile<a class="history-link" href="{{@baseURI}}history/registrar/{{@id}}"><img src="{{@baseURI}}media/icons/history.png" alt="" title="View History"></a></h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td class="required">Registrar Code</td>
+            <td><input maxlength="32" type="text" id="code" value="{{@code}}"></td>
+            <td class="required">Registrar Name</td>
+            <td><input type="text" id="name" value="{{@name}}"></td>
+        </tr>
+        <tr>
+            <td>Registrar URL</td>
+            <td><input type="text" id="url" value="{{@url}}"></td>
+            <td>Registrar Phone</td>
+            <td><input maxlength="20" type="text" id="phone" value="{{@phone}}"></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script src="{{@baseURI}}scripts/web/registrars.js"></script>
