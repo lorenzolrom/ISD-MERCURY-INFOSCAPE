@@ -27,6 +27,7 @@ class WebController extends Controller
      * @throws \exceptions\InfoCentralException
      * @throws \exceptions\SecurityException
      * @throws \exceptions\ViewException
+     * @throws \exceptions\EntryNotFoundException
      */
     public function getPage(): View
     {
@@ -35,6 +36,9 @@ class WebController extends Controller
             case 'registrars':
                 $registrars = new RegistrarController($this->request);
                 return $registrars->getPage();
+            case 'vhosts':
+                $vhosts = new VHostController($this->request);
+                return $vhosts->getPage();
         }
 
         throw new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND);
