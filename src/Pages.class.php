@@ -138,7 +138,7 @@ abstract class Pages
                 array(
                     'title' => 'Applications',
                     'permission' => 'itsm_ait-apps-r',
-                    'link' => 'applications',
+                    'link' => 'ait/applications',
                     'icon' => 'apps.png'
                 )
             )
