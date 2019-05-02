@@ -26,7 +26,7 @@ abstract class Pages
                 array(
                     'title' => 'Buildings',
                     'permission' => 'facilitiescore_facilities-r',
-                    'link' => 'buildings',
+                    'link' => 'facilities/buildings',
                     'icon' => 'building.png'
                 )
             )
@@ -88,7 +88,7 @@ abstract class Pages
                 array(
                     'title' => 'Hosts',
                     'permission' => 'itsm_devices-hosts-r',
-                    'link' => 'hosts',
+                    'link' => 'devices/hosts',
                     'icon' => 'interface.png'
                 )
             )

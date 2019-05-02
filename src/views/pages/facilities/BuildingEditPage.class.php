@@ -38,7 +38,7 @@ class BuildingEditPage extends ModelPage
         $form = new BuildingForm($details);
 
         $this->setVariable("content", $form->getTemplate());
-        $this->setVariable("cancelLink", "{{@baseURI}}buildings/{{@id}}");
+        $this->setVariable("cancelLink", "{{@baseURI}}facilities/buildings/{{@id}}");
         $this->setVariable("formScript", "return saveChanges('{{@id}}')");
 
         $this->setVariable("id", $buildingId);

@@ -41,7 +41,7 @@ function searchBuildings()
             header: ['Code', 'Name', 'Street Address', 'City', 'State', 'Zip Code'],
             sortColumn: 0,
             linkColumn: 0,
-            href: baseURI + "buildings/",
+            href: baseURI + "facilities/buildings/",
             refs: refs,
             rows: rows
         });
@@ -79,7 +79,7 @@ function loadLocations(id)
             sortColumn: 0,
             sortMethod: "asc",
             linkColumn: 0,
-            href: baseURI + "locations/",
+            href: baseURI + "facilities/locations/",
             refs: refs,
             rows: rows
         });
@@ -113,7 +113,7 @@ function saveChanges(id)
     }).done(function(json){
         if(json.code === 204)
         {
-            window.location.replace (baseURI + "buildings/" + id + "?NOTICE=Building updated");
+            window.location.replace (baseURI + "facilities/buildings/" + id + "?NOTICE=Building updated");
         }
         else if(json.code === 409)
         {
@@ -149,7 +149,7 @@ function createBuilding()
     }).done(function(json){
         if(json.code === 201)
         {
-            window.location.replace (baseURI + "buildings/" + json.data.id + "?NOTICE=Building created");
+            window.location.replace (baseURI + "facilities/buildings/" + json.data.id + "?NOTICE=Building created");
         }
         else
         {
@@ -171,7 +171,7 @@ function deleteBuilding(id)
     apiRequest("DELETE", "buildings/" + id, {}).done(function(json){
         if(json.code === 204)
         {
-            window.location.replace(baseURI + "buildings?NOTICE=Building deleted");
+            window.location.replace(baseURI + "facilities/buildings?NOTICE=Building deleted");
         }
         else
         {

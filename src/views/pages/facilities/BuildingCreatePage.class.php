@@ -34,7 +34,7 @@ class BuildingCreatePage extends UserDocument
         $form = new BuildingForm();
 
         $this->setVariable("content", $form->getTemplate());
-        $this->setVariable("cancelLink", "{{@baseURI}}buildings");
+        $this->setVariable("cancelLink", "{{@baseURI}}facilities/buildings");
         $this->setVariable("formScript", "return createBuilding()");
     }
 }
