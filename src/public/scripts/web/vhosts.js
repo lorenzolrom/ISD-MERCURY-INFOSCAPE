@@ -49,3 +49,25 @@ function searchVHosts()
     });
     return false;
 }
+
+$(document).ready(function(){
+    if(!document.getElementById("results"))
+        return;
+
+    let last =  getCookie('vHostSearch');
+
+    if(last !== "")
+    {
+        veil();
+
+        last = JSON.parse(window.atob(last));
+        $('#subdomain').val(last.subdomain);
+        $('#domain').val(last.domain);
+        $('#name').val(last.name);
+        $('#status').val(last.status);
+        $('#host').val(last.host);
+        $('#registrar').val(last.registrar);
+
+        searchVHosts();
+    }
+});

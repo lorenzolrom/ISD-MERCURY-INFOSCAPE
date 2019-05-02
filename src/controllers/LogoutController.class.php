@@ -29,7 +29,11 @@ class LogoutController extends Controller
         if(isset($_COOKIE[\Config::OPTIONS['cookieName']]))
         {
             InfoCentralConnection::getResponse(InfoCentralConnection::PUT, "authenticate/logout");
-            setcookie(\Config::OPTIONS['cookieName'], "", time() - 3600, \Config::OPTIONS['baseURI']);
+
+            foreach(array_keys($_COOKIE) as $cookie)
+            {
+                setcookie($cookie, "", time() - 3600, \Config::OPTIONS['baseURI']);
+            }
         }
 
         header("Location: " . \Config::OPTIONS['baseURI'] . "login?NOTICE=" . "Successfully logged out");

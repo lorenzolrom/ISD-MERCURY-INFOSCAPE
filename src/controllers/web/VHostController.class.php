@@ -15,6 +15,7 @@ namespace controllers\web;
 
 
 use controllers\Controller;
+use views\pages\web\VHostEditPage;
 use views\pages\web\VHostSearchPage;
 use views\View;
 
@@ -26,6 +27,7 @@ class VHostController extends Controller
      * @throws \exceptions\InfoCentralException
      * @throws \exceptions\SecurityException
      * @throws \exceptions\ViewException
+     * @throws \exceptions\EntryNotFoundException
      */
     public function getPage(): View
     {
@@ -38,7 +40,7 @@ class VHostController extends Controller
             case 'new':
                 die('new');
             default:
-                die('edit');
+                return new VHostEditPage($param);
         }
     }
 }

@@ -1,0 +1,57 @@
+<div class="button-bar">
+    <span class="button form-submit-button" id="vendor"><img src="{{@baseURI}}media/icons/save.png" alt="">Save</span>
+    <a class="button delete-button confirm-button" href="javascript: deleteVHost('{{@id}}')"><img src="{{@baseURI}}media/icons/hostname_delete.png" alt="">Delete</a>
+    <a class="button" href="{{@baseURI}}web/vhosts"><img src="{{@baseURI}}media/icons/delete.png" alt="">Cancel</a>
+</div>
+<form id="vendor-form" class="table-form" onsubmit="{{@formScript}}">
+    <h2 class="region-title"><img src="{{@baseURI}}media/icons/hostname.png" alt="">VHost Profile<a class="history-link" href="{{@baseURI}}history/vhost/{{@id}}"><img src="{{@baseURI}}media/icons/history.png" alt="" title="View History"></a></h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td class="required">Sub-Domain</td>
+            <td><input type="text" id="subdomain" value="{{@subdomain}}"></td>
+            <td class="required">Domain</td>
+            <td><input type="text" id="domain" value="{{@domain}}"></td>
+        </tr>
+        <tr>
+            <td class="required">Name</td>
+            <td><input maxlength="64" type="text" id="name" value="{{@name}}"></td>
+            <td class="required">Renew Cost</td>
+            <td><input type="text" id="renewCost" value="{{@renewCost}}"></td>
+        </tr>
+        <tr>
+            <td class="required"><a href="{{@baseURI}}devices/hosts/{{@host}}"><img src="{{@baseURI}}media/icons/interface.png" alt="View Host"></a>Host I.P. Address</td>
+            <td><input type="text" id="ipAddress" value="{{@ipAddress}}"></td>
+            <td class="required">Status</td>
+            <td>
+                <select id="status">
+                    {{@statusSelect}}
+                </select>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <h2 class="region-title"><img src="{{@baseURI}}media/icons/identity.png" alt="">Registrar Details</h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td class="required"><a href="{{@baseURI}}web/registrars/{{@registrar}}"><img src="{{@baseURI}}media/icons/identity.png" alt="View Registrar"></a>Registrar Code</td>
+            <td><input type="text" id="registrar" value="{{@registrarCode}}"></td>
+            <td>Registrar Name</td>
+            <td>{{@registrarName}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <h2 class="region-title"><img src="{{@baseURI}}media/icons/bulk.png" alt="">Additional Details</h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td>Notes</td>
+            <td colspan="3">
+                <textarea id="notes">{{@notes}}</textarea>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script src="{{@baseURI}}scripts/web/registrars.js"></script>
