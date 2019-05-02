@@ -71,6 +71,5 @@ class Navigation extends View
         }
 
         $this->setVariable("navigation", $navigation);
-        $this->setVariable("operatorUsername", $user->getUsername());
     }
 }

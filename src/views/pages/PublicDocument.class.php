@@ -41,6 +41,6 @@ abstract class PublicDocument extends View
         $this->setVariable('header', $header->getTemplate());
         $this->setVariable('footer', self::templateFileContents('Footer', self::TEMPLATE_ELEMENT));
 
-        $this->setVariable('remoteAddress', 'IP: ' . $_SERVER['REMOTE_ADDR']);
+        $this->setVariable('operatorName', 'IP: ' . $_SERVER['REMOTE_ADDR']);
     }
 }

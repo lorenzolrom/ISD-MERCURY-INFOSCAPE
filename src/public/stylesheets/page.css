@@ -86,7 +86,7 @@ header span#app-logo {
     background-position: right;
 }
 
-header span#remote-address {
+header span#operator-name {
     font-weight: 600;
     color: #FFF;
     position: absolute;

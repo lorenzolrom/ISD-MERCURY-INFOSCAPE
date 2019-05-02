@@ -22,10 +22,30 @@ function searchVHosts()
 
         $.each(json.data, function(i, v){
             refs.push(v.id);
-
-            rows.push()
+            rows.push([
+                v.subdomain,
+                v.domain,
+                v.registrarName,
+                v.name,
+                v.statusName,
+                v.hostName
+            ]);
         });
-    });
 
+        setupTable({
+            target: 'results',
+            header: ['Sub-Domain', 'Domain', 'Registrar', 'Name', 'Status', 'Host'],
+            sortColumn: 1,
+            sortMethod: 'asc',
+            linkColumn: 0,
+            href: baseURI + 'web/vhosts/',
+            refs: refs,
+            rows: rows
+        });
+
+        setSearchCookie('vHostSearch', search);
+
+        unveil();
+    });
     return false;
 }
