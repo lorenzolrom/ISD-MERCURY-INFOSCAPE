@@ -48,6 +48,7 @@ function viewLog(logName)
        }
 
         let logDisplay = $('#log-display');
+       $(logDisplay).attr('title', logName);
         $(logDisplay).html('');
 
         let logContents = document.createElement('textarea');
@@ -58,7 +59,7 @@ function viewLog(logName)
         logDisplay.dialog().dialog('option', {
             minWidth: 900
         });
-    });
 
-    unveil();
+        unveil();
+    });
 }
