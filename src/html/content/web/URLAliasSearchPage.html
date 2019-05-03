@@ -1,0 +1,19 @@
+<div class="button-bar">
+    <span id="search" class="button form-submit-button"><img src="{{@baseURI}}media/icons/search.png" alt="">Search</span>
+    <a href="urlaliases/new" class="button"><img src="{{@baseURI}}media/icons/hostname_add.png" alt="">New</a>
+</div>
+<form id="search-form" class="search-form" onsubmit="return searchAliases()">
+    <input type="hidden" name="submitted" value="true">
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td>Alias</td>
+            <td><input type="text" id="alias"></td>
+            <td>Destination</td>
+            <td><input type="text" id="destination"></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<div id="results"></div>
+<script src="{{@baseURI}}scripts/web/aliases.js"></script>

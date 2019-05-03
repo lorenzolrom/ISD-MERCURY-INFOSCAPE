@@ -1,0 +1,28 @@
+<div class="button-bar">
+    <span class="button form-submit-button" id="vendor"><img src="{{@baseURI}}media/icons/save.png" alt="">Save</span>
+    <a class="button delete-button confirm-button" href="javascript: deleteEntry('{{@id}}')"><img src="{{@baseURI}}media/icons/hostname_delete.png" alt="">Delete</a>
+    <a class="button" href="{{@baseURI}}web/urlaliases"><img src="{{@baseURI}}media/icons/delete.png" alt="">Cancel</a>
+</div>
+<form id="vendor-form" class="table-form" onsubmit="{{@formScript}}">
+    <h2 class="region-title"><img src="{{@baseURI}}media/icons/hostname.png" alt="">Alias Profile<a class="history-link" href="{{@baseURI}}history/urlaliases/{{@id}}"><img src="{{@baseURI}}media/icons/history.png" alt="" title="View History"></a></h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td class="required">Alias</td>
+            <td><input type="text" id="alias" value="{{@alias}}"></td>
+            <td class="required">Destination</td>
+            <td><input type="text" id="destination" value="{{@destination}}"></td>
+        </tr>
+        <tr>
+            <td class="required">Disabled</td>
+            <td>
+                <select id="disabled">
+                    <option value="0">No</option>
+                    <option value="1" {{@disabledYes}}>Yes</option>
+                </select>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script src="{{@baseURI}}scripts/web/aliases.js"></script>

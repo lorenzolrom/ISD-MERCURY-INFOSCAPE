@@ -29,7 +29,8 @@ class HistoryController extends Controller
         'vendor' => 'ITSM_Vendor',
         'warehouse' => 'ITSM_Warehouse',
         'registrar' => 'ITSM_Registrar',
-        'vhost' => 'ITSM_VHost'
+        'vhost' => 'ITSM_VHost',
+        'urlaliases' => 'NIS_URLAlias'
     );
 
     /**

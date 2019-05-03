@@ -39,6 +39,9 @@ class WebController extends Controller
             case 'vhosts':
                 $vhosts = new VHostController($this->request);
                 return $vhosts->getPage();
+            case 'urlaliases':
+                $urlaliases = new URLAliasController($this->request);
+                return $urlaliases->getPage();
         }
 
         throw new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND);
