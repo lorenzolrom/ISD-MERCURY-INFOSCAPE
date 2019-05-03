@@ -91,6 +91,7 @@ header span#operator-name {
     color: #FFF;
     position: absolute;
     right: 5px;
+    top: 2px;
 }
 
 /* Navigation */

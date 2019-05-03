@@ -584,7 +584,9 @@ function showNotifications(type, items)
 function setupAutoCompleteList(options)
 {
     $('#' + options.target).autocomplete({
-        source: options.items
+        source: options.items,
+        select: options.select,
+        change: options.change
     });
 }
 

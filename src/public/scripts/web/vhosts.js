@@ -1,3 +1,5 @@
+let registrarCodes = [];
+
 function getForm()
 {
     let subdomain = $('#subdomain').val();
@@ -113,9 +115,52 @@ function deleteVHost(id)
     });
 }
 
+function getRegistrarCodes()
+{
+    if(registrarCodes.length !== 0)
+        return registrarCodes;
+
+    apiRequest('GET', 'registrars', {}).done(function(json){
+        $.each(json.data, function(i, v){
+            registrarCodes.push(v.code);
+        });
+    });
+
+    return registrarCodes;
+}
+
+function updateRegistrarName()
+{
+    apiRequest('POST', 'registrars/search', {
+        code: $('#registrar').val()
+    }).done(function(json){
+        if(json.data.length > 0)
+        {
+            $('#registrarName').html(json.data[0].name);
+        }
+    });
+}
+
 $(document).ready(function(){
+    let registrar = $('#registrar');
+
+    // If we are viewing/creating, set up registrar auto-complete
     if(!document.getElementById("results"))
+    {
+        registrar.focus(function(){
+            setupAutoCompleteList({
+                target: 'registrar',
+                items: getRegistrarCodes(),
+                select: function(e, ui)
+                {
+                    registrar.val(ui.item.value);
+                    updateRegistrarName();
+                }
+            })
+        });
+
         return;
+    }
 
     let last =  getCookie('vHostSearch');
 
@@ -129,7 +174,7 @@ $(document).ready(function(){
         $('#name').val(last.name);
         $('#status').val(last.status);
         $('#host').val(last.host);
-        $('#registrar').val(last.registrar);
+        registrar.val(last.registrar);
 
         searchVHosts();
     }
