@@ -67,7 +67,7 @@ function saveChanges(id)
     return false;
 }
 
-function createRegistrar(id)
+function createRegistrar()
 {
     let code = $('#code').val();
     let name = $('#name').val();

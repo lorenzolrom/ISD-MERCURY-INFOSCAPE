@@ -1,19 +1,39 @@
-function searchVHosts()
+function getForm()
 {
     let subdomain = $('#subdomain').val();
     let domain = $('#domain').val();
     let name = $('#name').val();
     let status = $('#status').val();
-    let host = $('#host').val();
+    let host = $('#ipAddress').val();
     let registrar = $('#registrar').val();
+    let registerDate = $('#registerDate').val();
+    let expireDate = $('#expireDate').val();
+    let renewCost = $('#renewCost').val();
+    let notes = $('#notes').val();
 
-    let search = {
+    return {
         subdomain: subdomain,
         domain: domain,
         name: name,
         status: status,
         host: host,
-        registrarCode: registrar
+        registrar: registrar,
+        expireDate: expireDate,
+        registerDate: registerDate,
+        renewCost: renewCost,
+        notes: notes
+    };
+}
+
+function searchVHosts()
+{
+    let search = {
+        subdomain: $('#subdomain').val(),
+        domain: $('#domain').val(),
+        name: $('#name').val(),
+        status: $('#status').val(),
+        host: $('#host').val(),
+        registrar: $('#registrar').val(),
     };
 
     apiRequest('POST', 'vhosts/search', search).done(function(json){
@@ -48,6 +68,49 @@ function searchVHosts()
         unveil();
     });
     return false;
+}
+
+function saveChanges(id)
+{
+    apiRequest('PUT', 'vhosts/' + id, getForm()).done(function(json){
+        if(json.code === 204)
+            window.location.replace(baseURI + 'web/vhosts?NOTICE=VHost updated');
+        else
+        {
+            showNotifications('error', json.data.errors);
+            unveil();
+        }
+    });
+
+    return false;
+}
+
+function createVHost()
+{
+    apiRequest('POST', 'vhosts', getForm()).done(function(json){
+        if(json.code === 201)
+            window.location.replace(baseURI + 'web/vhosts?NOTICE=VHost created');
+        else
+        {
+            showNotifications('error', json.data.errors);
+            unveil();
+        }
+    });
+
+    return false;
+}
+
+function deleteVHost(id)
+{
+    apiRequest('DELETE', 'vhosts/' + id, {}).done(function(json){
+        if(json.code === 204)
+            window.location.replace(baseURI + "web/vhosts?NOTICE=VHost deleted");
+        else
+        {
+            showNotifications('error', json.data.errors);
+            unveil();
+        }
+    });
 }
 
 $(document).ready(function(){

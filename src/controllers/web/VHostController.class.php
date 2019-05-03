@@ -15,6 +15,7 @@ namespace controllers\web;
 
 
 use controllers\Controller;
+use views\pages\web\VHostCreatePage;
 use views\pages\web\VHostEditPage;
 use views\pages\web\VHostSearchPage;
 use views\View;
@@ -38,7 +39,7 @@ class VHostController extends Controller
             case null:
                 return new VHostSearchPage();
             case 'new':
-                die('new');
+                return new VHostCreatePage();
             default:
                 return new VHostEditPage($param);
         }
