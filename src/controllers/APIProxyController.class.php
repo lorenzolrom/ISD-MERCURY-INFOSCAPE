@@ -35,7 +35,7 @@ class APIProxyController extends Controller
      */
     public function getPage(): View
     {
-        $json = "Invalid Request";
+        $json = json_encode(array('code' => '500', 'data' => array('errors' => array('Invalid Request'))));
 
         if(isset($_GET['requestType']) AND isset($_GET['path']) AND isset($_GET['body']))
         {
@@ -60,9 +60,13 @@ class APIProxyController extends Controller
 
             $body = json_decode(base64_decode($_GET['body']), TRUE);
 
-            $result = InfoCentralConnection::getResponse($type, $path, $body);
+            // Ensure body was decoded successfully
+            if($body !== NULL)
+            {
+                $result = InfoCentralConnection::getResponse($type, $path, $body);
 
-            $json = json_encode(array('code' => $result->getResponseCode(), 'data' => $result->getBody()));
+                $json = json_encode(array('code' => $result->getResponseCode(), 'data' => $result->getBody()));
+            }
         }
 
         return new JSONOutputPage($json);

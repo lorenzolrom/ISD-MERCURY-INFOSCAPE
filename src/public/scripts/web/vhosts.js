@@ -12,6 +12,8 @@ function getForm()
     let expireDate = $('#expireDate').val();
     let renewCost = $('#renewCost').val();
     let notes = $('#notes').val();
+    let webRoot = $('#webRoot').val();
+    let logPath = $('#logPath').val();
 
     return {
         subdomain: subdomain,
@@ -23,7 +25,9 @@ function getForm()
         expireDate: expireDate,
         registerDate: registerDate,
         renewCost: renewCost,
-        notes: notes
+        notes: notes,
+        webRoot: webRoot,
+        logPath: logPath
     };
 }
 
