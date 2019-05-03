@@ -121,12 +121,6 @@ abstract class Pages
                     'link' => 'web/urlaliases',
                     'icon' => 'hostname.png',
                     'permission' => 'itsm_web-aliases-rw'
-                ),
-                array(
-                    'title' => 'Site Logs',
-                    'link' => 'web/sitelogs',
-                    'icon' => 'report.png',
-                    'permission' => 'itsm_weblogs'
                 )
             )
         ),

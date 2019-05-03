@@ -42,6 +42,9 @@ class WebController extends Controller
             case 'urlaliases':
                 $urlaliases = new URLAliasController($this->request);
                 return $urlaliases->getPage();
+            case 'sitelogs':
+                $sitelogs = new SiteLogsController($this->request);
+                return $sitelogs->getPage();
         }
 
         throw new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND);

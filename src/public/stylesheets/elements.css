@@ -346,3 +346,11 @@ p#dev-message img {
     width: 16px;
     margin-right: 3px;
 }
+
+/* Log display */
+#log-display textarea {
+    display: inline-block;
+    min-width: 800px;
+    min-height: 600px;
+    font-size: .8rem;
+}
