@@ -21,7 +21,7 @@ class VHostEditPage extends ModelPage
 {
     public function __construct(?string $vhostId)
     {
-        parent::__construct("vhosts/$vhostId", 'itsm_web-vhosts-w', 'web');
+        parent::__construct("vhosts/$vhostId", 'itsm_web-vhosts-r', 'web');
 
         $details = $this->response->getBody();
 

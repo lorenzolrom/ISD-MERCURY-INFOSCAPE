@@ -28,6 +28,8 @@ class ControllerFactory
 
         'facilities' => 'controllers\facilities\FacilitiesController',
 
+        'ait' => 'controllers\ait\AITController',
+
         'history' => 'controllers\HistoryController',
         'logout' => 'controllers\LogoutController',
         'login' => 'controllers\LoginController',

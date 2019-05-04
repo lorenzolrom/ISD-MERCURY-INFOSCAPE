@@ -1,0 +1,50 @@
+<?php
+/**
+ * LLR Technologies & Associated Services
+ * Information Systems Development
+ *
+ * Mercury Merlot
+ *
+ * User: lromero
+ * Date: 5/03/2019
+ * Time: 8:20 PM
+ */
+
+
+namespace views\pages\ait;
+
+
+use utilities\InfoCentralConnection;
+use views\pages\UserDocument;
+
+class ApplicationSearchPage extends UserDocument
+{
+    public function __construct()
+    {
+        parent::__construct('itsm_ait-apps-r', 'ait');
+
+        $this->setVariable('content', self::templateFileContents('ait/ApplicationSearchPage', self::TEMPLATE_CONTENT));
+        $this->setVariable('tabTitle', 'Applications');
+
+        // Types
+        $types = InfoCentralConnection::getResponse(InfoCentralConnection::GET, 'applications/types')->getBody();
+
+        // Life Expectancies
+        $lifeExpectancies = InfoCentralConnection::getResponse(InfoCentralConnection::GET, 'applications/lifeExpectancies')->getBody();
+
+        // Data Volumes
+        $dataVolumes = InfoCentralConnection::getResponse(InfoCentralConnection::GET, 'applications/dataVolumes')->getBody();
+
+        // Auth Types
+        $authTypes = InfoCentralConnection::getResponse(InfoCentralConnection::GET, 'applications/authTypes')->getBody();
+
+        // Statuses
+        $statuses = InfoCentralConnection::getResponse(InfoCentralConnection::GET, 'applications/statuses')->getBody();
+
+        $this->setVariable('typeSelect', self::generateAttributeOptions($types));
+        $this->setVariable('lifeExpectancySelect', self::generateAttributeOptions($lifeExpectancies));
+        $this->setVariable('dataVolumeSelect', self::generateAttributeOptions($dataVolumes));
+        $this->setVariable('authTypeSelect', self::generateAttributeOptions($authTypes));
+        $this->setVariable('statusSelect', self::generateAttributeOptions($statuses));
+    }
+}

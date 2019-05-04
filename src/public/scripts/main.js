@@ -590,6 +590,24 @@ function setupAutoCompleteList(options)
     });
 }
 
+function restoreSearch(cookieName, next)
+{
+    let last = getCookie(cookieName);
+
+    if(last === '')
+        return;
+
+    veil();
+
+    last = JSON.parse(window.atob(last));
+
+    $.each(last, function(i, v){
+        $('#' + i).val(v);
+    });
+
+    next();
+}
+
 /**
  * Setup document
  */

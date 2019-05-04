@@ -123,12 +123,28 @@ abstract class View
     }
 
     /**
+     * @param array $attributes
+     * @return string
+     */
+    public static function generateAttributeOptions(array $attributes): string
+    {
+        $select = "";
+
+        foreach($attributes as $attribute)
+        {
+            $select .= "<option value='{$attribute['code']}'>{$attribute['name']}</option>\n";
+        }
+
+        return $select;
+    }
+
+    /**
      * @param array $notifications
      * @param string $type
      * @param string $title
      * @throws \exceptions\ViewException
      */
-    private function setNotifications(array $notifications, string $type, string $title)
+    protected function setNotifications(array $notifications, string $type, string $title)
     {
         $notificationString = "<ul>";
 
