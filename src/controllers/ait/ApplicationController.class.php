@@ -15,6 +15,8 @@ namespace controllers\ait;
 
 
 use controllers\Controller;
+use views\pages\ait\ApplicationCreatePage;
+use views\pages\ait\ApplicationEditPage;
 use views\pages\ait\ApplicationSearchPage;
 use views\pages\ait\ApplicationViewPage;
 use views\View;
@@ -38,9 +40,15 @@ class ApplicationController extends Controller
             case null:
                 return new ApplicationSearchPage();
             case 'new':
-                die('new');
+                return new ApplicationCreatePage();
             default:
-                return new ApplicationViewPage($param);
+                switch($this->request->next())
+                {
+                    case 'edit':
+                        return new ApplicationEditPage($param);
+                    default:
+                        return new ApplicationViewPage($param);
+                }
         }
     }
 }

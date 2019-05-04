@@ -1,6 +1,5 @@
 <div class="button-bar">
     <a href="{{@baseURI}}ait/applications/{{@number}}/edit" class="button"><img src="{{@baseURI}}media/icons/apps_edit.png" alt="">Edit</a>
-    <a href="{{@baseURI}}ait/applications/{{@number}}/update" class="button"><img src="{{@baseURI}}media/icons/apps_update.png" alt="">Update Development Cycle</a>
     <a class="button" href="{{@baseURI}}ait/applications"><img src="{{@baseURI}}media/icons/search.png" alt="">New Search</a>
 </div>
 <h2 class="region-title"><img src="{{@baseURI}}media/icons/apps.png" alt="">Application Profile<a class="history-link" href="{{@baseURI}}history/application/{{@number}}"><img src="{{@baseURI}}media/icons/history.png" alt="" title="View History"></a></h2>
@@ -27,6 +26,12 @@
     <tr>
         <td>Auth Type</td>
         <td>{{@authTypeName}}</td>
+    </tr>
+    <tr>
+        <td>Description</td>
+        <td colspan="3">
+            <textarea class="no-edit" readonly>{{@description}}</textarea>
+        </td>
     </tr>
     </tbody>
 </table>
@@ -59,17 +64,6 @@
         <td><ul>{{@webHostList}}</ul></td>
         <td>Port</td>
         <td>{{@port}}</td>
-    </tr>
-    </tbody>
-</table>
-<h2 class="region-title"><img src="{{@baseURI}}media/icons/bulk.png" alt="">Additional Details</h2>
-<table class="table-display">
-    <tbody>
-    <tr>
-        <td>Description</td>
-        <td colspan="3">
-            <textarea class="no-edit" readonly>{{@description}}</textarea>
-        </td>
     </tr>
     </tbody>
 </table>

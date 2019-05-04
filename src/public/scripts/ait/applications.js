@@ -29,6 +29,43 @@ function getForm()
     };
 }
 
+function getEditForm()
+{
+    let name = $('#name').val();
+    let status = $('#status').val();
+    let owner = $('#owner').val();
+    let type = $('#type').val();
+    let lifeExpectancy = $('#lifeExpectancy').val();
+    let authType = $('#authType').val();
+    let description = $('#description').val();
+
+    let dataHosts = $('#dataHosts').val();
+    let appHosts = $('#appHosts').val();
+    let dataVolume = $('#dataVolume').val();
+
+    let vHosts = $('#vHosts').val();
+    let publicFacing = $('#publicFacing').val();
+    let webHosts = $('#webHosts').val();
+    let port = $('#port').val();
+
+    return{
+        name: name,
+        status: status,
+        owner: owner,
+        type: type,
+        lifeExpectancy: lifeExpectancy,
+        authType: authType,
+        description: description,
+        dataHosts: dataHosts,
+        appHosts: appHosts,
+        dataVolume: dataVolume,
+        vHosts: vHosts,
+        publicFacing: publicFacing,
+        webHosts: webHosts,
+        port: port
+    };
+}
+
 function search()
 {
     apiRequest('POST', 'applications/search', getForm()).done(function(json){
@@ -65,11 +102,35 @@ function search()
     return false;
 }
 
-function create(){}
+function create()
+{
+    console.log(JSON.stringify(getEditForm()));
+    apiRequest('POST', 'applications', getEditForm()).done(function(json){
+        if(json.code === 201)
+            window.location.replace(baseURI + 'ait/applications/' + json.data.id + '?NOTICE=Application created');
+        else
+        {
+            showNotifications('error', json.data.errors);
+            unveil();
+        }
+    });
 
-function save(num){}
+    return false;
+}
 
-function remove(num){}
+function save(num)
+{
+    apiRequest('PUT', 'applications/' + num, getEditForm()).done(function(json){
+        if(json.code === 204)
+            window.location.replace(baseURI + 'ait/applications/' + num + '?NOTICE=Application updated');
+        else
+        {
+            showNotifications('error', json.data.errors);
+            unveil();
+        }
+    });
+    return false;
+}
 
 $(document).ready(function(){
     if(document.getElementById("results"))

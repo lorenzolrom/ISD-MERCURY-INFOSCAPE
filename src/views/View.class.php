@@ -80,6 +80,10 @@ abstract class View
     {
         foreach(array_keys($variables) as $variableName)
         {
+            // Skip arrays
+            if(is_array($variables[$variableName]))
+                continue;
+
             $this->setVariable($variableName, htmlentities($variables[$variableName]));
         }
     }
@@ -124,15 +128,21 @@ abstract class View
 
     /**
      * @param array $attributes
+     * @param string|null $default
      * @return string
      */
-    public static function generateAttributeOptions(array $attributes): string
+    public static function generateAttributeOptions(array $attributes, ?string $default = NULL): string
     {
-        $select = "";
+        $select = "<option value=''>--SELECT--</option>";
 
         foreach($attributes as $attribute)
         {
-            $select .= "<option value='{$attribute['code']}'>{$attribute['name']}</option>\n";
+            if($default !== NULL AND $attribute['code'] == $default)
+                $selected = 'selected';
+            else
+                $selected = '';
+
+            $select .= "<option value='{$attribute['code']}' $selected>{$attribute['name']}</option>\n";
         }
 
         return $select;
