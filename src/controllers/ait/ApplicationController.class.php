@@ -16,6 +16,7 @@ namespace controllers\ait;
 
 use controllers\Controller;
 use views\pages\ait\ApplicationSearchPage;
+use views\pages\ait\ApplicationViewPage;
 use views\View;
 
 class ApplicationController extends Controller
@@ -26,6 +27,7 @@ class ApplicationController extends Controller
      * @throws \exceptions\InfoCentralException
      * @throws \exceptions\SecurityException
      * @throws \exceptions\ViewException
+     * @throws \exceptions\EntryNotFoundException
      */
     public function getPage(): View
     {
@@ -38,7 +40,7 @@ class ApplicationController extends Controller
             case 'new':
                 die('new');
             default:
-                die('edit');
+                return new ApplicationViewPage($param);
         }
     }
 }

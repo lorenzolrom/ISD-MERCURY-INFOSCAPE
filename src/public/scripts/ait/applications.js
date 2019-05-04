@@ -49,7 +49,7 @@ function search()
 
         setupTable({
             target: 'results',
-            header: ['Number', 'Name', 'Owner', 'Type', 'Status'],
+            header: ['Number', 'Name', 'Type', 'Status', 'Owner'],
             sortColumn: 0,
             linkColumn: 0,
             href: baseURI + 'ait/applications/',
@@ -64,6 +64,12 @@ function search()
 
     return false;
 }
+
+function create(){}
+
+function save(num){}
+
+function remove(num){}
 
 $(document).ready(function(){
     if(document.getElementById("results"))

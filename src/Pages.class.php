@@ -186,6 +186,12 @@ abstract class Pages
                     'link' => 'admin/roles'
                 ),
                 array(
+                    'title' => 'Authorized Apps',
+                    'permission' => 'api-settings',
+                    'icon' => 'apps.png',
+                    'link' => 'admin/icadmin'
+                ),
+                array(
                     'title' => 'Notifications',
                     'permission' => 'settings',
                     'icon' => 'mail.png',

@@ -184,6 +184,11 @@ table.table-display a > img {
     height: 16px;
 }
 
+table.table-display ul li {
+    list-style-type: none;
+    margin-bottom: 2px;
+}
+
 /* Collapsible regions */
 
 h2.region-expand {

@@ -33,6 +33,10 @@
     font-weight: normal;
 }
 
+a {
+    color: blue;
+}
+
 div#wrapper {
     display: flex;
     min-height: 100vh;
