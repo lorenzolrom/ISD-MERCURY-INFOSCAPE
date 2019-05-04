@@ -41,10 +41,10 @@ class ApplicationSearchPage extends UserDocument
         // Statuses
         $statuses = InfoCentralConnection::getResponse(InfoCentralConnection::GET, 'applications/statuses')->getBody();
 
-        $this->setVariable('typeSelect', self::generateAttributeOptions($types));
-        $this->setVariable('lifeExpectancySelect', self::generateAttributeOptions($lifeExpectancies));
-        $this->setVariable('dataVolumeSelect', self::generateAttributeOptions($dataVolumes));
-        $this->setVariable('authTypeSelect', self::generateAttributeOptions($authTypes));
-        $this->setVariable('statusSelect', self::generateAttributeOptions($statuses));
+        $this->setVariable('typeSelect', self::generateAttributeOptions($types, NULL, FALSE));
+        $this->setVariable('lifeExpectancySelect', self::generateAttributeOptions($lifeExpectancies, NULL, FALSE));
+        $this->setVariable('dataVolumeSelect', self::generateAttributeOptions($dataVolumes, NULL, FALSE));
+        $this->setVariable('authTypeSelect', self::generateAttributeOptions($authTypes, NULL, FALSE));
+        $this->setVariable('statusSelect', self::generateAttributeOptions($statuses, NULL, FALSE));
     }
 }

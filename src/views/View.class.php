@@ -129,11 +129,15 @@ abstract class View
     /**
      * @param array $attributes
      * @param string|null $default
+     * @param bool $placeholder
      * @return string
      */
-    public static function generateAttributeOptions(array $attributes, ?string $default = NULL): string
+    public static function generateAttributeOptions(array $attributes, ?string $default = NULL, bool $placeholder = TRUE): string
     {
-        $select = "<option value=''>--SELECT--</option>";
+        if($placeholder)
+            $select = "<option value=''>--SELECT--</option>";
+        else
+            $select = '';
 
         foreach($attributes as $attribute)
         {
