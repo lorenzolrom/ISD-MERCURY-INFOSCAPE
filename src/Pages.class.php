@@ -168,7 +168,7 @@ abstract class Pages
                 )
             )
         ),
-        'settings' => array(
+        'admin' => array(
             'title' => 'Admin',
             'permission' => 'settings',
             'icon' => 'admin.png',
@@ -186,9 +186,9 @@ abstract class Pages
                     'link' => 'admin/roles'
                 ),
                 array(
-                    'title' => 'Authorized Apps',
+                    'title' => 'API Keys',
                     'permission' => 'api-settings',
-                    'icon' => 'apps.png',
+                    'icon' => 'operator.png',
                     'link' => 'admin/icadmin'
                 ),
                 array(

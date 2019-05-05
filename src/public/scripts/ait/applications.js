@@ -104,7 +104,6 @@ function search()
 
 function create()
 {
-    console.log(JSON.stringify(getEditForm()));
     apiRequest('POST', 'applications', getEditForm()).done(function(json){
         if(json.code === 201)
             window.location.replace(baseURI + 'ait/applications/' + json.data.id + '?NOTICE=Application created');

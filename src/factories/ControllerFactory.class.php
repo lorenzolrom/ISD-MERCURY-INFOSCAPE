@@ -30,6 +30,7 @@ class ControllerFactory
 
         'ait' => 'controllers\ait\AITController',
 
+        'admin' => 'controllers\admin\AdminController',
         'history' => 'controllers\HistoryController',
         'logout' => 'controllers\LogoutController',
         'login' => 'controllers\LoginController',
