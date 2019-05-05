@@ -12,6 +12,7 @@ function getForm()
     let dataVolume = $('#dataVolume').val();
     let authType = $('#authType').val();
     let status = $('#status').val();
+    let publicFacing = $('#publicFacing').val();
 
     return {
         number: number,
@@ -25,7 +26,8 @@ function getForm()
         lifeExpectancy: lifeExpectancy,
         dataVolume: dataVolume,
         authType: authType,
-        status: status
+        status: status,
+        publicFacing: publicFacing
     };
 }
 
