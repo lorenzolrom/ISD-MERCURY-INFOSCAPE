@@ -608,6 +608,11 @@ function restoreSearch(cookieName, next)
     next();
 }
 
+function disableAutocomplete()
+{
+    $('input').attr('autocomplete', 'off');
+}
+
 /**
  * Setup document
  */
@@ -625,6 +630,7 @@ $(document).ready(function(){
     setupHistoryBackButtons();
     setupExpandableRegions();
     setupDialogButtons();
+    disableAutocomplete();
 
     setupLoadingImage();
 
