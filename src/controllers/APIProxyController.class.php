@@ -37,11 +37,11 @@ class APIProxyController extends Controller
     {
         $json = json_encode(array('code' => '500', 'data' => array('errors' => array('Invalid Request'))));
 
-        if(isset($_GET['requestType']) AND isset($_GET['path']) AND !empty($_POST['data']))
+        if(isset($_POST['type']) AND isset($_POST['path']) AND !empty($_POST['data']))
         {
             // Currently this script is only allowed to perform GET requests, although the request type must still be
             // specified for future-proofing
-            switch($_GET['requestType'])
+            switch($_POST['type'])
             {
                 case "DELETE":
                     $type = InfoCentralConnection::DELETE;
@@ -56,7 +56,7 @@ class APIProxyController extends Controller
                     $type = InfoCentralConnection::GET;
             }
 
-            $path = $_GET['path'];
+            $path = $_POST['path'];
 
             $body = json_decode($_POST['data'], TRUE);
 

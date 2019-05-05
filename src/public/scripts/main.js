@@ -290,7 +290,7 @@ function apiRequest(type, path, data, base64 = false)
             break;
     }
 
-    let result = $.post(baseURI + '!api-request?requestType=' + type + '&path=' + path, {data:JSON.stringify(data)}, null, 'json');
+    let result = $.post(baseURI + '!api-request', {type:type, path: path, data:JSON.stringify(data)}, null, 'json');
 
     if(result.code === 500)
     {
