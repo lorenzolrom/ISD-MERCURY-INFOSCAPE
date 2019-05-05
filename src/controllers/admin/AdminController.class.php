@@ -41,6 +41,9 @@ class AdminController extends Controller
             case 'roles':
                 $roles = new RoleController($this->request);
                 return $roles->getPage();
+            case 'icadmin':
+                $api = new APIKeyController($this->request);
+                return $api->getPage();
         }
 
         throw new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND);

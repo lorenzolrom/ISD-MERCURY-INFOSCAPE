@@ -33,7 +33,8 @@ class HistoryController extends Controller
         'urlalias' => 'NIS_URLAlias',
         'application' => 'ITSM_Application',
         'bulletin' => 'Bulletin',
-        'role' => 'Role'
+        'role' => 'Role',
+        'secret' => 'Secret'
     );
 
     /**
