@@ -27,7 +27,7 @@ class ApplicationEditPage extends ModelPage
 
         $form = new ApplicationForm($details);
 
-        $this->setVariable('tabTitle', "Application - {$details['name']} (Edit)");
+        $this->setVariable('tabTitle', "Application - " . htmlentities($details['name']) . " (Edit)");
         $this->setVariable('content', $form->getTemplate());
         $this->setVariable('cancelLink', "{{@baseURI}}ait/applications/{$details['number']}");
         $this->setVariable('formScript', "return save('{$details['number']}')");

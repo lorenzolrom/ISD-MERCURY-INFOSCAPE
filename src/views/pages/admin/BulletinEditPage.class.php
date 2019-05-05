@@ -27,7 +27,7 @@ class BulletinEditPage extends ModelPage
 
         $form = new BulletinForm($details);
 
-        $this->setVariable('tabTitle', "Bulletin - {$details['title']} (Edit)");
+        $this->setVariable('tabTitle', "Bulletin - " . htmlentities($details['title']) . " (Edit)");
         $this->setVariable('content', $form->getTemplate());
         $this->setVariable('formScript', "return save('$param')");
     }

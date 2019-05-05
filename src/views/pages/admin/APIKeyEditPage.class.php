@@ -25,7 +25,7 @@ class APIKeyEditPage extends ModelPage
 
         $details = $this->response->getBody();
 
-        $this->setVariable('tabTitle', "API Key - {$details['name']} (Edit)");
+        $this->setVariable('tabTitle', "API Key - " . htmlentities($details['name']) . " (Edit)");
 
         $form = new APIKeyForm($details);
 

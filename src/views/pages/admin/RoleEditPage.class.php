@@ -29,7 +29,7 @@ class RoleEditPage extends ModelPage
         $permissions = InfoCentralConnection::getResponse(InfoCentralConnection::GET, "roles/$param/permissions")->getBody();
         $details['permissions'] = $permissions;
 
-        $this->setVariable('tabTitle', "Role - {$details['name']} (Edit)");
+        $this->setVariable('tabTitle', "Role - " . htmlentities($details['name']) . " (Edit)");
 
         $form = new RoleForm($details);
 
