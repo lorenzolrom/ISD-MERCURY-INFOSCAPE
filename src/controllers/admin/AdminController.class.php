@@ -16,6 +16,7 @@ namespace controllers\admin;
 
 use controllers\Controller;
 use exceptions\PageNotFoundException;
+use views\pages\admin\PermissionAuditSearchPage;
 use views\pages\admin\UserLogSearchPage;
 use views\View;
 
@@ -50,6 +51,8 @@ class AdminController extends Controller
                 return $users->getPage();
             case 'userlogs':
                 return new UserLogSearchPage();
+            case 'permissions':
+                return new PermissionAuditSearchPage();
         }
 
         throw new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND);

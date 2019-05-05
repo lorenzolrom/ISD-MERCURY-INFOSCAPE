@@ -359,3 +359,13 @@ p#dev-message img {
     min-height: 600px;
     font-size: .8rem;
 }
+
+/* Perm audit display */
+#user-display ul li {
+    list-style-type: none;
+}
+
+#user-display p {
+    font-weight: 600;
+    margin-top: 10px;
+}
