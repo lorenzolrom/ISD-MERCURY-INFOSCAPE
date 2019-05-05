@@ -34,7 +34,8 @@ class HistoryController extends Controller
         'application' => 'ITSM_Application',
         'bulletin' => 'Bulletin',
         'role' => 'Role',
-        'secret' => 'Secret'
+        'secret' => 'Secret',
+        'user' => 'User'
     );
 
     /**

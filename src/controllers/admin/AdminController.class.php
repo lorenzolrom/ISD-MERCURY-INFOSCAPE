@@ -44,6 +44,9 @@ class AdminController extends Controller
             case 'icadmin':
                 $api = new APIKeyController($this->request);
                 return $api->getPage();
+            case 'users':
+                $users = new UserController($this->request);
+                return $users->getPage();
         }
 
         throw new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND);

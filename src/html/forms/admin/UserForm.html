@@ -1,0 +1,49 @@
+<div class="button-bar">
+    <span class="button form-submit-button" id="edit"><img src="{{@baseURI}}media/icons/save.png" alt="">Save</span>
+    <a class="button delete-button confirm-button" href="javascript: remove('{{@id}}')"><img src="{{@baseURI}}media/icons/user_delete.png" alt="">Delete</a>
+    <a class="button" href="{{@baseURI}}admin/users"><img src="{{@baseURI}}media/icons/delete.png" alt="">Cancel</a>
+</div>
+<form id="edit-form" class="table-form" onsubmit="{{@formScript}}">
+    <h2 class="region-title"><img src="{{@baseURI}}media/icons/user.png" alt="">User Profile<a class="history-link" href="{{@baseURI}}history/user/{{@id}}"><img src="{{@baseURI}}media/icons/history.png" alt="" title="View History"></a></h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td class="required">Username</td>
+            <td><input type="text" id="username" value="{{@username}}"></td>
+            <td class="required">Auth Type</td>
+            <td>
+                <select id="authType">
+                    <option value="loca">Local</option>
+                    <option value="ldap" {{@authTypeLdap}}>LDAP</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="required">First Name</td>
+            <td><input type="text" id="firstName" class="localOnly" value="{{@firstName}}"></td>
+            <td class="required">Last Name</td>
+            <td><input type="text" id="lastName" class="localOnly" value="{{@lastName}}"></td>
+        </tr>
+        <tr>
+            <td>E-Mail</td>
+            <td><input type="text" id="email" class="localOnly" value="{{@email}}"></td>
+            <td class="required">Disabled</td>
+            <td>
+                <select id="disabled" class="localOnly">
+                    <option value="0">No</option>
+                    <option value="1" {{@disabledYes}}>Yes</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td {{@passwordRequired}}>Password</td>
+            <td><input type="password" id="password" class="localOnly"></td>
+            <td>Roles</td>
+            <td>
+                <select id="roles" multiple size="10">{{@roleSelect}}</select>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script src="{{@baseURI}}scripts/admin/users.js"></script>
