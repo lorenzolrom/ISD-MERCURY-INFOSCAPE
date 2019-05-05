@@ -290,16 +290,7 @@ function apiRequest(type, path, data, base64 = false)
             break;
     }
 
-    if(!base64)
-        data = window.btoa(JSON.stringify(data));
-
-    let result = $.ajax({
-        type: type,
-        url: baseURI + '!api-request?requestType=' + type + "&path=" + path + "&body=" + data,
-        dataType: 'json',
-        cache: false,
-        async: true
-    });
+    let result = $.post(baseURI + '!api-request?requestType=' + type + '&path=' + path, {data:JSON.stringify(data)}, null, 'json');
 
     if(result.code === 500)
     {
