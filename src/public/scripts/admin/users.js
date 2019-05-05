@@ -126,7 +126,6 @@ function updateForm()
 
     if(authType === 'ldap')
     {
-        $(localInputs).val('');
         $(localInputs).attr('disabled', 'disabled');
     }
     else
@@ -136,6 +135,7 @@ function updateForm()
 }
 
 $(document).ready(function(){
+    updateForm();
     if(document.getElementById("results"))
         restoreSearch('userSearch', search);
 });
