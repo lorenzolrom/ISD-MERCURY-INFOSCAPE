@@ -3,11 +3,12 @@ function getSearch()
     let title = $('#title').val();
     let startDate = $('#startDate').val();
     let endDate = $('#endDate').val();
-    let inactiveYes = $('#inactiveYes');
-    let inactiveNo = ($('#inactiveNo'));
+    //let inactiveYes = $('#inactiveYes');
+    //let inactiveNo = ($('#inactiveNo'));
 
-    let inactive = [];
+    //let inactive = [];
 
+    /*
     if($(inactiveYes).is(":checked"))
         inactive.push(1);
     if($(inactiveNo).is(":checked"))
@@ -15,14 +16,15 @@ function getSearch()
 
     inactiveYes = $(inactiveYes).val();
     inactiveNo = $(inactiveNo).val();
+    */
 
     return {
         title: title,
         startDate: startDate,
         endDate: endDate,
-        inactiveYes: inactiveYes,
-        inactiveNo: inactiveNo,
-        inactive: inactive
+        //inactiveYes: inactiveYes,
+        //inactiveNo: inactiveNo,
+        //inactive: inactive
     };
 }
 
