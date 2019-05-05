@@ -32,7 +32,8 @@ class HistoryController extends Controller
         'vhost' => 'ITSM_VHost',
         'urlalias' => 'NIS_URLAlias',
         'application' => 'ITSM_Application',
-        'bulletin' => 'Bulletin'
+        'bulletin' => 'Bulletin',
+        'role' => 'Role'
     );
 
     /**

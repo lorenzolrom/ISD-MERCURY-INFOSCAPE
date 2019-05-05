@@ -24,6 +24,10 @@ class AdminController extends Controller
     /**
      * @return View
      * @throws PageNotFoundException
+     * @throws \exceptions\EntryNotFoundException
+     * @throws \exceptions\InfoCentralException
+     * @throws \exceptions\SecurityException
+     * @throws \exceptions\ViewException
      */
     public function getPage(): View
     {
@@ -34,6 +38,9 @@ class AdminController extends Controller
             case 'bulletins':
                 $bulletins = new BulletinController($this->request);
                 return $bulletins->getPage();
+            case 'roles':
+                $roles = new RoleController($this->request);
+                return $roles->getPage();
         }
 
         throw new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND);
