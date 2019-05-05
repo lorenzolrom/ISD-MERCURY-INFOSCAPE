@@ -192,10 +192,10 @@ abstract class Pages
                     'link' => 'admin/icadmin'
                 ),
                 array(
-                    'title' => 'Notifications',
+                    'title' => 'Send Notification',
                     'permission' => 'settings',
-                    'icon' => 'mail.png',
-                    'link' => 'admin/notifications'
+                    'icon' => 'toemail.png',
+                    'link' => 'admin/notifications/send'
                 ),
                 array(
                     'title' => 'Bulletins',
