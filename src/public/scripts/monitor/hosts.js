@@ -1,7 +1,11 @@
-$(document).ready(function(){
-    $('#content').css('background-image', "url('" + baseURI + "media/monitor/globe.jpg')").css('background-size', 'cover');
+let timer = 300;
+
+function loadMonitor()
+{
+    timer = 300;
 
     let container = $('#monitor-container');
+    $(container).html('');
 
     apiRequest('GET', 'hostCategories/displayed', {}).done(function(json){
         // Store categories to load status of
@@ -76,14 +80,19 @@ $(document).ready(function(){
             });
         });
     });
+}
+
+$(document).ready(function(){
+    $('#content').css('background-image', "url('" + baseURI + "media/monitor/globe.jpg')").css('background-size', 'cover');
+    loadMonitor();
 });
 
-(function countdown(remaining) {
-    if(remaining === 0)
+(function countdown() {
+    if(timer === 0)
     {
-        veil();
-        location.reload(true);
+        loadMonitor();
     }
-    document.getElementById('monitor-countdown-timer').innerHTML = remaining;
-    setTimeout(function(){ countdown(remaining - 1); }, 1000);
-})(300);
+    timer --;
+    document.getElementById('monitor-countdown-timer').innerHTML = timer;
+    setTimeout(function(){ countdown(); }, 1000);
+})(1);
