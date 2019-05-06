@@ -428,3 +428,16 @@ div.monitor-tile ul li img {
     right: 0;
     vertical-align: text-top;
 }
+
+div.monitor-countdown {
+    float: right;
+    color: #006699;
+    font-weight: 600;
+}
+
+#monitor-countdown-timer {
+    color: #000;
+    text-decoration: underline;
+    font-weight: 600;
+    font-size: 1.1rem;
+}

@@ -77,3 +77,13 @@ $(document).ready(function(){
         });
     });
 });
+
+(function countdown(remaining) {
+    if(remaining === 0)
+    {
+        veil();
+        location.reload(true);
+    }
+    document.getElementById('monitor-countdown-timer').innerHTML = remaining;
+    setTimeout(function(){ countdown(remaining - 1); }, 1000);
+})(300);
