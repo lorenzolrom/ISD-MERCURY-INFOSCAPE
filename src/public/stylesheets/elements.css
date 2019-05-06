@@ -420,13 +420,14 @@ div.monitor-tile ul li {
     font-size: .8rem;
     display: block;
     position: relative;
-    margin-top: 7px;
+    margin-top: 5px;
+    line-height: 16px;
 }
 
 div.monitor-tile ul li img {
     position: absolute;
     right: 0;
-    vertical-align: text-top;
+    vertical-align: middle;
 }
 
 div.monitor-countdown {
