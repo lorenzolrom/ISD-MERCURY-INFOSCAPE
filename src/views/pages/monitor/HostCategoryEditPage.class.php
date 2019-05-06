@@ -13,8 +13,6 @@
 
 namespace views\pages\monitor;
 
-
-use utilities\InfoCentralConnection;
 use views\forms\monitor\HostCategoryForm;
 use views\pages\ModelPage;
 

@@ -39,7 +39,7 @@ abstract class UserDocument extends AuthenticatedPage
         $header = new Header();
         $this->setVariable("header", $header->getTemplate());
 
-        $navigation = new Navigation($this->user);
+        $navigation = new Navigation();
         $this->setVariable('navigation', $navigation->getTemplate());
 
         $this->setVariable("footer", self::templateFileContents("Footer", self::TEMPLATE_ELEMENT));

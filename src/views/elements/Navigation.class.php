@@ -13,8 +13,6 @@
 
 namespace views\elements;
 
-
-use models\User;
 use utilities\InfoCentralConnection;
 use views\View;
 
@@ -22,11 +20,10 @@ class Navigation extends View
 {
     /**
      * Navigation constructor.
-     * @param User $user
      * @throws \exceptions\InfoCentralException
      * @throws \exceptions\ViewException
      */
-    public function __construct(User $user)
+    public function __construct()
     {
         $this->setTemplateFromHTML('Navigation', self::TEMPLATE_ELEMENT);
 
