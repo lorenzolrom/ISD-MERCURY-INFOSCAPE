@@ -15,8 +15,6 @@ function load()
         let refs = [];
         let rows = [];
 
-        console.log(json);
-
         $.each(json.data, function(i, v){
             refs.push(v.id);
             rows.push([v.name]);

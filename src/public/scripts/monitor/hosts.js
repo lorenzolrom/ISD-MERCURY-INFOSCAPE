@@ -48,9 +48,9 @@ function loadMonitor()
                 let list = $(tile).find('ul').first();
 
                 let offlineCount = 0;
-                let total = json.data.length;
+                let total = json.data.hosts.length;
 
-                $.each(json.data, function(k, v){
+                $.each(json.data.hosts, function(k, v){
                     if(v.status === 'offline')
                         offlineCount++;
 

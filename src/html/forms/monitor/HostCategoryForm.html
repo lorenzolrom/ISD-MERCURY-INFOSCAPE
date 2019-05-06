@@ -1,0 +1,30 @@
+<div class="button-bar">
+    <span class="button form-submit-button" id="edit"><img src="{{@baseURI}}media/icons/save.png" alt="">Save</span>
+    <a class="button delete-button confirm-button" href="javascript: remove('{{@id}}')"><img src="{{@baseURI}}media/icons/monitor_delete.png" alt="">Delete</a>
+    <a class="button" href="{{@baseURI}}monitor/configure"><img src="{{@baseURI}}media/icons/delete.png" alt="">Cancel</a>
+</div>
+<form id="edit-form" class="table-form" onsubmit="{{@formScript}}">
+    <h2 class="region-title"><img src="{{@baseURI}}media/icons/monitor.png" alt="">Host Category Profile<a class="history-link" href="{{@baseURI}}history/hostCategory/{{@id}}"><img src="{{@baseURI}}media/icons/history.png" alt="" title="View History"></a></h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td class="required">Name</td>
+            <td><input maxlength="64" type="text" id="name" value="{{@name}}"></td>
+            <td class="required">Displayed</td>
+            <td>
+                <select id="displayed">
+                    <option value="1">Yes</option>
+                    <option value="0" {{@displayedNo}}>No</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Hosts</td>
+            <td>
+                <select id="hosts" multiple size="10">{{@hostSelect}}</select>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script src="{{@baseURI}}scripts/monitor/configure.js"></script>

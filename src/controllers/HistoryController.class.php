@@ -21,6 +21,7 @@ use views\View;
 class HistoryController extends Controller
 {
     private const OBJECTS = array(
+        'hostcategory' => 'ITSM_HostCategory',
         'building' => 'FacilitiesCore_Building',
         'location' => 'FacilitiesCore_Location',
         'asset' => 'ITSM_Asset',
