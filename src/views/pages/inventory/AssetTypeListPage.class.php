@@ -23,6 +23,6 @@ class AssetTypeListPage extends UserDocument
         parent::__construct("itsm_inventory-commodities-r", 'inventory');
 
         $this->setVariable("tabTitle", "Asset Types");
-        $this->setVariable("content", self::templateFileContents("inventory/AssetTypeList", self::TEMPLATE_CONTENT));
+        $this->setVariable("content", self::templateFileContents("inventory/AssetTypeList", self::TEMPLATE_PAGE));
     }
 }

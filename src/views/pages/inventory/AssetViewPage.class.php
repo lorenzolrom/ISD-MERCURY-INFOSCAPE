@@ -24,7 +24,7 @@ class AssetViewPage extends ModelPage
 
         $asset = $this->response->getBody();
 
-        $this->setVariable("content", self::templateFileContents("inventory/Asset", self::TEMPLATE_CONTENT));
+        $this->setVariable("content", self::templateFileContents("inventory/Asset", self::TEMPLATE_PAGE));
 
         $this->setVariable("tabTitle", "Asset - " . $assetTag);
 

@@ -22,7 +22,7 @@ class VHostLogPage extends ModelPage
     {
         parent::__construct("vhosts/$param", 'itsm_weblogs', 'web');
 
-        $this->setVariable('content', self::templateFileContents('web/VHostLogPage', self::TEMPLATE_CONTENT));
+        $this->setVariable('content', self::templateFileContents('web/VHostLogPage', self::TEMPLATE_PAGE));
         $this->setVariable('tabTitle', "Get Logs - vhost($param)");
         $this->setVariable('id', $param);
     }

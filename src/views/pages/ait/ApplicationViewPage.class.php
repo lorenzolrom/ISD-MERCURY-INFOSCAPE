@@ -24,7 +24,7 @@ class ApplicationViewPage extends ModelPage
 
         $details = $this->response->getBody();
 
-        $this->setVariable('content', self::templateFileContents('ait/Application', self::TEMPLATE_CONTENT));
+        $this->setVariable('content', self::templateFileContents('ait/Application', self::TEMPLATE_PAGE));
         $this->setVariable('tabTitle', 'Application - ' . htmlentities($details['name']));
 
         $this->setVariable('publicFacing', $details['publicFacing'] ? 'Yes' : 'No');

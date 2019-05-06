@@ -20,7 +20,7 @@ class AboutPage extends UserDocument
     {
         parent::__construct();
         $this->setVariable("tabTitle", "About " . \Config::OPTIONS['appName']);
-        $this->setVariable("content", self::templateFileContents("About", self::TEMPLATE_CONTENT));
+        $this->setVariable("content", self::templateFileContents("About", self::TEMPLATE_PAGE));
         $this->setVariable("appVersion", \Version::CURRENT_VERSION);
         $this->setVariable("softwareName", \Version::SOFTWARE_TITLE);
     }

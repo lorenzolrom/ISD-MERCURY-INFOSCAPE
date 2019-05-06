@@ -22,6 +22,6 @@ class BulletinSearchPage extends UserDocument
     {
         parent::__construct('settings', 'admin');
         $this->setVariable('tabTitle', 'Bulletins');
-        $this->setVariable('content', self::templateFileContents("admin/BulletinSearchPage", self::TEMPLATE_CONTENT));
+        $this->setVariable('content', self::templateFileContents("admin/BulletinSearchPage", self::TEMPLATE_PAGE));
     }
 }

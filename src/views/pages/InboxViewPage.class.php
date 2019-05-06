@@ -30,7 +30,7 @@ class InboxViewPage extends ModelPage
         parent::__construct("currentUser/notifications/$notificationId");
 
         $this->setVariable("tabTitle", "View Notification");
-        $this->setVariable("content", self::templateFileContents("InboxNotification", self::TEMPLATE_CONTENT));
+        $this->setVariable("content", self::templateFileContents("InboxNotification", self::TEMPLATE_PAGE));
 
         $notification = $this->response->getBody();
 

@@ -21,6 +21,6 @@ class InboxPage extends UserDocument
         parent::__construct();
 
         $this->setVariable("tabTitle", "Inbox");
-        $this->setVariable("content", self::templateFileContents("Inbox", self::TEMPLATE_CONTENT));
+        $this->setVariable("content", self::templateFileContents("Inbox", self::TEMPLATE_PAGE));
     }
 }

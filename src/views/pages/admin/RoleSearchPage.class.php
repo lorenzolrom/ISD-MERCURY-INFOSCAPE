@@ -22,6 +22,6 @@ class RoleSearchPage extends UserDocument
     {
         parent::__construct('settings', 'admin');
         $this->setVariable('tabTitle', 'Roles');
-        $this->setVariable('content', self::templateFileContents('admin/RoleSearchPage', self::TEMPLATE_CONTENT));
+        $this->setVariable('content', self::templateFileContents('admin/RoleSearchPage', self::TEMPLATE_PAGE));
     }
 }

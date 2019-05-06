@@ -23,6 +23,6 @@ class URLAliasSearchPage extends UserDocument
         parent::__construct('itsm_web-aliases-rw', 'web');
 
         $this->setVariable('tabTitle', 'URL Aliases');
-        $this->setVariable('content', self::templateFileContents('web/URLAliasSearchPage', self::TEMPLATE_CONTENT));
+        $this->setVariable('content', self::templateFileContents('web/URLAliasSearchPage', self::TEMPLATE_PAGE));
     }
 }

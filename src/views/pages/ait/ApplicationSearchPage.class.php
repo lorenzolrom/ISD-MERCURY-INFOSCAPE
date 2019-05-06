@@ -23,7 +23,7 @@ class ApplicationSearchPage extends UserDocument
     {
         parent::__construct('itsm_ait-apps-r', 'ait');
 
-        $this->setVariable('content', self::templateFileContents('ait/ApplicationSearchPage', self::TEMPLATE_CONTENT));
+        $this->setVariable('content', self::templateFileContents('ait/ApplicationSearchPage', self::TEMPLATE_PAGE));
         $this->setVariable('tabTitle', 'Applications');
 
         // Types

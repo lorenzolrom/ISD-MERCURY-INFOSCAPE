@@ -22,7 +22,7 @@ class HomePage extends UserDocument
     {
         parent::__construct();
         $this->setVariable("tabTitle", \Config::OPTIONS['appName'] . " Home");
-        $this->setVariable('content', self::templateFileContents('Home', self::TEMPLATE_CONTENT));
+        $this->setVariable('content', self::templateFileContents('Home', self::TEMPLATE_PAGE));
 
         $bulletinList = new BulletinList();
         $this->setVariable('bulletinList', $bulletinList->getTemplate());

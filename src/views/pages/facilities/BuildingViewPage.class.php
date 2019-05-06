@@ -23,7 +23,7 @@ class BuildingViewPage extends ModelPage
 
         $building = $this->response->getBody();
 
-        $this->setVariable("content", self::templateFileContents("facilities/Building", self::TEMPLATE_CONTENT));
+        $this->setVariable("content", self::templateFileContents("facilities/Building", self::TEMPLATE_PAGE));
 
         $this->setVariable("tabTitle", "Building - " . htmlentities($building['name']));
 

@@ -24,6 +24,6 @@ class PermissionAuditSearchPage extends UserDocument
 
         $this->setVariable('tabTitle', 'Audit Permissions');
 
-        $this->setVariable('content', self::templateFileContents('admin/PermissionAuditSearchPage', self::TEMPLATE_CONTENT));
+        $this->setVariable('content', self::templateFileContents('admin/PermissionAuditSearchPage', self::TEMPLATE_PAGE));
     }
 }

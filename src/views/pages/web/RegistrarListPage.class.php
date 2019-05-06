@@ -29,6 +29,6 @@ class RegistrarListPage extends UserDocument
         parent::__construct('itsm_web-registrars-r', 'web');
 
         $this->setVariable('tabTitle', 'Registrars');
-        $this->setVariable('content', self::templateFileContents('web/RegistrarListPage', self::TEMPLATE_CONTENT));
+        $this->setVariable('content', self::templateFileContents('web/RegistrarListPage', self::TEMPLATE_PAGE));
     }
 }

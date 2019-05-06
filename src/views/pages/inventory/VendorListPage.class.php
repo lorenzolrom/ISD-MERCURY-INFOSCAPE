@@ -23,6 +23,6 @@ class VendorListPage extends UserDocument
         parent::__construct('itsm_inventory-vendors-r', 'inventory');
 
         $this->setVariable("tabTitle", "Vendors");
-        $this->setVariable("content", self::templateFileContents("inventory/VendorListPage", self::TEMPLATE_CONTENT));
+        $this->setVariable("content", self::templateFileContents("inventory/VendorListPage", self::TEMPLATE_PAGE));
     }
 }

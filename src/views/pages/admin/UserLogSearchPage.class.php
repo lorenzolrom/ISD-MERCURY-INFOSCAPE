@@ -24,6 +24,6 @@ class UserLogSearchPage extends UserDocument
 
         $this->setVariable('tabTitle', 'Login History');
 
-        $this->setVariable('content', self::templateFileContents('admin/UserLogSearchPage', self::TEMPLATE_CONTENT));
+        $this->setVariable('content', self::templateFileContents('admin/UserLogSearchPage', self::TEMPLATE_PAGE));
     }
 }

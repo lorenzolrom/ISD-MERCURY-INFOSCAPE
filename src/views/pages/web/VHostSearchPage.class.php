@@ -33,7 +33,7 @@ class VHostSearchPage extends UserDocument
         }
 
         $this->setVariable('tabTitle', 'VHosts');
-        $this->setVariable('content', self::templateFileContents('web/VHostSearchPage', self::TEMPLATE_CONTENT));
+        $this->setVariable('content', self::templateFileContents('web/VHostSearchPage', self::TEMPLATE_PAGE));
         $this->setVariable('statusSelect', $statusSelect);
     }
 }

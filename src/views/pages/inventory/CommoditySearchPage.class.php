@@ -24,7 +24,7 @@ class CommoditySearchPage extends UserDocument
         parent::__construct("itsm_inventory-commodities-r", 'inventory');
 
         $this->setVariable("tabTitle", "Commodities");
-        $this->setVariable("content", self::templateFileContents("inventory/CommoditySearchPage", self::TEMPLATE_CONTENT));
+        $this->setVariable("content", self::templateFileContents("inventory/CommoditySearchPage", self::TEMPLATE_PAGE));
 
         $assetTypes = InfoCentralConnection::getResponse(InfoCentralConnection::GET, "commodities/assetTypes")->getBody();
         $commodityTypes = InfoCentralConnection::getResponse(InfoCentralConnection::GET, "commodities/commodityTypes")->getBody();

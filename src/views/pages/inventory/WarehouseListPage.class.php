@@ -23,6 +23,6 @@ class WarehouseListPage extends UserDocument
         parent::__construct("itsm_inventory-warehouses-r", 'inventory');
 
         $this->setVariable("tabTitle", "Warehouses");
-        $this->setVariable("content", self::templateFileContents("inventory/WarehouseListPage", self::TEMPLATE_CONTENT));
+        $this->setVariable("content", self::templateFileContents("inventory/WarehouseListPage", self::TEMPLATE_PAGE));
     }
 }

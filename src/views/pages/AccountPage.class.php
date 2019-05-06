@@ -25,7 +25,7 @@ class AccountPage extends UserDocument
         $response = InfoCentralConnection::getResponse(InfoCentralConnection::GET, "currentUser");
 
         $this->setVariable("tabTitle", "My Account");
-        $this->setVariable("content", self::templateFileContents("Account", self::TEMPLATE_CONTENT));
+        $this->setVariable("content", self::templateFileContents("Account", self::TEMPLATE_PAGE));
 
         // Get user details
         $userDetails = $response->getBody();

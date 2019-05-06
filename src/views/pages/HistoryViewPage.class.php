@@ -21,7 +21,7 @@ class HistoryViewPage extends UserDocument
         parent::__construct();
 
         $this->setVariable('tabTitle', "Get History - $rawObjectName($index)");
-        $this->setVariable('content', self::templateFileContents('History', self::TEMPLATE_CONTENT));
+        $this->setVariable('content', self::templateFileContents('History', self::TEMPLATE_PAGE));
 
         $this->setVariable('object', $object);
         $this->setVariable('index', $index);

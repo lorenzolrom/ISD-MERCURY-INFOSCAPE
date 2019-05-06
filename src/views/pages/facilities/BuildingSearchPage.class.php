@@ -23,6 +23,6 @@ class BuildingSearchPage extends UserDocument
         parent::__construct("facilitiescore_facilities-r", 'buildings');
 
         $this->setVariable("tabTitle", "Buildings");
-        $this->setVariable("content", self::templateFileContents("facilities/BuildingSearchPage", self::TEMPLATE_CONTENT));
+        $this->setVariable("content", self::templateFileContents("facilities/BuildingSearchPage", self::TEMPLATE_PAGE));
     }
 }

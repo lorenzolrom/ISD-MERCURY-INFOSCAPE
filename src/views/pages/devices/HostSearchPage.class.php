@@ -23,6 +23,6 @@ class HostSearchPage extends UserDocument
         parent::__construct("itsm_devices-hosts-r", 'devices');
 
         $this->setVariable('tabTitle', 'Hosts');
-        $this->setVariable('content', self::templateFileContents('devices/HostSearchPage', self::TEMPLATE_CONTENT));
+        $this->setVariable('content', self::templateFileContents('devices/HostSearchPage', self::TEMPLATE_PAGE));
     }
 }

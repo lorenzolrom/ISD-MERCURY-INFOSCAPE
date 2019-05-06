@@ -23,6 +23,6 @@ class UserSearchPage extends UserDocument
         parent::__construct('settings', 'admin');
 
         $this->setVariable('tabTitle', 'Users');
-        $this->setVariable('content', self::templateFileContents('admin/UserSearchPage', self::TEMPLATE_CONTENT));
+        $this->setVariable('content', self::templateFileContents('admin/UserSearchPage', self::TEMPLATE_PAGE));
     }
 }

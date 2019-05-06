@@ -29,6 +29,6 @@ class APIKeyListPage extends UserDocument
         parent::__construct('api-settings', 'admin');
 
         $this->setVariable('tabTitle', 'API Keys');
-        $this->setVariable('content', self::templateFileContents('admin/APIKeyListPage', self::TEMPLATE_CONTENT));
+        $this->setVariable('content', self::templateFileContents('admin/APIKeyListPage', self::TEMPLATE_PAGE));
     }
 }
