@@ -263,7 +263,16 @@ div.main-content {
     border: solid 1px var(--bulletin-border-color);
     box-shadow: var(--bulletin-shadow);
     margin-top: 15px;
-    padding: 10px 15px;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+div.main-content > h2 {
+    display: block;
+    background-color: var(--primary-color);
+    color: #FFF;
+    margin-top: 0;
+    padding: 5px;
     border-radius: 6px;
 }
 
@@ -279,6 +288,58 @@ div.main-content table td{
 div.main-content table tr td:first-child {
     font-weight: 600;
     min-width: 150px;
+}
+
+div.main-content table#module-status {
+    margin-top: 10px;
+    width: 100%;
+}
+
+div.main-content table#module-status td{
+    font-weight: normal;
+}
+
+div.main-content table#module-status td.pass::before {
+    content: url('../media/icons/pass.png');
+}
+
+div.main-content table#module-status td.warn::before {
+    content: url('../media/icons/warn.png');
+}
+
+div.main-content table#module-status td.fail::before {
+    content: url('../media/icons/fail.png');
+}
+
+div.main-content table#module-status td::before {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+div.main-content table#module-versions {
+    width: 100%;
+    margin-top: 10px;
+}
+
+div.main-content table#module-versions th {
+    font-weight: 600;
+    text-align: left;
+    border-bottom: 1px solid #000;
+    font-size: 1.4rem;
+}
+
+div.main-content table#module-versions td {
+    font-weight: normal;
+    font-size: 1.1rem;
+    padding-top: 10px;
+}
+
+div.main-content table#module-versions td:first-child {
+    font-weight: 600;
+}
+
+div.main-content table#module-versions td:nth-child(2) {
+    color: var(--success);
 }
 
 /* Bulletins */

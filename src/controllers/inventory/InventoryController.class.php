@@ -48,6 +48,9 @@ class InventoryController extends Controller
             case 'vendors':
                 $vendors = new VendorController($this->request);
                 return $vendors->getPage();
+            case 'purchaseorders':
+                $po = new PurchaseOrderController($this->request);
+                return $po->getPage();
         }
 
         throw new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND);
