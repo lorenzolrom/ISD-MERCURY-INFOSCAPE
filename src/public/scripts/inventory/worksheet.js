@@ -66,6 +66,8 @@ function clearWorksheet()
     });
 }
 
+function verify(){}
+
 $(document).ready(function(){
     loadWorksheet();
 });

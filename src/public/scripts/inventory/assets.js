@@ -22,6 +22,7 @@ function addToWorksheet()
         if(json.code === 201)
         {
             showNotifications('notice', [json.data.count + ' assets added to worksheet']);
+            updateWorksheetCount();
             searchAssets();
             unveil();
         }
@@ -324,10 +325,38 @@ function unverify(tag)
     return false;
 }
 
+function updateWorksheetCount()
+{
+    let count = document.querySelector("#worksheetCount");
+
+    // Make sure it exists
+    if(count == null)
+        return;
+
+    // Remove existing contents
+    while(count.firstChild)
+    {
+        count.removeChild(count.firstChild);
+    }
+
+    let loadingImage = document.createElement("img");
+    $(loadingImage).attr('src', baseURI + 'media/animations/ajax.gif');
+    $(loadingImage).attr('alt', '');
+
+    count.appendChild(loadingImage);
+
+    apiRequest('GET', 'assets/worksheet/count', {}).done(function(json){
+        $('#worksheetCount').html(json.data.count);
+    });
+}
+
 // Hide appropriate buttons on view page
 $(document).ready(function(){
     if(!document.getElementById("asset-display"))
+    {
+        updateWorksheetCount();
         return;
+    }
 
     // Unlink/Link to parent
     if($('#parentAssetTag').text().length > 0)
