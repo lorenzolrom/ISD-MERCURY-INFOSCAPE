@@ -3,15 +3,6 @@ let warehouseCodes = [];
 
 function addToWorksheet()
 {
-    let table = $('#results table')[0];
-
-    if(typeof(table) === 'undefined')
-    {
-        showNotifications('error', ['Search must be run before adding to worksheet']);
-        unveil();
-        return;
-    }
-
     let checked = $('.dt-checkboxes:checkbox:checked');
 
     if(checked.length === 0)
@@ -27,8 +18,19 @@ function addToWorksheet()
         assets.push($(v).parent().parent().find('a')[0].innerHTML);
     });
 
-    showNotifications('notice', ["This will eventually add " + assets.length + " assets to the worksheet"]);
-    unveil();
+    apiRequest('POST', 'assets/worksheet', {assets: assets}).done(function(json){
+        if(json.code === 201)
+        {
+            showNotifications('notice', [json.data.count + ' assets added to worksheet']);
+            searchAssets();
+            unveil();
+        }
+        else
+        {
+            showNotifications('error', json.data.errors);
+            unveil();
+        }
+    });
 }
 
 function searchAssets()
@@ -89,7 +91,7 @@ function searchAssets()
             refs.push(v.assetTag);
 
             rows.push([
-                v.inWorksheet,
+                v.inWorksheet ? "✓" : "",
                 '',
                 v.assetTag,
                 v.commodityCode,

@@ -18,6 +18,7 @@ use controllers\Controller;
 use views\pages\inventory\AssetEditPage;
 use views\pages\inventory\AssetSearchPage;
 use views\pages\inventory\AssetViewPage;
+use views\pages\inventory\WorksheetPage;
 use views\View;
 
 class AssetController extends Controller
@@ -39,7 +40,7 @@ class AssetController extends Controller
             case null:
                 return new AssetSearchPage();
             case "worksheet":
-                die('worksheet');
+                return new WorksheetPage();
             default:
                 switch($this->request->next())
                 {
