@@ -1,11 +1,31 @@
 <div class="button-bar">
     <span class="button-bar-title">Bulk Operations:</span>
-    <a  href="javascript: verify()" class="button"><img src="{{@baseURI}}media/icons/ok.png" alt="">Verify</a>
+    <a href="javascript: verify()" class="button"><img src="{{@baseURI}}media/icons/ok.png" alt="">Verify</a>
     <a  href="javascript: unVerify()" class="button"><img src="{{@baseURI}}media/icons/delete.png" alt="">Un-Verify</a>
-    <span class="button"><img src="{{@baseURI}}media/icons/building_add.png" alt="">Set Location</span>
-    <span class="button"><img src="{{@baseURI}}media/icons/building_refresh.png" alt="">Set Warehouse</span>
+    <span id="setLocation-button" class="button-noveil dialog-show-button"><img src="{{@baseURI}}media/icons/building_add.png" alt="">Set Location</span>
+    <span id="setWarehouse-button" class="button-noveil dialog-show-button"><img src="{{@baseURI}}media/icons/building_refresh.png" alt="">Set Warehouse</span>
     <a href="javascript: clearWorksheet()" class="button"><img src="{{@baseURI}}media/icons/delete.png" alt="">Clear Worksheet</a>
     <a href="{{@baseURI}}inventory/assets" class="button"><img src="{{@baseURI}}media/icons/inventory.png" alt="">Back</a>
 </div>
 <div id="results" class="wait"></div>
 <script src="{{@baseURI}}scripts/inventory/worksheet.js"></script>
+<div id="setWarehouse-button-dialog" class="dialog" title="Set Warehouse">
+    <form onsubmit="return setWarehouse()">
+        <p>
+            <span class="required">Warehouse Code</span>
+            <input type="text" id="warehouseCode">
+        </p>
+        <input type="submit" value="Go">
+    </form>
+</div>
+<div id="setLocation-button-dialog" class="dialog" title="Set Location">
+    <form onsubmit="return setLocation()">
+        <p>
+            <span class="required">Building Code</span>
+            <input type="text" id="buildingCode">
+            <span class="required">Location Code</span>
+            <input type="text" id="locationCode">
+        </p>
+        <input type="submit" value="Go">
+    </form>
+</div>
