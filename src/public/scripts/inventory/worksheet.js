@@ -9,17 +9,23 @@ function loadWorksheet()
 
             rows.push([
                 v.assetTag,
-                v.commodityCode + ' (' + v.commodityName + ')',
+                v.commodityCode,
+                v.commodityName,
+                v.assetType,
+                v.serialNumber,
+                v.location,
+                v.warehouse,
+                v.verified ? "✓" : "",
                 'REMOVE'
             ]);
         });
 
         setupTable({
             target: 'results',
-            header: ['Asset #', 'Commodity', ''],
+            header: ['Asset Tag', 'Code', 'Name', 'Asset Type', 'Serial Number', 'Location', 'Warehouse', 'Verified', ''],
             sortColumn: 0,
             sortMethod: 'asc',
-            linkColumn: 2,
+            linkColumn: 8,
             href: "javascript: remove('{{%}}')",
             usePlaceholder: true,
             refs: refs,
