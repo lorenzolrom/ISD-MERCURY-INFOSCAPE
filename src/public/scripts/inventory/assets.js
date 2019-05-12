@@ -287,6 +287,41 @@ function unlinkFromParent(tag)
 
     return false;
 }
+
+function verify(tag)
+{
+    apiRequest('PUT', 'assets/' + tag + '/verify', {}).done(function(json){
+        if(json.code === 204)
+        {
+            window.location.reload();
+        }
+        else
+        {
+            showNotifications('error', json.data.errors);
+            unveil();
+        }
+    });
+
+    return false;
+}
+
+function unverify(tag)
+{
+    apiRequest('PUT', 'assets/' + tag + '/unverify', {}).done(function(json){
+        if(json.code === 204)
+        {
+            window.location.reload();
+        }
+        else
+        {
+            showNotifications('error', json.data.errors);
+            unveil();
+        }
+    });
+
+    return false;
+}
+
 // Hide appropriate buttons on view page
 $(document).ready(function(){
     if(!document.getElementById("asset-display"))
