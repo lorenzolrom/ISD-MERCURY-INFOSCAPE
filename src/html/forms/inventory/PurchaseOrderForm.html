@@ -1,0 +1,42 @@
+<div class="button-bar">
+    <span class="button form-submit-button" id="edit"><img src="{{@baseURI}}media/icons/save.png" alt="">Save</span>
+    <a class="button" href="{{@cancelLink}}"><img src="{{@baseURI}}media/icons/delete.png" alt="">Cancel</a>
+</div>
+<form id="edit-form" class="table-form" onsubmit="{{@formScript}}">
+    <h2 class="region-title"><img src="{{@baseURI}}media/icons/purchaseorder.png" alt="">Purchase Order Profile</h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td>Number</td>
+            <td>{{@number}}</td>
+            <td class="required">Order Date</td>
+            <td><input type="text" class="date-input" id="orderDate" value="{{@orderDate}}"></td>
+        </tr>
+        <tr>
+            <td class="required">Vendor Code</td>
+            <td><input type="text" id="vendor" value="{{@vendorCode}}"></td>
+            <td>Vendor Name</td>
+            <td id="vendorName">{{@vendorName}}</td>
+        </tr>
+        <tr>
+            <td class="required">Ship to Warehouse</td>
+            <td><input type="text" id="warehouse" value="{{@warehouseCode}}"></td>
+            <td>Warehouse Name</td>
+            <td id="warehouseName">{{@warehouseName}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <h2 class="region-title"><img src="{{@baseURI}}media/icons/bulk.png" alt="">Additional Details</h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td>Notes</td>
+            <td colspan="3">
+                <textarea id="notes">{{@notes}}</textarea>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</form>
+<script src="{{@baseURI}}scripts/inventory/purchaseorders.js"></script>

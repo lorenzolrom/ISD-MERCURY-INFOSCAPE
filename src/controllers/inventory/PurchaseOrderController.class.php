@@ -15,7 +15,10 @@ namespace controllers\inventory;
 
 
 use controllers\Controller;
+use views\pages\inventory\PurchaseOrderCreatePage;
+use views\pages\inventory\PurchaseOrderEditPage;
 use views\pages\inventory\PurchaseOrderSearchPage;
+use views\pages\inventory\PurchaseOrderViewPage;
 use views\View;
 
 class PurchaseOrderController extends Controller
@@ -26,6 +29,7 @@ class PurchaseOrderController extends Controller
      * @throws \exceptions\InfoCentralException
      * @throws \exceptions\SecurityException
      * @throws \exceptions\ViewException
+     * @throws \exceptions\EntryNotFoundException
      */
     public function getPage(): View
     {
@@ -36,9 +40,11 @@ class PurchaseOrderController extends Controller
             case null:
                 return new PurchaseOrderSearchPage();
             case 'new':
-                die('new');
+                return new PurchaseOrderCreatePage();
             default:
-                die('edit');
+                if($this->request->next() === 'edit')
+                    return new PurchaseOrderEditPage($param);
+                return new PurchaseOrderViewPage($param);
         }
     }
 }

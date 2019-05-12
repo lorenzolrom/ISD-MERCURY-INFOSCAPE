@@ -248,6 +248,45 @@ function loadWarehouses()
     return warehouseCodes;
 }
 
+function linkToParent(tag)
+{
+    veil();
+    let parentAssetTag = $('#linkToParentAssetTag').val();
+
+    apiRequest('POST', 'assets/' + tag + '/parent', {
+        parentAssetTag: parentAssetTag
+    }).done(function(json){
+        if(json.code === 204)
+        {
+            window.location.reload();
+        }
+        else
+        {
+            showNotifications('error', json.data.errors);
+            unveil();
+        }
+    });
+
+    return false;
+}
+
+
+function unlinkFromParent(tag)
+{
+    apiRequest('DELETE', 'assets/' + tag + '/parent', {}).done(function(json){
+        if(json.code === 204)
+        {
+            window.location.reload();
+        }
+        else
+        {
+            showNotifications('error', json.data.errors);
+            unveil();
+        }
+    });
+
+    return false;
+}
 // Hide appropriate buttons on view page
 $(document).ready(function(){
     if(!document.getElementById("asset-display"))

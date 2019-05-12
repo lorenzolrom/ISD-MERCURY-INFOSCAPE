@@ -36,7 +36,8 @@ class HistoryController extends Controller
         'bulletin' => 'Bulletin',
         'role' => 'Role',
         'secret' => 'Secret',
-        'user' => 'User'
+        'user' => 'User',
+        'purchaseorder' => 'ITSM_PurchaseOrder'
     );
 
     /**

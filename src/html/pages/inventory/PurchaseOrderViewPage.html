@@ -1,0 +1,101 @@
+<div class="button-bar">
+    <a href="{{@baseURI}}inventory/purchaseorders/{{@number}}/edit" id="edit-button" class="button"><img src="{{@baseURI}}media/icons/purchaseorder_edit.png" alt="">Edit</a>
+    <span id="addCommodity-button" class="button-noveil dialog-show-button"><img src="{{@baseURI}}media/icons/inventory_add.png" alt="">Add Commodity</span>
+    <span id="addCostItem-button" class="button-noveil dialog-show-button"><img src="{{@baseURI}}media/icons/purchaseorder_add.png" alt="">Add Cost Item</span>
+    <a class="button" id="send" href="javascript: send('{{@number}}')"><img src="{{@baseURI}}media/icons/purchaseorder_receive.png" alt="">Send</a>
+    <a class="button" id="receive" href="javascript: receive('{{@number}}')"><img src="{{@baseURI}}media/icons/purchaseorder_receive.png" alt="">Receive</a>
+    <a class="button" id="cancel" href="javascript: cancel('{{@number}}')"><img src="{{@baseURI}}media/icons/purchaseorder_delete.png" alt="">Cancel</a>
+    <a class="button" href="{{@baseURI}}inventory/purchaseorders"><img src="{{@baseURI}}media/icons/search.png" alt="">New Search</a>
+</div>
+<h2 class="region-title"><img src="{{@baseURI}}media/icons/purchaseorders.png" alt="">Purchase Order Profile<a class="history-link" href="{{@baseURI}}history/purchaseorder/{{@number}}"><img src="{{@baseURI}}media/icons/history.png" alt="" title="View History"></a></h2>
+<table class="table-display" id="po-display">
+    <tbody>
+    <tr>
+        <td>Number</td>
+        <td>{{@number}}</td>
+        <td>Order Date</td>
+        <td>{{@orderDate}}</td>
+    </tr>
+    <tr>
+        <td>Status</td>
+        <td>{{@status}}</td>
+    </tr>
+    <tr>
+        <td>Vendor Code</td>
+        <td>{{@vendorCode}}</td>
+        <td>Vendor Name</td>
+        <td>{{@vendorName}}</td>
+    </tr>
+    <tr>
+        <td>Ship to Warehouse</td>
+        <td>{{@warehouseCode}}</td>
+        <td>Warehouse Name</td>
+        <td>{{@warehouseName}}</td>
+    </tr>
+    <tr>
+        <td>Sent</td>
+        <td>{{@sent}}</td>
+        <td>Send Date</td>
+        <td id="sendDate">{{@sendDate}}</td>
+    </tr>
+    <tr id="received">
+        <td>Received</td>
+        <td>{{@received}}</td>
+        <td>Receive Date</td>
+        <td id="receiveDate">{{@receiveDate}}</td>
+    </tr>
+    <tr id="canceled">
+        <td>Canceled</td>
+        <td>{{@canceled}}</td>
+        <td>Cancel Date</td>
+        <td id="cancelDate">{{@cancelDate}}</td>
+    </tr>
+    </tbody>
+</table>
+
+<h2 class="region-title region-expand region-expand-collapsed" onclick="loadCommodities('{{@number}}')"><img src="{{@baseURI}}media/icons/inventory.png" alt="">Commodities</h2>
+<div id="commodity-region" class="region wait"></div>
+
+<h2 class="region-title region-expand region-expand-collapsed" onclick="loadCostItems('{{@number}}')"><img src="{{@baseURI}}media/icons/purchaseorder.png" alt="">Cost Items</h2>
+<div id="cost-region" class="region wait"></div>
+
+<h2 class="region-title"><img src="{{@baseURI}}media/icons/bulk.png" alt="">Additional Details</h2>
+<table class="table-display">
+    <tbody>
+    <tr>
+        <td>Notes</td>
+        <td colspan="3">
+            <textarea class="no-edit" readonly>{{@notes}}</textarea>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Dialog Forms -->
+<div id="addCommodity-button-dialog" class="dialog" title="Add Commodity">
+    <form onsubmit="return addCommodity('{{@number}}')">
+        <p>
+            <span class="required">Commodity Code</span>
+            <input type="text" id="commodityCode">
+            <span class="required">Quantity</span>
+            <input type="number" id="commodityQuantity">
+            <span class="required">Unit Cost</span>
+            <input type="text" id="commodityUnitCost" placeholder="$">
+        </p>
+        <input type="submit" value="Go">
+    </form>
+</div>
+
+<div id="addCostItem-button-dialog" class="dialog" title="Add Cost Item">
+    <form onsubmit="return addCostItem('{{@number}}')">
+        <p>
+            <span class="required">Cost</span>
+            <input type="text" id="costItemCost" placeholder="$">
+            <span class="required">Notes</span>
+            <input type="text" id="costItemNotes">
+        </p>
+        <input type="submit" value="Go">
+    </form>
+</div>
+
+<script src="{{@baseURI}}scripts/inventory/purchaseorders.js"></script>

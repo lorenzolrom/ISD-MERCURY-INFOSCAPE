@@ -1,7 +1,7 @@
 <div class="button-bar">
     <a href="{{@baseURI}}inventory/assets/{{@assetTag}}/edit" id="edit-button" class="button hideIfDiscarded"><img src="{{@baseURI}}media/icons/inventory_edit.png" alt="">Edit</a>
     <span id="linkToParent-button" class="button-noveil hideIfDiscarded dialog-show-button"><img src="{{@baseURI}}media/icons/inventory_link.png" alt="">Link To Parent</span>
-    <a href="javascript: unlinkFromParent()" id="unlinkFromParent-button" class="button hideIfDiscarded"><img src="{{@baseURI}}media/icons/inventory_link.png" alt="">Unlink From Parent</a>
+    <a href="javascript: unlinkFromParent('{{@assetTag}}')" id="unlinkFromParent-button" class="button hideIfDiscarded"><img src="{{@baseURI}}media/icons/inventory_link.png" alt="">Unlink From Parent</a>
     <a href="javascript: verify()" id="verify-button" class="button hideIfDiscarded"><img src="{{@baseURI}}media/icons/ok.png" alt="">Verify</a>
     <a href="javascript: unverify()" id="unVerify-button" class="button hideIfDiscarded"><img src="{{@baseURI}}media/icons/delete.png" alt="">Un-Verify</a>
     <span id="returnToWarehouse-button" class="button-noveil dialog-show-button hideIfDiscarded"><img src="{{@baseURI}}media/icons/building_delete.png" alt="">Return To Warehouse</span>
