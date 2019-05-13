@@ -28,10 +28,6 @@ class AssetForm extends Form
         $this->setTemplateFromHTML("inventory/AssetForm", self::TEMPLATE_FORM);
 
         if($details !== NULL)
-        {
-            $this->setVariable('assetTag', $details['assetTag']);
-            $this->setVariable('serialNumber', $details['serialNumber']);
-            $this->setVariable('notes', $details['notes']);
-        }
+            $this->setVariables($details);
     }
 }

@@ -211,11 +211,13 @@ function saveChanges(asset)
     let assetTag = $('#assetTag').val();
     let serialNumber = $('#serialNumber').val();
     let notes = $('#notes').val();
+    let manufactureDate = $('#manufactureDate').val();
 
     apiRequest('PUT', 'assets/' + asset, {
         assetTag: assetTag,
         serialNumber: serialNumber,
-        notes: notes
+        notes: notes,
+        manufactureDate: manufactureDate
     }).done(function(json){
         if(json.code === 204)
         {
@@ -477,6 +479,12 @@ $(document).ready(function(){
     }
     else
         $('#discard-info').hide();
+
+    // Location
+    if($('#building').text().length > 0)
+        $('#warehouse-info').hide();
+    if($('#warehouse').text().length > 0)
+        $('.location-info').hide();
 
     // Auto-complete setup
     $('#warehouse-button').click(function(){
