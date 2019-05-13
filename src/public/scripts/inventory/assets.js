@@ -1,5 +1,6 @@
 let childrenLoaded = false;
 let warehouseCodes = [];
+let buildingCodes = [];
 
 function addToWorksheet()
 {
@@ -251,6 +252,59 @@ function loadWarehouses()
     return warehouseCodes;
 }
 
+function loadBuildings()
+{
+    if(buildingCodes.length !== 0)
+        return buildingCodes;
+
+    apiRequest('GET', 'buildings', {}).done(function(json){
+
+        if(json.code === 200)
+        {
+            $.each(json.data, function(i, v){
+                buildingCodes.push(v.code);
+            });
+        }
+    });
+
+    return buildingCodes;
+}
+
+function loadLocations()
+{
+    let code = $('#buildingCode').val();
+
+    apiRequest('POST', 'buildings/search', {code: code}).done(function(json){
+        if(json.code === 200)
+        {
+            if(json.data.length !== 1)
+                return;
+
+            if(json.data[0].code !== code) // If code is not an exact match
+                return;
+
+            let id = json.data[0].id;
+
+            // Get locations
+            apiRequest('GET', 'buildings/' + id + '/locations', {}).done(function(json){
+                if(json.code === 200)
+                {
+                    let codes = [];
+
+                    $.each(json.data, function(i, v){
+                        codes.push(v.code);
+                    });
+
+                    setupAutoCompleteList({
+                        target: 'locationCode',
+                        items: codes
+                    });
+                }
+            });
+        }
+    });
+}
+
 function linkToParent(tag)
 {
     veil();
@@ -350,6 +404,48 @@ function updateWorksheetCount()
     });
 }
 
+function setWarehouse(tag)
+{
+    veil();
+    apiRequest('PUT', 'assets/' + tag + '/warehouse', {
+        warehouseCode: $('#warehouseCode').val()
+    }).done(function(json){
+        if(json.code === 204)
+        {
+            window.location.reload();
+        }
+        else
+        {
+            showNotifications('error', json.data.errors);
+            unveil();
+        }
+    });
+
+    return false;
+}
+
+function setLocation(tag)
+{
+    veil();
+    apiRequest('PUT', 'assets/' + tag + '/location', {
+        locationCode: $('#locationCode').val(),
+        buildingCode: $('#buildingCode').val()
+    }).done(function(json){
+        if(json.code === 204)
+        {
+            window.location.reload();
+            unveil();
+        }
+        else
+        {
+            showNotifications('error', json.data.errors);
+            unveil();
+        }
+    });
+
+    return false;
+}
+
 // Hide appropriate buttons on view page
 $(document).ready(function(){
     if(!document.getElementById("asset-display"))
@@ -373,27 +469,6 @@ $(document).ready(function(){
     else
         $('#unVerify-button').hide();
 
-    // Location
-    if($('#locationCode').text().length > 0)
-        $('#assignToLocation-button').hide();
-    else
-    {
-        $('.location-info').hide();
-        $('#changeLocation-button').hide();
-    }
-
-    // Warehouse
-    let returnToWarehouseButton = $('#returnToWarehouse-button');
-    let changeWarehouseButton = $('#changeWarehouse-button');
-
-    if($('#warehouseCode').text().length > 0)
-        returnToWarehouseButton.hide();
-    else
-    {
-        $('#warehouse-info').hide();
-        changeWarehouseButton.hide();
-    }
-
     // Discarded
     if($('#discardDate').text().length > 0)
     {
@@ -404,17 +479,22 @@ $(document).ready(function(){
         $('#discard-info').hide();
 
     // Auto-complete setup
-    $(returnToWarehouseButton).click(function(){
+    $('#warehouse-button').click(function(){
         setupAutoCompleteList({
-            target: 'returnWarehouseCode',
+            target: 'warehouseCode',
             items: loadWarehouses()
         });
     });
 
-    $(changeWarehouseButton).click(function(){
+    $('#location-button').click(function(){
         setupAutoCompleteList({
-            target: 'changeWarehouseCode',
-            items: loadWarehouses()
+            target: 'buildingCode',
+            items: loadBuildings(),
+            select: function(e, ui)
+            {
+                $('#buildingCode').val(ui.item.value);
+                loadLocations()
+            }
         });
     });
 });
