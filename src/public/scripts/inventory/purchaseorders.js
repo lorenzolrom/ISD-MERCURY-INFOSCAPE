@@ -197,7 +197,7 @@ function loadCostItems(number)
             header: ['Cost', 'Notes', ''],
             href: "javascript: removeCostItem('{{%}}')",
             usePlaceholder: true,
-            linkColumn: 4,
+            linkColumn: 2,
             rows: rows,
             refs: refs
         });

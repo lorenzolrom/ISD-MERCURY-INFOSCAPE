@@ -139,34 +139,9 @@ abstract class Pages
         ),
         'tickets' => array(
             'title' => 'Tickets',
-            'permission' => 'servicenter',
+            'permission' => 'tickets',
+            'link' => 'tickets',
             'icon' => 'ticket.png',
-            'pages' => array(
-                array(
-                    'title' => 'Requests',
-                    'link' => 'tickets/requests',
-                    'icon' => 'ticket.png',
-                    'permission' => 'servicenter_requests'
-                ),
-                array(
-                    'title' => 'Service Desk',
-                    'link' => 'tickets/servicedesk',
-                    'icon' => 'ticket.png',
-                    'permission' => 'servicenter_desk-r'
-                ),
-                array(
-                    'title' => 'Workspaces',
-                    'link' => 'tickets/workspaces',
-                    'icon' => 'report.png',
-                    'permission' => 'servicenter_admin'
-                ),
-                array(
-                    'title' => 'Teams',
-                    'link' => 'tickets/teams',
-                    'icon' => 'group.png',
-                    'permission' => 'servicenter_admin'
-                )
-            )
         ),
         'admin' => array(
             'title' => 'Admin',
