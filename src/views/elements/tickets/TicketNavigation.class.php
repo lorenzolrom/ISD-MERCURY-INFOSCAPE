@@ -28,7 +28,7 @@ class TicketNavigation extends View
 {
     private const LINKS = array(
         'myRequests' => array(
-            'title' => 'My Requests',
+            'title' => 'Requests',
             'permission' => 'tickets-customer',
             'link' => 'requests',
             'icon' => 'help.png'

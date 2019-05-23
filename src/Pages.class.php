@@ -137,12 +137,6 @@ abstract class Pages
                 )
             )
         ),
-        'tickets' => array(
-            'title' => 'Tickets',
-            'permission' => 'tickets',
-            'link' => 'tickets',
-            'icon' => 'ticket.png',
-        ),
         'admin' => array(
             'title' => 'Admin',
             'permission' => 'settings',
