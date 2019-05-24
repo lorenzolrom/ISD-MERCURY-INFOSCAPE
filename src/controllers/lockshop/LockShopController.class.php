@@ -15,6 +15,8 @@ namespace controllers\lockshop;
 
 
 use controllers\Controller;
+use exceptions\PageNotFoundException;
+use views\pages\lockshop\LIMSErrorPage;
 use views\pages\lockshop\LIMSHome;
 use views\View;
 
