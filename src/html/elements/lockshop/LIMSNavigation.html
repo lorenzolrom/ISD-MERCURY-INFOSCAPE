@@ -1,0 +1,14 @@
+<nav>
+    <ul>
+        {{@navigation}}<!--
+        --><li><a class='nav-item' href="{{@baseURI}}inbox"><img src="{{@baseURI}}media/icons/mail.png" alt="">Inbox (<span id="unreadNotificationCount"></span>)</a></li><!--
+        --><li>
+        <span class='nav-item'><img src="{{@baseURI}}media/icons/operator.png" alt="">Operator</span>
+        <ul>
+            <li><a href="{{@baseURI}}account"><img src="{{@baseURI}}media/icons/user.png" alt="">Account</a></li>
+            <li><a href="javascript: clearCookies()"><img src="{{@baseURI}}media/icons/privs_reload.png" alt="">Clear Session Cache</a></li>
+            <li><a href="{{@baseURI}}logout"><img src="{{@baseURI}}media/icons/privs_delete.png" alt="">Logout</a></li>
+        </ul>
+    </li>
+    </ul>
+</nav>
