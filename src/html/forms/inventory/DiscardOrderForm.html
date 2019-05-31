@@ -1,0 +1,28 @@
+<div class="button-bar">
+    <span class="button form-submit-button" id="edit"><img src="{{@baseURI}}media/icons/save.png" alt="">Save</span>
+    <a class="button" href="{{@cancelLink}}"><img src="{{@baseURI}}media/icons/delete.png" alt="">Cancel</a>
+</div>
+<form id="edit-form" class="table-form" onsubmit="{{@formScript}}">
+    <h2 class="region-title"><img src="{{@baseURI}}media/icons/inventory_delete.png" alt="">Discard Order Profile</h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td>Number</td>
+            <td>{{@number}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <h2 class="region-title"><img src="{{@baseURI}}media/icons/bulk.png" alt="">Additional Details</h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td>Notes</td>
+            <td colspan="3">
+                <textarea id="notes">{{@notes}}</textarea>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</form>
+<script src="{{@baseURI}}scripts/inventory/discards.js"></script>

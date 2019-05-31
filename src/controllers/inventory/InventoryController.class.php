@@ -51,6 +51,9 @@ class InventoryController extends Controller
             case 'purchaseorders':
                 $po = new PurchaseOrderController($this->request);
                 return $po->getPage();
+            case 'discards':
+                $do = new DiscardOrderController($this->request);
+                return $do->getPage();
         }
 
         throw new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND);
