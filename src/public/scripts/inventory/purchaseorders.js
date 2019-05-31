@@ -414,6 +414,9 @@ $(document).ready(function(){
             $(edit).hide();
             $(receive).hide();
             $(cancel).hide();
+            $(addCommodity).hide();
+            $(addCostItem).hide();
+            $(send).hide();
         }
     }
 });
