@@ -55,12 +55,6 @@ abstract class Pages
                     'permission' => 'itsm_inventory-purchaseorders-r'
                 ),
                 array(
-                    'title' => 'Returns',
-                    'link' => 'inventory/returns',
-                    'icon' => 'inventory_return.png',
-                    'permission' => 'itsm_inventory-returns-r'
-                ),
-                array(
                     'title' => 'Discards',
                     'link' => 'inventory/discards',
                     'icon' => 'inventory_delete.png',

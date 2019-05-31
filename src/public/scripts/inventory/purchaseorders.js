@@ -63,6 +63,41 @@ function getEditForm()
     };
 }
 
+function getCommodityForm()
+{
+    let commodityCode = $('#commodityCode').val();
+    let commodityQuantity = $('#commodityQuantity').val();
+    let communityUnitCost = $('#commodityUnitCost').val();
+
+    return {
+        commodity: commodityCode,
+        quantity: commodityQuantity,
+        unitCost: communityUnitCost
+    };
+}
+
+function getCostItemForm()
+{
+    let costItemCost = $('#costItemCost').val();
+    let costItemNotes = $('#costItemNotes').val();
+
+    return {
+        cost: costItemCost,
+        notes: costItemNotes
+    };
+}
+
+function getReceiveForm()
+{
+    let startAssetTag = $('#startAssetTag').val();
+    let receiveDateInput = $('#receiveDateInput').val();
+
+    return {
+        startAssetTag: startAssetTag,
+        receiveDate: receiveDateInput
+    };
+}
+
 function search()
 {
     apiRequest('POST', 'purchaseorders/search', getSearchForm()).done(function(json){
@@ -144,6 +179,8 @@ function save(number)
             unveil();
         }
     });
+
+    return false;
 }
 
 function loadCommodities(number)
@@ -167,7 +204,7 @@ function loadCommodities(number)
         setupTable({
             target: 'commodity-region',
             header: ['Commodity', 'Unit Cost', 'Quantity', 'Total', ''],
-            href: "javascript: removeCommodity('{{%}}')",
+            href: "javascript: removeCommodity('" + number + "', '{{%}}')",
             usePlaceholder: true,
             linkColumn: 4,
             rows: rows,
@@ -195,13 +232,129 @@ function loadCostItems(number)
         setupTable({
             target: 'cost-region',
             header: ['Cost', 'Notes', ''],
-            href: "javascript: removeCostItem('{{%}}')",
+            href: "javascript: removeCostItem('" + number + "', '{{%}}')",
             usePlaceholder: true,
             linkColumn: 2,
             rows: rows,
             refs: refs
         });
     });
+}
+
+function addCommodity(number)
+{
+    apiRequest('POST', 'purchaseorders/' + number + '/commodities', getCommodityForm()).done(function(json){
+        if(json.code === 201)
+        {
+            loadCommodities(number);
+            showNotifications('notice', ['Commodity added']);
+        }
+        else
+        {
+            showNotifications('error', json.data.errors);
+        }
+    });
+
+    return false;
+}
+
+function addCostItem(number)
+{
+    apiRequest('POST', 'purchaseorders/' + number + '/costitems', getCostItemForm()).done(function(json){
+        if(json.code === 201)
+        {
+            loadCostItems(number);
+            showNotifications('notice', ['Cost Item added']);
+        }
+        else
+        {
+            showNotifications('error', json.data.errors);
+        }
+    });
+
+    return false;
+}
+
+function removeCommodity(number, item)
+{
+    apiRequest('DELETE', 'purchaseorders/' + number + '/commodities/' + item, {}).done(function(json){
+        if(json.code === 204)
+        {
+            loadCommodities(number);
+            showNotifications('notice', ['Commodity removed']);
+        }
+        else
+        {
+            showNotifications('error', json.data.errors);
+        }
+    });
+
+    return false;
+}
+
+function removeCostItem(number, item)
+{
+    apiRequest('DELETE', 'purchaseorders/' + number + '/costitems/' + item, {}).done(function(json){
+        if(json.code === 204)
+        {
+            loadCostItems(number);
+            showNotifications('notice', ['Cost Item removed']);
+        }
+        else
+        {
+            showNotifications('error', json.data.errors);
+        }
+    });
+
+    return false;
+}
+
+function send(number)
+{
+    apiRequest('PUT', 'purchaseorders/' + number + '/send', {}).done(function(json){
+        if(json.code === 204)
+        {
+            window.location.replace (baseURI + "inventory/purchaseorders/" + number + "?NOTICE=Purchase Order has been sent");
+        }
+        else
+        {
+            showNotifications('error', json.data.errors);
+        }
+    });
+
+    return false;
+}
+
+function cancel(number)
+{
+    apiRequest('PUT', 'purchaseorders/' + number + '/cancel', {}).done(function(json){
+        if(json.code === 204)
+        {
+            window.location.replace (baseURI + "inventory/purchaseorders/" + number + "?NOTICE=Purchase Order has been canceled");
+        }
+        else
+        {
+            showNotifications('error', json.data.errors);
+        }
+    });
+
+    return false;
+}
+
+function receive(number)
+{
+    apiRequest('PUT', 'purchaseorders/' + number + '/receive', getReceiveForm()).done(function(json){
+        if(json.code === 204)
+        {
+            window.location.replace (baseURI + "inventory/purchaseorders/" + number + "?NOTICE=Purchase Order has been received");
+        }
+        else
+        {
+            showNotifications('error', json.data.errors);
+        }
+    });
+
+    return false;
 }
 
 $(document).ready(function(){
@@ -239,7 +392,7 @@ $(document).ready(function(){
     else if(document.getElementById('po-display'))
     {
         let send = $('#send');
-        let receive = $('#receive');
+        let receive = $('#receive-button');
         let cancel = $('#cancel');
         let addCommodity = $('#addCommodity-button');
         let addCostItem = $('#addCostItem-button');

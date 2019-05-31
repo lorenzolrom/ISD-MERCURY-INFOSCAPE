@@ -102,8 +102,7 @@ function searchAssets()
                 v.serialNumber,
                 v.location,
                 v.warehouse,
-                v.verified ? "✓" : "",
-                v.returnOrderNumber
+                v.verified ? "✓" : ""
             ]);
         });
 
@@ -111,7 +110,7 @@ function searchAssets()
             target: 'asset-results',
             checkboxes: true,
             checkboxColumn: 1,
-            header: ['In W.S.', '', 'Asset Tag', 'Code', 'Name', 'Asset Type', 'Serial Number', 'Location', 'Warehouse', 'Verified', 'R.O. #'],
+            header: ['In W.S.', '', 'Asset Tag', 'Code', 'Name', 'Asset Type', 'Serial Number', 'Location', 'Warehouse', 'Verified'],
             sortColumn: 2,
             linkColumn: 2,
             href: baseURI + "inventory/assets/",
