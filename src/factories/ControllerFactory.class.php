@@ -45,7 +45,7 @@ class ControllerFactory
         'inbox' => 'controllers\InboxController',
         'account' => 'controllers\AccountController',
         'about' => 'controllers\AboutController',
-        'portal' => 'controllers\PortalController',
+        'home' => 'controllers\HomeController',
         '!api-request' => 'controllers\APIProxyController',
 
         'inetinfo' => 'controllers\InternalInfoController'
@@ -61,7 +61,7 @@ class ControllerFactory
         $route = $request->next();
 
         if($route == null)
-            $controller = 'controllers\HomeController';
+            $controller = 'controllers\PortalController';
         else if(!in_array($route, array_keys(self::CONTROLLERS)))
             throw new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND);
         else
