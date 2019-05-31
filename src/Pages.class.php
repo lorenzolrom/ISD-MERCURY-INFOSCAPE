@@ -57,7 +57,7 @@ abstract class Pages
                 array(
                     'title' => 'Discards',
                     'link' => 'inventory/discards',
-                    'icon' => 'inventory_delete.png',
+                    'icon' => 'discardorder.png',
                     'permission' => 'itsm_inventory-discards-r'
                 ),
                 array(
