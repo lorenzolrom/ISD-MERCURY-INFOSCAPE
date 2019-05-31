@@ -276,6 +276,9 @@ div#view ul li {
     list-style-position: inside;
 }
 
+div#content.full-width-view div#view {
+    max-width: 100%;
+}
 
 /* Footer */
 
