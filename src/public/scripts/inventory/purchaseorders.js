@@ -407,7 +407,6 @@ $(document).ready(function(){
         else
         {
             $(receive).hide();
-            $(cancel).hide();
         }
 
         if($('#receiveDate').text().length > 0 || $('#cancelDate').text().length > 0)
