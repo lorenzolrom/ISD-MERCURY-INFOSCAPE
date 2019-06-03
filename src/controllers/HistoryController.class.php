@@ -40,7 +40,7 @@ class HistoryController extends Controller
         'purchaseorder' => 'ITSM_PurchaseOrder',
         'discardorder' => 'ITSM_DiscardOrder',
         'workspace' => 'Tickets_Workspace',
-        'teams' => 'Tickets_Team'
+        'team' => 'Tickets_Team'
     );
 
     /**

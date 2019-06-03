@@ -35,7 +35,6 @@ class WorkspaceEditPage extends ModelPage
         $form = new WorkspaceForm($details);
 
         $this->setVariable('content', $form->getTemplate());
-        $this->setVariable('cancelLink', '{{@baseURI}}tickets/admin/workspaces');
         $this->setVariable('formScript', "return save('{{@id}}')");
         $this->setVariable('id', $id);
     }

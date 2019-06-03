@@ -7,7 +7,7 @@
  *
  * User: lromero
  * Date: 6/03/2019
- * Time: 8:05 AM
+ * Time: 8:35 AM
  */
 
 
@@ -17,43 +17,43 @@ namespace views\forms\tickets;
 use utilities\InfoCentralConnection;
 use views\forms\Form;
 
-class WorkspaceForm extends Form
+class TeamForm extends Form
 {
     /**
-     * WorkspaceForm constructor.
+     * TeamForm constructor.
      * @param array|null $details
      * @throws \exceptions\ViewException
      * @throws \exceptions\InfoCentralException
      */
     public function __construct(?array $details = NULL)
     {
-        $this->setTemplateFromHTML("tickets/WorkspaceForm", self::TEMPLATE_FORM);
+        $this->setTemplateFromHTML("tickets/TeamForm", self::TEMPLATE_FORM);
 
-        $teams = InfoCentralConnection::getResponse(InfoCentralConnection::GET, 'tickets/teams')->getBody();
+        $users = InfoCentralConnection::getResponse(InfoCentralConnection::GET, 'users')->getBody();
 
         if($details !== NULL)
         {
             $this->setVariables($details);
         }
 
-        $teamSelect = '';
+        $userSelect = '';
 
-        foreach($teams as $team)
+        foreach($users as $user)
         {
             $selected = '';
 
             if($details !== NULL)
             {
-                foreach($details['teams'] as $assignedTeam)
+                foreach($details['users'] as $member)
                 {
-                    if($team['id'] == $assignedTeam['id'])
+                    if($user['id'] == $member['id'])
                         $selected = 'selected';
                 }
             }
 
-            $teamSelect .= "<option value='{$team['id']}' $selected>{$team['name']}</option>";
+            $userSelect .= "<option value='{$user['id']}' $selected>{$user['firstName']} {$user['lastName']} ({$user['username']})</option>";
         }
 
-        $this->setVariable('teamSelect', $teamSelect);
+        $this->setVariable('userSelect', $userSelect);
     }
 }

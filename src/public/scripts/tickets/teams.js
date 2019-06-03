@@ -1,17 +1,17 @@
 function getForm()
 {
     let name = $('#name').val();
-    let teams = $('#teams').val();
+    let users = $('#users').val();
 
     return {
         name: name,
-        teams: teams
+        users: users
     };
 }
 
 function load()
 {
-    apiRequest('GET', 'tickets/workspaces', {}).done(function(json){
+    apiRequest('GET', 'tickets/teams', {}).done(function(json){
         let rows = [];
         let refs = [];
 
@@ -30,7 +30,7 @@ function load()
             sortColumn: 0,
             sortMethod: 'asc',
             linkColumn: 0,
-            href: baseURI + 'tickets/admin/workspaces/',
+            href: baseURI + 'tickets/admin/teams/',
             refs: refs,
             rows: rows
         });
@@ -39,10 +39,10 @@ function load()
 
 function create()
 {
-    apiRequest('POST', 'tickets/workspaces', getForm()).done(function(json){
+    apiRequest('POST', 'tickets/teams', getForm()).done(function(json){
         if(json.code === 201)
         {
-            window.location.replace (baseURI + "tickets/admin/workspaces?NOTICE=Workspace created");
+            window.location.replace (baseURI + "tickets/admin/teams?NOTICE=Team created");
         }
         else
         {
@@ -56,10 +56,10 @@ function create()
 
 function save(id)
 {
-    apiRequest('PUT', 'tickets/workspaces/' + id, getForm()).done(function(json){
+    apiRequest('PUT', 'tickets/teams/' + id, getForm()).done(function(json){
         if(json.code === 204)
         {
-            window.location.replace (baseURI + "tickets/admin/workspaces?NOTICE=Workspace saved");
+            window.location.replace (baseURI + "tickets/admin/teams?NOTICE=Team updated");
         }
         else
         {
@@ -73,15 +73,19 @@ function save(id)
 
 function remove(id)
 {
-    apiRequest('DELETE', 'tickets/workspaces/' + id, {}).done(function(json){
+    apiRequest('DELETE', 'tickets/teams/' + id, {}).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + "tickets/admin/workspaces?NOTICE=Workspace deleted");
+        {
+            window.location.replace (baseURI + "tickets/admin/teams?NOTICE=Team deleted");
+        }
         else
         {
             showNotifications('error', json.data.errors);
             unveil();
         }
     });
+
+    return false;
 }
 
 if($('#results').length !== 0)
