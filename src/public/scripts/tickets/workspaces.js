@@ -15,18 +15,27 @@ function load()
         let rows = [];
         let refs = [];
 
+        let select = $('#requestPortal');
 
         $.each(json.data, function(i, v){
             refs.push(v.id);
 
             rows.push([
-                v.name
+                v.name,
+                v.requestPortal === 1 ? 'Yes' : ''
             ]);
+
+            // Create select menu
+            let option = document.createElement('option');
+            option.setAttribute('value', v.id);
+            option.appendChild(document.createTextNode(v.name));
+
+            $(select).append(option);
         });
 
         setupTable({
             target: 'results',
-            header: ['Name'],
+            header: ['Name', 'Request Portal'],
             sortColumn: 0,
             sortMethod: 'asc',
             linkColumn: 0,
@@ -82,6 +91,25 @@ function remove(id)
             unveil();
         }
     });
+}
+
+function setRequestPortal()
+{
+    let workspace = $('#requestPortal').val();
+
+    apiRequest('PUT', 'tickets/workspaces/' + workspace + '/requestPortal', {}).done(function(json){
+        if(json.code === 204)
+        {
+            showNotifications('notice', ['Request Portal has been set']);
+            load();
+        }
+        else
+        {
+            showNotifications('error', json.data.errors);
+        }
+    });
+
+    return false;
 }
 
 if($('#results').length !== 0)

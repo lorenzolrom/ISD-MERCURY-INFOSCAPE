@@ -1,5 +1,17 @@
 <div class="button-bar">
     <a href="{{@baseURI}}tickets/admin/workspaces/new" class="button"><img src="{{@baseURI}}media/icons/report_add.png" alt="">New</a>
+    <span id="setRequestPortal-button" class="button-noveil dialog-show-button"><img src="{{@baseURI}}media/icons/help.png" alt="">Set Request Portal</span>
 </div>
 <div id="results" class="wait"></div>
 <script src="{{@baseURI}}scripts/tickets/workspaces.js"></script>
+<div id="setRequestPortal-button-dialog" class="dialog" title="Set Request Portal">
+    <form onsubmit="return setRequestPortal()">
+        <p>
+            <span class="required">Workspace</span>
+            <select id="requestPortal">
+                {{@workspaceSelect}}
+            </select>
+        </p>
+        <input type="submit" value="Go">
+    </form>
+</div>
