@@ -38,7 +38,9 @@ class HistoryController extends Controller
         'secret' => 'Secret',
         'user' => 'User',
         'purchaseorder' => 'ITSM_PurchaseOrder',
-        'discardorder' => 'ITSM_DiscardOrder'
+        'discardorder' => 'ITSM_DiscardOrder',
+        'workspace' => 'Tickets_Workspace',
+        'teams' => 'Tickets_Team'
     );
 
     /**

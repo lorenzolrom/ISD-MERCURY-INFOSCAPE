@@ -33,6 +33,9 @@ class TicketController extends Controller
     {
         switch($this->request->next())
         {
+            case 'admin':
+                $a = new AdminController($this->request);
+                return $a->getPage();
             case NULL:
                 return new TicketHome();
         }

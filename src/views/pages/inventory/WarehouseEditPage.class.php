@@ -19,6 +19,14 @@ use views\pages\ModelPage;
 
 class WarehouseEditPage extends ModelPage
 {
+    /**
+     * WarehouseEditPage constructor.
+     * @param string|null $warehouseId
+     * @throws \exceptions\EntryNotFoundException
+     * @throws \exceptions\InfoCentralException
+     * @throws \exceptions\SecurityException
+     * @throws \exceptions\ViewException
+     */
     public function __construct(?string $warehouseId)
     {
         parent::__construct("warehouses/$warehouseId", 'itsm_inventory-warehouses-r', 'inventory');
