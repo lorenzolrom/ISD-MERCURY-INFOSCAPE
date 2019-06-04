@@ -15,6 +15,7 @@ namespace controllers\tickets;
 
 
 use controllers\Controller;
+use views\pages\tickets\WorkspaceConfigurePage;
 use views\pages\tickets\WorkspaceCreatePage;
 use views\pages\tickets\WorkspaceEditPage;
 use views\pages\tickets\WorkspaceListPage;
@@ -40,6 +41,8 @@ class WorkspaceController extends Controller
             case 'new':
                 return new WorkspaceCreatePage();
             default:
+                if($this->request->next() === 'configure')
+                    return new WorkspaceConfigurePage($param);
                 return new WorkspaceEditPage($param);
         }
     }

@@ -1,0 +1,51 @@
+<div class="button-bar">
+    <span id="addAttribute-button" class="button-noveil dialog-show-button"><img src="{{@baseURI}}media/icons/report_add.png" alt="">New Attribute</span>
+    <a href="{{@baseURI}}tickets/admin/workspaces/{{@id}}" class="button"><img src="{{@baseURI}}media/icons/report.png" alt="">Back</a>
+</div>
+<div id="configure-results" class="wait"></div>
+<script>
+    let workspaceId = '{{@id}}';
+</script>
+<script src="{{@baseURI}}scripts/tickets/workspaces.js"></script>
+<div id="addAttribute-button-dialog" class="dialog" title="Add Attribute">
+    <form onsubmit="return addAttribute()">
+        <p>
+            <span class="required">Type</span>
+            <select id="type">
+                <option value="category">Category</option>
+                <option value="type">Type</option>
+                <option value="severity">Severity</option>
+                <option value="status">Status</option>
+                <option value="closureCode">Closure Code</option>
+            </select>
+        </p>
+        <p>
+            <span class="required">Code</span>
+            <input maxlength="4" type="text" id="code">
+        </p>
+        <p>
+            <span class="required">Name</span>
+            <input type="text" id="name">
+        </p>
+        <input type="submit" value="Go">
+    </form>
+</div>
+<div id="attributeEdit" class="dialog" title="Edit Attribute">
+    <form onsubmit="return saveAttribute()">
+        <input type="hidden" id="editId">
+        <p>
+            <span>Type</span>
+            <input type="text" readonly id="editType">
+        </p>
+        <p>
+            <span class="required">Code</span>
+            <input maxlength="4" type="text" id="editCode">
+        </p>
+        <p>
+            <span class="required">Name</span>
+            <input type="text" id="editName">
+        </p>
+        <input type="submit" value="Go">
+    </form>
+    <a class="delete-button confirm-button" href="javascript: deleteAttribute()">Delete</a>
+</div>
