@@ -512,10 +512,33 @@ ul#portal-menu {
 
 ul#portal-menu li {
     list-style-type: none;
+    display: inline;
 }
 
-ul#portal-menu li a, ul#portal-menu li{
+ul#portal-menu li:last-child a {
+    margin-bottom: 0;
+}
+
+ul#portal-menu li a {
+    display: block;
     font-size: 2rem;
-    font-weight: bold;
-    font-style: italic;
+    text-decoration: none;
+    vertical-align: middle;
+    min-width: 275px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background-color: #F3F3F3;
+    padding: 5px 10px;
+    box-shadow: var(--bulletin-shadow);
+    margin-bottom: 15px;
+}
+
+ul#portal-menu li a:hover {
+    text-decoration: underline;
+}
+
+ul#portal-menu li a img {
+    height: 75px;
+    vertical-align: middle;
+    margin-right: 10px;
 }
