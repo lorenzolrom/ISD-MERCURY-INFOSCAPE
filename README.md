@@ -1187,6 +1187,24 @@ INFOCENTRAL requires a MySQL-compatible database on-top of the above requirement
 The recommended configuration for both software packages is that they be on separate virtual hosts (e.g. ic.your.domain 
 and merlot.your.domain), however they can also be placed in nested folders--though I suspect symlinks will be required.
 
+The recommended configuration for both software packages is three separate web roots; one root for INFOCENTRAL and one 
+for MERLOT that are not public-facing, and a third that contains two symbolic links to the aforementioned roots that is
+public facing.  The symbolic links should point to the  '/public' directory, to avoid any back-end files being exposed
+through the internet.
+
+/var/www
+├── merlot
+│   ├── public
+│       └── index.php
+│   └── ...
+├── infocentral
+│   ├── public
+│       └── index.php
+│   └── ...
+└── website
+    ├── ln -s ../merlot/public
+    └── ln -s ../infocentral/public
+
 ### Database Applications
 
 A series of .sql scripts has been included under the /docs folder in this repository; they are organized by the 
