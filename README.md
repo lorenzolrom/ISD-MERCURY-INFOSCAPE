@@ -1190,20 +1190,20 @@ and merlot.your.domain), however they can also be placed in nested folders--thou
 The recommended configuration for both software packages is three separate web roots; one root for INFOCENTRAL and one 
 for MERLOT that are not public-facing, and a third that contains two symbolic links to the aforementioned roots that is
 public facing.  The symbolic links should point to the  '/public' directory, to avoid any back-end files being exposed
-through the internet.
+through the internet.  
 
-/var/www
-├── merlot
-│   ├── public
-│       └── index.php
-│   └── ...
-├── infocentral
-│   ├── public
-│       └── index.php
-│   └── ...
-└── website
-    ├── ln -s ../merlot/public
-    └── ln -s ../infocentral/public
+/var/www  
+├── merlot  
+│   ├── public  
+│       └── index.php  
+│   └── ...  
+├── infocentral  
+│   ├── public  
+│       └── index.php  
+│   └── ...  
+└── website  
+    ├── ln -s ../merlot/public  
+    └── ln -s ../infocentral/public  
 
 ### Database Applications
 
@@ -1359,15 +1359,16 @@ attempted with the MERCURY platform, I can only attest to the fresh install work
 
 | Date       | User | Title            | Description |
 |:-----------|:-----|:-----------------|: -----------|
-| 2019-02-15 | LLR | Created Document | Imported information from requirements document and started filling in each section |
+| 2019-02-15 | LLR | Created Document  | Imported information from requirements document and started filling in each section |
 | 2019-02-19 | LLR  | Design patterns  | Added list of software design patterns and examples from existing program|
-| 2019-02-20 | LLR | Layering         | Added basic information to the layering section |
+| 2019-02-20 | LLR | Layering          | Added basic information to the layering section |
 | 2019-02-25 | LLR  | Patterns         | Added data mapper and gateway patterns |
 | 2019-02-26 | LLR  | Layers           | Added diagram of layers and renamed some |
 | 2019-02-26 | LLR  | Exceptions       | Added list of current exceptions and method for processing |
 | 2019-03-04 | LLR  | Code Repos       | Added links to code repos and URLs to production |
 | 2019-03-20 | LLR  | Exceptions       | Added more exceptions for routing |
-| 2019-04-05 | LLR | Performance      | Added information on improving performance, and the refactoring for PostGreSQL switch |
+| 2019-04-05 | LLR | Performance       | Added information on improving performance, and the refactoring for PostGreSQL switch |
 | 2019-04-12 | LLR  | Refactoring      | Added information about re-factoring of the API |
 | 2019-04-15 | LLR  | Unit Testing     | Adding section on unit testing |
 | 2019-04-25 | LLR  | NetCenter docs   | Merged InfoCentral with NetCenter documentation |
+| 2019-06-05 | LLR  | Deployment       | Re-wrote deployment instructions for single vhost |
