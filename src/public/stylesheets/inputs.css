@@ -89,3 +89,13 @@ div.dialog form span {
     display: block;
     font-weight: 600;
 }
+
+form.inline-form {
+    display: inline;
+    vertical-align: middle;
+}
+
+form.inline-form input {
+    height: 17px;
+    display: inline-block;
+}

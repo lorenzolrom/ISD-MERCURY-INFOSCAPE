@@ -1,0 +1,17 @@
+<form class="table-form" onsubmit="return selectWorkspace()">
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td>Workspace</td>
+            <td>
+                <select id="workspace" size="10">{{@workspaceSelect}}</select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Go"></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script src="{{@baseURI}}scripts/tickets/agent.js"></script>

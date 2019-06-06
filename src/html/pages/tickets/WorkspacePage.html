@@ -1,0 +1,20 @@
+<div id="workspace-name">You are in the <span>{{@workspace}}</span> workspace</div>
+<div class="button-bar">
+    <form class="inline-form" onsubmit="return quickSearch()">
+        <input type="text" id="search" placeholder="Search Tickets">
+    </form>
+    <a class="button" href="{{@baseURI}}tickets/agent/new"><img src="{{@baseURI}}media/icons/ticket_add.png">New Ticket</a>
+</div>
+<div id="widgets"></div>
+<div class="button-bar">
+    <form class="inline-form">
+        <select id="filter" onchange="updateFilter()">
+            <option id="myAssignments">My Assignments</option>
+            <option id="open">Open Tickets</option>
+            {{@filterSelect}}
+        </select>
+    </form>
+    <a class="button" href="javascript: updateFilter()">Refresh</a>
+</div>
+<div id="tickets" class="wait"></div>
+<script src="{{@baseURI}}scripts/tickets/agent.js"></script>

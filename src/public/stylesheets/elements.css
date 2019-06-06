@@ -529,7 +529,7 @@ ul#portal-menu li a {
     background-color: #F3F3F3;
     padding: 5px 10px;
     box-shadow: var(--bulletin-shadow);
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 ul#portal-menu li a:hover {
@@ -540,4 +540,15 @@ ul#portal-menu li a img {
     height: 75px;
     vertical-align: middle;
     margin-right: 10px;
+}
+
+div#workspace-name {
+    float: right;
+    margin-top: 5px;
+}
+
+div#workspace-name span {
+    color: #006699;
+    font-weight: 600;
+    font-size: 1.2rem;
 }

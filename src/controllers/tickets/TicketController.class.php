@@ -28,19 +28,28 @@ class TicketController extends Controller
      * @throws \exceptions\InfoCentralException
      * @throws \exceptions\SecurityException
      * @throws \exceptions\ViewException
-     * @throws PageNotFoundException
      */
     public function getPage(): View
     {
-        switch($this->request->next())
+        try
         {
-            case 'admin':
-                $a = new AdminController($this->request);
-                return $a->getPage();
-            case NULL:
-                return new TicketHome();
-        }
+            switch($this->request->next())
+            {
+                case 'admin':
+                    $a = new AdminController($this->request);
+                    return $a->getPage();
+                case 'agent':
+                    $a = new AgentController($this->request);
+                    return $a->getPage();
+                case NULL:
+                    return new TicketHome();
+            }
 
-        return new TicketErrorPage(new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND));
+            throw new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND);
+        }
+        catch(\Exception $e)
+        {
+            return new TicketErrorPage($e);
+        }
     }
 }

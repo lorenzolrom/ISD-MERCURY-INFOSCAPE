@@ -311,6 +311,11 @@ function setSearchCookie(name, data)
     document.cookie = "ML_" + name + "=" + window.btoa(JSON.stringify(data)) + ";path=" + baseURI;
 }
 
+function setCookie(name, value)
+{
+    document.cookie = "ML_" + name + "=" + value + ";path=" + baseURI;
+}
+
 /**
  * Returns the value of the cookie with the specified name
  * @param name
