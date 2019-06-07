@@ -27,5 +27,6 @@ class LoginPage extends View
         $this->setTemplateFromHTML("HTML5Document", self::TEMPLATE_PAGE);
         $this->setVariable("content", self::templateFileContents("LoginForm", self::TEMPLATE_FORM));
         $this->setVariable("tabTitle", "Login");
+        $this->setVariable("appVersion", \Version::CURRENT_VERSION);
     }
 }

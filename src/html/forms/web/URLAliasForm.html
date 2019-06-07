@@ -10,10 +10,6 @@
         <tr>
             <td class="required">Alias</td>
             <td><input type="text" id="alias" value="{{@alias}}"></td>
-            <td class="required">Destination</td>
-            <td><input type="text" id="destination" placeholder="Separate multiple destinations with ';'" value="{{@destination}}"></td>
-        </tr>
-        <tr>
             <td class="required">Disabled</td>
             <td>
                 <select id="disabled">
@@ -21,6 +17,11 @@
                     <option value="1" {{@disabledYes}}>Yes</option>
                 </select>
             </td>
+
+        </tr>
+        <tr>
+            <td class="required">Destination</td>
+            <td colspan="3"><input type="text" id="destination" placeholder="Separate multiple destinations with ';'" value="{{@destination}}"></td>
         </tr>
         </tbody>
     </table>

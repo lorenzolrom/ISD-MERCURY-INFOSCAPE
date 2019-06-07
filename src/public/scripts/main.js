@@ -129,7 +129,7 @@ function loginSetup()
     });
 
     // Set login page background
-    loginWindow.parent().css('background-image', "url('" + baseURI + "media/login-background.png')");
+    loginWindow.parent().css('background-color', "#F3F3F3");
 }
 
 /**

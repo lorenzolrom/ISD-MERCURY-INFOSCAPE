@@ -1,75 +1,102 @@
-form#login-window * {
+div#login-window * {
     font-size: 1rem !important;
     font-family: "Open Sans", Arial, sans-serif !important;
 }
 
-form#login-window {
+div#login-window {
     display: block;
-    padding: 15px 0 25px 0;
-    max-width: 3in;
-    background-color: #D3D3D3;
-    border-top: 10px solid #54A4ED;
-    box-shadow: var(--md-shadow);
-    text-align: center;
+    position: relative;
+    max-width: 735px;
+    height: 440px;
+    background-color: var(--primary-color);
+    background-image: -webkit-linear-gradient(top, rgba(0,200,255,.15) 0%, rgba(0,200,255,0) 8%), -webkit-radial-gradient(750px 600px, circle cover, rgba(0,200,255,.65) 0%,rgba(0,200,255,0) 55%);
+    border-radius: 6px;
+    box-shadow: var(--bulletin-shadow);
     margin: 200px auto auto;
+    text-align: center;
+    box-sizing: border-box;
 }
 
 span#login-title {
     display: block;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 1.2rem !important;
+    font-size: 45px !important;
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    color: #FFF;
+    text-shadow: 5px 4px 10px #000;
+}
+
+span#app-version {
+    font-size: 1.2rem;
+    color: #FFF;
+    text-shadow: 5px 4px 10px #000;
+    position: absolute;
+    right: 60px;
+    bottom: 40px;
 }
 
 span#login-logo {
     display: inline-block;
     margin-bottom: 10px;
-    width: 156px;
-    height: 120px;
-    background-image: url(../media/icon.svg);
+    width: 220px;
+    height: 80px;
+    
+    position: absolute;
+    left: 15px;
+    top: 15px;
+
+    background-image: url(../media/app_logo.png);
     background-repeat: no-repeat;
     background-size: auto 100%;
     background-position: center;
 }
 
-form#login-window p {
+div#login-window form {
+    text-align: right;
+    position: absolute;
+    left: 75px;
+    top: 175px;
+}
+
+div#login-window form p {
     padding: 5px;
 
 }
 
-form#login-window input {
+div#login-window form input {
     display: inline-block;
     border: 1px solid rgba(0,0,0,0.25);
     border-radius: .2em;
-    padding: .5em .75em;
+    padding: .25em .5em;
     width: 249px;
     margin: auto;
     box-sizing: border-box;
     font-size: .8rem;
 }
 
-form#login-window input[type="submit"] {
-    margin-top: 10px;
-    height: 35px;
-    background: #3C3C3C;
+div#login-window form input[type="submit"] {
+    margin-top: 3px;
+    margin-right: 5px;
+    height: 25px;
+    width: 100px;
+    background: var(--error);
     color: #FFF;
     font-weight: 600;
     cursor: pointer;
 }
 
-form#login-window input[type="submit"]:hover {
-    background: #5A5A5A;
+div#login-window form input[type="submit"]:hover {
+    background: var(--accent-color);
 }
 
-form#login-window div#notifications {
-    margin-top: 10px;
+div#login-window div#notifications {
+    position: absolute;
     width: 259px;
     min-width: 250px;
-    top: auto;
-    right: auto;
-    left: auto;
-    margin-left: auto;
-    margin-right: auto;
+    top: 10px;
+    right: 10px;
+    border-radius: 6px;
 }
 
 @media screen and (max-device-height: 800px) {
