@@ -257,7 +257,7 @@ function confirmButtonSetup()
 function tinymceSetup()
 {
     tinymce.init({
-        selector: 'textarea#description',
+        selector: 'textarea#editor',
         height: 300,
         plugins: "lists link",
         toolbar: "formatselect | bold italic | alignleft aligncenter alignright alignjustify | numlist bullist outdent indent link"
