@@ -99,3 +99,7 @@ form.inline-form input {
     height: 17px;
     display: inline-block;
 }
+
+span#changeWorkspace {
+    cursor: pointer;
+}

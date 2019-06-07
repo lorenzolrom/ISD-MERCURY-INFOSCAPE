@@ -1,4 +1,4 @@
-<div id="workspace-name">You are in the <span>{{@workspace}}</span> workspace</div>
+<div id="workspace-name">You are in the <span id="changeWorkspace">{{@workspace}}</span> workspace</div>
 <div class="button-bar">
     <form class="inline-form" onsubmit="return quickSearch()">
         <input type="text" id="search" placeholder="Search Tickets">
@@ -9,12 +9,14 @@
 <div class="button-bar">
     <form class="inline-form">
         <select id="filter" onchange="updateFilter()">
-            <option id="myAssignments">My Assignments</option>
-            <option id="open">Open Tickets</option>
+            <option value="myAssignments">My Assignments</option>
+            <option value="open">Open Tickets</option>
+            <option value="closed">Closed Tickets</option>
             {{@filterSelect}}
+            <option value="currentSearch">-- Current Search Results --</option>
         </select>
     </form>
-    <a class="button" href="javascript: updateFilter()">Refresh</a>
+    <a class="button-noveil" href="javascript: updateFilter()">Refresh</a>
 </div>
-<div id="tickets" class="wait"></div>
+<div id="tickets"></div>
 <script src="{{@baseURI}}scripts/tickets/agent.js"></script>

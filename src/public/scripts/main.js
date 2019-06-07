@@ -257,10 +257,10 @@ function confirmButtonSetup()
 function tinymceSetup()
 {
     tinymce.init({
-        selector: 'textarea#content-editor',
-        height: 500,
-        plugins: "code image lists link textcolor table",
-        toolbar: "formatselect | bold italic | alignleft aligncenter alignright alignjustify | numlist bullist outdent indent | link image | forecolor backcolor | table"
+        selector: 'textarea#description',
+        height: 300,
+        plugins: "lists link",
+        toolbar: "formatselect | bold italic | alignleft aligncenter alignright alignjustify | numlist bullist outdent indent link"
     });
 }
 
@@ -414,6 +414,18 @@ function setupLoadingImage()
         v.appendChild(loadingImage);
 
     });
+}
+
+function applyLoadingImage(id)
+{
+    let target = $('#' + id);
+    let loadingImage = document.createElement("img");
+    $(loadingImage).attr('src', baseURI + 'media/animations/wait.gif');
+    $(loadingImage).attr('alt', '');
+
+    target.empty();
+    target.append(loadingImage);
+
 }
 
 /**

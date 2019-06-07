@@ -1,0 +1,65 @@
+<div id="workspace-name">You are in the <span>{{@workspace}}</span> workspace</div>
+<div class="button-bar">
+    <span class="button form-submit-button" id="ticket"><img src="{{@baseURI}}media/icons/save.png" alt="">Save</span>
+    <a class="button" href="{{@cancelLink}}"><img src="{{@baseURI}}media/icons/delete.png" alt="">Cancel</a>
+</div>
+<form id="ticket-form" class="table-form" onsubmit="{{@formScript}}">
+    <h2 class="region-title"><img src="{{@baseURI}}media/icons/ticket.png" alt="">Ticket Profile {{@number}}</h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td class="required">Title</td>
+            <td colspan="3"><input type="text" id="title" value="{{@title}}"></td>
+        </tr>
+        <tr>
+            <td>Contact</td>
+            <td><input type="text" id="contact" value="{{@contact}}"></td>
+        </tr>
+        <tr>
+            <td class="required">Type</td>
+            <td>
+                <select id="type">
+                    <option value="">--SELECT--</option>
+                    {{@typeSelect}}
+                </select>
+            </td>
+            <td class="required">Category</td>
+            <td>
+                <select id="category">
+                    <option value="">--SELECT--</option>
+                    {{@categorySelect}}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="required">Status</td>
+            <td>
+                <select id="status" onchange="updateEditForm()">
+                    <option value="">--SELECT--</option>
+                    {{@statusSelect}}
+                </select>
+            </td>
+            <td class="required closureCode">Closure Code</td>
+            <td class="closureCode">
+                <select id="closureCode">
+                    <option value="">--SELECT--</option>
+                    {{@closureCodeSelect}}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Desired Date</td>
+            <td><input class="date-input" id="desiredDate"></td>
+            <td>Scheduled Date</td>
+            <td><input class="date-input" id="scheduledDate"></td>
+        </tr>
+        <tr>
+            <td {{@requiredDescription}}>Description</td>
+            <td colspan="3">
+                <textarea id="description"></textarea>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script src="{{@baseURI}}scripts/tickets/agent.js"></script>
