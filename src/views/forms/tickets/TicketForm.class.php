@@ -33,7 +33,7 @@ class TicketForm extends Form
         if($details !== NULL)
             $this->setVariables($details);
 
-        $attributeTypes = array('status', 'closureCode', 'category', 'type');
+        $attributeTypes = array('status', 'closureCode', 'category', 'type', 'severity');
 
         foreach($attributeTypes as $attributeType)
         {

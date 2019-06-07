@@ -14,6 +14,13 @@
         <tr>
             <td>Contact</td>
             <td><input type="text" id="contact" value="{{@contact}}"></td>
+            <td class="required">Severity</td>
+            <td>
+                <select id="severity">
+                    <option value="">--SELECT--</option>
+                    {{@severitySelect}}
+                </select>
+            </td>
         </tr>
         <tr>
             <td class="required">Type</td>

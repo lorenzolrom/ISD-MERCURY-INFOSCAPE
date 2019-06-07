@@ -150,6 +150,8 @@ $(document).ready(function(){
                     $(select).append(option);
                 });
 
+                $(select).val(getWorkspace());
+
                 workspaceSelect.off("click"); // Remove click event
                 workspaceSelect.empty(); // Clear title
                 workspaceSelect.append(select); // Add select
