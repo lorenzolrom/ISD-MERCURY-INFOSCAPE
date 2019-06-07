@@ -55,7 +55,7 @@ span#login-logo {
 div#login-window form {
     text-align: right;
     position: absolute;
-    left: 75px;
+    right: 50px;
     top: 175px;
 }
 
@@ -82,8 +82,8 @@ div#login-window form input[type="submit"] {
     width: 100px;
     background: var(--error);
     color: #FFF;
-    font-weight: 600;
     cursor: pointer;
+    padding: 0 .5em;
 }
 
 div#login-window form input[type="submit"]:hover {
@@ -94,9 +94,13 @@ div#login-window div#notifications {
     position: absolute;
     width: 259px;
     min-width: 250px;
-    top: 10px;
-    right: 10px;
-    border-radius: 6px;
+    border-radius: .2em;
+
+    top: 180px;
+    left: 25px;
+
+    background-color: var(--accent-color);
+    color: #FFFFFF;
 }
 
 @media screen and (max-device-height: 800px) {
