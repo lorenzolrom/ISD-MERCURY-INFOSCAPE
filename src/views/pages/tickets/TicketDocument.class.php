@@ -14,9 +14,7 @@
 namespace views\pages\tickets;
 
 
-use views\elements\Header;
 use views\elements\tickets\TicketNavigation;
-use views\pages\AuthenticatedPage;
 use views\pages\UserDocument;
 
 abstract class TicketDocument extends UserDocument

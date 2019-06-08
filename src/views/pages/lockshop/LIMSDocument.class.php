@@ -14,11 +14,10 @@
 namespace views\pages\lockshop;
 
 
-use views\elements\Header;
 use views\elements\lockshop\LIMSNavigation;
-use views\pages\AuthenticatedPage;
+use views\pages\UserDocument;
 
-abstract class LIMSDocument extends AuthenticatedPage
+abstract class LIMSDocument extends UserDocument
 {
     /**
      * LIMSDocument constructor.
@@ -30,19 +29,9 @@ abstract class LIMSDocument extends AuthenticatedPage
     public function __construct(?string $permission = NULL)
     {
         parent::__construct($permission);
-        $this->setTemplateFromHTML("HTML5Document", self::TEMPLATE_PAGE);
-
-        $this->setVariable("content", self::templateFileContents("UserDocument", self::TEMPLATE_PAGE));
-
-        // Add header
-        $header = new Header();
-        $this->setVariable("header", $header->getTemplate());
 
         $navigation = new LIMSNavigation();
         $this->setVariable('navigation', $navigation->getTemplate());
-
-        $this->setVariable("footer", self::templateFileContents("Footer", self::TEMPLATE_ELEMENT));
-
-        $this->setVariable('operatorName', 'Operator: ' . $this->user->getUsername());
+        $this->setVariable('sidebar', self::templateFileContents('Sidebar', self::TEMPLATE_ELEMENT));
     }
 }
