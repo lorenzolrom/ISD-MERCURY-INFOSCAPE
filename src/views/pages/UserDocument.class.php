@@ -6,8 +6,8 @@
  * Mercury Merlot
  *
  * User: lromero
- * Date: 4/07/2019
- * Time: 6:12 PM
+ * Date: 6/07/2019
+ * Time: 8:36 PM
  */
 
 
@@ -15,20 +15,17 @@ namespace views\pages;
 
 
 use views\elements\Header;
-use views\elements\Navigation;
-use views\elements\Sidebar;
 
-abstract class UserDocument extends AuthenticatedPage
+class UserDocument extends AuthenticatedPage
 {
     /**
      * UserDocument constructor.
      * @param string|null $permission
-     * @param string|null $section
      * @throws \exceptions\InfoCentralException
      * @throws \exceptions\SecurityException
      * @throws \exceptions\ViewException
      */
-    public function __construct(?string $permission = NULL, ?string $section = NULL)
+    public function __construct(?string $permission = NULL)
     {
         parent::__construct($permission);
         $this->setTemplateFromHTML("HTML5Document", self::TEMPLATE_PAGE);
@@ -39,16 +36,7 @@ abstract class UserDocument extends AuthenticatedPage
         $header = new Header();
         $this->setVariable("header", $header->getTemplate());
 
-        $navigation = new Navigation();
-        $this->setVariable('navigation', $navigation->getTemplate());
-
         $this->setVariable("footer", self::templateFileContents("Footer", self::TEMPLATE_ELEMENT));
-
-        if($section !== NULL)
-        {
-            $sidebar = new Sidebar($section);
-            $this->setVariable("sidebar", $sidebar->getTemplate());
-        }
 
         $this->setVariable('operatorName', 'Operator: ' . $this->user->getUsername());
     }

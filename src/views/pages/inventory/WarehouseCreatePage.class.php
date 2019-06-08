@@ -15,9 +15,9 @@ namespace views\pages\inventory;
 
 
 use views\forms\inventory\WarehouseForm;
-use views\pages\UserDocument;
+use views\pages\MainDocument;
 
-class WarehouseCreatePage extends UserDocument
+class WarehouseCreatePage extends MainDocument
 {
     public function __construct()
     {

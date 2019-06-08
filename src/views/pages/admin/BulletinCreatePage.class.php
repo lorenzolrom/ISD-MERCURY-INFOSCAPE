@@ -15,9 +15,9 @@ namespace views\pages\admin;
 
 
 use views\forms\admin\BulletinForm;
-use views\pages\UserDocument;
+use views\pages\MainDocument;
 
-class BulletinCreatePage extends UserDocument
+class BulletinCreatePage extends MainDocument
 {
     public function __construct()
     {

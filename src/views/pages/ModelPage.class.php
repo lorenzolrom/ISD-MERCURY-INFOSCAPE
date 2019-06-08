@@ -17,7 +17,7 @@ namespace views\pages;
 use exceptions\EntryNotFoundException;
 use utilities\InfoCentralConnection;
 
-abstract class ModelPage extends UserDocument
+abstract class ModelPage extends MainDocument
 {
     protected $response;
 

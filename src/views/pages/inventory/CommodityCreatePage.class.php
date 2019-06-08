@@ -15,9 +15,9 @@ namespace views\pages\inventory;
 
 
 use views\forms\inventory\CommodityForm;
-use views\pages\UserDocument;
+use views\pages\MainDocument;
 
-class CommodityCreatePage extends UserDocument
+class CommodityCreatePage extends MainDocument
 {
     public function __construct()
     {

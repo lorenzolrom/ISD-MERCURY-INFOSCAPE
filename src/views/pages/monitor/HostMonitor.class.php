@@ -14,9 +14,9 @@
 namespace views\pages\monitor;
 
 
-use views\pages\UserDocument;
+use views\pages\MainDocument;
 
-class HostMonitor extends UserDocument
+class HostMonitor extends MainDocument
 {
     public function __construct()
     {

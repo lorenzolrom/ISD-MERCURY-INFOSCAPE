@@ -14,9 +14,9 @@
 namespace views\pages\admin;
 
 
-use views\pages\UserDocument;
+use views\pages\MainDocument;
 
-class UserLogSearchPage extends UserDocument
+class MainLogSearchPage extends MainDocument
 {
     public function __construct()
     {

@@ -14,9 +14,9 @@
 namespace views\pages\web;
 
 use views\forms\web\RegistrarForm;
-use views\pages\UserDocument;
+use views\pages\MainDocument;
 
-class RegistrarCreatePage extends UserDocument
+class RegistrarCreatePage extends MainDocument
 {
     public function __construct()
     {

@@ -15,9 +15,9 @@ namespace views\pages\inventory;
 
 
 use utilities\InfoCentralConnection;
-use views\pages\UserDocument;
+use views\pages\MainDocument;
 
-class CommoditySearchPage extends UserDocument
+class CommoditySearchPage extends MainDocument
 {
     public function __construct()
     {

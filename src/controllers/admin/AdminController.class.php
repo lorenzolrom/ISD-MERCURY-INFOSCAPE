@@ -18,7 +18,7 @@ use controllers\Controller;
 use exceptions\PageNotFoundException;
 use views\pages\admin\PermissionAuditSearchPage;
 use views\pages\admin\SendNotificationPage;
-use views\pages\admin\UserLogSearchPage;
+use views\pages\admin\MainLogSearchPage;
 use views\View;
 
 class AdminController extends Controller
@@ -51,7 +51,7 @@ class AdminController extends Controller
                 $users = new UserController($this->request);
                 return $users->getPage();
             case 'userlogs':
-                return new UserLogSearchPage();
+                return new MainLogSearchPage();
             case 'permissions':
                 return new PermissionAuditSearchPage();
             case 'notifications':

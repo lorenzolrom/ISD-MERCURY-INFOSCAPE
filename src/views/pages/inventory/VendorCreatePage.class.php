@@ -15,9 +15,9 @@ namespace views\pages\inventory;
 
 
 use views\forms\inventory\VendorForm;
-use views\pages\UserDocument;
+use views\pages\MainDocument;
 
-class VendorCreatePage extends UserDocument
+class VendorCreatePage extends MainDocument
 {
     public function __construct()
     {

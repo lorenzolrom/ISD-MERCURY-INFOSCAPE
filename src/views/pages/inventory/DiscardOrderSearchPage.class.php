@@ -14,9 +14,9 @@
 namespace views\pages\inventory;
 
 
-use views\pages\UserDocument;
+use views\pages\MainDocument;
 
-class DiscardOrderSearchPage extends UserDocument
+class DiscardOrderSearchPage extends MainDocument
 {
     public function __construct()
     {

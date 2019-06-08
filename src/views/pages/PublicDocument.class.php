@@ -35,7 +35,7 @@ abstract class PublicDocument extends View
 
         $this->setTemplateFromHTML('HTML5Document', self::TEMPLATE_PAGE);
 
-        $this->setVariable('content', self::templateFileContents('PublicDocument', self::TEMPLATE_PAGE));
+        $this->setVariable('content', self::templateFileContents('HTML5Document', self::TEMPLATE_PAGE));
 
         $header = new Header();
         $this->setVariable('header', $header->getTemplate());

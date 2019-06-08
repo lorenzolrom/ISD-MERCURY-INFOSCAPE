@@ -14,7 +14,7 @@
 namespace views\pages;
 
 
-class HistoryViewPage extends UserDocument
+class HistoryViewPage extends MainDocument
 {
     public function __construct(string $rawObjectName, string $object, string $index)
     {

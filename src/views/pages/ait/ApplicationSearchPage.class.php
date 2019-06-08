@@ -15,9 +15,9 @@ namespace views\pages\ait;
 
 
 use utilities\InfoCentralConnection;
-use views\pages\UserDocument;
+use views\pages\MainDocument;
 
-class ApplicationSearchPage extends UserDocument
+class ApplicationSearchPage extends MainDocument
 {
     public function __construct()
     {

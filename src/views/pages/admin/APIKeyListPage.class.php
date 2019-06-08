@@ -14,9 +14,9 @@
 namespace views\pages\admin;
 
 
-use views\pages\UserDocument;
+use views\pages\MainDocument;
 
-class APIKeyListPage extends UserDocument
+class APIKeyListPage extends MainDocument
 {
     /**
      * APIKeySearchPage constructor.

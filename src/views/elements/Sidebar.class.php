@@ -34,7 +34,7 @@ class Sidebar extends View
      */
     public function __construct(string $sectionTitle)
     {
-        $this->setTemplateFromHTML("Sidebar", self::TEMPLATE_ELEMENT);
+        $this->setTemplateFromHTML("Sidebar", self::TEMPLATE_CONTENT);
 
         if(!isset(\Pages::HEADER[$sectionTitle]))
             return;

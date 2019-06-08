@@ -15,9 +15,9 @@ namespace controllers\admin;
 
 
 use controllers\Controller;
-use views\pages\admin\UserCreatePage;
+use views\pages\admin\MainCreatePage;
 use views\pages\admin\UserEditPage;
-use views\pages\admin\UserSearchPage;
+use views\pages\admin\MainSearchPage;
 use views\View;
 
 class UserController extends Controller
@@ -37,9 +37,9 @@ class UserController extends Controller
         switch($param)
         {
             case null:
-                return new UserSearchPage();
+                return new MainSearchPage();
             case 'new':
-                return new UserCreatePage();
+                return new MainCreatePage();
             default:
                 return new UserEditPage($param);
         }

@@ -14,9 +14,9 @@
 namespace views\pages\monitor;
 
 
-use views\pages\UserDocument;
+use views\pages\MainDocument;
 
-class HostCategoryListPage extends UserDocument
+class HostCategoryListPage extends MainDocument
 {
     public function __construct()
     {

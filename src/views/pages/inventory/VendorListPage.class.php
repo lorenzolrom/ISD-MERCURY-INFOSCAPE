@@ -14,9 +14,9 @@
 namespace views\pages\inventory;
 
 
-use views\pages\UserDocument;
+use views\pages\MainDocument;
 
-class VendorListPage extends UserDocument
+class VendorListPage extends MainDocument
 {
     public function __construct()
     {

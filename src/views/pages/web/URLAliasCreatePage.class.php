@@ -15,9 +15,9 @@ namespace views\pages\web;
 
 
 use views\forms\web\URLAliasForm;
-use views\pages\UserDocument;
+use views\pages\MainDocument;
 
-class URLAliasCreatePage extends UserDocument
+class URLAliasCreatePage extends MainDocument
 {
     public function __construct()
     {

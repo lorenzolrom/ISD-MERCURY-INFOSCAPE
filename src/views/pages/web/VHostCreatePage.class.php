@@ -15,9 +15,9 @@ namespace views\pages\web;
 
 
 use views\forms\web\VHostForm;
-use views\pages\UserDocument;
+use views\pages\MainDocument;
 
-class VHostCreatePage extends UserDocument
+class VHostCreatePage extends MainDocument
 {
     public function __construct()
     {

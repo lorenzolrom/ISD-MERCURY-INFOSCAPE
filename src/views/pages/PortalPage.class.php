@@ -13,8 +13,7 @@
 
 namespace views\pages;
 
-
-class PortalPage extends PublicDocument
+class PortalPage extends UserDocument
 {
     public function __construct()
     {

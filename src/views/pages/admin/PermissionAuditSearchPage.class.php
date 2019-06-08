@@ -14,9 +14,9 @@
 namespace views\pages\admin;
 
 
-use views\pages\UserDocument;
+use views\pages\MainDocument;
 
-class PermissionAuditSearchPage extends UserDocument
+class PermissionAuditSearchPage extends MainDocument
 {
     public function __construct()
     {

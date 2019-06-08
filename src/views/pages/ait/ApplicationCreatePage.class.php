@@ -15,9 +15,9 @@ namespace views\pages\ait;
 
 
 use views\forms\ait\ApplicationForm;
-use views\pages\UserDocument;
+use views\pages\MainDocument;
 
-class ApplicationCreatePage extends UserDocument
+class ApplicationCreatePage extends MainDocument
 {
     public function __construct()
     {

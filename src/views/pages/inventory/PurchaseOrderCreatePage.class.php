@@ -15,9 +15,9 @@ namespace views\pages\inventory;
 
 
 use views\forms\inventory\PurchaseOrderForm;
-use views\pages\UserDocument;
+use views\pages\MainDocument;
 
-class PurchaseOrderCreatePage extends UserDocument
+class PurchaseOrderCreatePage extends MainDocument
 {
     public function __construct()
     {

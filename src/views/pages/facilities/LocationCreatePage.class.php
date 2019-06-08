@@ -17,9 +17,9 @@ namespace views\pages\facilities;
 use exceptions\EntryNotFoundException;
 use utilities\InfoCentralConnection;
 use views\forms\facilities\LocationForm;
-use views\pages\UserDocument;
+use views\pages\MainDocument;
 
-class LocationCreatePage extends UserDocument
+class LocationCreatePage extends MainDocument
 {
     /**
      * LocationCreatePage constructor.

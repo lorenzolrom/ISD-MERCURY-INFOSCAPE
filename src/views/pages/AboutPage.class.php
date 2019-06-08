@@ -14,7 +14,7 @@
 namespace views\pages;
 
 
-class AboutPage extends UserDocument
+class AboutPage extends MainDocument
 {
     public function __construct()
     {

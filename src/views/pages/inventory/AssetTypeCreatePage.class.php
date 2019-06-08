@@ -15,9 +15,9 @@ namespace views\pages\inventory;
 
 
 use views\forms\inventory\AssetTypeForm;
-use views\pages\UserDocument;
+use views\pages\MainDocument;
 
-class AssetTypeCreatePage extends UserDocument
+class AssetTypeCreatePage extends MainDocument
 {
     public function __construct()
     {

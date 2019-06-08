@@ -14,9 +14,9 @@
 namespace views\pages\web;
 
 
-use views\pages\UserDocument;
+use views\pages\MainDocument;
 
-class URLAliasSearchPage extends UserDocument
+class URLAliasSearchPage extends MainDocument
 {
     public function __construct()
     {

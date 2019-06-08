@@ -15,9 +15,9 @@ namespace views\pages\devices;
 
 
 use views\forms\devices\HostForm;
-use views\pages\UserDocument;
+use views\pages\MainDocument;
 
-class HostCreatePage extends UserDocument
+class HostCreatePage extends MainDocument
 {
     public function __construct()
     {

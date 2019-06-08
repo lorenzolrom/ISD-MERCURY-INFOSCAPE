@@ -15,9 +15,9 @@ namespace views\pages\inventory;
 
 
 use utilities\InfoCentralConnection;
-use views\pages\UserDocument;
+use views\pages\MainDocument;
 
-class PurchaseOrderSearchPage extends UserDocument
+class PurchaseOrderSearchPage extends MainDocument
 {
     public function __construct()
     {

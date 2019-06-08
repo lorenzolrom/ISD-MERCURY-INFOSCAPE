@@ -14,7 +14,9 @@
 namespace views\pages\webhosting;
 
 
-class WebHostingHome extends WebHostingDocument
+use views\pages\UserDocument;
+
+class WebHostingHome extends UserDocument
 {
     public function __construct()
     {

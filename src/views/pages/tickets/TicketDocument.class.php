@@ -17,8 +17,9 @@ namespace views\pages\tickets;
 use views\elements\Header;
 use views\elements\tickets\TicketNavigation;
 use views\pages\AuthenticatedPage;
+use views\pages\UserDocument;
 
-abstract class TicketDocument extends AuthenticatedPage
+abstract class TicketDocument extends UserDocument
 {
     /**
      * TicketDocument constructor.
@@ -30,19 +31,9 @@ abstract class TicketDocument extends AuthenticatedPage
     public function __construct(?string $permission = NULL)
     {
         parent::__construct($permission);
-        $this->setTemplateFromHTML("HTML5Document", self::TEMPLATE_PAGE);
-
-        $this->setVariable("content", self::templateFileContents("UserDocument", self::TEMPLATE_PAGE));
-
-        // Add header
-        $header = new Header();
-        $this->setVariable("header", $header->getTemplate());
 
         $navigation = new TicketNavigation();
         $this->setVariable('navigation', $navigation->getTemplate());
-
-        $this->setVariable("footer", self::templateFileContents("Footer", self::TEMPLATE_ELEMENT));
-
-        $this->setVariable('operatorName', 'Operator: ' . $this->user->getUsername());
+        $this->setVariable('sidebar', self::templateFileContents('Sidebar', self::TEMPLATE_ELEMENT));
     }
 }

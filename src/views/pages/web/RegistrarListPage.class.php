@@ -14,9 +14,9 @@
 namespace views\pages\web;
 
 
-use views\pages\UserDocument;
+use views\pages\MainDocument;
 
-class RegistrarListPage extends UserDocument
+class RegistrarListPage extends MainDocument
 {
     /**
      * RegistrarListPage constructor.
