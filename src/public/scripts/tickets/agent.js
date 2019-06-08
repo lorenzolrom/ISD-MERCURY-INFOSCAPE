@@ -1,12 +1,11 @@
 function selectWorkspace()
 {
     let workspace = $('#workspace').val();
-    changeWorkspace(workspace);
+    return changeWorkspace(workspace);
 }
 
 function changeWorkspace(workspace)
 {
-    console.log(workspace);
     veil();
     apiRequest('GET', 'tickets/workspaces/' + workspace, {}).done(function(json){
         if(json.code !== 200)
@@ -22,7 +21,6 @@ function changeWorkspace(workspace)
     });
 
     return false;
-
 }
 
 function getWorkspace()

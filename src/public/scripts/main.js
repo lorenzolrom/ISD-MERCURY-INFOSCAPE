@@ -129,7 +129,7 @@ function loginSetup()
     });
 
     // Set login page background
-    loginWindow.parent().css('background-color', "#F3F3F3");
+    loginWindow.parent().css('background-color', "#38383d");
 }
 
 /**
@@ -314,6 +314,7 @@ function setSearchCookie(name, data)
 function setCookie(name, value)
 {
     document.cookie = "ML_" + name + "=" + value + ";path=" + baseURI;
+    return true;
 }
 
 /**
