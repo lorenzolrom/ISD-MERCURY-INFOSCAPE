@@ -32,6 +32,5 @@ abstract class TicketDocument extends UserDocument
 
         $navigation = new TicketNavigation();
         $this->setVariable('navigation', $navigation->getTemplate());
-        $this->setVariable('sidebar', self::templateFileContents('Sidebar', self::TEMPLATE_ELEMENT));
     }
 }

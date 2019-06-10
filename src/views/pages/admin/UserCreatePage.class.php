@@ -17,7 +17,7 @@ namespace views\pages\admin;
 use views\forms\admin\UserForm;
 use views\pages\MainDocument;
 
-class MainCreatePage extends MainDocument
+class UserCreatePage extends MainDocument
 {
     public function __construct()
     {

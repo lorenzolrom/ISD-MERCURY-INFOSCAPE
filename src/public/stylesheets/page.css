@@ -12,9 +12,12 @@
     --drop-down-link-hover: #333;
 
     --main-background: #F3F3F3;
+    --dark-background: #38383D;
 
     --shadow: 0px 3px 4px #444;
     --md-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    --text-shadow: 5px 4px 10px #000;
+    --image-shadow: drop-shadow(3px 3px 3px #000);
 
     --bulletin-border-color: #888;
     --bulletin-shadow: 0px 2px 5px #888;
@@ -74,20 +77,38 @@ header span#company-logo {
     height: 80px;
     width: 329px;
     background-image: url('../media/company_logo.png');
+    filter: var(--image-shadow);
+}
+
+header span#app-caption, header span#company-name {
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    position: absolute;
+    top: 60px;
+    line-height: 20px;
+}
+
+header span#company-name {
+    left: 90px;
 }
 
 header span#app-logo {
     background-image: url('../media/app_logo.png');
     top: 0;
     right: 0;
-    height: 80px;
-    width: 259px;
+    height: 65px;
+    width: 222px;
 
     position: absolute;
     display: inline-block;
     background-size: auto 100%;
     background-repeat: no-repeat;
     background-position: right;
+    filter: var(--image-shadow);
+}
+
+header span#app-caption {
+    right: 30px;
 }
 
 header span#operator-name {
@@ -207,17 +228,13 @@ div#content {
     flex: 1 0 auto;
     display: flex;
     background-color: var(--main-background);
-    /*background-image: var(--main-background);*/
 }
 
 /* Sidebar */
 
 div#sidebar {
-    border-right: 1px solid var(--accent-color);
     color: #FFFFFF;
     z-index: 997;
-    box-shadow: var(--shadow);
-
     flex: 0 0 180px;
     background-color: var(--accent-color);
 }

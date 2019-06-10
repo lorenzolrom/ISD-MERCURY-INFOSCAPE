@@ -40,7 +40,6 @@ abstract class MainDocument extends UserDocument
 
         $navigation = new Navigation();
         $this->setVariable('navigation', $navigation->getTemplate());
-        $this->setVariable('sidebar', self::templateFileContents('Sidebar', self::TEMPLATE_ELEMENT));
 
         if($section !== NULL)
         {

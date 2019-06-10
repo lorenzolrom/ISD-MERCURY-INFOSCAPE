@@ -15,6 +15,9 @@ abstract class Config_Generic
 {
     const OPTIONS = array(
         'appName' => 'Merlot',
+        'appCaption' => 'A Mercury Application',
+
+        'companyName' => 'Your Company',
 
         'baseURL' => 'https://your.domain',
         'baseURI' => '/',

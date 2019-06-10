@@ -32,6 +32,5 @@ abstract class LIMSDocument extends UserDocument
 
         $navigation = new LIMSNavigation();
         $this->setVariable('navigation', $navigation->getTemplate());
-        $this->setVariable('sidebar', self::templateFileContents('Sidebar', self::TEMPLATE_ELEMENT));
     }
 }
