@@ -1311,7 +1311,7 @@ MERLOT has the following base configuration file:
 abstract class Config_Generic
 {
     const OPTIONS = array(
-        'appName' => 'Merlot',
+        'appName' => 'InfoScape',
 
         'baseURL' => 'https://your.domain',
         'baseURI' => '/',

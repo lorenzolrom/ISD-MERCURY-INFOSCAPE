@@ -3,7 +3,7 @@
  * LLR Technologies & Associated Services
  * Information Systems Development
  *
- * Mercury Merlot
+ * Mercury InfoScape
  *
  * User: lromero
  * Date: 4/08/2019

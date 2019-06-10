@@ -3,7 +3,7 @@
  * LLR Technologies & Associated Services
  * Information Systems Development
  *
- * Mercury Merlot
+ * Mercury InfoScape
  *
  * User: lromero
  * Date: 4/07/2019
@@ -13,6 +13,6 @@
 
 abstract class Version
 {
-    const SOFTWARE_TITLE = "Mercury Merlot";
+    const SOFTWARE_TITLE = "Mercury InfoScape";
     const CURRENT_VERSION = "1.0.0";
 }

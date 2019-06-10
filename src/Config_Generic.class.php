@@ -3,7 +3,7 @@
  * LLR Technologies & Associated Services
  * Information Systems Development
  *
- * Mercury Merlot
+ * Mercury InfoScape
  *
  * User: lromero
  * Date: 4/07/2019
@@ -14,7 +14,7 @@
 abstract class Config_Generic
 {
     const OPTIONS = array(
-        'appName' => 'Merlot',
+        'appName' => 'InfoScape',
         'appCaption' => 'A Mercury Application',
 
         'companyName' => 'Your Company',
