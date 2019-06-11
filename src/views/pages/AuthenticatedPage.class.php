@@ -18,7 +18,6 @@ use exceptions\SecurityException;
 use models\HTTPResponse;
 use models\User;
 use utilities\InfoCentralConnection;
-use views\View;
 
 abstract class AuthenticatedPage extends HTML5Document
 {

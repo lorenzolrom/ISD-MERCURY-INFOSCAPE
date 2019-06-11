@@ -16,6 +16,7 @@ namespace controllers\admin;
 
 use controllers\Controller;
 use exceptions\PageNotFoundException;
+use views\pages\admin\AdminHomePage;
 use views\pages\admin\PermissionAuditSearchPage;
 use views\pages\admin\SendNotificationPage;
 use views\pages\admin\UserLogSearchPage;
@@ -57,6 +58,9 @@ class AdminController extends Controller
             case 'notifications':
                 if($this->request->next() === 'send')
                     return new SendNotificationPage();
+                break;
+            case NULL:
+                return new AdminHomePage();
         }
 
         throw new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND);

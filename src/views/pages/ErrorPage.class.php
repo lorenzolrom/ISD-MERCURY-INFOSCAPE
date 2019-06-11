@@ -13,7 +13,7 @@
 
 namespace views\pages;
 
-class ErrorPage extends NetCenterDocument
+class ErrorPage extends PortalDocument
 {
     public function __construct(\Exception $e)
     {

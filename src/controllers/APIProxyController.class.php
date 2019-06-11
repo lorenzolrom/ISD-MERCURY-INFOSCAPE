@@ -32,6 +32,7 @@ class APIProxyController extends Controller
      * @return View
      * @throws \exceptions\InfoCentralException
      * @throws \exceptions\SecurityException
+     * @throws \exceptions\ViewException
      */
     public function getPage(): View
     {

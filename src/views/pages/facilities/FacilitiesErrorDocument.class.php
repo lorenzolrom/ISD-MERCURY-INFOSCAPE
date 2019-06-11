@@ -6,15 +6,15 @@
  * Mercury InfoScape
  *
  * User: lromero
- * Date: 5/24/2019
- * Time: 3:36 PM
+ * Date: 6/11/2019
+ * Time: 1:23 PM
  */
 
 
-namespace views\pages\lockshop;
+namespace views\pages\facilities;
 
 
-class LIMSErrorPage extends LIMSDocument
+class FacilitiesErrorDocument extends FacilitiesDocument
 {
     public function __construct(\Exception $e)
     {

@@ -15,9 +15,9 @@ namespace views\pages\admin;
 
 
 use views\forms\admin\UserForm;
-use views\pages\NetCenterDocument;
+;
 
-class UserCreatePage extends NetCenterDocument
+class UserCreatePage extends AdminDocument
 {
     public function __construct()
     {

@@ -118,43 +118,6 @@ abstract class Pages
                     'icon' => 'apps.png'
                 )
             )
-        ),
-        'admin' => array(
-            'title' => 'Admin',
-            'permission' => 'settings',
-            'icon' => 'admin.png',
-            'pages' => array(
-                array(
-                    'title' => 'Users',
-                    'permission' => 'settings',
-                    'icon' => 'user.png',
-                    'link' => 'admin/users'
-                ),
-                array(
-                    'title' => 'Roles',
-                    'permission' => 'settings',
-                    'icon' => 'group.png',
-                    'link' => 'admin/roles'
-                ),
-                array(
-                    'title' => 'API Keys',
-                    'permission' => 'api-settings',
-                    'icon' => 'operator.png',
-                    'link' => 'admin/icadmin'
-                ),
-                array(
-                    'title' => 'Send Notification',
-                    'permission' => 'settings',
-                    'icon' => 'toemail.png',
-                    'link' => 'admin/notifications/send'
-                ),
-                array(
-                    'title' => 'Bulletins',
-                    'permission' => 'settings',
-                    'icon' => 'about.png',
-                    'link' => 'admin/bulletins'
-                )
-            )
         )
     );
 

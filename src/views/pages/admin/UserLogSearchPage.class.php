@@ -14,9 +14,9 @@
 namespace views\pages\admin;
 
 
-use views\pages\NetCenterDocument;
+;
 
-class UserLogSearchPage extends NetCenterDocument
+class UserLogSearchPage extends AdminDocument
 {
     public function __construct()
     {

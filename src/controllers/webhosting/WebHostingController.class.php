@@ -16,7 +16,6 @@ namespace controllers\webhosting;
 
 use controllers\Controller;
 use exceptions\PageNotFoundException;
-use views\pages\webhosting\WebHostingErrorPage;
 use views\pages\webhosting\WebHostingHome;
 use views\View;
 
@@ -27,6 +26,7 @@ class WebHostingController extends Controller
      * @throws \exceptions\InfoCentralException
      * @throws \exceptions\SecurityException
      * @throws \exceptions\ViewException
+     * @throws PageNotFoundException
      */
     public function getPage(): View
     {
@@ -36,6 +36,6 @@ class WebHostingController extends Controller
                 return new WebHostingHome();
         }
 
-        return new WebHostingErrorPage(new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND));
+        throw new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND);
     }
 }

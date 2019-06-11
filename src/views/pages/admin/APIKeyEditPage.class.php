@@ -15,7 +15,7 @@ namespace views\pages\admin;
 
 
 use views\forms\admin\APIKeyForm;
-use views\pages\ModelPage;
+;
 
 class APIKeyEditPage extends ModelPage
 {

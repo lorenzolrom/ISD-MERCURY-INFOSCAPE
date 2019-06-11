@@ -14,8 +14,6 @@
 namespace views\pages\facilities;
 
 
-use views\pages\NetCenterDocument;
-
 class BuildingSearchPage extends FacilitiesDocument
 {
     public function __construct()

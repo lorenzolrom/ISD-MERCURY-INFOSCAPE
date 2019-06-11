@@ -15,7 +15,7 @@ namespace views\pages\admin;
 
 
 use views\forms\admin\BulletinForm;
-use views\pages\ModelPage;
+;
 
 class BulletinEditPage extends ModelPage
 {

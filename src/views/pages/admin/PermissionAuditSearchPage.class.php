@@ -14,9 +14,9 @@
 namespace views\pages\admin;
 
 
-use views\pages\NetCenterDocument;
+;
 
-class PermissionAuditSearchPage extends NetCenterDocument
+class PermissionAuditSearchPage extends AdminDocument
 {
     public function __construct()
     {

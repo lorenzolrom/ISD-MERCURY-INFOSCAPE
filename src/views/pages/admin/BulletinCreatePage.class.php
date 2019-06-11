@@ -15,9 +15,9 @@ namespace views\pages\admin;
 
 
 use views\forms\admin\BulletinForm;
-use views\pages\NetCenterDocument;
+;
 
-class BulletinCreatePage extends NetCenterDocument
+class BulletinCreatePage extends AdminDocument
 {
     public function __construct()
     {

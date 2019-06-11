@@ -15,7 +15,6 @@ namespace views\pages\facilities;
 
 
 use views\forms\facilities\BuildingForm;
-use views\pages\NetCenterDocument;
 
 class BuildingCreatePage extends FacilitiesDocument
 {

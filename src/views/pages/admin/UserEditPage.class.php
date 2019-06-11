@@ -15,7 +15,7 @@ namespace views\pages\admin;
 
 
 use views\forms\admin\UserForm;
-use views\pages\ModelPage;
+;
 
 class UserEditPage extends ModelPage
 {

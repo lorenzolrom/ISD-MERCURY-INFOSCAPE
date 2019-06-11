@@ -16,7 +16,6 @@ namespace controllers\lockshop;
 
 use controllers\Controller;
 use exceptions\PageNotFoundException;
-use views\pages\lockshop\LIMSErrorPage;
 use views\pages\lockshop\LIMSHome;
 use views\View;
 
@@ -27,6 +26,7 @@ class LockShopController extends Controller
      * @throws \exceptions\InfoCentralException
      * @throws \exceptions\SecurityException
      * @throws \exceptions\ViewException
+     * @throws PageNotFoundException
      */
     public function getPage(): View
     {
@@ -36,6 +36,6 @@ class LockShopController extends Controller
                 return new LIMSHome();
         }
 
-        return new LIMSErrorPage(new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND));
+        throw new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND);
     }
 }
