@@ -13,12 +13,12 @@
 
 namespace views\pages;
 
-class PortalPage extends UserDocument
+class Portal extends PortalDocument
 {
     public function __construct()
     {
         parent::__construct();
         $this->setVariable("tabTitle", \Config::OPTIONS['appName']);
-        $this->setVariable("content", self::templateFileContents("Portal", self::TEMPLATE_PAGE));
+        $this->setVariable("content", self::templateFileContents("Portal", self::TEMPLATE_CONTENT));
     }
 }

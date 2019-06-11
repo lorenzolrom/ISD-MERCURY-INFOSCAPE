@@ -32,7 +32,7 @@
     margin: 0;
     padding: 0;
     font-size: 10pt;
-    font-family: Arial, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     font-weight: normal;
 }
 
@@ -227,6 +227,7 @@ div#wrapper {
 div#content {
     flex: 1 0 auto;
     display: flex;
+    position: relative;
     background-color: var(--main-background);
 }
 
@@ -289,12 +290,19 @@ div#view {
     max-width: 1250px;
     min-width: 619px;
 }
+
 div#view ul li {
     list-style-position: inside;
 }
 
 div#content.full-width-view div#view {
     max-width: 100%;
+}
+
+div#portal-view {
+    width: 780px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Footer */

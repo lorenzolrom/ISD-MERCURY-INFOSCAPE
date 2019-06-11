@@ -14,7 +14,7 @@
 namespace controllers;
 
 
-use views\pages\PortalPage;
+use views\pages\Portal;
 use views\View;
 
 class PortalController extends Controller
@@ -27,6 +27,6 @@ class PortalController extends Controller
      */
     public function getPage(): View
     {
-        return new PortalPage();
+        return new Portal();
     }
 }
