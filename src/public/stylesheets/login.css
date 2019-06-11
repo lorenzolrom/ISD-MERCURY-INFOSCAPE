@@ -113,6 +113,13 @@ div#login-window div#notifications {
     color: #FFFFFF;
 }
 
+img#mercury-logo {
+    position: absolute;
+    height: 50px;
+    bottom: 25px;
+    left: 25px;
+}
+
 @media screen and (max-device-height: 800px) {
     form#login-window {
         margin-top: 20vh;

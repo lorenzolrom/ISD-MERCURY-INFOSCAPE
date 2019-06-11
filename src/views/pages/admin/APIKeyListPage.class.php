@@ -14,9 +14,9 @@
 namespace views\pages\admin;
 
 
-use views\pages\MainDocument;
+use views\pages\NetCenterDocument;
 
-class APIKeyListPage extends MainDocument
+class APIKeyListPage extends NetCenterDocument
 {
     /**
      * APIKeySearchPage constructor.

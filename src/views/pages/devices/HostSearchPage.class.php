@@ -14,9 +14,9 @@
 namespace views\pages\devices;
 
 
-use views\pages\MainDocument;
+use views\pages\NetCenterDocument;
 
-class HostSearchPage extends MainDocument
+class HostSearchPage extends NetCenterDocument
 {
     public function __construct()
     {

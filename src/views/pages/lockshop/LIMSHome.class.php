@@ -19,7 +19,7 @@ class LIMSHome extends LIMSDocument
     public function __construct()
     {
         parent::__construct('lockshop');
-        $this->setVariable('tabTitle', 'LIMS Home');
+        $this->setVariable('tabTitle', 'Lock Management');
 
         $this->setVariable('content', self::templateFileContents('lockshop/LIMSHome', self::TEMPLATE_PAGE));
     }

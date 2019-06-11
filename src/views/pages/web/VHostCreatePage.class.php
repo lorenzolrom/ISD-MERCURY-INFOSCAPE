@@ -15,9 +15,9 @@ namespace views\pages\web;
 
 
 use views\forms\web\VHostForm;
-use views\pages\MainDocument;
+use views\pages\NetCenterDocument;
 
-class VHostCreatePage extends MainDocument
+class VHostCreatePage extends NetCenterDocument
 {
     public function __construct()
     {

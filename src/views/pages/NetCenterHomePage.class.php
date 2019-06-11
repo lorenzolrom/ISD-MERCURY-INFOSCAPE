@@ -16,12 +16,12 @@ namespace views\pages;
 
 use views\elements\BulletinList;
 
-class HomePage extends MainDocument
+class NetCenterHomePage extends NetCenterDocument
 {
     public function __construct()
     {
         parent::__construct();
-        $this->setVariable("tabTitle", \Config::OPTIONS['appName'] . " Home");
+        $this->setVariable("tabTitle", "Net Center");
         $this->setVariable('content', self::templateFileContents('Home', self::TEMPLATE_PAGE));
 
         $bulletinList = new BulletinList();

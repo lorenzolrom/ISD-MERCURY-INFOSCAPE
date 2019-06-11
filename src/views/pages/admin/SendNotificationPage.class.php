@@ -15,9 +15,9 @@ namespace views\pages\admin;
 
 
 use views\forms\admin\NotificationForm;
-use views\pages\MainDocument;
+use views\pages\NetCenterDocument;
 
-class SendNotificationPage extends MainDocument
+class SendNotificationPage extends NetCenterDocument
 {
     public function __construct()
     {

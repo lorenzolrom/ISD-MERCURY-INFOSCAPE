@@ -14,9 +14,9 @@
 namespace views\pages\monitor;
 
 
-use views\pages\MainDocument;
+use views\pages\NetCenterDocument;
 
-class HostCategoryListPage extends MainDocument
+class HostCategoryListPage extends NetCenterDocument
 {
     public function __construct()
     {

@@ -14,6 +14,7 @@
  * Class Pages
  *
  * Define pages, titles, and their permission
+ * for Net Center Application
  */
 abstract class Pages
 {

@@ -15,9 +15,9 @@ namespace views\pages\inventory;
 
 
 use views\forms\inventory\VendorForm;
-use views\pages\MainDocument;
+use views\pages\NetCenterDocument;
 
-class VendorCreatePage extends MainDocument
+class VendorCreatePage extends NetCenterDocument
 {
     public function __construct()
     {

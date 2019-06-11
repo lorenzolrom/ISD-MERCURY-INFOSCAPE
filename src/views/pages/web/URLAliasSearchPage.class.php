@@ -14,9 +14,9 @@
 namespace views\pages\web;
 
 
-use views\pages\MainDocument;
+use views\pages\NetCenterDocument;
 
-class URLAliasSearchPage extends MainDocument
+class URLAliasSearchPage extends NetCenterDocument
 {
     public function __construct()
     {

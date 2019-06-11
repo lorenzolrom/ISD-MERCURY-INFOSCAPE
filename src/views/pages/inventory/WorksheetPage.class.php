@@ -14,9 +14,9 @@
 namespace views\pages\inventory;
 
 
-use views\pages\MainDocument;
+use views\pages\NetCenterDocument;
 
-class WorksheetPage extends MainDocument
+class WorksheetPage extends NetCenterDocument
 {
     public function __construct()
     {

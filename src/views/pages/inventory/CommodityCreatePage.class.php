@@ -15,9 +15,9 @@ namespace views\pages\inventory;
 
 
 use views\forms\inventory\CommodityForm;
-use views\pages\MainDocument;
+use views\pages\NetCenterDocument;
 
-class CommodityCreatePage extends MainDocument
+class CommodityCreatePage extends NetCenterDocument
 {
     public function __construct()
     {

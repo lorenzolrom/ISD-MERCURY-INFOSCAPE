@@ -24,19 +24,19 @@ class LIMSNavigation extends View
             'title' => 'Systems',
             'permission' => 'lockshop-r',
             'link' => 'systems',
-            'icon' => 'operator.png'
+            'icon' => 'lock_system.png'
         ),
         'locks' => array(
             'title' => 'Search Locks',
             'permission' => 'lockshop-r',
             'link' => 'locks',
-            'icon' => 'operator.png'
+            'icon' => 'lock.png'
         ),
         'keys' => array(
             'title' => 'Search Keys',
             'permission' => 'lockshop-r',
             'link' => 'keys',
-            'icon' => 'operator.png'
+            'icon' => 'key.png'
         ),
     );
 
@@ -47,7 +47,7 @@ class LIMSNavigation extends View
      */
     public function __construct()
     {
-        $this->setTemplateFromHTML('lockshop/LIMSNavigation', self::TEMPLATE_ELEMENT);
+        $this->setTemplateFromHTML('Navigation', self::TEMPLATE_ELEMENT);
         $permissions = InfoCentralConnection::getResponse(InfoCentralConnection::GET, "currentUser/permissions")->getBody();
 
         $navigation = '';

@@ -14,9 +14,9 @@
 namespace views\pages\inventory;
 
 
-use views\pages\MainDocument;
+use views\pages\NetCenterDocument;
 
-class DiscardOrderSearchPage extends MainDocument
+class DiscardOrderSearchPage extends NetCenterDocument
 {
     public function __construct()
     {

@@ -15,9 +15,9 @@ namespace views\pages\admin;
 
 
 use views\forms\admin\RoleForm;
-use views\pages\MainDocument;
+use views\pages\NetCenterDocument;
 
-class RoleCreatePage extends MainDocument
+class RoleCreatePage extends NetCenterDocument
 {
     public function __construct()
     {

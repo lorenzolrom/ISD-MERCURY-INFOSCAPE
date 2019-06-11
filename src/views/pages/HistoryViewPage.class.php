@@ -14,7 +14,7 @@
 namespace views\pages;
 
 
-class HistoryViewPage extends MainDocument
+class HistoryViewPage extends NetCenterDocument
 {
     public function __construct(string $rawObjectName, string $object, string $index)
     {

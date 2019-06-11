@@ -15,9 +15,9 @@ namespace views\pages\ait;
 
 
 use views\forms\ait\ApplicationForm;
-use views\pages\MainDocument;
+use views\pages\NetCenterDocument;
 
-class ApplicationCreatePage extends MainDocument
+class ApplicationCreatePage extends NetCenterDocument
 {
     public function __construct()
     {

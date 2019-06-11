@@ -15,9 +15,9 @@ namespace views\pages\admin;
 
 
 use views\forms\admin\APIKeyForm;
-use views\pages\MainDocument;
+use views\pages\NetCenterDocument;
 
-class APIKeyCreatePage extends MainDocument
+class APIKeyCreatePage extends NetCenterDocument
 {
     /**
      * APIKeyCreatePage constructor.

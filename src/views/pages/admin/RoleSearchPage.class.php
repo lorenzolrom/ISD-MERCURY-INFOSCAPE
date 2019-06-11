@@ -14,9 +14,9 @@
 namespace views\pages\admin;
 
 
-use views\pages\MainDocument;
+use views\pages\NetCenterDocument;
 
-class RoleSearchPage extends MainDocument
+class RoleSearchPage extends NetCenterDocument
 {
     public function __construct()
     {

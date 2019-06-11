@@ -14,9 +14,9 @@
 namespace views\pages\admin;
 
 
-use views\pages\MainDocument;
+use views\pages\NetCenterDocument;
 
-class BulletinSearchPage extends MainDocument
+class BulletinSearchPage extends NetCenterDocument
 {
     public function __construct()
     {

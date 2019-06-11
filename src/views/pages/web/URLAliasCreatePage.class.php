@@ -15,9 +15,9 @@ namespace views\pages\web;
 
 
 use views\forms\web\URLAliasForm;
-use views\pages\MainDocument;
+use views\pages\NetCenterDocument;
 
-class URLAliasCreatePage extends MainDocument
+class URLAliasCreatePage extends NetCenterDocument
 {
     public function __construct()
     {

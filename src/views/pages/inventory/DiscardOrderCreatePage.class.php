@@ -15,9 +15,9 @@ namespace views\pages\inventory;
 
 
 use views\forms\inventory\DiscardOrderForm;
-use views\pages\MainDocument;
+use views\pages\NetCenterDocument;
 
-class DiscardOrderCreatePage extends MainDocument
+class DiscardOrderCreatePage extends NetCenterDocument
 {
     public function __construct()
     {

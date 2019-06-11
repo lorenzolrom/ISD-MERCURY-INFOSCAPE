@@ -19,7 +19,7 @@ class TicketHome extends TicketDocument
     public function __construct()
     {
         parent::__construct('tickets');
-        $this->setVariable('tabTitle', 'Ticket Home');
+        $this->setVariable('tabTitle', 'Service Center');
 
         $this->setVariable('content', self::templateFileContents('tickets/TicketHome', self::TEMPLATE_PAGE));
     }

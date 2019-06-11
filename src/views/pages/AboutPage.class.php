@@ -14,7 +14,7 @@
 namespace views\pages;
 
 
-class AboutPage extends MainDocument
+class AboutPage extends NetCenterDocument
 {
     public function __construct()
     {

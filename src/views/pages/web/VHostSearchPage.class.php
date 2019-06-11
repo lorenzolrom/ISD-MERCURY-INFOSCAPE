@@ -15,9 +15,9 @@ namespace views\pages\web;
 
 
 use utilities\InfoCentralConnection;
-use views\pages\MainDocument;
+use views\pages\NetCenterDocument;
 
-class VHostSearchPage extends MainDocument
+class VHostSearchPage extends NetCenterDocument
 {
     public function __construct()
     {

@@ -14,7 +14,7 @@
 namespace controllers;
 
 
-use views\pages\HomePage;
+use views\pages\NetCenterHomePage;
 use views\View;
 
 class HomeController extends Controller
@@ -28,6 +28,6 @@ class HomeController extends Controller
      */
     public function getPage(): View
     {
-        return new HomePage();
+        return new NetCenterHomePage();
     }
 }

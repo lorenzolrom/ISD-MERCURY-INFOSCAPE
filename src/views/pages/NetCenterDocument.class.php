@@ -14,7 +14,7 @@
 namespace views\pages;
 
 
-use views\elements\Navigation;
+use views\elements\NetCenterNavigation;
 use views\elements\Sidebar;
 
 /**
@@ -24,7 +24,7 @@ use views\elements\Sidebar;
  *
  * @package views\pages
  */
-abstract class MainDocument extends SidebarDocument
+abstract class NetCenterDocument extends SidebarDocument
 {
     /**
      * UserDocument constructor.
@@ -38,7 +38,7 @@ abstract class MainDocument extends SidebarDocument
     {
         parent::__construct($permission);
 
-        $navigation = new Navigation();
+        $navigation = new NetCenterNavigation();
         $this->setVariable('navigation', $navigation->getTemplate());
 
         if($section !== NULL)

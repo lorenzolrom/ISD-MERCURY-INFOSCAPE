@@ -14,7 +14,7 @@
 namespace views\pages;
 
 
-class InboxPage extends MainDocument
+class InboxPage extends NetCenterDocument
 {
     public function __construct()
     {

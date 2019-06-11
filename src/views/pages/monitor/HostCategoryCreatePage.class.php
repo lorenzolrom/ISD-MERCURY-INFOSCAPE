@@ -15,9 +15,9 @@ namespace views\pages\monitor;
 
 
 use views\forms\monitor\HostCategoryForm;
-use views\pages\MainDocument;
+use views\pages\NetCenterDocument;
 
-class HostCategoryCreatePage extends MainDocument
+class HostCategoryCreatePage extends NetCenterDocument
 {
     public function __construct()
     {

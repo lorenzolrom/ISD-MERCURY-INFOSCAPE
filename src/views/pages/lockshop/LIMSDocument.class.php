@@ -15,9 +15,9 @@ namespace views\pages\lockshop;
 
 
 use views\elements\lockshop\LIMSNavigation;
-use views\pages\UserDocument;
+use views\pages\SidebarDocument;
 
-abstract class LIMSDocument extends UserDocument
+abstract class LIMSDocument extends SidebarDocument
 {
     /**
      * LIMSDocument constructor.

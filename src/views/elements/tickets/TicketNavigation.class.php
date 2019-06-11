@@ -86,7 +86,7 @@ class TicketNavigation extends View
      */
     public function __construct()
     {
-        $this->setTemplateFromHTML('tickets/TicketNavigation', self::TEMPLATE_ELEMENT);
+        $this->setTemplateFromHTML('Navigation', self::TEMPLATE_ELEMENT);
         $permissions = InfoCentralConnection::getResponse(InfoCentralConnection::GET, "currentUser/permissions")->getBody();
 
         $navigation = '';

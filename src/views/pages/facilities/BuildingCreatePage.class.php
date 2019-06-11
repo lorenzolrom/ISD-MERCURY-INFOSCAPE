@@ -15,9 +15,9 @@ namespace views\pages\facilities;
 
 
 use views\forms\facilities\BuildingForm;
-use views\pages\MainDocument;
+use views\pages\NetCenterDocument;
 
-class BuildingCreatePage extends MainDocument
+class BuildingCreatePage extends NetCenterDocument
 {
     /**
      * BuildingCreatePage constructor.

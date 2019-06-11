@@ -16,7 +16,7 @@ namespace views\pages;
 
 use utilities\InfoCentralConnection;
 
-class AccountPage extends MainDocument
+class AccountPage extends NetCenterDocument
 {
     public function __construct()
     {

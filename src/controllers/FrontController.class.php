@@ -49,7 +49,7 @@ class FrontController
             }
             catch (\Exception $e)
             {
-                die("MERLOT encountered an unrecoverable error: " . $e->getMessage());
+                die("INFOSCAPE encountered an unrecoverable error: " . $e->getMessage());
             }
 
         }
