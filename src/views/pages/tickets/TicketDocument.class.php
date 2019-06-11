@@ -15,9 +15,9 @@ namespace views\pages\tickets;
 
 
 use views\elements\tickets\TicketNavigation;
-use views\pages\UserDocument;
+use views\pages\SidebarDocument;
 
-abstract class TicketDocument extends UserDocument
+abstract class TicketDocument extends SidebarDocument
 {
     /**
      * TicketDocument constructor.

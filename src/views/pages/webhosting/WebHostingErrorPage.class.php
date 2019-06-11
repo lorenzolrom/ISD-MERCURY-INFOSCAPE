@@ -14,9 +14,9 @@
 namespace views\pages\webhosting;
 
 
-use views\pages\UserDocument;
+use views\pages\SidebarDocument;
 
-class WebHostingErrorPage extends UserDocument
+class WebHostingErrorPage extends SidebarDocument
 {
     public function __construct(\Exception $e)
     {

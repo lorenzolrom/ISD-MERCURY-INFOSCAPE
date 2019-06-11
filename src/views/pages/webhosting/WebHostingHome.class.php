@@ -14,9 +14,9 @@
 namespace views\pages\webhosting;
 
 
-use views\pages\UserDocument;
+use views\pages\SidebarDocument;
 
-class WebHostingHome extends UserDocument
+class WebHostingHome extends SidebarDocument
 {
     public function __construct()
     {

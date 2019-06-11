@@ -13,6 +13,13 @@
 
 namespace views\pages;
 
+/**
+ * Class Portal
+ *
+ * Main application landing page
+ *
+ * @package views\pages
+ */
 class Portal extends PortalDocument
 {
     public function __construct()

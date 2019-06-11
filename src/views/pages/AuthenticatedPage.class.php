@@ -20,7 +20,7 @@ use models\User;
 use utilities\InfoCentralConnection;
 use views\View;
 
-abstract class AuthenticatedPage extends View
+abstract class AuthenticatedPage extends HTML5Document
 {
     protected $user;
 
@@ -29,9 +29,12 @@ abstract class AuthenticatedPage extends View
      * @param string|null $permission
      * @throws SecurityException
      * @throws \exceptions\InfoCentralException
+     * @throws \exceptions\ViewException
      */
     public function __construct(string $permission = NULL)
     {
+        parent::__construct();
+
         // Verify user is logged in
         $response = InfoCentralConnection::getResponse(InfoCentralConnection::GET, "currentUser");
 

@@ -7,7 +7,7 @@
  *
  * User: lromero
  * Date: 6/11/2019
- * Time: 8:23 AM
+ * Time: 10:07 AM
  */
 
 
@@ -16,27 +16,25 @@ namespace views\pages;
 
 use views\elements\Header;
 
-abstract class PortalDocument extends AuthenticatedPage
+abstract class SidebarDocument extends AuthenticatedPage
 {
     /**
-     * PortalDocument constructor.
+     * SidebarDocument constructor.
      * @param string|null $permission
      * @throws \exceptions\InfoCentralException
      * @throws \exceptions\SecurityException
      * @throws \exceptions\ViewException
      */
-    public function __construct(?string $permission = NULL)
+    public function __construct(string $permission = NULL)
     {
         parent::__construct($permission);
-
-        $this->setVariable("content", self::templateFileContents("PortalDocument", self::TEMPLATE_PAGE));
+        $this->setVariable("content", self::templateFileContents("SidebarDocument", self::TEMPLATE_PAGE));
 
         // Add header
         $header = new Header();
         $this->setVariable("header", $header->getTemplate());
 
+        // Add footer
         $this->setVariable("footer", self::templateFileContents("Footer", self::TEMPLATE_ELEMENT));
-
-        $this->setVariable('operatorName', 'Operator: ' . $this->user->getUsername());
     }
 }

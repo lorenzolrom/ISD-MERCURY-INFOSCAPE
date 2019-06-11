@@ -20,11 +20,11 @@ use views\elements\Sidebar;
 /**
  * Class MainDocument
  *
- * Main Application Template
+ * Template for 'main application' pages
  *
  * @package views\pages
  */
-abstract class MainDocument extends UserDocument
+abstract class MainDocument extends SidebarDocument
 {
     /**
      * UserDocument constructor.
