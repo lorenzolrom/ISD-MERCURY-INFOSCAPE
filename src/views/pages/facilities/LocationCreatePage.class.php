@@ -19,7 +19,7 @@ use utilities\InfoCentralConnection;
 use views\forms\facilities\LocationForm;
 use views\pages\NetCenterDocument;
 
-class LocationCreatePage extends NetCenterDocument
+class LocationCreatePage extends FacilitiesDocument
 {
     /**
      * LocationCreatePage constructor.
@@ -31,7 +31,7 @@ class LocationCreatePage extends NetCenterDocument
      */
     public function __construct(?string $buildingId)
     {
-        parent::__construct('facilitiescore_facilities-w', 'buildings');
+        parent::__construct('facilitiescore_facilities-w');
 
         $this->setVariable("tabTitle", "Location (New)");
 

@@ -14,13 +14,12 @@
 namespace views\pages\facilities;
 
 use views\forms\facilities\LocationForm;
-use views\pages\ModelPage;
 
 class LocationEditPage extends ModelPage
 {
     public function __construct(?string $locationId)
     {
-        parent::__construct("locations/$locationId", 'facilitiescore_facilities-w', 'buildings');
+        parent::__construct("locations/$locationId", 'facilitiescore_facilities-w');
 
         $details = $this->response->getBody();
 

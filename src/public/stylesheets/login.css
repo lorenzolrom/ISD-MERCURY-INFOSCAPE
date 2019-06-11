@@ -45,22 +45,6 @@ span#app-version {
     bottom: 40px;
 }
 
-span#login-logo {
-    display: inline-block;
-    margin-bottom: 10px;
-    width: 222px;
-    height: 65px;
-    
-    position: absolute;
-    left: 15px;
-    top: 15px;
-
-    background-image: url(../media/app_logo.png);
-    background-repeat: no-repeat;
-    background-size: auto 100%;
-    background-position: center;
-}
-
 div#login-window form {
     text-align: right;
     position: absolute;
@@ -115,8 +99,7 @@ div#login-window div#notifications {
 
 img#mercury-logo {
     position: absolute;
-    height: 50px;
-    bottom: 25px;
+    top: 25px;
     left: 25px;
 }
 

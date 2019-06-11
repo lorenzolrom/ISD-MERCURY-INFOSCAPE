@@ -263,6 +263,7 @@ div.main-content {
     border: solid 1px var(--bulletin-border-color);
     box-shadow: var(--bulletin-shadow);
     margin-top: 15px;
+    margin-bottom: 15px;
     padding: 10px;
     border-radius: 6px;
 }

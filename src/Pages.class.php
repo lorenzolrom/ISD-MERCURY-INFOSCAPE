@@ -19,19 +19,6 @@
 abstract class Pages
 {
     const HEADER = array(
-        'buildings' => array(
-            'title' => 'Facilities',
-            'permission' => 'facilitiescore_facilities-r',
-            'icon' => 'building.png',
-            'pages' => array(
-                array(
-                    'title' => 'Buildings',
-                    'permission' => 'facilitiescore_facilities-r',
-                    'link' => 'facilities/buildings',
-                    'icon' => 'building.png'
-                )
-            )
-        ),
         'inventory' => array(
             'title' => 'Inventory',
             'permission' => 'itsm_inventory',

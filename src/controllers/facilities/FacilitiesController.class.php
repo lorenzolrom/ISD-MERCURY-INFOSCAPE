@@ -16,6 +16,7 @@ namespace controllers\facilities;
 
 use controllers\Controller;
 use exceptions\PageNotFoundException;
+use views\pages\facilities\FacilitiesHome;
 use views\View;
 
 class FacilitiesController extends Controller
@@ -39,6 +40,8 @@ class FacilitiesController extends Controller
             case 'locations':
                 $locations = new LocationController($this->request);
                 return $locations->getPage();
+            case NULL:
+                return new FacilitiesHome();
         }
 
         throw new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND);

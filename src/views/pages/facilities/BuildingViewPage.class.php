@@ -13,13 +13,11 @@
 
 namespace views\pages\facilities;
 
-use views\pages\ModelPage;
-
 class BuildingViewPage extends ModelPage
 {
     public function __construct(?string $buildingId)
     {
-        parent::__construct("buildings/$buildingId", "facilitiescore_facilities-r", 'buildings');
+        parent::__construct("buildings/$buildingId", "facilitiescore_facilities-r");
 
         $building = $this->response->getBody();
 

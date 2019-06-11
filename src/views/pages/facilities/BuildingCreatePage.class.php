@@ -17,7 +17,7 @@ namespace views\pages\facilities;
 use views\forms\facilities\BuildingForm;
 use views\pages\NetCenterDocument;
 
-class BuildingCreatePage extends NetCenterDocument
+class BuildingCreatePage extends FacilitiesDocument
 {
     /**
      * BuildingCreatePage constructor.
@@ -27,7 +27,7 @@ class BuildingCreatePage extends NetCenterDocument
      */
     public function __construct()
     {
-        parent::__construct('facilitiescore_facilities-w', 'buildings');
+        parent::__construct('facilitiescore_facilities-w');
 
         $this->setVariable("tabTitle", "Building (New)");
 

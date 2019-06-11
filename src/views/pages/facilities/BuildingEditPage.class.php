@@ -15,7 +15,6 @@ namespace views\pages\facilities;
 
 
 use views\forms\facilities\BuildingForm;
-use views\pages\ModelPage;
 
 class BuildingEditPage extends ModelPage
 {
@@ -29,7 +28,7 @@ class BuildingEditPage extends ModelPage
      */
     public function __construct(?string $buildingId)
     {
-        parent::__construct("buildings/$buildingId", 'facilitiescore_facilities-w', 'buildings');
+        parent::__construct("buildings/$buildingId", 'facilitiescore_facilities-w');
 
         $details = $this->response->getBody();
 
