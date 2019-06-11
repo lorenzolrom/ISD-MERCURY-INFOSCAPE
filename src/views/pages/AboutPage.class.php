@@ -14,7 +14,7 @@
 namespace views\pages;
 
 
-class AboutPage extends NetCenterDocument
+class AboutPage extends PortalDocument
 {
     public function __construct()
     {

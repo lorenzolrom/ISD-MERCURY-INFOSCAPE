@@ -24,14 +24,11 @@
     </table>
 </div>
 <div class="main-content">
-    <h2>Application Portal</h2>
+    <h2>Application Portal<a id="about-link" href="{{@baseURI}}about"><img src="{{@baseURI}}media/icons/about.png" alt="About"></a></h2>
     <ul id="portal-menu">
         <li><a href="{{@baseURI}}home"><img src="{{@baseURI}}media/menu/main.png" alt=""><span>Net Center</span></a></li>
-        <li><a href="{{@baseURI}}tickets"><img src="{{@baseURI}}media/menu/ticket.png" alt=""><span>Service Center</span></a></li>
-        <li><a href="{{@baseURI}}facilities"><img src="{{@baseURI}}media/menu/facilities.png" alt=""><span>Facilities Management</span></a></li>
-        <li><a href="{{@baseURI}}lockshop"><img src="{{@baseURI}}media/menu/lockshop.png" alt=""><span>Lock Management</span></a></li>
         <li><a href="{{@baseURI}}webhosting"><img src="{{@baseURI}}media/menu/webhosting.png" alt=""><span>Web Hosting</span></a></li>
-        <li><a href="{{@baseURI}}admin"><img src="{{@baseURI}}media/menu/config.png" alt=""><span>Configuration</span></a></li>
+        {{@portalMenu}}
         <li><a href="{{@baseURI}}logout"><img src="{{@baseURI}}media/menu/logout.png" alt=""><span>Logout</span></a></li>
     </ul>
 </div>

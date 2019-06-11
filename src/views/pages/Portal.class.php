@@ -13,6 +13,8 @@
 
 namespace views\pages;
 
+use views\elements\PortalMenu;
+
 /**
  * Class Portal
  *
@@ -26,6 +28,8 @@ class Portal extends PortalDocument
     {
         parent::__construct();
         $this->setVariable("tabTitle", \Config::OPTIONS['appName']);
-        $this->setVariable("content", self::templateFileContents("Portal", self::TEMPLATE_CONTENT));
+
+        $menu = new PortalMenu();
+        $this->setVariable('content', $menu->getTemplate());
     }
 }

@@ -18,7 +18,7 @@ class AdminHomePage extends AdminDocument
 {
     public function __construct()
     {
-        parent::__construct('tickets');
+        parent::__construct('settings');
         $this->setVariable('tabTitle', '{{@appName}} Configuration');
 
         $this->setVariable('content', self::templateFileContents('admin/AdminHome', self::TEMPLATE_PAGE));

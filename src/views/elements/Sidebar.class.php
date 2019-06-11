@@ -36,10 +36,10 @@ class Sidebar extends View
     {
         $this->setTemplateFromHTML("Sidebar", self::TEMPLATE_ELEMENT);
 
-        if(!isset(\Pages::HEADER[$sectionTitle]))
+        if(!isset(NetCenterNavigation::LINKS[$sectionTitle]))
             return;
 
-        $section = \Pages::HEADER[$sectionTitle];
+        $section = NetCenterNavigation::LINKS[$sectionTitle];
 
         $this->setVariable("sectionTitle", $section['title']);
         $this->setVariable('sectionIcon', $section['icon']);

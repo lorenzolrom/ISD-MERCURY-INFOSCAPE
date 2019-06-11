@@ -505,6 +505,10 @@ div.monitor-countdown {
     font-size: 1.1rem;
 }
 
+a#about-link {
+    float: right;
+}
+
 ul#portal-menu {
     margin-top: 10px;
     margin-bottom: 2px;
