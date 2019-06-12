@@ -23,7 +23,26 @@ class AdminNavigation extends Navigation
             'title' => 'Users',
             'permission' => 'settings',
             'icon' => 'user.png',
-            'link' => 'users'
+            'pages' => array(
+                array(
+                    'title' => 'Search Users',
+                    'link' => 'users',
+                    'icon' => 'user.png',
+                    'permission' => 'settings'
+                ),
+                array(
+                    'title' => 'Login History',
+                    'link' => 'userlogs',
+                    'icon' => 'history.png',
+                    'permission' => 'settings'
+                ),
+                array(
+                    'title' => 'Audit Permissions',
+                    'link' => 'permissions',
+                    'icon' => 'privs_search.png',
+                    'permission' => 'settings'
+                )
+            )
         ),
         array(
             'title' => 'Roles',

@@ -1,11 +1,11 @@
 <div class="button-bar">
-    <a href="{{@baseURI}}inventory/assets/{{@assetTag}}/edit" id="edit-button" class="button hideIfDiscarded"><img src="{{@baseURI}}media/icons/inventory_edit.png" alt="">Edit</a>
-    <span id="linkToParent-button" class="button-noveil hideIfDiscarded dialog-show-button"><img src="{{@baseURI}}media/icons/inventory_link.png" alt="">Link To Parent</span>
-    <a href="javascript: unlinkFromParent('{{@assetTag}}')" id="unlinkFromParent-button" class="button hideIfDiscarded"><img src="{{@baseURI}}media/icons/inventory_link.png" alt="">Unlink From Parent</a>
+    <a href="{{@baseURI}}inventory/assets/{{@assetTag}}/edit" id="edit-button" class="button hideIfDiscarded"><img src="{{@baseURI}}media/icons/edit.png" alt="">Edit</a>
+    <span id="linkToParent-button" class="button-noveil hideIfDiscarded dialog-show-button"><img src="{{@baseURI}}media/icons/link.png" alt="">Link To Parent</span>
+    <a href="javascript: unlinkFromParent('{{@assetTag}}')" id="unlinkFromParent-button" class="button hideIfDiscarded"><span class="operation delete"><img src="{{@baseURI}}media/icons/link.png" alt=""></span>Unlink From Parent</a>
     <a href="javascript: verify('{{@assetTag}}')" id="verify-button" class="button hideIfDiscarded"><img src="{{@baseURI}}media/icons/ok.png" alt="">Verify</a>
     <a href="javascript: unverify('{{@assetTag}}')" id="unVerify-button" class="button hideIfDiscarded"><img src="{{@baseURI}}media/icons/delete.png" alt="">Un-Verify</a>
-    <span id="warehouse-button" class="button-noveil dialog-show-button hideIfDiscarded"><img src="{{@baseURI}}media/icons/building_add.png" alt="">Assign To Warehouse</span>
-    <span id="location-button" class="button-noveil dialog-show-button hideIfDiscarded"><img src="{{@baseURI}}media/icons/building_add.png" alt="">Assign To Location</span>
+    <span id="warehouse-button" class="button-noveil dialog-show-button hideIfDiscarded"><img src="{{@baseURI}}media/icons/building.png" alt="">Assign To Warehouse</span>
+    <span id="location-button" class="button-noveil dialog-show-button hideIfDiscarded"><img src="{{@baseURI}}media/icons/building.png" alt="">Assign To Location</span>
     <a class="button" href="{{@baseURI}}inventory/assets"><img src="{{@baseURI}}media/icons/search.png" alt="">New Search</a>
 </div>
 <h2 class="region-title"><img src="{{@baseURI}}media/icons/inventory.png" alt="">Asset Profile<a class="history-link" href="{{@baseURI}}history/asset/{{@assetTag}}"><img src="{{@baseURI}}media/icons/history.png" alt="" title="View History"></a></h2>

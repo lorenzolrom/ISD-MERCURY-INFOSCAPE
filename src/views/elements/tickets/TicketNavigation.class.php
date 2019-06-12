@@ -45,13 +45,13 @@ class TicketNavigation extends Navigation
                 array(
                     'title' => 'New Ticket',
                     'link' => 'agent/new',
-                    'icon' => 'ticket_add.png',
+                    'icon' => 'ticket.png',
                     'permission' => 'tickets-agent'
                 ),
                 array(
                     'title' => 'Advanced Search',
                     'link' => 'agent/search',
-                    'icon' => 'ticket_search.png',
+                    'icon' => 'ticket.png',
                     'permission' => 'tickets-agent'
                 )
             )
