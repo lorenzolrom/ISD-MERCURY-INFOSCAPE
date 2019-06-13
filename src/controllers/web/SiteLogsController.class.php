@@ -28,7 +28,7 @@ class SiteLogsController extends Controller
      * @throws \exceptions\SecurityException
      * @throws \exceptions\ViewException
      */
-    public function getPage(): View
+    public function getPage(): ?View
     {
         return new VHostLogPage($this->request->next());
     }

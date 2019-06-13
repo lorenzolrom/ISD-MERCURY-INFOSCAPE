@@ -15,7 +15,6 @@ namespace controllers\tickets;
 
 
 use controllers\Controller;
-use exceptions\PageNotFoundException;
 use views\pages\tickets\TicketHome;
 use views\View;
 
@@ -24,13 +23,12 @@ class TicketController extends Controller
 
     /**
      * @return View
-     * @throws PageNotFoundException
      * @throws \exceptions\EntryNotFoundException
      * @throws \exceptions\InfoCentralException
      * @throws \exceptions\SecurityException
      * @throws \exceptions\ViewException
      */
-    public function getPage(): View
+    public function getPage(): ?View
     {
         switch($this->request->next())
         {

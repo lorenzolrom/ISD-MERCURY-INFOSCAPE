@@ -27,7 +27,7 @@ class LoginController extends Controller
      * @throws \exceptions\ViewException
      * @throws \exceptions\InfoCentralException
      */
-    public function getPage(): View
+    public function getPage(): ?View
     {
         $page = new LoginPage();
 

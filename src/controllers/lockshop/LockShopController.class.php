@@ -32,6 +32,9 @@ class LockShopController extends Controller
         {
             case NULL:
                 return new LIMSHome();
+            case 'systems':
+                $s = new SystemController($this->request);
+                return $s->getPage();
         }
 
         return NULL;

@@ -15,7 +15,6 @@ namespace controllers\inventory;
 
 
 use controllers\Controller;
-use exceptions\PageNotFoundException;
 use views\View;
 
 class InventoryController extends Controller
@@ -28,7 +27,7 @@ class InventoryController extends Controller
      * @throws \exceptions\SecurityException
      * @throws \exceptions\ViewException
      */
-    public function getPage(): View
+    public function getPage(): ?View
     {
         switch($this->request->next())
         {

@@ -15,7 +15,6 @@ namespace controllers\admin;
 
 
 use controllers\Controller;
-use exceptions\PageNotFoundException;
 use views\pages\admin\AdminHomePage;
 use views\pages\admin\PermissionAuditSearchPage;
 use views\pages\admin\SendNotificationPage;
@@ -32,7 +31,7 @@ class AdminController extends Controller
      * @throws \exceptions\SecurityException
      * @throws \exceptions\ViewException
      */
-    public function getPage(): View
+    public function getPage(): ?View
     {
         $param = $this->request->next();
 

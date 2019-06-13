@@ -15,7 +15,6 @@ namespace controllers\monitor;
 
 
 use controllers\Controller;
-use exceptions\PageNotFoundException;
 use views\pages\monitor\HostCategoryCreatePage;
 use views\pages\monitor\HostCategoryEditPage;
 use views\pages\monitor\HostCategoryListPage;
@@ -32,7 +31,7 @@ class MonitorController extends Controller
      * @throws \exceptions\SecurityException
      * @throws \exceptions\ViewException
      */
-    public function getPage(): View
+    public function getPage(): ?View
     {
         switch($this->request->next())
         {

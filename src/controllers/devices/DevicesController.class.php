@@ -15,7 +15,6 @@ namespace controllers\devices;
 
 
 use controllers\Controller;
-use exceptions\PageNotFoundException;
 use views\View;
 
 class DevicesController extends Controller
@@ -28,7 +27,7 @@ class DevicesController extends Controller
      * @throws \exceptions\SecurityException
      * @throws \exceptions\ViewException
      */
-    public function getPage(): View
+    public function getPage(): ?View
     {
         switch($this->request->next())
         {

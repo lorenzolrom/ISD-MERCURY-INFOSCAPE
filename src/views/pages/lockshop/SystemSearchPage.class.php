@@ -21,5 +21,6 @@ class SystemSearchPage extends LIMSDocument
         parent::__construct('lockshop-r');
 
         $this->setVariable('content',self::templateFileContents('lockshop/SystemSearchPage', self::TEMPLATE_PAGE));
+        $this->setVariable('tabTitle', 'Systems');
     }
 }

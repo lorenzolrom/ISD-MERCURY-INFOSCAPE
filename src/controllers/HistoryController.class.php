@@ -50,7 +50,7 @@ class HistoryController extends Controller
      * @throws \exceptions\ViewException
      * @throws ParameterException
      */
-    public function getPage(): View
+    public function getPage(): ?View
     {
         $object = $this->request->next();
         $index = $this->request->next();

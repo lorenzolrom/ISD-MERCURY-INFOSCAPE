@@ -34,7 +34,7 @@ class APIProxyController extends Controller
      * @throws \exceptions\SecurityException
      * @throws \exceptions\ViewException
      */
-    public function getPage(): View
+    public function getPage(): ?View
     {
         $json = json_encode(array('code' => '500', 'data' => array('errors' => array('Invalid Request'))));
 

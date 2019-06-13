@@ -15,7 +15,6 @@ namespace controllers\webhosting;
 
 
 use controllers\Controller;
-use exceptions\PageNotFoundException;
 use views\pages\webhosting\WebHostingHome;
 use views\View;
 
@@ -27,7 +26,7 @@ class WebHostingController extends Controller
      * @throws \exceptions\SecurityException
      * @throws \exceptions\ViewException
      */
-    public function getPage(): View
+    public function getPage(): ?View
     {
         switch($this->request->next())
         {

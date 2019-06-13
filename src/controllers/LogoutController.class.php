@@ -24,7 +24,7 @@ class LogoutController extends Controller
      * @return View
      * @throws \exceptions\InfoCentralException
      */
-    public function getPage(): View
+    public function getPage(): ?View
     {
         if(isset($_COOKIE[\Config::OPTIONS['cookieName']]))
         {

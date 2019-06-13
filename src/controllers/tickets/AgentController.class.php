@@ -30,7 +30,7 @@ class AgentController extends Controller
      * @throws \exceptions\ViewException
      * @throws \exceptions\EntryNotFoundException
      */
-    public function getPage(): View
+    public function getPage(): ?View
     {
         // Cannot proceed without selecting workspace
         if(!isset($_COOKIE['ML_agentWorkspace']))

@@ -30,7 +30,7 @@ class RoleController extends Controller
      * @throws \exceptions\ViewException
      * @throws \exceptions\EntryNotFoundException
      */
-    public function getPage(): View
+    public function getPage(): ?View
     {
         $param = $this->request->next();
 

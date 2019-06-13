@@ -27,7 +27,7 @@ class AITController extends Controller
      * @throws \exceptions\ViewException
      * @throws \exceptions\EntryNotFoundException
      */
-    public function getPage(): View
+    public function getPage(): ?View
     {
         $this->request->next();
 
