@@ -298,6 +298,7 @@ div.main-content table#module-status {
 
 div.main-content table#module-status td{
     font-weight: normal;
+    font-size: 1rem;
 }
 
 div.main-content table#module-status td.pass::before {
