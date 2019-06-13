@@ -13,6 +13,7 @@
 
 namespace controllers;
 
+use exceptions\PageNotFoundException;
 use exceptions\SecurityException;
 use factories\ControllerFactory;
 use models\HTTPRequest;
@@ -28,7 +29,12 @@ class FrontController
     {
         try
         {
-            echo ControllerFactory::getController(new HTTPRequest(URIParser::getURIParts()))->getPage()->render();
+            $page = ControllerFactory::getController(new HTTPRequest(URIParser::getURIParts()))->getPage();
+
+            if($page === NULL)
+                throw new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND);
+
+            echo $page->render();
         }
         catch (\Exception $e)
         {

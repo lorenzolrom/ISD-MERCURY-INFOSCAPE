@@ -27,11 +27,10 @@ class MonitorController extends Controller
 
     /**
      * @return View
+     * @throws \exceptions\EntryNotFoundException
      * @throws \exceptions\InfoCentralException
      * @throws \exceptions\SecurityException
      * @throws \exceptions\ViewException
-     * @throws PageNotFoundException
-     * @throws \exceptions\EntryNotFoundException
      */
     public function getPage(): View
     {
@@ -52,6 +51,6 @@ class MonitorController extends Controller
                 }
         }
 
-        throw new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND);
+        return NULL;
     }
 }

@@ -33,5 +33,5 @@ abstract class Controller
     /**
      * @return View
      */
-    abstract public function getPage(): View;
+    abstract public function getPage(): ?View;
 }

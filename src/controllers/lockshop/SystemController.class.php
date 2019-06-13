@@ -6,8 +6,8 @@
  * Mercury InfoScape
  *
  * User: lromero
- * Date: 5/24/2019
- * Time: 3:34 PM
+ * Date: 6/13/2019
+ * Time: 12:06 PM
  */
 
 
@@ -15,11 +15,12 @@ namespace controllers\lockshop;
 
 
 use controllers\Controller;
-use views\pages\lockshop\LIMSHome;
+use views\pages\lockshop\SystemSearchPage;
 use views\View;
 
-class LockShopController extends Controller
+class SystemController extends Controller
 {
+
     /**
      * @return null|View
      * @throws \exceptions\InfoCentralException
@@ -28,11 +29,8 @@ class LockShopController extends Controller
      */
     public function getPage(): ?View
     {
-        switch($this->request->next())
-        {
-            case NULL:
-                return new LIMSHome();
-        }
+        if($this->request->next() === NULL)
+            return new SystemSearchPage();
 
         return NULL;
     }

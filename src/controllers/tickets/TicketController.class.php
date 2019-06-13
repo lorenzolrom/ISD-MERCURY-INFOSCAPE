@@ -44,6 +44,6 @@ class TicketController extends Controller
                 return new TicketHome();
         }
 
-        throw new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND);
+        return NULL;
     }
 }

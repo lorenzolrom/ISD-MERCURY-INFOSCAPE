@@ -23,7 +23,6 @@ class DevicesController extends Controller
 
     /**
      * @return View
-     * @throws PageNotFoundException
      * @throws \exceptions\EntryNotFoundException
      * @throws \exceptions\InfoCentralException
      * @throws \exceptions\SecurityException
@@ -38,6 +37,6 @@ class DevicesController extends Controller
                 return $hosts->getPage();
         }
 
-        throw new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND);
+        return NULL;
     }
 }

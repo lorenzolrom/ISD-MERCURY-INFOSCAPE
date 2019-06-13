@@ -23,11 +23,10 @@ class WebController extends Controller
 
     /**
      * @return View
-     * @throws PageNotFoundException
+     * @throws \exceptions\EntryNotFoundException
      * @throws \exceptions\InfoCentralException
      * @throws \exceptions\SecurityException
      * @throws \exceptions\ViewException
-     * @throws \exceptions\EntryNotFoundException
      */
     public function getPage(): View
     {
@@ -47,6 +46,6 @@ class WebController extends Controller
                 return $sitelogs->getPage();
         }
 
-        throw new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND);
+        return NULL;
     }
 }

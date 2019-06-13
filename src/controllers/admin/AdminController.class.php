@@ -27,7 +27,6 @@ class AdminController extends Controller
 
     /**
      * @return View
-     * @throws PageNotFoundException
      * @throws \exceptions\EntryNotFoundException
      * @throws \exceptions\InfoCentralException
      * @throws \exceptions\SecurityException
@@ -63,6 +62,6 @@ class AdminController extends Controller
                 return new AdminHomePage();
         }
 
-        throw new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND);
+        return NULL;
     }
 }

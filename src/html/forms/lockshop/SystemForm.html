@@ -1,0 +1,19 @@
+<div class="button-bar">
+    <span class="button form-submit-button" id="edit"><img src="{{@baseURI}}media/icons/save.png" alt="">Save</span>
+    <a class="button delete-button confirm-button" href="javascript: remove('{{@id}}')"><img src="{{@baseURI}}media/icons/delete.png" alt="">Delete</a>
+    <a class="button" href="{{@baseURI}}lockshop/systems"><img src="{{@baseURI}}media/icons/cancel.png" alt="">Cancel</a>
+</div>
+<form id="edit-form" class="table-form" onsubmit="{{@formScript}}">
+    <h2 class="region-title"><img src="{{@baseURI}}media/icons/lock_system.png" alt="">System Profile<a class="history-link" href="{{@baseURI}}history/lock_system/{{@id}}"><img src="{{@baseURI}}media/icons/history.png" alt="" title="View History"></a></h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td class="required">Name</td>
+            <td><input type="text" id="name" value="{{@name}}"></td>
+            <td>Code</td>
+            <td><input type="text" id="code" value="{{@code}}"></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script src="{{@baseURI}}scripts/lockshop/systems.js"></script>
