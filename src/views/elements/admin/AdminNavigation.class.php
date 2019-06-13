@@ -39,7 +39,7 @@ class AdminNavigation extends Navigation
                 array(
                     'title' => 'Audit Permissions',
                     'link' => 'permissions',
-                    'icon' => 'privs_search.png',
+                    'icon' => 'account_searchpermissions.png',
                     'permission' => 'settings'
                 )
             )

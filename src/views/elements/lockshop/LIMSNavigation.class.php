@@ -25,13 +25,13 @@ class LIMSNavigation extends Navigation
             'icon' => 'lock_system.png'
         ),
         'locks' => array(
-            'title' => 'Search Locks',
+            'title' => 'Cores',
             'permission' => 'lockshop-r',
             'link' => 'locks',
             'icon' => 'lock.png'
         ),
         'keys' => array(
-            'title' => 'Search Keys',
+            'title' => 'Keys',
             'permission' => 'lockshop-r',
             'link' => 'keys',
             'icon' => 'key.png'

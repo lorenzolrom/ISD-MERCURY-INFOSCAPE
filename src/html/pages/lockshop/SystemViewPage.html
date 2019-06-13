@@ -1,0 +1,25 @@
+<div class="button-bar">
+    <a href="{{@baseURI}}lockshop/systems/{{@id}}/edit" id="edit-button" class="button"><img src="{{@baseURI}}media/icons/edit.png" alt="">Edit</a>
+    <a class="button delete-button confirm-button" href="javascript: remove('{{@id}}')"><img src="{{@baseURI}}media/icons/delete.png" alt="">Delete</a>
+    <a class="button" href="{{@baseURI}}lockshop/systems/new"><span class="operation add"><img src="{{@baseURI}}media/icons/lock_system.png" alt=""></span>Create</a>
+    <a class="button" href="{{@baseURI}}lockshop/systems"><img src="{{@baseURI}}media/icons/cancel.png" alt="">Back</a>
+</div>
+<h2 class="region-title"><img src="{{@baseURI}}media/icons/lock_system.png" alt="">System Profile<a class="history-link" href="{{@baseURI}}history/lock_system/{{@id}}"><img src="{{@baseURI}}media/icons/history.png" alt="" title="View History"></a></h2>
+<table class="table-display" id="system-display">
+    <tbody>
+    <tr>
+        <td>Code</td>
+        <td>{{@code}}</td>
+        <td>Name</td>
+        <td>{{@name}}</td>
+    </tr>
+    </tbody>
+</table>
+
+<h2 class="region-title region-expand region-expand-collapsed" onclick="loadCores('{{@id}}')"><img src="{{@baseURI}}media/icons/lock.png" alt="">Cores</h2>
+<div id="lock-region" class="region wait"></div>
+
+<h2 class="region-title region-expand region-expand-collapsed" onclick="loadKeys('{{@id}}')"><img src="{{@baseURI}}media/icons/key.png" alt="">Keys</h2>
+<div id="key-region" class="region wait"></div>
+
+<script src="{{@baseURI}}scripts/lockshop/systems.js"></script>

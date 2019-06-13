@@ -19,8 +19,8 @@ function search()
             refs.push(v.id);
 
             rows.push([
-                v.name,
-                v.code
+                v.code,
+                v.name
             ])
         });
 
@@ -42,8 +42,55 @@ function search()
     return false;
 }
 
-function create(){}
+function create(){
+    apiRequest('POST', 'lockshop/systems', getForm()).done(function(json){
+        if(json.code === 201)
+            window.location.replace(baseURI + 'lockshop/systems/' + json.data.id  + '?NOTICE=System created');
+        else
+        {
+            showNotifications('error', json.data.errors);
+            unveil();
+        }
+    });
 
-function update(id){}
+    return false;
+}
 
-function remove(id){}
+function update(id)
+{
+    apiRequest('PUT', 'lockshop/systems/' + id, getForm()).done(function(json){
+        if(json.code === 204)
+            window.location.replace(baseURI + 'lockshop/systems/' + id + '?NOTICE=System updated');
+        else
+        {
+            showNotifications('error', json.data.errors);
+            unveil();
+        }
+    });
+
+    return false;
+}
+
+function remove(id)
+{
+    apiRequest('DELETE', 'lockshop/systems/' + id, {}).done(function(json){
+        if(json.code === 204)
+            window.location.replace(baseURI + 'lockshop/systems?NOTICE=System deleted');
+        else
+        {
+            showNotifications('error', json.data.errors);
+            unveil();
+        }
+    });
+
+    return false;
+}
+
+function loadCores(id){}
+
+function loadKeys(id){}
+
+$(document).ready(function(){
+    if(document.getElementById("results"))
+        restoreSearch('lockSystemSearch', search);
+});

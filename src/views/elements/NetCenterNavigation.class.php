@@ -19,18 +19,18 @@ class NetCenterNavigation extends Navigation
         'inventory' => array(
             'title' => 'Inventory',
             'permission' => 'itsm_inventory',
-            'icon' => 'inventory.png',
+            'icon' => 'asset.png',
             'pages' => array(
                 array(
                     'title' => 'Assets',
                     'link' => 'inventory/assets',
-                    'icon' => 'inventory.png',
+                    'icon' => 'asset.png',
                     'permission' => 'itsm_inventory-assets-r'
                 ),
                 array(
                     'title' => 'Commodities',
                     'link' => 'inventory/commodities',
-                    'icon' => 'inventory.png',
+                    'icon' => 'commodity.png',
                     'permission' => 'itsm_inventory-commodities-r'
                 ),
                 array(
@@ -48,13 +48,13 @@ class NetCenterNavigation extends Navigation
                 array(
                     'title' => 'Warehouses',
                     'link' => 'inventory/warehouses',
-                    'icon' => 'building.png',
+                    'icon' => 'warehouse.png',
                     'permission' => 'itsm_inventory-warehouses-r'
                 ),
                 array(
                     'title' => 'Vendors',
                     'link' => 'inventory/vendors',
-                    'icon' => 'identity.png',
+                    'icon' => 'business.png',
                     'permission' => 'itsm_inventory-vendors-r'
                 )
             )
@@ -92,7 +92,7 @@ class NetCenterNavigation extends Navigation
                 array(
                     'title' => 'Registrars',
                     'link' => 'web/registrars',
-                    'icon' => 'identity.png',
+                    'icon' => 'business.png',
                     'permission' => 'itsm_web-registrars-r'
                 ),
                 array(

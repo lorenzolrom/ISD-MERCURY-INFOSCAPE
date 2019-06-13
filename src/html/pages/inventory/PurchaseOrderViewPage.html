@@ -1,6 +1,6 @@
 <div class="button-bar">
     <a href="{{@baseURI}}inventory/purchaseorders/{{@number}}/edit" id="edit-button" class="button"><img src="{{@baseURI}}media/icons/purchaseorder.png" alt="">Edit</a>
-    <span id="addCommodity-button" class="button-noveil dialog-show-button"><span class="operation add"><img src="{{@baseURI}}media/icons/inventory.png" alt=""></span>Add Commodity</span>
+    <span id="addCommodity-button" class="button-noveil dialog-show-button"><span class="operation add"><img src="{{@baseURI}}media/icons/commodity.png" alt=""></span>Add Commodity</span>
     <span id="addCostItem-button" class="button-noveil dialog-show-button"><span class="operation add"><img src="{{@baseURI}}media/icons/purchaseorder.png" alt=""></span>Add Cost Item</span>
     <a class="button confirm-button" id="send" href="javascript: send('{{@number}}')"><img src="{{@baseURI}}media/icons/proceed.png" alt="">Send</a>
     <span class="button-noveil dialog-show-button" id="receive-button"><img src="{{@baseURI}}media/icons/ok.png" alt="">Receive</span>
@@ -53,7 +53,7 @@
     </tbody>
 </table>
 
-<h2 class="region-title region-expand region-expand-collapsed" onclick="loadCommodities('{{@number}}')"><img src="{{@baseURI}}media/icons/inventory.png" alt="">Commodities</h2>
+<h2 class="region-title region-expand region-expand-collapsed" onclick="loadCommodities('{{@number}}')"><img src="{{@baseURI}}media/icons/commodity.png" alt="">Commodities</h2>
 <div id="commodity-region" class="region wait"></div>
 
 <h2 class="region-title region-expand region-expand-collapsed" onclick="loadCostItems('{{@number}}')"><img src="{{@baseURI}}media/icons/purchaseorder.png" alt="">Cost Items</h2>
