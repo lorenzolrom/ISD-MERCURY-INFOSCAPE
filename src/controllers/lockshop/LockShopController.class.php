@@ -25,6 +25,7 @@ class LockShopController extends Controller
      * @throws \exceptions\InfoCentralException
      * @throws \exceptions\SecurityException
      * @throws \exceptions\ViewException
+     * @throws \exceptions\EntryNotFoundException
      */
     public function getPage(): ?View
     {
@@ -35,6 +36,9 @@ class LockShopController extends Controller
             case 'systems':
                 $s = new SystemController($this->request);
                 return $s->getPage();
+            case 'cores':
+                $c = new CoreController($this->request);
+                return $c->getPage();
         }
 
         return NULL;

@@ -22,7 +22,22 @@ class FacilitiesNavigation extends Navigation
             'title' => 'Buildings',
             'permission' => 'facilitiescore_facilities-r',
             'icon' => 'building.png',
-            'link' => 'buildings'
+            'pages' => array(
+                array(
+                    'title' => 'Search Buildings',
+                    'link' => 'buildings',
+                    'icon' => 'building.png',
+                    'operation' => 'search',
+                    'permission' => 'facilitiescore_facilities-r',
+                ),
+                array(
+                    'title' => 'New Building',
+                    'link' => 'buildings/new',
+                    'icon' => 'building.png',
+                    'operation' => 'add',
+                    'permission' => 'facilitiescore_facilities-r',
+                )
+            )
         ),
     );
 

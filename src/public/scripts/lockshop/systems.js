@@ -1,3 +1,6 @@
+let coresLoaded = false;
+let keysLoaded = false;
+
 function getForm()
 {
     let name = $('#name').val();
@@ -86,9 +89,127 @@ function remove(id)
     return false;
 }
 
-function loadCores(id){}
+function loadCores(id)
+{
+    if(coresLoaded)
+        return;
 
-function loadKeys(id){}
+    apiRequest('GET', 'lockshop/systems/' + id + '/cores', {}).done(function(json){
+        if(json.code === 200)
+        {
+            let refs = [];
+            let rows = [];
+            $.each(json.data, function(i, v){
+                refs.push(v.id);
+
+                rows.push([
+                    v.code,
+                    v.quantity
+                ]);
+            });
+
+            setupTable({
+                target: 'lock-region',
+                header: ['Code', 'Quantity'],
+                sortColumn: 0,
+                sortMethod: 'asc',
+                href: baseURI + 'lockshop/cores/',
+                linkColumn: 0,
+                refs: refs,
+                rows: rows
+            });
+
+            coresLoaded = true;
+        }
+        else
+            showNotifications('error', ['Could not load cores'])
+    });
+}
+
+function loadKeys(id)
+{
+    if(keysLoaded)
+        return;
+
+    apiRequest('GET', 'lockshop/systems/' + id + '/keys', {}).done(function(json){
+        if(json.code === 200)
+        {
+            let refs = [];
+            let rows = [];
+            $.each(json.data, function(i, v){
+                refs.push(v.id);
+
+                rows.push([
+                    v.code,
+                    v.quantity
+                ]);
+            });
+
+            setupTable({
+                target: 'key-region',
+                header: ['Code', 'Quantity'],
+                sortColumn: 0,
+                sortMethod: 'asc',
+                href: baseURI + 'lockshop/keys/',
+                linkColumn: 0,
+                refs: refs,
+                rows: rows
+            });
+
+            keysLoaded = true;
+        }
+        else
+            showNotifications('error', ['Could not load keys'])
+    });
+}
+
+function createCore(id)
+{
+    let code = $('#coreCode').val();
+    let quantity = $('#coreQuantity').val();
+
+    apiRequest('POST', 'lockshop/cores/' + id, {
+        code: code,
+        quantity: quantity
+    }).done(function(json){
+        if(json.code === 201)
+        {
+            showNotifications('notice', ['Core created']);
+            coresLoaded = false;
+            loadCores(id);
+        }
+        else
+            showNotifications('error', json.data.errors)
+    });
+
+    return false;
+}
+
+function createKey(id)
+{
+    let code = $('#keyCode').val();
+    let quantity = $('#keyQuantity').val();
+    let keyway = $('#keyKeyway').val();
+    let bitting = $('#keyBitting').val();
+
+    apiRequest('POST', 'lockshop/keys/' + id, {
+        code: code,
+        quantity: quantity,
+        keyway: keyway,
+        bitting: bitting
+    }).done(function(json){
+        if(json.code === 201)
+        {
+            showNotifications('notice', ['Key created']);
+            keysLoaded = false;
+            loadKeys(id);
+        }
+        else
+            showNotifications('error', json.data.errors)
+    });
+
+    return false;
+}
 
 $(document).ready(function(){
     if(document.getElementById("results"))

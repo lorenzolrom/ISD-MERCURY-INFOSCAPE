@@ -65,18 +65,20 @@ class NetCenterNavigation extends Navigation
             'icon' => 'computer.png',
             'pages' => array(
                 array(
-                    'title' => 'Hosts',
+                    'title' => 'Search Hosts',
                     'permission' => 'itsm_devices-hosts-r',
                     'link' => 'devices/hosts',
-                    'icon' => 'interface.png'
+                    'icon' => 'interface.png',
+                    'operation' => 'search'
+                ),
+                array(
+                    'title' => 'New Host',
+                    'permission' => 'itsm_devices-hosts-r',
+                    'link' => 'devices/hosts/new',
+                    'icon' => 'interface.png',
+                    'operation' => 'add'
                 )
             )
-        ),
-        'monitor' => array(
-            'title' => 'Monitor',
-            'permission' => 'itsmmonitor',
-            'link' => 'monitor',
-            'icon' => 'monitor.png',
         ),
         'web' => array(
             'title' => 'Web',
@@ -109,12 +111,26 @@ class NetCenterNavigation extends Navigation
             'icon' => 'apps.png',
             'pages' => array(
                 array(
-                    'title' => 'Applications',
+                    'title' => 'Search Applications',
                     'permission' => 'itsm_ait-apps-r',
                     'link' => 'ait/applications',
-                    'icon' => 'apps.png'
+                    'icon' => 'apps.png',
+                    'operation' => 'search'
+                ),
+                array(
+                    'title' => 'New Application',
+                    'permission' => 'itsm_ait-apps-r',
+                    'link' => 'ait/applications/new',
+                    'icon' => 'apps.png',
+                    'operation' => 'add'
                 )
             )
+        ),
+        'monitor' => array(
+            'title' => 'Monitor',
+            'permission' => 'itsmmonitor',
+            'link' => 'monitor',
+            'icon' => 'monitor.png',
         )
     );
 

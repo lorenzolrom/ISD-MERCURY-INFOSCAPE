@@ -28,6 +28,14 @@ class AdminNavigation extends Navigation
                     'title' => 'Search Users',
                     'link' => 'users',
                     'icon' => 'user.png',
+                    'operation' => 'search',
+                    'permission' => 'settings'
+                ),
+                array(
+                    'title' => 'New User',
+                    'link' => 'users/new',
+                    'icon' => 'user.png',
+                    'operation' => 'add',
                     'permission' => 'settings'
                 ),
                 array(
@@ -48,13 +56,43 @@ class AdminNavigation extends Navigation
             'title' => 'Roles',
             'permission' => 'settings',
             'icon' => 'group.png',
-            'link' => 'roles'
+            'pages' => array(
+                array(
+                    'title' => 'Search Roles',
+                    'permission' => 'settings',
+                    'icon' => 'group.png',
+                    'operation' => 'search',
+                    'link' => 'roles'
+                ),
+                array(
+                    'title' => 'New Role',
+                    'permission' => 'settings',
+                    'icon' => 'group.png',
+                    'operation' => 'add',
+                    'link' => 'roles/add'
+                )
+            )
         ),
         array(
             'title' => 'API Keys',
             'permission' => 'api-settings',
             'icon' => 'operator.png',
-            'link' => 'icadmin'
+            'pages' => array(
+                array(
+                    'title' => 'Search API Keys',
+                    'permission' => 'api-settings',
+                    'icon' => 'operator.png',
+                    'operation' => 'search',
+                    'link' => 'icadmin'
+                ),
+                array(
+                    'title' => 'Issue API Key',
+                    'permission' => 'api-settings',
+                    'icon' => 'operator.png',
+                    'operation' => 'add',
+                    'link' => 'icadmin/new'
+                )
+            )
         ),
         array(
             'title' => 'Send Notification',
@@ -66,7 +104,22 @@ class AdminNavigation extends Navigation
             'title' => 'Bulletins',
             'permission' => 'settings',
             'icon' => 'about.png',
-            'link' => 'bulletins'
+            'pages' => array(
+                array(
+                    'title' => 'Search Bulletins',
+                    'permission' => 'settings',
+                    'icon' => 'about.png',
+                    'operation' => 'search',
+                    'link' => 'bulletins',
+                ),
+                array(
+                    'title' => 'New Bulletin',
+                    'permission' => 'settings',
+                    'icon' => 'about.png',
+                    'operation' => 'add',
+                    'link' => 'bulletins/new',
+                )
+            )
         )
     );
 

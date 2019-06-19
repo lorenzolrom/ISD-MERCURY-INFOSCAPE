@@ -1,7 +1,8 @@
 <div class="button-bar">
     <a href="{{@baseURI}}lockshop/systems/{{@id}}/edit" id="edit-button" class="button"><img src="{{@baseURI}}media/icons/edit.png" alt="">Edit</a>
     <a class="button delete-button confirm-button" href="javascript: remove('{{@id}}')"><img src="{{@baseURI}}media/icons/delete.png" alt="">Delete</a>
-    <a class="button" href="{{@baseURI}}lockshop/systems/new"><span class="operation add"><img src="{{@baseURI}}media/icons/lock_system.png" alt=""></span>Create</a>
+    <span id="createCore-button" class="button-noveil dialog-show-button"><span class="operation add"><img src="{{@baseURI}}media/icons/lock.png" alt=""></span>Create Core</span>
+    <span id="createKey-button" class="button-noveil dialog-show-button"><span class="operation add"><img src="{{@baseURI}}media/icons/key.png" alt=""></span>Create Key</span>
     <a class="button" href="{{@baseURI}}lockshop/systems"><img src="{{@baseURI}}media/icons/cancel.png" alt="">Back</a>
 </div>
 <h2 class="region-title"><img src="{{@baseURI}}media/icons/lock_system.png" alt="">System Profile<a class="history-link" href="{{@baseURI}}history/lock_system/{{@id}}"><img src="{{@baseURI}}media/icons/history.png" alt="" title="View History"></a></h2>
@@ -21,5 +22,41 @@
 
 <h2 class="region-title region-expand region-expand-collapsed" onclick="loadKeys('{{@id}}')"><img src="{{@baseURI}}media/icons/key.png" alt="">Keys</h2>
 <div id="key-region" class="region wait"></div>
+
+<div id="createCore-button-dialog" class="dialog" title="Create Core">
+    <form onsubmit="return createCore('{{@id}}')">
+        <p>
+            <span class="required">Code</span>
+            <input  type="text" id="coreCode">
+        </p>
+        <p>
+            <span class="required">Quantity</span>
+            <input type="text" id="coreQuantity">
+        </p>
+        <input type="submit" value="Go">
+    </form>
+</div>
+
+<div id="createKey-button-dialog" class="dialog" title="Create Key">
+    <form onsubmit="return createKey('{{@id}}')">
+        <p>
+            <span class="required">Code</span>
+            <input  type="text" id="keyCode">
+        </p>
+        <p>
+            <span class="required">Quantity</span>
+            <input type="text" id="keyQuantity">
+        </p>
+        <p>
+            <span class="required">Keyway</span>
+            <input type="text" id="keyKeyway">
+        </p>
+        <p>
+            <span class="required">Bitting</span>
+            <input type="text" id="keyBitting">
+        </p>
+        <input type="submit" value="Go">
+    </form>
+</div>
 
 <script src="{{@baseURI}}scripts/lockshop/systems.js"></script>

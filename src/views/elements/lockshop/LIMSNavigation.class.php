@@ -21,8 +21,23 @@ class LIMSNavigation extends Navigation
         'systems' => array(
             'title' => 'Systems',
             'permission' => 'lockshop-r',
-            'link' => 'systems',
-            'icon' => 'lock_system.png'
+            'icon' => 'lock_system.png',
+            'pages' => array(
+                array(
+                    'title' => 'Search Systems',
+                    'permission' => 'lockshop-r',
+                    'link' => 'systems',
+                    'icon' => 'lock_system.png',
+                    'operation' => 'search'
+                ),
+                array(
+                    'title' => 'New System',
+                    'permission' => 'lockshop-r',
+                    'link' => 'systems/new',
+                    'icon' => 'lock_system.png',
+                    'operation' => 'add'
+                )
+            )
         ),
         'locks' => array(
             'title' => 'Cores',

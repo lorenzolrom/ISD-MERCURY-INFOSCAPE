@@ -321,8 +321,6 @@ function send(number)
             showNotifications('error', json.data.errors);
         }
     });
-
-    return false;
 }
 
 function cancel(number)
@@ -337,8 +335,6 @@ function cancel(number)
             showNotifications('error', json.data.errors);
         }
     });
-
-    return false;
 }
 
 function receive(number)
