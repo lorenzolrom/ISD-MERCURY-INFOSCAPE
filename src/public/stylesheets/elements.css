@@ -24,6 +24,10 @@ div#notifications.notifications-notice {
     border-left: 4px solid var(--notice);
 }
 
+div#notifications.notifications-success {
+    border-left: 4px solid var(--success);
+}
+
 div#notifications div#notifications-dismiss {
     position: absolute;
     top: 3px;
@@ -44,13 +48,13 @@ div#notifications ul li {
 }
 
 div#notifications h3 {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
 }
 
 div#notifications h3 img {
-    height: 14px;
-    margin-right: 5px;
+    vertical-align: middle;
+    margin-right: 3px;
 }
 
 div#main div#notifications {

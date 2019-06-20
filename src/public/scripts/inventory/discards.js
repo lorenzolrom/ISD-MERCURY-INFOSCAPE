@@ -111,7 +111,7 @@ function addAsset(number)
         if(json.code === 204)
         {
             loadAssets(number);
-            showNotifications('notice', ['Asset added']);
+            showNotifications('success', ['Asset added']);
         }
         else
         {
@@ -128,7 +128,7 @@ function removeAsset(number, asset)
         if(json.code === 204)
         {
             loadAssets(number);
-            showNotifications('notice', ['Asset removed']);
+            showNotifications('success', ['Asset removed']);
         }
         else
         {

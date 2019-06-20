@@ -45,7 +45,7 @@ function remove(tag)
         if(json.code === 204)
         {
             loadWorksheet();
-            showNotifications('notice', ['Asset removed']);
+            showNotifications('success', ['Asset removed']);
             unveil();
         }
         else
@@ -64,7 +64,7 @@ function clearWorksheet()
         if(json.code === 200)
         {
             loadWorksheet();
-            showNotifications('notice', [json.data.removed + ' assets removed']);
+            showNotifications('success', [json.data.removed + ' assets removed']);
             unveil();
         }
         else
@@ -152,7 +152,7 @@ function verify()
         if(json.code === 204)
         {
             loadWorksheet();
-            showNotifications('notice', ['Assets have been verified']);
+            showNotifications('success', ['Assets have been verified']);
             unveil();
         }
         else
@@ -169,7 +169,7 @@ function unVerify()
         if(json.code === 204)
         {
             loadWorksheet();
-            showNotifications('notice', ['Assets have been un-verified']);
+            showNotifications('success', ['Assets have been un-verified']);
             unveil();
         }
         else
@@ -189,7 +189,7 @@ function setWarehouse()
         if(json.code === 204)
         {
             loadWorksheet();
-            showNotifications('notice', ['Assets have been moved to warehouse']);
+            showNotifications('success', ['Assets have been moved to warehouse']);
             unveil();
         }
         else
@@ -212,7 +212,7 @@ function setLocation()
         if(json.code === 204)
         {
             loadWorksheet();
-            showNotifications('notice', ['Assets have been moved to location']);
+            showNotifications('success', ['Assets have been moved to location']);
             unveil();
         }
         else

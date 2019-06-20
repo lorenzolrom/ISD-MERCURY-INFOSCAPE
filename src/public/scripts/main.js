@@ -366,7 +366,7 @@ function clearCookies()
         }
     }
 
-    showNotifications('notice', ['Session cache has been cleared']);
+    showNotifications('success', ['Session cache has been cleared']);
 }
 
 /**
@@ -535,6 +535,8 @@ function showNotifications(type, items)
         case "error":
             $(notifications).addClass("notifications-error");
             break;
+        case "success":
+            $(notifications).addClass("notifications-success");
         default:
             $(notifications).addClass("notifications-notice");
     }
@@ -555,11 +557,15 @@ function showNotifications(type, items)
     switch(type)
     {
         case "error":
-            $(icon).attr("src", baseURI + "media/icons/error.png");
+            $(icon).attr("src", baseURI + "media/icons/fail.png");
             title = "Error";
             break;
+        case "success":
+            $(icon).attr("src", baseURI + "media/icons/pass.png");
+            title = "Success";
+            break;
         default:
-            $(icon).attr("src", baseURI + "media/icons/about.png");
+            $(icon).attr("src", baseURI + "media/icons/info.png");
     }
 
     heading.appendChild(icon);

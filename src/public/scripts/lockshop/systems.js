@@ -174,7 +174,7 @@ function createCore(id)
     }).done(function(json){
         if(json.code === 201)
         {
-            showNotifications('notice', ['Core created']);
+            showNotifications('success', ['Core created']);
             coresLoaded = false;
             loadCores(id);
         }
@@ -200,7 +200,7 @@ function createKey(id)
     }).done(function(json){
         if(json.code === 201)
         {
-            showNotifications('notice', ['Key created']);
+            showNotifications('success', ['Key created']);
             keysLoaded = false;
             loadKeys(id);
         }

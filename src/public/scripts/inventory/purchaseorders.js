@@ -247,7 +247,7 @@ function addCommodity(number)
         if(json.code === 201)
         {
             loadCommodities(number);
-            showNotifications('notice', ['Commodity added']);
+            showNotifications('success', ['Commodity added']);
         }
         else
         {
@@ -264,7 +264,7 @@ function addCostItem(number)
         if(json.code === 201)
         {
             loadCostItems(number);
-            showNotifications('notice', ['Cost Item added']);
+            showNotifications('success', ['Cost Item added']);
         }
         else
         {
@@ -281,7 +281,7 @@ function removeCommodity(number, item)
         if(json.code === 204)
         {
             loadCommodities(number);
-            showNotifications('notice', ['Commodity removed']);
+            showNotifications('success', ['Commodity removed']);
         }
         else
         {
@@ -298,7 +298,7 @@ function removeCostItem(number, item)
         if(json.code === 204)
         {
             loadCostItems(number);
-            showNotifications('notice', ['Cost Item removed']);
+            showNotifications('success', ['Cost Item removed']);
         }
         else
         {

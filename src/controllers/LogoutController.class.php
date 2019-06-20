@@ -36,7 +36,7 @@ class LogoutController extends Controller
             }
         }
 
-        header("Location: " . \Config::OPTIONS['baseURI'] . "login?NOTICE=" . "Successfully logged out");
+        header("Location: " . \Config::OPTIONS['baseURI'] . "login?SUCCESS=" . "Successfully logged out");
         exit;
     }
 }

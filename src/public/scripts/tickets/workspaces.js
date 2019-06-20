@@ -143,7 +143,7 @@ function setRequestPortal()
     apiRequest('PUT', 'tickets/workspaces/' + workspace + '/requestPortal', {}).done(function(json){
         if(json.code === 204)
         {
-            showNotifications('notice', ['Request Portal has been set']);
+            showNotifications('success', ['Request Portal has been set']);
             load();
         }
         else
@@ -160,7 +160,7 @@ function addAttribute()
     apiRequest('POST', 'tickets/workspaces/' + workspaceId + '/attributes', getAttributeForm()).done(function(json){
         if(json.code === 201)
         {
-            showNotifications('notice', ['Attribute has been created']);
+            showNotifications('success', ['Attribute has been created']);
             loadAttributes();
         }
         else
@@ -202,7 +202,7 @@ function saveAttribute()
     apiRequest('PUT', 'tickets/workspaces/' + workspaceId + '/attributes/' + id, form).done(function(json){
         if(json.code === 204)
         {
-            showNotifications('notice', ['Attribute has been updated']);
+            showNotifications('success', ['Attribute has been updated']);
             loadAttributes();
         }
         else
@@ -221,7 +221,7 @@ function deleteAttribute()
     apiRequest('DELETE', 'tickets/workspaces/' + workspaceId + '/attributes/' + id, {}).done(function(json){
         if(json.code === 204)
         {
-            showNotifications('notice', ['Attribute has been deleted']);
+            showNotifications('success', ['Attribute has been deleted']);
             loadAttributes();
         }
         else

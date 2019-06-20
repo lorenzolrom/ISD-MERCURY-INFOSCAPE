@@ -49,6 +49,8 @@ abstract class View
     {
         if(isset($_GET['NOTICE']))
             $this->setNotices(array($_GET['NOTICE']));
+        else if(isset($_GET['SUCCESS']))
+            $this->setSuccess(array($_GET['SUCCESS']));
 
         $this->setVariable("baseURI", \Config::OPTIONS['baseURI']);
         $this->setVariable("appName", \Config::OPTIONS['appName']);
@@ -127,6 +129,15 @@ abstract class View
     }
 
     /**
+     * @param array $success
+     * @throws ViewException
+     */
+    public function setSuccess(array $success)
+    {
+        $this->setNotifications($success, 'success', 'Success');
+    }
+
+    /**
      * @param array $attributes
      * @param string|null $default
      * @param bool $placeholder
@@ -175,8 +186,10 @@ abstract class View
         $this->setVariable("notifications", $notificationString);
 
         if($type == 'error')
-            $this->setVariable('icon', 'error');
+            $this->setVariable('icon', 'fail');
+        if($type == 'success')
+            $this->setVariable('icon', 'pass');
         else
-            $this->setVariable('icon', 'about');
+            $this->setVariable('icon', 'info');
     }
 }

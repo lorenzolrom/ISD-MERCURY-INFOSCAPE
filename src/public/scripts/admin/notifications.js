@@ -17,7 +17,7 @@ function send()
         email: email
     }).done(function(json){
         if(json.code === 201)
-            showNotifications('notice', ['Notification sent to ' + json.data.count + ' users']);
+            showNotifications('success', ['Notification sent to ' + json.data.count + ' users']);
         else
             showNotifications('error', json.data.errors);
 

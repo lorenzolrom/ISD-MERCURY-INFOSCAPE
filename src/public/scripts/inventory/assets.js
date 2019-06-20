@@ -22,7 +22,7 @@ function addToWorksheet()
     apiRequest('POST', 'assets/worksheet', {assets: assets}).done(function(json){
         if(json.code === 201)
         {
-            showNotifications('notice', [json.data.count + ' assets added to worksheet']);
+            showNotifications('success', [json.data.count + ' assets added to worksheet']);
             updateWorksheetCount();
             searchAssets();
             unveil();
