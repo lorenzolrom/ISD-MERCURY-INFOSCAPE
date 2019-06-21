@@ -27,7 +27,7 @@ class Portal extends PortalDocument
     public function __construct()
     {
         parent::__construct();
-        $this->setVariable("tabTitle", \Config::OPTIONS['appName']);
+        $this->setVariable("tabTitle", 'Portal');
 
         $menu = new PortalMenu();
         $this->setVariable('content', $menu->getTemplate());

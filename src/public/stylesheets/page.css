@@ -80,6 +80,14 @@ header span#company-logo {
     filter: var(--image-shadow);
 }
 
+header img#app-logo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    filter: var(--image-shadow);
+    z-index: 2;
+}
+
 header span#company-name {
     color: #FFFFFF;
     position: absolute;
