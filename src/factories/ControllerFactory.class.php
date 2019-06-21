@@ -35,9 +35,7 @@ class ControllerFactory
         'inbox' => 'controllers\InboxController',
         'account' => 'controllers\AccountController',
         'about' => 'controllers\AboutController',
-        '!api-request' => 'controllers\APIProxyController',
-
-        'inetinfo' => 'controllers\InternalInfoController'
+        '!api-request' => 'controllers\APIProxyController'
     );
 
     /**

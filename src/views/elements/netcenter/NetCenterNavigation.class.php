@@ -69,19 +69,11 @@ class NetCenterNavigation extends Navigation
             'icon' => 'computer.png',
             'pages' => array(
                 array(
-                    'title' => 'Search Hosts',
+                    'title' => 'Hosts',
                     'permission' => 'itsm_devices-hosts-r',
                     'link' => 'devices/hosts',
                     'icon' => 'interface.png',
-                    'operation' => 'search'
                 ),
-                array(
-                    'title' => 'New Host',
-                    'permission' => 'itsm_devices-hosts-w',
-                    'link' => 'devices/hosts/new',
-                    'icon' => 'interface.png',
-                    'operation' => 'add'
-                )
             )
         ),
         'web' => array(
@@ -90,35 +82,19 @@ class NetCenterNavigation extends Navigation
             'icon' => 'website.png',
             'pages' => array(
                 array(
-                    'title' => 'Search VHosts',
+                    'title' => 'VHosts',
                     'link' => 'web/vhosts',
                     'icon' => 'hostname.png',
-                    'permission' => 'itsm_web-vhosts-r',
-                    'operation' => 'search'
+                    'permission' => 'itsm_web-vhosts-r'
                 ),
                 array(
-                    'title' => 'New VHost',
-                    'link' => 'web/vhosts/new',
-                    'icon' => 'hostname.png',
-                    'permission' => 'itsm_web-vhosts-w',
-                    'operation' => 'add',
-                ),
-                array(
-                    'title' => 'Search URL Aliases',
+                    'title' => 'URL Aliases',
                     'link' => 'web/urlaliases',
                     'icon' => 'hostname.png',
                     'permission' => 'itsm_web-aliases-rw',
-                    'operation' => 'search'
                 ),
                 array(
-                    'title' => 'New URL Alias',
-                    'link' => 'web/urlaliases/new',
-                    'icon' => 'hostname.png',
-                    'permission' => 'itsm_web-aliases-rw',
-                    'operation' => 'add'
-                ),
-                array(
-                    'title' => 'Manage Registrars',
+                    'title' => 'Registrars',
                     'link' => 'web/registrars',
                     'icon' => 'business.png',
                     'permission' => 'itsm_web-registrars-r'
@@ -126,25 +102,10 @@ class NetCenterNavigation extends Navigation
             )
         ),
         'ait' => array(
-            'title' => 'AIT',
+            'title' => 'Applications',
             'permission' => 'itsm_ait',
             'icon' => 'apps.png',
-            'pages' => array(
-                array(
-                    'title' => 'Search Applications',
-                    'permission' => 'itsm_ait-apps-r',
-                    'link' => 'ait/applications',
-                    'icon' => 'apps.png',
-                    'operation' => 'search'
-                ),
-                array(
-                    'title' => 'New Application',
-                    'permission' => 'itsm_ait-apps-w',
-                    'link' => 'ait/applications/new',
-                    'icon' => 'apps.png',
-                    'operation' => 'add'
-                )
-            )
+            'link' => 'ait/applications'
         ),
         'monitor' => array(
             'title' => 'Monitor',
