@@ -33,5 +33,6 @@ abstract class LIMSDocument extends SidebarDocument
 
         $navigation = new LIMSNavigation();
         $this->setVariable('navigation', $navigation->getTemplate());
+        $this->setVariable('appCaption', 'Lock Management');
     }
 }

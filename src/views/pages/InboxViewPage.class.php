@@ -14,8 +14,9 @@
 namespace views\pages;
 
 use exceptions\EntryNotFoundException;
+use utilities\InfoCentralConnection;
 
-class InboxViewPage extends ModelPage
+class InboxViewPage extends PortalDocument
 {
     /**
      * InboxViewPage constructor.
@@ -27,12 +28,17 @@ class InboxViewPage extends ModelPage
      */
     public function __construct(?string $notificationId)
     {
-        parent::__construct("currentUser/notifications/$notificationId");
+        parent::__construct();
 
-        $this->setVariable("tabTitle", "View Notification");
+        $response = InfoCentralConnection::getResponse(InfoCentralConnection::GET, "currentUser/notifications/$notificationId");
+
+        if($response->getResponseCode() != '200')
+            throw new EntryNotFoundException(EntryNotFoundException::MESSAGES[EntryNotFoundException::PRIMARY_KEY_NOT_FOUND], EntryNotFoundException::PRIMARY_KEY_NOT_FOUND);
+
         $this->setVariable("content", self::templateFileContents("InboxNotification", self::TEMPLATE_PAGE));
+        $this->setVariable("tabTitle", "View Notification");
 
-        $notification = $this->response->getBody();
+        $notification = $response->getBody();
 
         $this->setVariable('id', $notification['id']);
         $this->setVariable('title', htmlentities($notification['title']));

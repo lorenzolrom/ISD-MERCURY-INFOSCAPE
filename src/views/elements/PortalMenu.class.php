@@ -34,7 +34,7 @@ class PortalMenu extends View
         ),
         'facilities' => array(
             'title' => 'Facilities Management',
-            'permission' => 'facilitiescore_facilities-r',
+            'permission' => 'facilities',
             'icon' => 'facilities.png',
             'link' => 'facilities'
         ),

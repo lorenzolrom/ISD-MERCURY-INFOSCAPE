@@ -40,5 +40,7 @@ abstract class NetCenterDocument extends SidebarDocument
 
         $navigation = new NetCenterNavigation();
         $this->setVariable('navigation', $navigation->getTemplate());
+
+        $this->setVariable('appCaption', 'Net Center');
     }
 }

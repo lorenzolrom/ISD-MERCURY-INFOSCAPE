@@ -20,7 +20,7 @@ class InboxPage extends PortalDocument
     {
         parent::__construct();
 
-        $this->setVariable("tabTitle", "Inbox");
         $this->setVariable("content", self::templateFileContents("Inbox", self::TEMPLATE_PAGE));
+        $this->setVariable("tabTitle", "Inbox");
     }
 }

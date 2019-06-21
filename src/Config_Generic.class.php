@@ -15,7 +15,6 @@ abstract class Config_Generic
 {
     const OPTIONS = array(
         'appName' => 'InfoScape',
-        'appCaption' => 'A Mercury Application',
 
         'companyName' => 'Your Company',
 

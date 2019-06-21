@@ -24,7 +24,6 @@ class Header extends View
     public function __construct()
     {
         $this->setTemplateFromHTML("Header", self::TEMPLATE_ELEMENT);
-        $this->setVariable('appCaption', \Config::OPTIONS['appCaption']);
         $this->setVariable('companyName', \Config::OPTIONS['companyName']);
     }
 }

@@ -20,31 +20,7 @@ use views\View;
 
 class HistoryController extends Controller
 {
-    private const OBJECTS = array(
-        'lock_system' => 'LockShop_System',
-        'lock_core' => 'LockShop_Core',
-        'lock_key' => 'LockShop_Key',
-        'hostcategory' => 'ITSM_HostCategory',
-        'building' => 'FacilitiesCore_Building',
-        'location' => 'FacilitiesCore_Location',
-        'asset' => 'ITSM_Asset',
-        'commodity' => 'ITSM_Commodity',
-        'host' => 'ITSM_Host',
-        'vendor' => 'ITSM_Vendor',
-        'warehouse' => 'ITSM_Warehouse',
-        'registrar' => 'ITSM_Registrar',
-        'vhost' => 'ITSM_VHost',
-        'urlalias' => 'NIS_URLAlias',
-        'application' => 'ITSM_Application',
-        'bulletin' => 'Bulletin',
-        'role' => 'Role',
-        'secret' => 'Secret',
-        'user' => 'User',
-        'purchaseorder' => 'ITSM_PurchaseOrder',
-        'discardorder' => 'ITSM_DiscardOrder',
-        'workspace' => 'Tickets_Workspace',
-        'team' => 'Tickets_Team'
-    );
+
 
     /**
      * @return View
@@ -61,9 +37,6 @@ class HistoryController extends Controller
         if($object === NULL OR $index === NULL)
             throw new ParameterException(ParameterException::MESSAGES[ParameterException::URI_PARAMETER_MISSING], ParameterException::URI_PARAMETER_MISSING);
 
-        if(!in_array($object, array_keys(self::OBJECTS)))
-            throw new ParameterException(ParameterException::MESSAGES[ParameterException::PARAMETER_INVALID], ParameterException::PARAMETER_INVALID);
-
-        return new HistoryViewPage($object, self::OBJECTS[$object], $index);
+        return new HistoryViewPage($object, $index);
     }
 }

@@ -80,14 +80,11 @@ header span#company-logo {
     filter: var(--image-shadow);
 }
 
-header span#app-caption, header span#company-name {
+header span#company-name {
     color: #FFFFFF;
     position: absolute;
     top: 59px;
     line-height: 20px;
-}
-
-header span#company-name {
     left: 85px;
 }
 
@@ -106,16 +103,19 @@ header span#app-logo {
     filter: var(--image-shadow);
 }
 
-header span#app-caption {
-    right: 25px;
-}
-
-header span#operator-name {
+header span#app-caption, header span#operator-name {
     font-weight: 600;
     color: #FFF;
     position: absolute;
-    right: 5px;
+    right: 10px;
+}
+
+header span#operator-name {
     top: 2px;
+}
+
+header span#app-caption {
+    bottom: 2px;
 }
 
 /* Navigation */

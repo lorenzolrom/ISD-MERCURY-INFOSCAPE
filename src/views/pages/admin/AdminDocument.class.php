@@ -33,5 +33,6 @@ abstract class AdminDocument extends SidebarDocument
 
         $navigation = new AdminNavigation();
         $this->setVariable('navigation', $navigation->getTemplate());
+        $this->setVariable('appCaption', 'Configuration');
     }
 }
