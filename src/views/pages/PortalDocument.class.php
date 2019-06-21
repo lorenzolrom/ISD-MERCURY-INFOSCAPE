@@ -15,6 +15,7 @@ namespace views\pages;
 
 
 use views\elements\Header;
+use views\elements\Navigation;
 
 abstract class PortalDocument extends AuthenticatedPage
 {
@@ -34,6 +35,9 @@ abstract class PortalDocument extends AuthenticatedPage
         // Add header
         $header = new Header();
         $this->setVariable("header", $header->getTemplate());
+
+        $navigation = new Navigation('', array());
+        $this->setVariable('navigation', $navigation->getTemplate());
 
         $this->setVariable("footer", self::templateFileContents("Footer", self::TEMPLATE_ELEMENT));
 

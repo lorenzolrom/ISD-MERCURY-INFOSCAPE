@@ -11,7 +11,7 @@
  */
 
 
-namespace controllers\web;
+namespace controllers\netcenter\web;
 
 
 use controllers\Controller;

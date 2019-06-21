@@ -14,7 +14,7 @@
 namespace views\pages\netcenter\inventory;
 
 
-use views\forms\inventory\AssetTypeForm;
+use views\forms\netcenter\inventory\AssetTypeForm;
 use views\pages\netcenter\NetCenterDocument;
 
 class AssetTypeCreatePage extends NetCenterDocument

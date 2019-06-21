@@ -14,7 +14,7 @@
 namespace views\pages\netcenter\inventory;
 
 
-use views\forms\inventory\AssetForm;
+use views\forms\netcenter\inventory\AssetForm;
 use views\pages\netcenter\ModelPage;
 
 class AssetEditPage extends ModelPage

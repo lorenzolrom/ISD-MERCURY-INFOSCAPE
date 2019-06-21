@@ -22,8 +22,6 @@ class ControllerFactory
     private const CONTROLLERS = array(
         'lockshop' => 'controllers\lockshop\LockShopController',
 
-        'webhosting' => 'controllers\webhosting\WebHostingController',
-
         'tickets' => 'controllers\tickets\TicketController',
 
         'facilities' => 'controllers\facilities\FacilitiesController',

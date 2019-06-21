@@ -14,7 +14,7 @@
 namespace views\pages\netcenter\inventory;
 
 
-use views\forms\inventory\WarehouseForm;
+use views\forms\netcenter\inventory\WarehouseForm;
 use views\pages\netcenter\NetCenterDocument;
 
 class WarehouseCreatePage extends NetCenterDocument

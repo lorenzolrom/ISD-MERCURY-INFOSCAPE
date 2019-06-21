@@ -14,7 +14,7 @@
 namespace views\pages;
 
 
-class InboxPage extends SidebarDocument
+class InboxPage extends PortalDocument
 {
     public function __construct()
     {

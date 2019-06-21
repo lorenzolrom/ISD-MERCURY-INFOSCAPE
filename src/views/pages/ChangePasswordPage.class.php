@@ -16,7 +16,7 @@ namespace views\pages;
 
 use views\forms\ChangePasswordForm;
 
-class ChangePasswordPage extends SidebarDocument
+class ChangePasswordPage extends PortalDocument
 {
     private $form;
 

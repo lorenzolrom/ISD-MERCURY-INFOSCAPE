@@ -11,7 +11,7 @@
  */
 
 
-namespace views\forms\inventory;
+namespace views\forms\netcenter\inventory;
 
 
 use utilities\InfoCentralConnection;

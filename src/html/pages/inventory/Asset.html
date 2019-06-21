@@ -6,7 +6,7 @@
     <a href="javascript: unverify('{{@assetTag}}')" id="unVerify-button" class="button hideIfDiscarded"><span class="operation delete"><img src="{{@baseURI}}media/icons/ok.png" alt=""></span>Un-Verify</a>
     <span id="warehouse-button" class="button-noveil dialog-show-button hideIfDiscarded"><img src="{{@baseURI}}media/icons/warehouse.png" alt="">Assign To Warehouse</span>
     <span id="location-button" class="button-noveil dialog-show-button hideIfDiscarded"><img src="{{@baseURI}}media/icons/location.png" alt="">Assign To Location</span>
-    <a class="button" href="{{@baseURI}}netcenter/inventory/assets"><img src="{{@baseURI}}media/icons/back.png" alt="">Back</a>
+    <a class="button" href="{{@baseURI}}netcenter/inventory/assets"><img src="{{@baseURI}}media/icons/cancel.png" alt="">Back</a>
 </div>
 <h2 class="region-title"><img src="{{@baseURI}}media/icons/asset.png" alt="">Asset Profile<a class="history-link" href="{{@baseURI}}history/asset/{{@assetTag}}"><img src="{{@baseURI}}media/icons/history.png" alt="" title="View History"></a></h2>
 <table class="table-display" id="asset-display">
@@ -69,13 +69,13 @@
     <tbody>
     <tr class="location-info">
         <td>Building Code</td>
-        <td><a href="{{@baseURI}}buildings/{{@building}}" id="building">{{@buildingCode}}</a></td>
+        <td><a href="{{@baseURI}}facilities/buildings/{{@building}}" id="building">{{@buildingCode}}</a></td>
         <td>Building Name</td>
         <td>{{@buildingName}}</td>
     </tr>
     <tr class="location-info">
         <td>Location Code</td>
-        <td><a href="{{@baseURI}}locations/{{@location}}">{{@locationCode}}</a></td>
+        <td><a href="{{@baseURI}}facilities/locations/{{@location}}">{{@locationCode}}</a></td>
         <td>Location Name</td>
         <td>{{@locationName}}</td>
     </tr>

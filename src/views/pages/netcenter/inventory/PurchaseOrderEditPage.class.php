@@ -14,7 +14,7 @@
 namespace views\pages\netcenter\inventory;
 
 
-use views\forms\inventory\PurchaseOrderForm;
+use views\forms\netcenter\inventory\PurchaseOrderForm;
 use views\pages\netcenter\ModelPage;
 
 class PurchaseOrderEditPage extends ModelPage

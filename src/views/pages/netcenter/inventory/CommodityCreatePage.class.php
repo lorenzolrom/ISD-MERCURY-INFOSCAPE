@@ -14,7 +14,7 @@
 namespace views\pages\netcenter\inventory;
 
 
-use views\forms\inventory\CommodityForm;
+use views\forms\netcenter\inventory\CommodityForm;
 use views\pages\netcenter\NetCenterDocument;
 
 class CommodityCreatePage extends NetCenterDocument

@@ -14,7 +14,7 @@
 namespace views\pages\netcenter\inventory;
 
 
-use views\forms\inventory\VendorForm;
+use views\forms\netcenter\inventory\VendorForm;
 use views\pages\netcenter\ModelPage;
 
 class VendorEditPage extends ModelPage

@@ -16,7 +16,7 @@ namespace views\pages;
 
 use utilities\InfoCentralConnection;
 
-class AccountPage extends SidebarDocument
+class AccountPage extends PortalDocument
 {
     public function __construct()
     {

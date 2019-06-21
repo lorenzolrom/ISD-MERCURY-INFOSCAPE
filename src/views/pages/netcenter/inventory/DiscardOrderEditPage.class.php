@@ -14,7 +14,7 @@
 namespace views\pages\netcenter\inventory;
 
 
-use views\forms\inventory\DiscardOrderForm;
+use views\forms\netcenter\inventory\DiscardOrderForm;
 use views\pages\netcenter\ModelPage;
 
 class DiscardOrderEditPage extends ModelPage

@@ -17,7 +17,7 @@ namespace views\elements;
 use utilities\InfoCentralConnection;
 use views\View;
 
-abstract class Navigation extends View
+class Navigation extends View
 {
     /**
      * Navigation constructor.
