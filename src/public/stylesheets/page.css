@@ -104,9 +104,9 @@ header span#app-logo {
 }
 
 header span#app-caption, header span#operator-name {
-    font-weight: 600;
     color: #FFF;
     position: absolute;
+    font-weight: 600;
     right: 10px;
 }
 
