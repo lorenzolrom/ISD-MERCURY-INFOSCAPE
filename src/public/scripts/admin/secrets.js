@@ -37,7 +37,7 @@ function create()
 {
     apiRequest('POST', 'secrets', getForm()).done(function(json){
         if(json.code === 201)
-            window.location.replace(baseURI + 'admin/icadmin/?NOTICE=API Key created');
+            window.location.replace(baseURI + 'admin/icadmin/?SUCCESS=API Key created');
         else
         {
             showNotifications('error', json.data.errors);
@@ -52,7 +52,7 @@ function save(id)
 {
     apiRequest('PUT', 'secrets/' + id, getForm()).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + 'admin/icadmin?NOTICE=API Key updated');
+            window.location.replace(baseURI + 'admin/icadmin?SUCCESS=API Key updated');
         else
         {
             showNotifications('error', json.data.errors);
@@ -67,7 +67,7 @@ function remove(id)
 {
     apiRequest('DELETE', 'secrets/' + id, {}).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + 'admin/icadmin?NOTICE=API Key deleted');
+            window.location.replace(baseURI + 'admin/icadmin?SUCCESS=API Key deleted');
         else
         {
             showNotifications('error', json.data.errors);

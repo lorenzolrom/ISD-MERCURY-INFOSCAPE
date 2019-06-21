@@ -21,7 +21,7 @@ class APIKeyEditPage extends ModelPage
 {
     public function __construct(?string $param)
     {
-        parent::__construct("secrets/$param", 'api-settings', 'admin');
+        parent::__construct("secrets/$param", 'api-settings', 'api_keys');
 
         $details = $this->response->getBody();
 

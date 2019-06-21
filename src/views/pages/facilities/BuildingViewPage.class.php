@@ -17,7 +17,7 @@ class BuildingViewPage extends ModelPage
 {
     public function __construct(?string $buildingId)
     {
-        parent::__construct("buildings/$buildingId", "facilitiescore_facilities-r");
+        parent::__construct("buildings/$buildingId", "facilitiescore_facilities-r", 'buildings');
 
         $building = $this->response->getBody();
 

@@ -537,6 +537,7 @@ function showNotifications(type, items)
             break;
         case "success":
             $(notifications).addClass("notifications-success");
+            break;
         default:
             $(notifications).addClass("notifications-notice");
     }

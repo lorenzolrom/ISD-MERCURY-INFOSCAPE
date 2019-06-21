@@ -20,7 +20,7 @@ class TeamEditPage extends ModelPage
 {
     public function __construct(?string $id)
     {
-        parent::__construct("tickets/teams/$id", 'tickets-admin');
+        parent::__construct("tickets/teams/$id", 'tickets-admin', 'admin');
 
         $details = $this->response->getBody();
 

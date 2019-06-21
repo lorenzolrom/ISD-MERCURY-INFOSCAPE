@@ -19,9 +19,17 @@ use views\pages\SidebarDocument;
 
 abstract class FacilitiesDocument extends SidebarDocument
 {
-    public function __construct(?string $permission = NULL)
+    /**
+     * FacilitiesDocument constructor.
+     * @param string|null $permission
+     * @param string|null $sectionTitle
+     * @throws \exceptions\InfoCentralException
+     * @throws \exceptions\SecurityException
+     * @throws \exceptions\ViewException
+     */
+    public function __construct(?string $permission = NULL, ?string $sectionTitle = NULL)
     {
-        parent::__construct($permission);
+        parent::__construct($permission, 'views\elements\facilities\FacilitiesNavigation', $sectionTitle);
 
         $navigation = new FacilitiesNavigation();
         $this->setVariable('navigation', $navigation->getTemplate());

@@ -20,7 +20,7 @@ class SystemCreatePage extends LIMSDocument
 {
     public function __construct()
     {
-        parent::__construct('lockshop-w');
+        parent::__construct('lockshop-w', 'systems');
 
         $form = new SystemForm();
 

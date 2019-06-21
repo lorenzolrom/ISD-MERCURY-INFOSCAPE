@@ -42,7 +42,7 @@ function create()
     apiRequest('POST', 'tickets/teams', getForm()).done(function(json){
         if(json.code === 201)
         {
-            window.location.replace (baseURI + "tickets/admin/teams?NOTICE=Team created");
+            window.location.replace (baseURI + "tickets/admin/teams?SUCCESS=Team created");
         }
         else
         {
@@ -59,7 +59,7 @@ function save(id)
     apiRequest('PUT', 'tickets/teams/' + id, getForm()).done(function(json){
         if(json.code === 204)
         {
-            window.location.replace (baseURI + "tickets/admin/teams?NOTICE=Team updated");
+            window.location.replace (baseURI + "tickets/admin/teams?SUCCESS=Team updated");
         }
         else
         {
@@ -76,7 +76,7 @@ function remove(id)
     apiRequest('DELETE', 'tickets/teams/' + id, {}).done(function(json){
         if(json.code === 204)
         {
-            window.location.replace (baseURI + "tickets/admin/teams?NOTICE=Team deleted");
+            window.location.replace (baseURI + "tickets/admin/teams?SUCCESS=Team deleted");
         }
         else
         {

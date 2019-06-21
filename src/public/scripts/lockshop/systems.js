@@ -48,7 +48,7 @@ function search()
 function create(){
     apiRequest('POST', 'lockshop/systems', getForm()).done(function(json){
         if(json.code === 201)
-            window.location.replace(baseURI + 'lockshop/systems/' + json.data.id  + '?NOTICE=System created');
+            window.location.replace(baseURI + 'lockshop/systems/' + json.data.id  + '?SUCCESS=System created');
         else
         {
             showNotifications('error', json.data.errors);
@@ -63,7 +63,7 @@ function update(id)
 {
     apiRequest('PUT', 'lockshop/systems/' + id, getForm()).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + 'lockshop/systems/' + id + '?NOTICE=System updated');
+            window.location.replace(baseURI + 'lockshop/systems/' + id + '?SUCCESS=System updated');
         else
         {
             showNotifications('error', json.data.errors);
@@ -78,7 +78,7 @@ function remove(id)
 {
     apiRequest('DELETE', 'lockshop/systems/' + id, {}).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + 'lockshop/systems?NOTICE=System deleted');
+            window.location.replace(baseURI + 'lockshop/systems?SUCCESS=System deleted');
         else
         {
             showNotifications('error', json.data.errors);

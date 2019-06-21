@@ -108,7 +108,7 @@ function create()
 {
     apiRequest('POST', 'applications', getEditForm()).done(function(json){
         if(json.code === 201)
-            window.location.replace(baseURI + 'ait/applications/' + json.data.id + '?NOTICE=Application created');
+            window.location.replace(baseURI + 'ait/applications/' + json.data.id + '?SUCCESS=Application created');
         else
         {
             showNotifications('error', json.data.errors);
@@ -123,7 +123,7 @@ function save(num)
 {
     apiRequest('PUT', 'applications/' + num, getEditForm()).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + 'ait/applications/' + num + '?NOTICE=Application updated');
+            window.location.replace(baseURI + 'ait/applications/' + num + '?SUCCESS=Application updated');
         else
         {
             showNotifications('error', json.data.errors);

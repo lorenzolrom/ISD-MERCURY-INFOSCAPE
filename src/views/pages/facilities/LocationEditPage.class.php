@@ -19,7 +19,7 @@ class LocationEditPage extends ModelPage
 {
     public function __construct(?string $locationId)
     {
-        parent::__construct("locations/$locationId", 'facilitiescore_facilities-w');
+        parent::__construct("locations/$locationId", 'facilitiescore_facilities-w', 'buildings');
 
         $details = $this->response->getBody();
 

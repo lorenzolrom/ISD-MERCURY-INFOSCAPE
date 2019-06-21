@@ -88,7 +88,7 @@ function create()
 {
     apiRequest('POST', 'bulletins', getForm()).done(function(json){
         if(json.code === 201)
-            window.location.replace(baseURI + 'admin/bulletins/?NOTICE=Bulletin created');
+            window.location.replace(baseURI + 'admin/bulletins/?SUCCESS=Bulletin created');
         else
         {
             showNotifications('error', json.data.errors);
@@ -103,7 +103,7 @@ function save(id)
 {
     apiRequest('PUT', 'bulletins/' + id, getForm()).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + 'admin/bulletins?NOTICE=Bulletin updated');
+            window.location.replace(baseURI + 'admin/bulletins?SUCCESS=Bulletin updated');
         else
         {
             showNotifications('error', json.data.errors);
@@ -118,7 +118,7 @@ function remove(id)
 {
     apiRequest('DELETE', 'bulletins/' + id, {}).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + 'admin/bulletins?NOTICE=Bulletin deleted');
+            window.location.replace(baseURI + 'admin/bulletins?SUCCESS=Bulletin deleted');
         else
         {
             showNotifications('error', json.data.errors);

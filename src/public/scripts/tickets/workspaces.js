@@ -94,7 +94,7 @@ function create()
     apiRequest('POST', 'tickets/workspaces', getForm()).done(function(json){
         if(json.code === 201)
         {
-            window.location.replace (baseURI + "tickets/admin/workspaces?NOTICE=Workspace created");
+            window.location.replace (baseURI + "tickets/admin/workspaces?SUCCESS=Workspace created");
         }
         else
         {
@@ -111,7 +111,7 @@ function save(id)
     apiRequest('PUT', 'tickets/workspaces/' + id, getForm()).done(function(json){
         if(json.code === 204)
         {
-            window.location.replace (baseURI + "tickets/admin/workspaces?NOTICE=Workspace saved");
+            window.location.replace (baseURI + "tickets/admin/workspaces?SUCCESS=Workspace saved");
         }
         else
         {
@@ -127,7 +127,7 @@ function remove(id)
 {
     apiRequest('DELETE', 'tickets/workspaces/' + id, {}).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + "tickets/admin/workspaces?NOTICE=Workspace deleted");
+            window.location.replace(baseURI + "tickets/admin/workspaces?SUCCESS=Workspace deleted");
         else
         {
             showNotifications('error', json.data.errors);

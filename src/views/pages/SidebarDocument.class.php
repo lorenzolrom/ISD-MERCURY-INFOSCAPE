@@ -15,17 +15,20 @@ namespace views\pages;
 
 
 use views\elements\Header;
+use views\elements\Sidebar;
 
 abstract class SidebarDocument extends AuthenticatedPage
 {
     /**
      * SidebarDocument constructor.
      * @param string|null $permission
+     * @param string|null $navClass Name of the class holding the navigation sections
+     * @param string|null $sectionTitle Index of the list of pages in the navigation class
      * @throws \exceptions\InfoCentralException
      * @throws \exceptions\SecurityException
      * @throws \exceptions\ViewException
      */
-    public function __construct(string $permission = NULL)
+    public function __construct(string $permission = NULL, ?string $navClass = NULL, ?string $sectionTitle = NULL)
     {
         parent::__construct($permission);
         $this->setVariable("content", self::templateFileContents("SidebarDocument", self::TEMPLATE_PAGE));
@@ -38,5 +41,11 @@ abstract class SidebarDocument extends AuthenticatedPage
         $this->setVariable("footer", self::templateFileContents("Footer", self::TEMPLATE_ELEMENT));
 
         $this->setVariable('operatorName', 'Operator: ' . $this->user->getUsername());
+
+        if($navClass !== NULL AND $sectionTitle !== NULL)
+        {
+            $sidebar = new Sidebar($navClass, $sectionTitle);
+            $this->setVariable("sidebar", $sidebar->getTemplate());
+        }
     }
 }

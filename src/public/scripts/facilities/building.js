@@ -113,7 +113,7 @@ function saveChanges(id)
     }).done(function(json){
         if(json.code === 204)
         {
-            window.location.replace (baseURI + "facilities/buildings/" + id + "?NOTICE=Building updated");
+            window.location.replace (baseURI + "facilities/buildings/" + id + "?SUCCESS=Building updated");
         }
         else if(json.code === 409)
         {
@@ -149,7 +149,7 @@ function createBuilding()
     }).done(function(json){
         if(json.code === 201)
         {
-            window.location.replace (baseURI + "facilities/buildings/" + json.data.id + "?NOTICE=Building created");
+            window.location.replace (baseURI + "facilities/buildings/" + json.data.id + "?SUCCESS=Building created");
         }
         else
         {
@@ -171,7 +171,7 @@ function deleteBuilding(id)
     apiRequest("DELETE", "buildings/" + id, {}).done(function(json){
         if(json.code === 204)
         {
-            window.location.replace(baseURI + "facilities/buildings?NOTICE=Building deleted");
+            window.location.replace(baseURI + "facilities/buildings?SUCCESS=Building deleted");
         }
         else
         {

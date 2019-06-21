@@ -58,7 +58,7 @@ class AccountController extends Controller
             }
             else
             {
-                header("Location: " . \Config::OPTIONS['baseURI'] . "account?NOTICE=Password has been changed");
+                header("Location: " . \Config::OPTIONS['baseURI'] . "account?SUCCESS=Password has been changed");
                 exit;
             }
         }

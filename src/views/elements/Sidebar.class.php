@@ -1,4 +1,5 @@
-<?php
+<?php /** @noinspection PhpUndefinedFieldInspection */
+
 /**
  * LLR Technologies & Associated Services
  * Information Systems Development
@@ -28,18 +29,20 @@ class Sidebar extends View
 {
     /**
      * Sidebar constructor.
+     * @param string $navClass
      * @param string $sectionTitle
-     * @throws \exceptions\ViewException
      * @throws \exceptions\InfoCentralException
+     * @throws \exceptions\ViewException
      */
-    public function __construct(string $sectionTitle)
+    public function __construct(string $navClass, string $sectionTitle)
     {
         $this->setTemplateFromHTML("Sidebar", self::TEMPLATE_ELEMENT);
 
-        if(!isset(NetCenterNavigation::LINKS[$sectionTitle]))
+        /** @noinspection PhpUndefinedFieldInspection */
+        if(!class_exists($navClass) OR empty($navClass::LINKS) OR empty($navClass::LINKS[$sectionTitle])) // Check that class exists and section exists inside of it
             return;
 
-        $section = NetCenterNavigation::LINKS[$sectionTitle];
+        $section = $navClass::LINKS[$sectionTitle];
 
         $this->setVariable("sectionTitle", $section['title']);
         $this->setVariable('sectionIcon', $section['icon']);
@@ -49,6 +52,12 @@ class Sidebar extends View
 
         $permissions = InfoCentralConnection::getResponse(InfoCentralConnection::GET, "currentUser/permissions")->getBody();
         $links = "";
+
+        // Check for a base URI for this section
+        if(!empty($navClass::BASE_URI))
+            $sectionURI = $navClass::BASE_URI;
+        else
+            $sectionURI = '';
 
         foreach($section['pages'] as $page)
         {
@@ -63,7 +72,7 @@ class Sidebar extends View
                 $icon = "";
 
             if(in_array($page['permission'], $permissions))
-                $links .= "<li><a href='{{@baseURI}}{$page['link']}'>$icon{$page['title']}</a></li>\n";
+                $links .= "<li><a href='{{@baseURI}}" . $sectionURI . $page['link'] . "'>$icon{$page['title']}</a></li>\n";
         }
 
         $this->setVariable("sectionLinks", $links);

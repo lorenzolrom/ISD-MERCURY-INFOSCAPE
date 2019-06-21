@@ -30,7 +30,7 @@ class LocationCreatePage extends FacilitiesDocument
      */
     public function __construct(?string $buildingId)
     {
-        parent::__construct('facilitiescore_facilities-w');
+        parent::__construct('facilitiescore_facilities-w', 'buildings');
 
         $this->setVariable("tabTitle", "Location (New)");
 

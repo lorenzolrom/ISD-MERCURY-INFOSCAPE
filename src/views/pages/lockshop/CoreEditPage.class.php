@@ -28,7 +28,7 @@ class CoreEditPage extends ModelPage
      */
     public function __construct(?string $id)
     {
-        parent::__construct("lockshop/cores/$id", 'lockshop-r');
+        parent::__construct("lockshop/cores/$id", 'lockshop-r', 'locks');
 
         $details = $this->response->getBody();
 

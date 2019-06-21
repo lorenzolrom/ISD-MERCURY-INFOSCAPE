@@ -18,8 +18,10 @@ use views\elements\Navigation;
 
 class AdminNavigation extends Navigation
 {
-    private const LINKS = array(
-        array(
+    public const BASE_URI = 'admin/';
+
+    public const LINKS = array(
+        'users' => array(
             'title' => 'Users',
             'permission' => 'settings',
             'icon' => 'user.png',
@@ -52,7 +54,7 @@ class AdminNavigation extends Navigation
                 )
             )
         ),
-        array(
+        'roles' => array(
             'title' => 'Roles',
             'permission' => 'settings',
             'icon' => 'group.png',
@@ -73,7 +75,7 @@ class AdminNavigation extends Navigation
                 )
             )
         ),
-        array(
+        'api_keys' => array(
             'title' => 'API Keys',
             'permission' => 'api-settings',
             'icon' => 'operator.png',
@@ -94,13 +96,13 @@ class AdminNavigation extends Navigation
                 )
             )
         ),
-        array(
+        'notifications' => array(
             'title' => 'Send Notification',
             'permission' => 'settings',
             'icon' => 'toemail.png',
             'link' => 'notifications/send'
         ),
-        array(
+        'bulletins' => array(
             'title' => 'Bulletins',
             'permission' => 'settings',
             'icon' => 'about.png',
@@ -125,6 +127,6 @@ class AdminNavigation extends Navigation
 
     public function __construct()
     {
-        parent::__construct('admin/', self::LINKS);
+        parent::__construct(self::BASE_URI, self::LINKS);
     }
 }

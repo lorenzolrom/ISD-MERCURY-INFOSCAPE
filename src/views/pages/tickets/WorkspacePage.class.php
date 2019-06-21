@@ -32,7 +32,7 @@ class WorkspacePage extends ModelPage
      */
     public function __construct(string $id)
     {
-        parent::__construct('tickets/workspaces/' . $id, 'tickets-agent');
+        parent::__construct('tickets/workspaces/' . $id, 'tickets-agent', 'agent');
 
         $details = $this->response->getBody();
 

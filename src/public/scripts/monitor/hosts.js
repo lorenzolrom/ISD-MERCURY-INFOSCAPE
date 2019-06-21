@@ -57,7 +57,7 @@ function loadMonitor()
                     let host = document.createElement('li');
 
                     let status = document.createElement('img');
-                    let icon = v.status === 'offline' ? 'fail.png' : 'pass.png'
+                    let icon = v.status === 'offline' ? 'fail.png' : 'pass.png';
                     icon = baseURI + 'media/icons/' + icon;
                     $(status).attr('src', icon);
 

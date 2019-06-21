@@ -1160,7 +1160,7 @@ getFirstName()
         }
     );
 
-    var_dump(UserOperator::getUserByUsername('ttester')->getFirstName());
+    //var_dump(UserOperator::getUserByUsername('ttester')->getFirstName());
 ?>
 --EXPECT--
 string(32) "Tommy"

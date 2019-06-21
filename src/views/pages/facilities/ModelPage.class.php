@@ -25,14 +25,15 @@ class ModelPage extends FacilitiesDocument
      * ModelPage constructor.
      * @param string $path
      * @param string|null $permission
+     * @param string|null $sectionTitle
      * @throws EntryNotFoundException
      * @throws \exceptions\InfoCentralException
      * @throws \exceptions\SecurityException
      * @throws \exceptions\ViewException
      */
-    public function __construct(string $path, ?string $permission = NULL)
+    public function __construct(string $path, ?string $permission = NULL, ?string $sectionTitle = NULL)
     {
-        parent::__construct($permission);
+        parent::__construct($permission, $sectionTitle);
 
         $this->response = InfoCentralConnection::getResponse(InfoCentralConnection::GET, $path);
 

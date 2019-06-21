@@ -17,7 +17,9 @@ use views\elements\Navigation;
 
 class FacilitiesNavigation extends Navigation
 {
-    private const LINKS = array(
+    public const BASE_URI = 'facilities/';
+
+    public const LINKS = array(
         'buildings' => array(
             'title' => 'Buildings',
             'permission' => 'facilitiescore_facilities-r',
@@ -48,6 +50,6 @@ class FacilitiesNavigation extends Navigation
      */
     public function __construct()
     {
-        parent::__construct('facilities/', self::LINKS);
+        parent::__construct(self::BASE_URI, self::LINKS);
     }
 }

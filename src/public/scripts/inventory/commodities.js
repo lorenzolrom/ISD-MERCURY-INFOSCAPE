@@ -79,7 +79,7 @@ function createCommodity()
     }).done(function(json){
         if(json.code === 201)
         {
-            window.location.replace (baseURI + "inventory/commodities?NOTICE=Commodity created");
+            window.location.replace (baseURI + "inventory/commodities?SUCCESS=Commodity created");
         }
         else
         {
@@ -113,7 +113,7 @@ function saveChanges(id)
     }).done(function(json){
         if(json.code === 204)
         {
-            window.location.replace (baseURI + "inventory/commodities?NOTICE=Commodity updated");
+            window.location.replace (baseURI + "inventory/commodities?SUCCESS=Commodity updated");
         }
         else
         {
@@ -133,7 +133,7 @@ function deleteCommodity(id)
 {
     apiRequest("DELETE", "commodities/" + id, {}).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + "inventory/commodities?NOTICE=Commodity deleted");
+            window.location.replace(baseURI + "inventory/commodities?SUCCESS=Commodity deleted");
         else
         {
             showNotifications('error', json.data.errors);

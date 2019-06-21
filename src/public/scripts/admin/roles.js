@@ -42,7 +42,7 @@ function create()
 {
     apiRequest('POST', 'roles', getForm()).done(function(json){
         if(json.code === 201)
-            window.location.replace(baseURI + 'admin/roles/?NOTICE=Role created');
+            window.location.replace(baseURI + 'admin/roles/?SUCCESS=Role created');
         else
         {
             showNotifications('error', json.data.errors);
@@ -57,7 +57,7 @@ function save(id)
 {
     apiRequest('PUT', 'roles/' + id, getForm()).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + 'admin/roles?NOTICE=Role updated');
+            window.location.replace(baseURI + 'admin/roles?SUCCESS=Role updated');
         else
         {
             showNotifications('error', json.data.errors);
@@ -72,7 +72,7 @@ function remove(id)
 {
     apiRequest('DELETE', 'roles/' + id, {}).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + 'admin/roles?NOTICE=Role deleted');
+            window.location.replace(baseURI + 'admin/roles?SUCCESS=Role deleted');
         else
         {
             showNotifications('error', json.data.errors);

@@ -157,7 +157,7 @@ function create()
 {
     apiRequest('POST', 'purchaseorders', getEditForm()).done(function(json){
         if(json.code === 201)
-            window.location.replace(baseURI + 'inventory/purchaseorders/' + json.data.id + '?NOTICE=Purchase Order created');
+            window.location.replace(baseURI + 'inventory/purchaseorders/' + json.data.id + '?SUCCESS=Purchase Order created');
         else
         {
             showNotifications('error', json.data.errors);
@@ -172,7 +172,7 @@ function save(number)
 {
     apiRequest('PUT', 'purchaseorders/' + number, getEditForm()).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + 'inventory/purchaseorders/' + number + '?NOTICE=Purchase Order updated');
+            window.location.replace(baseURI + 'inventory/purchaseorders/' + number + '?SUCCESS=Purchase Order updated');
         else
         {
             showNotifications('error', json.data.errors);
@@ -314,7 +314,7 @@ function send(number)
     apiRequest('PUT', 'purchaseorders/' + number + '/send', {}).done(function(json){
         if(json.code === 204)
         {
-            window.location.replace (baseURI + "inventory/purchaseorders/" + number + "?NOTICE=Purchase Order has been sent");
+            window.location.replace (baseURI + "inventory/purchaseorders/" + number + "?SUCCESS=Purchase Order has been sent");
         }
         else
         {
@@ -328,7 +328,7 @@ function cancel(number)
     apiRequest('PUT', 'purchaseorders/' + number + '/cancel', {}).done(function(json){
         if(json.code === 204)
         {
-            window.location.replace (baseURI + "inventory/purchaseorders/" + number + "?NOTICE=Purchase Order has been canceled");
+            window.location.replace (baseURI + "inventory/purchaseorders/" + number + "?SUCCESS=Purchase Order has been canceled");
         }
         else
         {
@@ -342,7 +342,7 @@ function receive(number)
     apiRequest('PUT', 'purchaseorders/' + number + '/receive', getReceiveForm()).done(function(json){
         if(json.code === 204)
         {
-            window.location.replace (baseURI + "inventory/purchaseorders/" + number + "?NOTICE=Purchase Order has been received");
+            window.location.replace (baseURI + "inventory/purchaseorders/" + number + "?SUCCESS=Purchase Order has been received");
         }
         else
         {

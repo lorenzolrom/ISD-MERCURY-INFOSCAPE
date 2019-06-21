@@ -35,7 +35,7 @@ function deleteVendor(id)
 {
     apiRequest('DELETE', 'vendors/' + id, {}).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + "inventory/vendors?NOTICE=Vendor deleted");
+            window.location.replace(baseURI + "inventory/vendors?SUCCESS=Vendor deleted");
         else
         {
             showNotifications('error', json.data.errors);
@@ -67,7 +67,7 @@ function saveChanges(id)
     }).done(function(json){
         if(json.code === 204)
         {
-            window.location.replace (baseURI + "inventory/vendors?NOTICE=Vendor updated");
+            window.location.replace (baseURI + "inventory/vendors?SUCCESS=Vendor updated");
         }
         else
         {
@@ -102,7 +102,7 @@ function createVendor()
     }).done(function(json){
         if(json.code === 201)
         {
-            window.location.replace (baseURI + "inventory/vendors?NOTICE=Vendor created");
+            window.location.replace (baseURI + "inventory/vendors?SUCCESS=Vendor created");
         }
         else
         {

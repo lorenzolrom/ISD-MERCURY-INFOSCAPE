@@ -22,7 +22,7 @@ class RoleEditPage extends ModelPage
 {
     public function __construct(?string $param)
     {
-        parent::__construct("roles/$param", 'settings', 'admin');
+        parent::__construct("roles/$param", 'settings', 'roles');
 
         $details = $this->response->getBody();
 

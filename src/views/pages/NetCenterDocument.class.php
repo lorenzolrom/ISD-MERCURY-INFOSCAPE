@@ -15,7 +15,6 @@ namespace views\pages;
 
 
 use views\elements\NetCenterNavigation;
-use views\elements\Sidebar;
 
 /**
  * Class MainDocument
@@ -36,15 +35,9 @@ abstract class NetCenterDocument extends SidebarDocument
      */
     public function __construct(?string $permission = NULL, ?string $section = NULL)
     {
-        parent::__construct($permission);
+        parent::__construct($permission, 'views\elements\NetCenterNavigation', $section);
 
         $navigation = new NetCenterNavigation();
         $this->setVariable('navigation', $navigation->getTemplate());
-
-        if($section !== NULL)
-        {
-            $sidebar = new Sidebar($section);
-            $this->setVariable("sidebar", $sidebar->getTemplate());
-        }
     }
 }

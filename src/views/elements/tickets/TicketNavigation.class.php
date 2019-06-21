@@ -24,7 +24,9 @@ use views\elements\Navigation;
  */
 class TicketNavigation extends Navigation
 {
-    private const LINKS = array(
+    public const BASE_URI = 'tickets/';
+
+    public const LINKS = array(
         'myRequests' => array(
             'title' => 'Requests',
             'permission' => 'tickets-customer',
@@ -86,6 +88,6 @@ class TicketNavigation extends Navigation
      */
     public function __construct()
     {
-        parent::__construct('tickets/', self::LINKS);
+        parent::__construct(self::BASE_URI, self::LINKS);
     }
 }

@@ -43,7 +43,7 @@ function create()
     apiRequest('POST', 'hostCategories', getForm()).done(function(json){
         if(json.code === 201)
         {
-            window.location.replace (baseURI + "monitor/configure?NOTICE=Category created");
+            window.location.replace (baseURI + "monitor/configure?SUCCESS=Category created");
         }
         else
         {
@@ -60,7 +60,7 @@ function save(id)
     apiRequest('PUT', 'hostCategories/' + id, getForm()).done(function(json){
         if(json.code === 204)
         {
-            window.location.replace (baseURI + "monitor/configure?NOTICE=Category updated");
+            window.location.replace (baseURI + "monitor/configure?SUCCESS=Category updated");
         }
         else
         {
@@ -77,7 +77,7 @@ function remove(id)
     apiRequest('DELETE', 'hostCategories/' + id, {}).done(function(json){
         if(json.code === 204)
         {
-            window.location.replace (baseURI + "monitor/configure?NOTICE=Category deleted");
+            window.location.replace (baseURI + "monitor/configure?SUCCESS=Category deleted");
         }
         else
         {

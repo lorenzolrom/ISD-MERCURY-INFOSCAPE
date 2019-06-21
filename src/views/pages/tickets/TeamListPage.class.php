@@ -18,7 +18,7 @@ class TeamListPage extends TicketDocument
 {
     public function __construct()
     {
-        parent::__construct('tickets-admin');
+        parent::__construct('tickets-admin', 'admin');
         $this->setVariable('tabTitle', 'Teams');
 
         $this->setVariable('content', self::templateFileContents('tickets/TeamListPage', self::TEMPLATE_PAGE));

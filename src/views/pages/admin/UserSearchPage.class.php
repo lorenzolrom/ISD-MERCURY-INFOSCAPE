@@ -20,7 +20,7 @@ class UserSearchPage extends AdminDocument
 {
     public function __construct()
     {
-        parent::__construct('settings', 'admin');
+        parent::__construct('settings', 'users');
 
         $this->setVariable('tabTitle', 'Users');
         $this->setVariable('content', self::templateFileContents('admin/UserSearchPage', self::TEMPLATE_PAGE));

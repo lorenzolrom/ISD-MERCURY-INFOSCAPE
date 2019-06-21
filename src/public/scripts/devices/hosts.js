@@ -64,7 +64,7 @@ function saveChanges(id)
     apiRequest('PUT', 'hosts/' + id, getFormData()).done(function(json){
         if(json.code === 204)
         {
-            window.location.replace (baseURI + "devices/hosts?NOTICE=Host updated");
+            window.location.replace (baseURI + "devices/hosts?SUCCESS=Host updated");
         }
         else
         {
@@ -80,7 +80,7 @@ function createHost()
 {
     apiRequest('POST', 'hosts', getFormData()).done(function(json){
         if(json.code === 201)
-            window.location.replace(baseURI + 'devices/hosts?NOTICE=Host created');
+            window.location.replace(baseURI + 'devices/hosts?SUCCESS=Host created');
         else
         {
             showNotifications('error', json.data.errors);
@@ -95,7 +95,7 @@ function deleteHost(id)
 {
     apiRequest('DELETE', 'hosts/' + id, {}).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + 'devices/hosts?NOTICE=Host deleted');
+            window.location.replace(baseURI + 'devices/hosts?SUCCESS=Host deleted');
         else
         {
             showNotifications('error', json.data.errors);

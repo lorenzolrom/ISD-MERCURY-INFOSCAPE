@@ -21,7 +21,7 @@ class UserEditPage extends ModelPage
 {
     public function __construct(?string $param)
     {
-        parent::__construct("users/$param", 'settings', 'admin');
+        parent::__construct("users/$param", 'settings', 'users');
 
         $details = $this->response->getBody();
 

@@ -29,7 +29,7 @@ abstract class AdminDocument extends SidebarDocument
      */
     public function __construct(?string $permission = NULL, ?string $section = NULL)
     {
-        parent::__construct($permission);
+        parent::__construct($permission, 'views\elements\admin\AdminNavigation', $section);
 
         $navigation = new AdminNavigation();
         $this->setVariable('navigation', $navigation->getTemplate());

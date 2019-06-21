@@ -29,7 +29,7 @@ class TicketCreatePage extends ModelPage
     public function __construct(int $workspace)
     {
         // Verify user is in workspace
-        parent::__construct('tickets/workspaces/' . $workspace, 'tickets-agent');
+        parent::__construct('tickets/workspaces/' . $workspace, 'tickets-agent', 'agent');
 
         $this->setVariable('tabTitle', 'Ticket (New)');
         $form = new TicketForm($workspace);

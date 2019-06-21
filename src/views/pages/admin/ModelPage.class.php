@@ -33,7 +33,7 @@ class ModelPage extends AdminDocument
      */
     public function __construct(string $path, ?string $permission = NULL, ?string $section = NULL)
     {
-        parent::__construct($permission);
+        parent::__construct($permission, $section);
 
         $this->response = InfoCentralConnection::getResponse(InfoCentralConnection::GET, $path);
 

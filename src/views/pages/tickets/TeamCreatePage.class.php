@@ -20,7 +20,7 @@ class TeamCreatePage extends TicketDocument
 {
     public function __construct()
     {
-        parent::__construct('tickets-admin');
+        parent::__construct('tickets-admin', 'admin');
         $this->setVariable('tabTitle', 'Team (New)');
 
         $form = new TeamForm();

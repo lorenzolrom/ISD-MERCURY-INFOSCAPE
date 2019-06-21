@@ -220,7 +220,7 @@ function saveChanges(asset)
     }).done(function(json){
         if(json.code === 204)
         {
-            window.location.replace (baseURI + "inventory/assets/" + assetTag + "/?NOTICE=Asset updated");
+            window.location.replace (baseURI + "inventory/assets/" + assetTag + "/?SUCCESS=Asset updated");
         }
         else
         {

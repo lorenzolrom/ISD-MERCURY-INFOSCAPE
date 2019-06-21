@@ -17,7 +17,9 @@ use views\elements\Navigation;
 
 class LIMSNavigation extends Navigation
 {
-    private const LINKS = array(
+    public const BASE_URI = 'lockshop/';
+
+    public const LINKS = array(
         'systems' => array(
             'title' => 'Systems',
             'permission' => 'lockshop-r',
@@ -60,6 +62,6 @@ class LIMSNavigation extends Navigation
      */
     public function __construct()
     {
-        parent::__construct('lockshop/', self::LINKS);
+        parent::__construct(self::BASE_URI, self::LINKS);
     }
 }

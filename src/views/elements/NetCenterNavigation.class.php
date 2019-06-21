@@ -15,6 +15,8 @@ namespace views\elements;
 
 class NetCenterNavigation extends Navigation
 {
+    public const BASE_URI = '';
+
     public const LINKS = array(
         'inventory' => array(
             'title' => 'Inventory',
@@ -141,6 +143,6 @@ class NetCenterNavigation extends Navigation
      */
     public function __construct()
     {
-        parent::__construct('', self::LINKS);
+        parent::__construct(self::BASE_URI, self::LINKS);
     }
 }

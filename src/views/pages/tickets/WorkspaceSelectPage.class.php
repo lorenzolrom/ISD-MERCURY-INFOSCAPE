@@ -20,7 +20,7 @@ class WorkspaceSelectPage extends TicketDocument
 {
     public function __construct()
     {
-        parent::__construct('tickets-agent');
+        parent::__construct('tickets-agent', 'agent');
 
         $form = new WorkspaceSelectForm();
 

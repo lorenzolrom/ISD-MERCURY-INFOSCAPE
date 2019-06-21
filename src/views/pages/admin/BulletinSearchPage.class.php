@@ -20,7 +20,7 @@ class BulletinSearchPage extends AdminDocument
 {
     public function __construct()
     {
-        parent::__construct('settings', 'admin');
+        parent::__construct('settings', 'bulletins');
         $this->setVariable('tabTitle', 'Bulletins');
         $this->setVariable('content', self::templateFileContents("admin/BulletinSearchPage", self::TEMPLATE_PAGE));
     }

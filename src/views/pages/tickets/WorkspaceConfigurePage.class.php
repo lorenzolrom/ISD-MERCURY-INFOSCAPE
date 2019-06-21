@@ -18,7 +18,7 @@ class WorkspaceConfigurePage extends ModelPage
 {
     public function __construct(?string $id)
     {
-        parent::__construct("tickets/workspaces/$id", 'tickets-admin');
+        parent::__construct("tickets/workspaces/$id", 'tickets-admin', 'admin');
         $details = $this->response->getBody();
 
         $this->setVariable('content', self::templateFileContents('tickets/WorkspaceConfigurePage', self::TEMPLATE_PAGE));

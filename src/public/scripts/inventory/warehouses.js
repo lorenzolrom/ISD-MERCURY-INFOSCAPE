@@ -41,7 +41,7 @@ function createWarehouse()
     }).done(function(json){
         if(json.code === 201)
         {
-            window.location.replace (baseURI + "inventory/warehouses?NOTICE=Warehouse created");
+            window.location.replace (baseURI + "inventory/warehouses?SUCCESS=Warehouse created");
         }
         else
         {
@@ -57,7 +57,7 @@ function deleteWarehouse(id)
 {
     apiRequest("DELETE", "warehouses/" + id, {}).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + "inventory/warehouses?NOTICE=Warehouse deleted");
+            window.location.replace(baseURI + "inventory/warehouses?SUCCESS=Warehouse deleted");
         else
         {
             showNotifications('error', json.data.errors);
@@ -77,7 +77,7 @@ function saveChanges(id)
     }).done(function(json){
         if(json.code === 204)
         {
-            window.location.replace (baseURI + "inventory/warehouses?NOTICE=Warehouse updated");
+            window.location.replace (baseURI + "inventory/warehouses?SUCCESS=Warehouse updated");
         }
         else
         {

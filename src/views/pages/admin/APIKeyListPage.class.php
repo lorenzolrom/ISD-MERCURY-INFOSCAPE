@@ -26,7 +26,7 @@ class APIKeyListPage extends AdminDocument
      */
     public function __construct()
     {
-        parent::__construct('api-settings', 'admin');
+        parent::__construct('api-settings', 'api_keys');
 
         $this->setVariable('tabTitle', 'API Keys');
         $this->setVariable('content', self::templateFileContents('admin/APIKeyListPage', self::TEMPLATE_PAGE));

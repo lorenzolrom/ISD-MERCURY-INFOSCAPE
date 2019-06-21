@@ -75,7 +75,7 @@ function create()
 {
     apiRequest('POST', 'users', getForm()).done(function(json){
         if(json.code === 201)
-            window.location.replace(baseURI + 'admin/users/?NOTICE=User created');
+            window.location.replace(baseURI + 'admin/users/?SUCCESS=User created');
         else
         {
             showNotifications('error', json.data.errors);
@@ -90,7 +90,7 @@ function save(id)
 {
     apiRequest('PUT', 'users/' + id, getForm()).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + 'admin/users?NOTICE=User updated');
+            window.location.replace(baseURI + 'admin/users?SUCCESS=User updated');
         else
         {
             showNotifications('error', json.data.errors);
@@ -105,7 +105,7 @@ function remove(id)
 {
     apiRequest('DELETE', 'users/' + id, {}).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + 'admin/users?NOTICE=User deleted');
+            window.location.replace(baseURI + 'admin/users?SUCCESS=User deleted');
         else
         {
             showNotifications('error', json.data.errors);

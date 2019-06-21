@@ -27,7 +27,7 @@ class APIKeyCreatePage extends AdminDocument
      */
     public function __construct()
     {
-        parent::__construct('api-settings', 'admin');
+        parent::__construct('api-settings', 'api_keys');
 
         $this->setVariable('tabTitle', 'API Key (Issue)');
 

@@ -23,7 +23,7 @@ class WorkspaceListPage extends TicketDocument
      */
     public function __construct()
     {
-        parent::__construct('tickets-admin');
+        parent::__construct('tickets-admin', 'admin');
         $this->setVariable('tabTitle', 'Workspaces');
 
         $this->setVariable('content', self::templateFileContents('tickets/WorkspaceListPage', self::TEMPLATE_PAGE));

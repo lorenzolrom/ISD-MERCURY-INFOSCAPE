@@ -28,7 +28,7 @@ class SystemEditPage extends ModelPage
      */
     public function __construct(int $id)
     {
-        parent::__construct("lockshop/systems/$id", 'lockshop-w');
+        parent::__construct("lockshop/systems/$id", 'lockshop-w', 'systems');
 
         $details = $this->response->getBody();
 

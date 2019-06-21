@@ -21,7 +21,7 @@ class BulletinCreatePage extends AdminDocument
 {
     public function __construct()
     {
-        parent::__construct('settings', 'admin');
+        parent::__construct('settings', 'bulletins');
 
         $this->setVariable('tabTitle', 'Bulletin (New)');
 

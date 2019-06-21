@@ -21,7 +21,7 @@ class BulletinEditPage extends ModelPage
 {
     public function __construct(?string $param)
     {
-        parent::__construct("bulletins/$param", 'settings', 'admin');
+        parent::__construct("bulletins/$param", 'settings', 'bulletins');
 
         $details = $this->response->getBody();
 
