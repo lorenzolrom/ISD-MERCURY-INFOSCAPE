@@ -113,7 +113,7 @@ function searchAssets()
             header: ['In W.S.', '', 'Asset Tag', 'Code', 'Name', 'Asset Type', 'Serial Number', 'Location', 'Warehouse', 'Verified'],
             sortColumn: 2,
             linkColumn: 2,
-            href: baseURI + "inventory/assets/",
+            href: baseURI + "netcenter/inventory/assets/",
             refs: refs,
             rows: rows
         });
@@ -153,7 +153,7 @@ function loadChildren(assetTag)
             header: ['Asset Tag', 'Commodity Name'],
             sortColumn: 0,
             linkColumn: 0,
-            href: baseURI + "inventory/assets/",
+            href: baseURI + "netcenter/inventory/assets/",
             refs: refs,
             rows: rows
         });
@@ -220,7 +220,7 @@ function saveChanges(asset)
     }).done(function(json){
         if(json.code === 204)
         {
-            window.location.replace (baseURI + "inventory/assets/" + assetTag + "/?SUCCESS=Asset updated");
+            window.location.replace (baseURI + "netcenter/inventory/assets/" + assetTag + "/?SUCCESS=Asset updated");
         }
         else
         {

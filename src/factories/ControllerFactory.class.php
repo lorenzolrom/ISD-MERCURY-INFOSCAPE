@@ -26,17 +26,9 @@ class ControllerFactory
 
         'tickets' => 'controllers\tickets\TicketController',
 
-        'monitor' => 'controllers\monitor\MonitorController',
-
-        'devices' => 'controllers\devices\DevicesController',
-
-        'inventory' => 'controllers\inventory\InventoryController',
-
-        'web' => 'controllers\web\WebController',
-
         'facilities' => 'controllers\facilities\FacilitiesController',
 
-        'ait' => 'controllers\ait\AITController',
+        'netcenter' => 'controllers\netcenter\NetCenterController',
 
         'admin' => 'controllers\admin\AdminController',
         'history' => 'controllers\HistoryController',
@@ -45,7 +37,6 @@ class ControllerFactory
         'inbox' => 'controllers\InboxController',
         'account' => 'controllers\AccountController',
         'about' => 'controllers\AboutController',
-        'home' => 'controllers\HomeController',
         '!api-request' => 'controllers\APIProxyController',
 
         'inetinfo' => 'controllers\InternalInfoController'

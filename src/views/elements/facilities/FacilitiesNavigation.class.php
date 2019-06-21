@@ -37,7 +37,7 @@ class FacilitiesNavigation extends Navigation
                     'link' => 'buildings/new',
                     'icon' => 'building.png',
                     'operation' => 'add',
-                    'permission' => 'facilitiescore_facilities-r',
+                    'permission' => 'facilitiescore_facilities-w',
                 )
             )
         ),

@@ -34,7 +34,7 @@ class LIMSNavigation extends Navigation
                 ),
                 array(
                     'title' => 'New System',
-                    'permission' => 'lockshop-r',
+                    'permission' => 'lockshop-w',
                     'link' => 'systems/new',
                     'icon' => 'lock_system.png',
                     'operation' => 'add'

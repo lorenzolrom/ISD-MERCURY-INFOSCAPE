@@ -11,7 +11,7 @@
  */
 
 
-namespace views\pages\webhosting;
+namespace views\pages\netcenter\webhosting;
 
 
 use views\pages\SidebarDocument;

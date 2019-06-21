@@ -64,7 +64,7 @@ function searchVHosts()
             sortColumn: 1,
             sortMethod: 'asc',
             linkColumn: 0,
-            href: baseURI + 'web/vhosts/',
+            href: baseURI + 'netcenter/web/vhosts/',
             refs: refs,
             rows: rows
         });
@@ -80,7 +80,7 @@ function saveChanges(id)
 {
     apiRequest('PUT', 'vhosts/' + id, getForm()).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + 'web/vhosts?SUCCESS=VHost updated');
+            window.location.replace(baseURI + 'netcenter/web/vhosts?SUCCESS=VHost updated');
         else
         {
             showNotifications('error', json.data.errors);
@@ -95,7 +95,7 @@ function createVHost()
 {
     apiRequest('POST', 'vhosts', getForm()).done(function(json){
         if(json.code === 201)
-            window.location.replace(baseURI + 'web/vhosts?SUCCESS=VHost created');
+            window.location.replace(baseURI + 'netcenter/web/vhosts?SUCCESS=VHost created');
         else
         {
             showNotifications('error', json.data.errors);
@@ -110,7 +110,7 @@ function deleteVHost(id)
 {
     apiRequest('DELETE', 'vhosts/' + id, {}).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + "web/vhosts?SUCCESS=VHost deleted");
+            window.location.replace(baseURI + "netcenter/web/vhosts?SUCCESS=VHost deleted");
         else
         {
             showNotifications('error', json.data.errors);

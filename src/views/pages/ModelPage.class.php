@@ -17,7 +17,7 @@ namespace views\pages;
 use exceptions\EntryNotFoundException;
 use utilities\InfoCentralConnection;
 
-abstract class ModelPage extends NetCenterDocument
+abstract class ModelPage extends SidebarDocument
 {
     protected $response;
 

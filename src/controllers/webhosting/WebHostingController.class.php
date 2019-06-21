@@ -15,7 +15,7 @@ namespace controllers\webhosting;
 
 
 use controllers\Controller;
-use views\pages\webhosting\WebHostingHome;
+use views\pages\netcenter\webhosting\WebHostingHome;
 use views\View;
 
 class WebHostingController extends Controller

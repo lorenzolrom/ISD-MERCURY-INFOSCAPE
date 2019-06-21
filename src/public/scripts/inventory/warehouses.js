@@ -23,7 +23,7 @@ function loadWarehouses()
             sortColumn: 0,
             sortMethod: "asc",
             linkColumn: 0,
-            href: baseURI + "inventory/warehouses/",
+            href: baseURI + "netcenter/inventory/warehouses/",
             refs: refs,
             rows: rows
         });
@@ -41,7 +41,7 @@ function createWarehouse()
     }).done(function(json){
         if(json.code === 201)
         {
-            window.location.replace (baseURI + "inventory/warehouses?SUCCESS=Warehouse created");
+            window.location.replace (baseURI + "netcenter/inventory/warehouses?SUCCESS=Warehouse created");
         }
         else
         {
@@ -57,7 +57,7 @@ function deleteWarehouse(id)
 {
     apiRequest("DELETE", "warehouses/" + id, {}).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + "inventory/warehouses?SUCCESS=Warehouse deleted");
+            window.location.replace(baseURI + "netcenter/inventory/warehouses?SUCCESS=Warehouse deleted");
         else
         {
             showNotifications('error', json.data.errors);
@@ -77,7 +77,7 @@ function saveChanges(id)
     }).done(function(json){
         if(json.code === 204)
         {
-            window.location.replace (baseURI + "inventory/warehouses?SUCCESS=Warehouse updated");
+            window.location.replace (baseURI + "netcenter/inventory/warehouses?SUCCESS=Warehouse updated");
         }
         else
         {

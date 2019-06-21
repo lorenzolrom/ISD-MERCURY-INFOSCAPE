@@ -23,7 +23,7 @@ function loadAssetTypes()
             sortColumn: 0,
             sortMethod: "asc",
             linkColumn: 0,
-            href: baseURI + "inventory/assettypes/",
+            href: baseURI + "netcenter/inventory/assettypes/",
             refs: refs,
             rows: rows
         });
@@ -45,7 +45,7 @@ function createAssetType()
     }).done(function(json){
         if(json.code === 201)
         {
-            window.location.replace(baseURI + "inventory/assettypes?SUCCESS=Asset type created");
+            window.location.replace(baseURI + "netcenter/inventory/assettypes?SUCCESS=Asset type created");
         }
         else
         {
@@ -73,7 +73,7 @@ function saveChanges(id)
     }).done(function(json){
         if(json.code === 204)
         {
-            window.location.replace(baseURI + "inventory/assettypes?SUCCESS=Asset type updated");
+            window.location.replace(baseURI + "netcenter/inventory/assettypes?SUCCESS=Asset type updated");
         }
         else
         {
@@ -93,7 +93,7 @@ function deleteAssetType(id)
 {
     apiRequest("DELETE", "commodities/assetTypes/" + id, {}).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + "inventory/assetTypes?SUCCESS=Asset type deleted");
+            window.location.replace(baseURI + "netcenter/inventory/assetTypes?SUCCESS=Asset type deleted");
         else
         {
             showNotifications('error', json.data.errors);

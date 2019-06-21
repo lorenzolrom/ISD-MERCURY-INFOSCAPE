@@ -24,7 +24,7 @@ function loadVendors()
             sortColumn: 0,
             sortMethod: "asc",
             linkColumn: 0,
-            href: baseURI + "inventory/vendors/",
+            href: baseURI + "netcenter/inventory/vendors/",
             refs: refs,
             rows: rows
         });
@@ -35,7 +35,7 @@ function deleteVendor(id)
 {
     apiRequest('DELETE', 'vendors/' + id, {}).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + "inventory/vendors?SUCCESS=Vendor deleted");
+            window.location.replace(baseURI + "netcenter/inventory/vendors?SUCCESS=Vendor deleted");
         else
         {
             showNotifications('error', json.data.errors);
@@ -67,7 +67,7 @@ function saveChanges(id)
     }).done(function(json){
         if(json.code === 204)
         {
-            window.location.replace (baseURI + "inventory/vendors?SUCCESS=Vendor updated");
+            window.location.replace (baseURI + "netcenter/inventory/vendors?SUCCESS=Vendor updated");
         }
         else
         {
@@ -102,7 +102,7 @@ function createVendor()
     }).done(function(json){
         if(json.code === 201)
         {
-            window.location.replace (baseURI + "inventory/vendors?SUCCESS=Vendor created");
+            window.location.replace (baseURI + "netcenter/inventory/vendors?SUCCESS=Vendor created");
         }
         else
         {

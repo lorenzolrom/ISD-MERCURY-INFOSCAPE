@@ -16,7 +16,7 @@ namespace views\pages;
 
 use views\forms\ChangePasswordForm;
 
-class ChangePasswordPage extends NetCenterDocument
+class ChangePasswordPage extends SidebarDocument
 {
     private $form;
 

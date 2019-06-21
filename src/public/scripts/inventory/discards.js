@@ -63,7 +63,7 @@ function search()
         setupTable({
             target: 'results',
             header: ['Number', 'Date', 'Status'],
-            href: baseURI + 'inventory/discards/',
+            href: baseURI + 'netcenter/inventory/discards/',
             linkColumn: 0,
             sortColumn: 0,
             refs: refs,
@@ -143,7 +143,7 @@ function create()
 {
     apiRequest('POST', 'discardorders', getEditForm()).done(function(json){
         if(json.code === 201)
-            window.location.replace(baseURI + 'inventory/discards/' + json.data.id + '?SUCCESS=Discard Order created');
+            window.location.replace(baseURI + 'netcenter/inventory/discards/' + json.data.id + '?SUCCESS=Discard Order created');
         else
         {
             showNotifications('error', json.data.errors);
@@ -159,7 +159,7 @@ function save(number)
     apiRequest('PUT', 'discardorders/' + number, getEditForm()).done(function(json){
         if(json.code === 204)
         {
-            window.location.replace(baseURI + 'inventory/discards/' + number + '?SUCCESS=Discard Order updated');
+            window.location.replace(baseURI + 'netcenter/inventory/discards/' + number + '?SUCCESS=Discard Order updated');
         }
         else
         {
@@ -173,7 +173,7 @@ function approve(number)
     apiRequest('PUT', 'discardorders/' + number + '/approve', {}).done(function(json){
         if(json.code === 204)
         {
-            window.location.replace (baseURI + "inventory/discards/" + number + "?SUCCESS=Discard Order has been approved");
+            window.location.replace (baseURI + "netcenter/inventory/discards/" + number + "?SUCCESS=Discard Order has been approved");
         }
         else
         {
@@ -189,7 +189,7 @@ function fulfill(number)
     apiRequest('PUT', 'discardorders/' + number + '/fulfill', {}).done(function(json){
         if(json.code === 204)
         {
-            window.location.replace (baseURI + "inventory/discards/" + number + "?SUCCESS=Discard Order has been fulfilled");
+            window.location.replace (baseURI + "netcenter/inventory/discards/" + number + "?SUCCESS=Discard Order has been fulfilled");
         }
         else
         {
@@ -205,7 +205,7 @@ function cancel(number)
     apiRequest('PUT', 'discardorders/' + number + '/cancel', {}).done(function(json){
         if(json.code === 204)
         {
-            window.location.replace (baseURI + "inventory/discards/" + number + "?SUCCESS=Discard Order has been canceled");
+            window.location.replace (baseURI + "netcenter/inventory/discards/" + number + "?SUCCESS=Discard Order has been canceled");
         }
         else
         {
