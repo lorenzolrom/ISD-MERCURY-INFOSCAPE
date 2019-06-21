@@ -585,7 +585,7 @@ function showNotifications(type, items)
     notifications.appendChild(notificationList);
 
     // Add to 'view'
-    document.getElementById("view").appendChild(notifications);
+    document.getElementById("content").appendChild(notifications);
 
     // Show
     $(notifications).fadeIn();

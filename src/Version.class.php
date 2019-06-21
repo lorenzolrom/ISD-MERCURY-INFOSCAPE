@@ -3,7 +3,7 @@
  * LLR Technologies & Associated Services
  * Information Systems Development
  *
- * Mercury InfoScape
+ * Mercury MAP Navigator
  *
  * User: lromero
  * Date: 4/07/2019
@@ -13,6 +13,6 @@
 
 abstract class Version
 {
-    const SOFTWARE_TITLE = "Mercury InfoScape";
+    const SOFTWARE_TITLE = "MAP Navigator";
     const CURRENT_VERSION = "1.0.0";
 }

@@ -3,7 +3,7 @@
  * LLR Technologies & Associated Services
  * Information Systems Development
  *
- * Mercury InfoScape
+ * Mercury MAP Navigator
  *
  * User: lromero
  * Date: 4/07/2019
@@ -14,14 +14,14 @@
 abstract class Config_Generic
 {
     const OPTIONS = array(
-        'appName' => 'InfoScape',
+        'appName' => 'MAP Navigator',
 
         'companyName' => 'Your Company',
 
         'baseURL' => 'https://your.domain',
         'baseURI' => '/',
 
-        'cookieName' => 'MERLOT',
+        'cookieName' => 'ML',
 
         'icURL' => 'https://infocentral.url/',
         'icSecret' => 'INFOCENTRAL_SECRET',

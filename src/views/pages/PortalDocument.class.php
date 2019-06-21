@@ -3,7 +3,7 @@
  * LLR Technologies & Associated Services
  * Information Systems Development
  *
- * Mercury InfoScape
+ * Mercury MAP Navigator
  *
  * User: lromero
  * Date: 6/11/2019
@@ -42,6 +42,5 @@ abstract class PortalDocument extends AuthenticatedPage
         $this->setVariable("footer", self::templateFileContents("Footer", self::TEMPLATE_ELEMENT));
 
         $this->setVariable('operatorName', 'Operator: ' . $this->user->getUsername());
-        $this->setVariable('appCaption', 'Portal');
     }
 }

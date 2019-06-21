@@ -88,19 +88,14 @@ header span#company-name {
     left: 85px;
 }
 
-header span#app-logo {
-    background-image: url('../media/app_logo.png');
-    top: 0;
-    right: 0;
-    height: 65px;
-    width: 222px;
-
+header span#app-name {
+    display: block;
+    font-size: 2.5rem;
     position: absolute;
-    display: inline-block;
-    background-size: auto 100%;
-    background-repeat: no-repeat;
-    background-position: right;
-    filter: var(--image-shadow);
+    right: 10px;
+    top: 15px;
+    color: #FFF;
+    text-shadow: var(--text-shadow);
 }
 
 header span#app-caption, header span#operator-name {
