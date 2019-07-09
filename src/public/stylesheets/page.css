@@ -82,8 +82,9 @@ header span#company-logo {
 
 header img#app-logo {
     position: absolute;
-    top: 0;
-    right: 0;
+    height: 50px;
+    top: 5px;
+    right: 5px;
     filter: var(--image-shadow);
     z-index: 2;
 }
@@ -109,16 +110,16 @@ header span#app-name {
 header span#app-caption, header span#operator-name {
     color: #FFF;
     position: absolute;
-    font-weight: 600;
     right: 10px;
 }
 
 header span#operator-name {
-    top: 2px;
+    bottom: 2px;
 }
 
 header span#app-caption {
-    bottom: 2px;
+    bottom: -22px;
+    font-weight: 600;
 }
 
 /* Navigation */

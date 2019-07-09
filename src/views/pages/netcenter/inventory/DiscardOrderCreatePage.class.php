@@ -3,7 +3,7 @@
  * LLR Technologies & Associated Services
  * Information Systems Development
  *
- * Mercury MAP Navigator
+ * Mercury MAP InfoScape
  *
  * User: lromero
  * Date: 5/31/2019
