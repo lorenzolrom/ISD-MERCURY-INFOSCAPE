@@ -112,8 +112,6 @@ function remove(id)
             unveil();
         }
     });
-
-    return false;
 }
 
 /**

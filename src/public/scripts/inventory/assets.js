@@ -342,8 +342,6 @@ function unlinkFromParent(tag)
             unveil();
         }
     });
-
-    return false;
 }
 
 function verify(tag)
@@ -359,8 +357,6 @@ function verify(tag)
             unveil();
         }
     });
-
-    return false;
 }
 
 function unverify(tag)
@@ -376,8 +372,6 @@ function unverify(tag)
             unveil();
         }
     });
-
-    return false;
 }
 
 function updateWorksheetCount()

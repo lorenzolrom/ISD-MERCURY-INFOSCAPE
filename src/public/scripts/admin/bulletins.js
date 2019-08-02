@@ -125,8 +125,6 @@ function remove(id)
             unveil();
         }
     });
-
-    return false;
 }
 
 $(document).ready(function(){

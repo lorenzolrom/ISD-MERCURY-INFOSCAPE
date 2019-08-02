@@ -42,7 +42,7 @@ span#app-version {
     text-shadow: var(--text-shadow);
     position: absolute;
     right: 60px;
-    bottom: 40px;
+    bottom: 35px;
 }
 
 div#login-window form {
