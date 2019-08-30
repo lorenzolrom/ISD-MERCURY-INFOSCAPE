@@ -27,7 +27,7 @@ class PortalMenu extends View
             'link' => 'netcenter'
         ),
         'servicenter' => array(
-            'title' => 'Service Center',
+            'title' => 'Service Center (WIP)',
             'permission' => 'tickets',
             'icon' => 'ticket.png',
             'link' => 'tickets'
