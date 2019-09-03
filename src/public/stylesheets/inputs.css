@@ -107,3 +107,16 @@ form.inline-form input {
 span#changeWorkspace {
     cursor: pointer;
 }
+
+select#assigneeSelect {
+    width: 100%;
+}
+
+select#assigneeSelect option.team {
+    font-weight: bold;
+    padding-left: .5em;
+}
+
+select#assigneeSelect option.user {
+    padding-left: 2em;
+}

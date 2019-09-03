@@ -137,8 +137,6 @@ function loadChildren(assetTag)
         let rows = [];
         let refs = [];
 
-        console.log(json.data);
-
         $.each(json.data, function(i, v){
             refs.push(v.assetTag);
 

@@ -229,8 +229,6 @@ function deleteAttribute()
             showNotifications('error', json.data.errors);
         }
     });
-
-    return false;
 }
 
 if($('#results').length !== 0)

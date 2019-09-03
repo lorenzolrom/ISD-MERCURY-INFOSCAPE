@@ -45,7 +45,7 @@ class TicketForm extends Form
             {
                 $selected = '';
 
-                if(isset($details[$attributeType]) AND $details[$attributeType] = $attribute['code'])
+                if(isset($details[$attributeType]) AND ($details[$attributeType] == $attribute['code']))
                     $selected = ' selected';
 
                 $select .= "<option value='{$attribute['code']}' {$selected}>{$attribute['name']}</option>";

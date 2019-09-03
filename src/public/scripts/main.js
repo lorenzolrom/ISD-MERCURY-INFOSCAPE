@@ -39,6 +39,10 @@ function setupTable(data)
                 if(data.linkColumn === j)
                 {
                     let a = document.createElement("a");
+
+                    if(typeof data.linkNewTab !== "undefined") //  Open in new tab if requested
+                        a.setAttribute('target', '_blank');
+
                     a.appendChild(document.createTextNode(data.rows[i][j]));
 
                     let href = data.href;
@@ -62,12 +66,16 @@ function setupTable(data)
 
                     if(data.rows[i][j] !== null)
                         value = data.rows[i][j];
+
                     td.appendChild(document.createTextNode(value));
                 }
             }
             else
             {
-                td.appendChild(document.createTextNode(data.rows[i][j]));
+                if(typeof(data.rawText) !== 'undefined' && data.rawText === true) // allow HTML tags to be present in the resulting table
+                    td.innerHTML = data.rows[i][j];
+                else
+                    td.appendChild(document.createTextNode(data.rows[i][j]));
             }
 
             row.appendChild(td);

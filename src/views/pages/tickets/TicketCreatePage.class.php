@@ -36,7 +36,7 @@ class TicketCreatePage extends ModelPage
 
         $this->setVariable('content', $form->getTemplate());
         $this->setVariable('workspace', $this->response->getBody()['name']);
-        $this->setVariable('cancelLink', '{{@baseURI}}tickets/agent');
+        $this->setVariable('cancelLink', 'javascript: close();');
         $this->setVariable('formScript', 'return create()');
     }
 }
