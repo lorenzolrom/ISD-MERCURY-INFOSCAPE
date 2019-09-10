@@ -25,7 +25,7 @@ class TicketViewPage extends ModelPage
         $details = $this->response->getBody();
 
         $this->setVariable('content', self::templateFileContents('tickets/TicketViewPage', self::TEMPLATE_PAGE));
-        $this->setVariable('tabTitle', '{{@workspace}} Ticket ' . $number);
+        $this->setVariable('tabTitle', 'View Ticket #' . $number);
         $this->setVariables($details);
     }
 }

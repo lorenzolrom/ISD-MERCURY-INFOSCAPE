@@ -13,6 +13,6 @@
 
 abstract class Version
 {
-    const SOFTWARE_TITLE = "MAP InfoScape";
+    const SOFTWARE_TITLE = "Mercury InfoScape";
     const CURRENT_VERSION = "1.0.0";
 }

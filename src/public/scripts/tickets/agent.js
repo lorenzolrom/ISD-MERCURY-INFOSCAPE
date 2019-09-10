@@ -77,13 +77,14 @@ function showTickets(tickets)
             v.category,
             v.severity,
             v.status,
-            v.scheduledDate
+            v.scheduledDate,
+            v.lastUpdate
         ]);
     });
 
     setupTable({
         target: 'tickets',
-        header: ['Number', 'Title', 'Type', 'Category', 'Severity', 'Status', 'Scheduled'],
+        header: ['#', 'Title', 'Type', 'Category', 'Severity', 'Status', 'Scheduled', 'Updated'],
         sortColumn: 0, // TODO: add last update time and sort by that
         linkColumn: 0,
         linkNewTab: true,
@@ -95,11 +96,14 @@ function showTickets(tickets)
 
 function quickSearch()
 {
-    let query = $('search').val();
+    let query = $('#search').val();
     applyLoadingImage('tickets');
 
     $('#filter').val('currentSearch');
 
+    apiRequest('POST', 'tickets/workspaces/' + getWorkspace() + '/tickets/quickSearch', {query: query}).done(function(json){
+        showTickets(json.data);
+    });
 
     return false;
 }
@@ -212,12 +216,46 @@ function loadUpdates(number)
 
 function loadAssignees(number, override = false)
 {
-    // use override to trigger refresh after assigning
+    if(assigneesLoaded && !override)
+        return;
+
+    apiRequest('GET', 'tickets/workspaces/' + getWorkspace() + '/tickets/' + number + '/assignees', {}).done(function(json){
+        let rows = [];
+        let refs = [];
+
+        $.each(json.data, function(i, v){
+
+            if(v.users.length === 0)
+            {
+                rows.push([v.name, 'REMOVE']);
+                refs.push(v.id);
+            }
+            else
+            {
+                $.each(v.users, function(j,w){
+                    rows.push([v.name + ' - ' + w.name + ' (' + w.username + ')', 'REMOVE']);
+                    refs.push(v.id + '-' + w.id);
+                });
+            }
+        });
+
+        setupTable({
+            target: 'assignee-region',
+            header: ['Assignee', ''],
+            href: "javascript: removeAssignee('" + number + "', '{{%}}')",
+            usePlaceholder: true,
+            linkColumn: 1,
+            rows: rows,
+            refs: refs
+        });
+    });
+
+    assigneesLoaded = true;
 }
 
-function loadHistory(number)
+function loadHistory(number, override = false)
 {
-    if(historyLoaded)
+    if(historyLoaded && !override)
         return;
 
     apiRequest('GET', 'tickets/workspaces/' + getWorkspace() + '/tickets/' + number + '/history', {}).done(function(json){
@@ -293,9 +331,47 @@ function loadAssigneeSelect()
 
 function assignTicket(number)
 {
-    // TODO implement on IC
+    let assignees = $('#assigneeSelect').val();
+    let overwrite = $('#overwriteAssignees').prop("checked");
 
-    loadAssignees(number, true);
+    apiRequest('PUT', 'tickets/workspaces/' + getWorkspace() + '/tickets/' + number + '/assignees', {assignees: assignees, overwrite: overwrite}).done(function(json){
+        if(json.code === 204)
+        {
+            showNotifications('success', ['Ticket assigned']);
+
+            if(assigneesLoaded)
+                loadAssignees(number, true);
+
+            if(historyLoaded)
+                loadHistory(number, true);
+        }
+        else
+        {
+            showNotifications('error', json.data.errors);
+        }
+    });
+
+    return false;
+}
+
+function removeAssignee(number, code)
+{
+    apiRequest('DELETE', 'tickets/workspaces/' + getWorkspace() + '/tickets/' + number + '/assignee', {assignee: code}).done(function(json){
+        if(json.code === 204)
+        {
+            showNotifications('success', ['Assignee removed']);
+
+            if(assigneesLoaded)
+                loadAssignees(number, true);
+
+            if(historyLoaded)
+                loadHistory(number, true);
+        }
+        else
+        {
+            showNotifications('error', json.data.errors);
+        }
+    });
 }
 
 $(document).ready(function(){

@@ -27,7 +27,7 @@ class TicketEditPage extends ModelPage
         $form = new TicketForm((int)$_COOKIE['ML_agentWorkspace'], $details);
 
         $this->setVariable('content', $form->getTemplate());
-        $this->setVariable('tabTitle', '{{@workspace}} Ticket ' . $number . ' (Edit)');
+        $this->setVariable('tabTitle', 'Editing Ticket #' . $number);
         $this->setVariable('cancelLink', '{{@baseURI}}tickets/agent/' . $number);
         $this->setVariable('formScript', "return update('$number');");
         $this->setVariables($details);
