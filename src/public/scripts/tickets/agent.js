@@ -14,6 +14,7 @@ function getTicketForm()
     let closureCode = $('#closureCode').val();
     let desiredDate = $('#desiredDate').val();
     let scheduledDate = $('#scheduledDate').val();
+    let assignees = $('#assignees').val();
 
     tinyMCE.triggerSave();
     let description = $('#editor').val();
@@ -28,7 +29,8 @@ function getTicketForm()
         closureCode: closureCode,
         desiredDate: desiredDate,
         scheduledDate: scheduledDate,
-        description: description
+        description: description,
+        assignees: assignees
     };
 }
 

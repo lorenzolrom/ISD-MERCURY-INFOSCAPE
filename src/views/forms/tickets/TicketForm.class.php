@@ -53,5 +53,31 @@ class TicketForm extends Form
 
             $this->setVariable($attributeType . 'Select', $select);
         }
+
+        // Assignees
+        $select = '';
+        $teams = InfoCentralConnection::getResponse(InfoCentralConnection::GET, 'tickets/workspaces/' . $workspace . '/assignees')->getBody();
+
+        foreach($teams as $team)
+        {
+            $selected = '';
+
+            if(in_array($team['id'], $details['assignees']))
+                $selected = 'selected';
+
+            $select .= "<option class='team' value='{$team['id']}' $selected>{$team['name']}</option>";
+
+            foreach($team['users'] as $user)
+            {
+                $selected = '';
+
+                if(in_array($team['id'] . '-' . $user['id'], $details['assignees']))
+                    $selected = 'selected';
+
+                $select .= "<option class='user' value='{$team['id']}-{$user['id']}' $selected>{$user['name']} ({$user['username']})</option>";
+            }
+        }
+
+        $this->setVariable('assignees', $select);
     }
 }
