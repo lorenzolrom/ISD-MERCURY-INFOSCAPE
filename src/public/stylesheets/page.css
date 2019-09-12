@@ -40,6 +40,10 @@ a {
     color: blue;
 }
 
+strong {
+    font-weight: 600;
+}
+
 div#wrapper {
     display: flex;
     min-height: 100vh;

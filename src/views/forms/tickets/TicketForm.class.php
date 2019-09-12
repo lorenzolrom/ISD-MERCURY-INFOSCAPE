@@ -62,7 +62,7 @@ class TicketForm extends Form
         {
             $selected = '';
 
-            if(in_array($team['id'], $details['assignees']))
+            if(isset($details['assignees']) AND in_array($team['id'], $details['assignees']))
                 $selected = 'selected';
 
             $select .= "<option class='team' value='{$team['id']}' $selected>{$team['name']}</option>";
@@ -71,7 +71,7 @@ class TicketForm extends Form
             {
                 $selected = '';
 
-                if(in_array($team['id'] . '-' . $user['id'], $details['assignees']))
+                if(isset($details['assignees']) AND in_array($team['id'] . '-' . $user['id'], $details['assignees']))
                     $selected = 'selected';
 
                 $select .= "<option class='user' value='{$team['id']}-{$user['id']}' $selected>{$user['name']} ({$user['username']})</option>";

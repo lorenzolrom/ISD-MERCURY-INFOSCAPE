@@ -61,7 +61,7 @@
             <td><input class="date-input" id="scheduledDate" value="{{@scheduledDate}}"></td>
         </tr>
         <tr>
-            <td {{@requiredDescription}}>Description</td>
+            <td {{@requiredDescription}}>Append Update</td>
             <td colspan="3">
                 <textarea id="editor"></textarea>
             </td>
@@ -78,6 +78,14 @@
                     {{@assignees}}
                 </select>
             </td>
+        </tr>
+        <tr>
+            <td>Notify Assignees</td>
+            <td><input type="checkbox" id="notifyAssignees" autocomplete="off"></td>
+        </tr>
+        <tr>
+            <td>Notify Contact</td>
+            <td><input type="checkbox" id="notifyContact" autocomplete="off"></td>
         </tr>
         </tbody>
     </table>

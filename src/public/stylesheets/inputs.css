@@ -35,7 +35,7 @@ div.button-bar {
     box-sizing: border-box;
 }
 
-.button:hover {
+.button:hover, .button-noveil:hover {
     color: #000;
 }
 

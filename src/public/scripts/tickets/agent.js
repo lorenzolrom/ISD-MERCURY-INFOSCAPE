@@ -1,6 +1,7 @@
 let updatesLoaded = false;
 let assigneesLoaded = false;
 let assigneesSelectLoaded = false;
+let linkedLoaded = false;
 let historyLoaded = false;
 
 function getTicketForm()
@@ -15,6 +16,8 @@ function getTicketForm()
     let desiredDate = $('#desiredDate').val();
     let scheduledDate = $('#scheduledDate').val();
     let assignees = $('#assignees').val();
+    let notifyAssignees = $('#notifyAssignees').prop("checked");
+    let notifyContact = $('#notifyContact').prop("checked");
 
     tinyMCE.triggerSave();
     let description = $('#editor').val();
@@ -30,7 +33,9 @@ function getTicketForm()
         desiredDate: desiredDate,
         scheduledDate: scheduledDate,
         description: description,
-        assignees: assignees
+        assignees: assignees,
+        notifyAssignees: notifyAssignees,
+        notifyContact: notifyContact
     };
 }
 
@@ -45,15 +50,16 @@ function changeWorkspace(workspace)
     veil();
     apiRequest('GET', 'tickets/workspaces/' + workspace, {}).done(function(json){
         if(json.code !== 200)
+        {
             showNotifications('error', ['Workspace is not valid']);
+            unveil();
+        }
         else
         {
             setCookie('agentWorkspace', workspace);
             $('#workspace').prop('disabled', true);
             window.location.reload();
         }
-
-        unveil();
     });
 
     return false;
@@ -137,11 +143,6 @@ function updateFilter()
             showTickets(json.data);
         });
     }
-}
-
-function loadWidgets()
-{
-
 }
 
 function updateEditForm()
@@ -333,6 +334,7 @@ function loadAssigneeSelect()
 
 function assignTicket(number)
 {
+    veil();
     let assignees = $('#assigneeSelect').val();
     let overwrite = $('#overwriteAssignees').prop("checked");
 
@@ -346,10 +348,15 @@ function assignTicket(number)
 
             if(historyLoaded)
                 loadHistory(number, true);
+
+            $('#assign-button-dialog').dialog('close');
+
+            unveil();
         }
         else
         {
             showNotifications('error', json.data.errors);
+            unveil();
         }
     });
 
@@ -358,6 +365,7 @@ function assignTicket(number)
 
 function removeAssignee(number, code)
 {
+    veil();
     apiRequest('DELETE', 'tickets/workspaces/' + getWorkspace() + '/tickets/' + number + '/assignee', {assignee: code}).done(function(json){
         if(json.code === 204)
         {
@@ -368,10 +376,91 @@ function removeAssignee(number, code)
 
             if(historyLoaded)
                 loadHistory(number, true);
+            unveil();
         }
         else
         {
             showNotifications('error', json.data.errors);
+            unveil();
+        }
+    });
+}
+
+function loadLinked(number, override = false)
+{
+    if(linkedLoaded && !override)
+        return;
+
+    apiRequest('GET', 'tickets/workspaces/' + getWorkspace() + '/tickets/' + number + '/linked', {}).done(function(json){
+        let rows = [];
+        let refs = [];
+
+        $.each(json.data, function(i, v){
+
+            refs.push(v.number);
+
+            rows.push([v.number, v.title, 'UNLINK']);
+        });
+
+        setupTable({
+            target: 'linked-region',
+            header: ['#', 'Title', ''],
+            href: "javascript: unlink('" + number + "', '{{%}}')",
+            usePlaceholder: true,
+            linkColumn: 2,
+            rows: rows,
+            refs: refs
+        });
+    });
+
+    linkedLoaded = true;
+}
+
+function link(number)
+{
+    veil();
+    let linkedNumber = $('#linkNumber').val();
+
+    apiRequest('POST', 'tickets/workspaces/' + getWorkspace() + '/tickets/' + number + '/link', {linkedNumber: linkedNumber}).done(function(json){
+        if(json.code === 201)
+        {
+            showNotifications('success', ['Ticket Linked']);
+
+            if(linkedLoaded)
+                loadLinked(number, true);
+            if(historyLoaded)
+                loadHistory(number, true);
+            $('#link-button-dialog').dialog('close');
+            unveil();
+        }
+        else
+        {
+            showNotifications('error', json.data.errors);
+            unveil();
+        }
+    });
+
+    return false;
+}
+
+function unlink(number, linkedNumber)
+{
+    veil();
+    apiRequest('DELETE', 'tickets/workspaces/' + getWorkspace() + '/tickets/' + number + '/link/' + linkedNumber, {}).done(function(json){
+        if(json.code === 204)
+        {
+            showNotifications('success', ['Ticket Unlinked']);
+
+            if(linkedLoaded)
+                loadLinked(number, true);
+            if(historyLoaded)
+                loadHistory(number, true);
+            unveil();
+        }
+        else
+        {
+            showNotifications('error', json.data.errors);
+            unveil();
         }
     });
 }
@@ -383,10 +472,6 @@ $(document).ready(function(){
         updateFilter();
     }
 
-    if($('#widgets').length !== 0)
-    {
-        loadWidgets();
-    }
 
     if($('#ticket-form').length !== 0)
     {

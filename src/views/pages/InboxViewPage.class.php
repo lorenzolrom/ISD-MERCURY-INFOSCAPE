@@ -43,6 +43,6 @@ class InboxViewPage extends PortalDocument
         $this->setVariable('id', $notification['id']);
         $this->setVariable('title', htmlentities($notification['title']));
         $this->setVariable('date', $notification['time']);
-        $this->setVariable('message', htmlentities($notification['data']));
+        $this->setVariable('message', $notification['data']);
     }
 }
