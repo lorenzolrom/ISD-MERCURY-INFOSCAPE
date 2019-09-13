@@ -39,6 +39,41 @@ function getTicketForm()
     };
 }
 
+function getAdvancedSearchForm()
+{
+    let title = $('#title').val();
+    let number = $('#number').val();
+    let contact = $('#contact').val();
+    let severity = $('#severity').val();
+    let type = $('#type').val();
+    let category = $('#category').val();
+    let status = $('#status').val();
+    let closureCode = $('#closureCode').val();
+    let desiredDateStart = $('#desiredDateStart').val();
+    let desiredDateEnd = $('#desiredDateEnd').val();
+    let scheduledDateStart = $('#scheduledDateStart').val();
+    let scheduledDateEnd = $('#scheduledDateEnd').val();
+    let assignees = $('#assignees').val();
+    let description = $('#description').val();
+
+    return {
+        number: number,
+        title: title,
+        contact: contact,
+        severity: severity,
+        type: type,
+        category: category,
+        status: status,
+        closureCode: closureCode,
+        desiredDateStart: desiredDateStart,
+        desiredDateEnd: desiredDateEnd,
+        scheduledDateStart: scheduledDateStart,
+        scheduledDateEnd: scheduledDateEnd,
+        description: description,
+        assignees: assignees
+    };
+}
+
 function selectWorkspace()
 {
     let workspace = $('#workspace').val();
@@ -141,6 +176,45 @@ function updateFilter()
     {
         apiRequest('GET', 'tickets/workspaces/' + getWorkspace() + '/tickets/closed', {}).done(function(json){
             showTickets(json.data);
+        });
+    }
+    else
+    {
+        // Check for saved search
+        apiRequest('GET', 'tickets/workspaces/' + getWorkspace() + '/searches/' + filter, {}).done(function(json){
+            if(json.code === 200)
+            {
+                let search = {};
+
+                $.each(json.data, function(i, v){
+                    try
+                    {
+                        search[i] = JSON.parse(v);
+                    }
+                    catch(err)
+                    {
+                        search[i] = v;
+                    }
+
+                });
+
+                apiRequest('POST', 'tickets/workspaces/' + getWorkspace() + '/tickets/search', search).done(function(json){
+                    if(json.code === 200)
+                    {
+                        showTickets(json.data);
+                        unveil();
+                    }
+                    else
+                    {
+                        showNotifications('error', json.data.errors);
+                        unveil();
+                    }
+                });
+            }
+            else
+            {
+                showNotifications('error', json.data.errors);
+            }
         });
     }
 }
@@ -465,11 +539,126 @@ function unlink(number, linkedNumber)
     });
 }
 
+function runSearch()
+{
+    apiRequest('POST', 'tickets/workspaces/' + getWorkspace() + '/tickets/search', getAdvancedSearchForm()).done(function(json){
+        if(json.code === 200)
+        {
+            showTickets(json.data);
+            unveil();
+        }
+        else
+        {
+            showNotifications('error', json.data.errors);
+            unveil();
+        }
+    });
+}
+
+function saveSearch()
+{
+    let searchForm = getAdvancedSearchForm();
+    searchForm.name = $('#searchName').val();
+    searchForm.assignees = JSON.stringify(searchForm.assignees);
+    searchForm.severity = JSON.stringify(searchForm.severity);
+    searchForm.type = JSON.stringify(searchForm.type);
+    searchForm.category = JSON.stringify(searchForm.category);
+    searchForm.status = JSON.stringify(searchForm.status);
+    searchForm.closureCode = JSON.stringify(searchForm.closureCode);
+
+    // stringify arrays
+
+    apiRequest('POST', 'tickets/workspaces/' + getWorkspace() + '/searches', searchForm).done(function(json){
+        if(json.code === 201)
+        {
+            showNotifications('success', ['Search saved']);
+            unveil();
+        }
+        else if(json.code === 204)
+        {
+            showNotifications('success', ['Search updated']);
+            unveil();
+        }
+        else
+        {
+            showNotifications('error', json.data.errors);
+            unveil();
+        }
+    });
+}
+
+function loadSavedSearches()
+{
+    apiRequest('GET', 'tickets/workspaces/' + getWorkspace() + '/searches', {}).done(function(json){
+        if(json.code !== 200)
+            return;
+
+        let filter = document.querySelector('#filter');
+
+        $.each(json.data, function(i, v){
+            let option = document.createElement('option');
+            option.appendChild(document.createTextNode(v.replace(/_/g, ' ')));
+            option.setAttribute('value', v);
+
+            filter.appendChild(option);
+        });
+    });
+}
+
+function loadSearch()
+{
+    veil();
+
+    // Get last part of URL (the search name)
+    let searchName = window.location.pathname.split("/").slice(-1)[0];
+    // Don't worry about trailing '/', this URL should only be gotten to by saved search page, which will not include it
+
+    // load a pre-populate form
+    // Check for saved search
+    apiRequest('GET', 'tickets/workspaces/' + getWorkspace() + '/searches/' + searchName, {}).done(function(json){
+        if(json.code === 200)
+        {
+            let search = {};
+
+            $.each(json.data, function(i, v){
+                try
+                {
+                    search[i] = JSON.parse(v);
+                }
+                catch(err)
+                {
+                    search[i] = v;
+                }
+
+            });
+
+            $.each(search, function(i, v){
+                let input = $('#' + i);
+
+                if(input.length)
+                {
+                    $(input).val(v);
+                }
+            });
+
+            $('#searchName').val(json.data.name.replace(/_/g, ' '));
+            unveil();
+        }
+        else
+        {
+            showNotifications('error', json.data.errors);
+            unveil();
+        }
+    });
+
+}
+
 $(document).ready(function(){
 
     if($('#filter').length !== 0)
     {
         updateFilter();
+        loadSavedSearches();
     }
 
 

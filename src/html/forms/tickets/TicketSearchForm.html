@@ -1,0 +1,87 @@
+<div id="workspace-name">You are in the <span id="changeWorkspace">{{@workspace}}</span> workspace</div>
+<div class="button-bar">
+    <a class="button" href="javascript: runSearch();"><img src="{{@baseURI}}media/icons/ok.png" alt="">Run</a>
+    <a class="button" href="javascript: saveSearch();"><img src="{{@baseURI}}media/icons/save.png" alt="">Save</a>
+    <input type="text" id="searchName" placeholder="Saved Search Name">
+    <a class="button" href="{{@baseURI}}tickets/agent/search/saved"><span class="operation search"><img src="{{@baseURI}}media/icons/ticket.png" alt=""></span>My Searches</a>
+</div>
+<form id="ticket-form" class="table-form">
+    <h2 class="region-title"><span class="operation search"><img src="{{@baseURI}}media/icons/ticket.png" alt=""></span>Search Criteria</h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td>Number</td>
+            <td><input type="text" id="number" value="{{@number}}"></td>
+        </tr>
+        <tr>
+            <td>Title</td>
+            <td><input type="text" id="title" value="{{@title}}"></td>
+            <td>Contact</td>
+            <td><input type="text" id="contact" value="{{@contact}}"></td>
+        </tr>
+        <tr>
+            <td>Assignees</td>
+            <td>
+                <select id="assignees" multiple size="5">
+                    {{@assignees}}
+                </select>
+            </td>
+            <td>Severity</td>
+            <td>
+                <select id="severity" multiple size="5">
+                    {{@severitySelect}}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Type</td>
+            <td>
+                <select id="type" multiple size="5">
+                    {{@typeSelect}}
+                </select>
+            </td>
+            <td>Category</td>
+            <td>
+                <select id="category" multiple size="5">
+                    {{@categorySelect}}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Status</td>
+            <td>
+                <select id="status" onchange="updateEditForm()" multiple size="5">
+                    {{@statusSelect}}
+                </select>
+            </td>
+            <td>Closure Code</td>
+            <td>
+                <select id="closureCode" multiple size="5">
+                    {{@closureCodeSelect}}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Desired Date Start</td>
+            <td><input class="date-input" id="desiredDateStart" value="{{@desiredDateStart}}"></td>
+            <td>Desired Date End</td>
+            <td><input class="date-input" id="desiredDateEnd" value="{{@desiredDateEnd}}"></td>
+        </tr>
+        <tr>
+            <td>Scheduled Date Start</td>
+            <td><input class="date-input" id="scheduledDateStart" value="{{@scheduledDateStart}}"></td>
+            <td>Scheduled Date End</td>
+            <td><input class="date-input" id="scheduledDateEnd" value="{{@scheduledDateEnd}}"></td>
+        </tr>
+        <tr>
+            <td>Updates</td>
+            <td colspan="3"><input type="text" id="description" value="{{@description}}"></td>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<h2 class="region-title"><img src="{{@baseURI}}media/icons/ticket.png" alt="">Search Results</h2>
+<div id="tickets"></div>
+<script src="{{@baseURI}}scripts/tickets/agent.js"></script>
+<script>{{@loadSearch}}</script>

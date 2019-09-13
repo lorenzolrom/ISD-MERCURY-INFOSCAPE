@@ -6,7 +6,7 @@ div#login-window * {
 div#login-window {
     display: block;
     position: relative;
-    max-width: 735px;
+    max-width: 635px;
     height: 440px;
     border: 2px solid #185796;
     background-color: var(--primary-color);
@@ -19,7 +19,7 @@ div#login-window {
 
 div#login-reflection {
     display: block;
-    width: 735px;
+    width: 635px;
     height: 98px;
     background-image: -webkit-linear-gradient(top, rgba(0,200,255,.1) 0%, rgba(0,200,255,0) 90%), -webkit-radial-gradient(735px -370px, circle cover, rgba(0,200,255,.65) 0%,rgba(0,200,255,0) 55%);
     margin: auto;

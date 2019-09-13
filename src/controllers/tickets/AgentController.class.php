@@ -15,8 +15,10 @@ namespace controllers\tickets;
 
 
 use controllers\Controller;
+use views\pages\tickets\MySearchesPage;
 use views\pages\tickets\TicketCreatePage;
 use views\pages\tickets\TicketEditPage;
+use views\pages\tickets\TicketSearchPage;
 use views\pages\tickets\TicketViewPage;
 use views\pages\tickets\WorkspacePage;
 use views\pages\tickets\WorkspaceSelectPage;
@@ -39,6 +41,7 @@ class AgentController extends Controller
             return new WorkspaceSelectPage();
 
         $param = $this->request->next();
+        $action = $this->request->next();
 
         switch($param)
         {
@@ -47,9 +50,10 @@ class AgentController extends Controller
             case 'new':
                 return new TicketCreatePage((int)$_COOKIE['ML_agentWorkspace']);
             case 'search':
-                die('search');
+                if($action == 'saved')
+                    return new MySearchesPage((int)$_COOKIE['ML_agentWorkspace']);
+                return new TicketSearchPage((int)$_COOKIE['ML_agentWorkspace'], $this->request->next() !== NULL ? TRUE : FALSE);
             default:
-                $action = $this->request->next();
                 if($action == 'edit')
                     return new TicketEditPage((int)$param);
                 return new TicketViewPage((int)$param);
