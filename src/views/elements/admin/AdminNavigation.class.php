@@ -71,7 +71,7 @@ class AdminNavigation extends Navigation
                     'permission' => 'settings',
                     'icon' => 'group.png',
                     'operation' => 'add',
-                    'link' => 'roles/add'
+                    'link' => 'roles/new'
                 )
             )
         ),

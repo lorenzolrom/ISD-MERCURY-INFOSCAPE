@@ -1,5 +1,25 @@
 let warehouseCodes = [];
 let vendorCodes = [];
+let commodityCodes = [];
+
+function getCommodityCodes()
+{
+    if(commodityCodes.length !== 0)
+        return commodityCodes;
+
+    apiRequest('GET', 'commodities', {}).done(function(json){
+        if(json.code === 200)
+        {
+            $.each(json.data, function(i, v){
+                commodityCodes.push(v.code);
+            });
+        }
+        else
+            commodityCodes = [];
+    });
+
+    return commodityCodes;
+}
 
 function getWarehouseCodes()
 {
@@ -359,6 +379,23 @@ function receive(number)
     return false;
 }
 
+function updateAddCommodity(code)
+{
+    apiRequest('POST', 'commodities/search', {code: code}).done(function(json){
+        if(json.data.length === 0)
+            return;
+
+        let id = json.data[0].id;
+
+        apiRequest('GET', 'commodities/' + id, {}).done(function(json){
+            if(json.code === 200)
+            {
+                document.getElementById('commodityUnitCost').value = json.data.unitCost;
+            }
+        });
+    });
+}
+
 $(document).ready(function(){
     if(document.getElementById("results"))
         restoreSearch('purchaseOrderSearch', search);
@@ -420,5 +457,23 @@ $(document).ready(function(){
             $(addCostItem).hide();
             $(send).hide();
         }
+    }
+
+    // Add commodity dialog
+    if(document.getElementById('addCommodity-button-dialog'))
+    {
+        let addCommodity = $('#commodityCode');
+
+        addCommodity.focus(function(){
+            setupAutoCompleteList({
+                target: 'commodityCode',
+                items: getCommodityCodes(),
+                select: function(e, ui)
+                {
+                    addCommodity.val(ui.item.value);
+                    updateAddCommodity(ui.item.value);
+                }
+            })
+        });
     }
 });
