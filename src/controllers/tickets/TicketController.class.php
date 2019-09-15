@@ -38,6 +38,9 @@ class TicketController extends Controller
             case 'agent':
                 $a = new AgentController($this->request);
                 return $a->getPage();
+            case 'requests':
+                $r = new RequestController($this->request);
+                return $r->getPage();
             case NULL:
                 return new TicketHome();
         }

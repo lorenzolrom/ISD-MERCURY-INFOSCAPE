@@ -27,7 +27,7 @@ class TicketNavigation extends Navigation
     public const BASE_URI = 'tickets/';
 
     public const LINKS = array(
-        'myRequests' => array(
+        'requests' => array(
             'title' => 'Requests',
             'permission' => 'tickets-customer',
             'link' => 'requests',

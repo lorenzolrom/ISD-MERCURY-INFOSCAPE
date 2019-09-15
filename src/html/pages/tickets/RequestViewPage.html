@@ -1,0 +1,41 @@
+<div class="button-bar">
+    <a class="button" href="{{@baseURI}}tickets/requests/{{@workspace}}-{{@number}}/update"><img src="{{@baseURI}}media/icons/edit.png">Update</a>
+    <a class="button" href="{{@baseURI}}tickets/requests"><img src="{{@baseURI}}media/icons/cancel.png">Back</a>
+</div>
+<h2 class="region-title"><img src="{{@baseURI}}media/icons/help.png" alt="">Request Profile</h2>
+<table class="table-display">
+    <tbody>
+    <tr>
+        <td>Workspace</td>
+        <td>{{@workspaceName}}</td>
+        <td>Number</td>
+        <td>{{@number}}</td>
+    </tr>
+    <tr>
+        <td>Title</td>
+        <td colspan="3">{{@title}}</td>
+    </tr>
+    <tr>
+        <td>Type</td>
+        <td>{{@type}}</td>
+        <td>Category</td>
+        <td>{{@category}}</td>
+    </tr>
+    <tr>
+        <td>Status</td>
+        <td>{{@status}}</td>
+        <td>Closure Code</td>
+        <td>{{@closureCode}}</td>
+    </tr>
+    <tr>
+        <td>Desired Date</td>
+        <td>{{@desiredDate}}</td>
+        <td>Scheduled Date</td>
+        <td>{{@scheduledDate}}</td>
+    </tr>
+    </tbody>
+</table>
+<h2 id="update" class="region-title region-expand region-expand-collapsed" onclick="loadUpdates('{{@workspace}}', '{{@number}}')"><img src="{{@baseURI}}media/icons/report.png" alt="">Updates</h2>
+<div id="update-region" class="region wait"></div>
+
+<script src="{{@baseURI}}scripts/tickets/requests.js"></script>

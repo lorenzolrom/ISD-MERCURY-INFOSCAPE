@@ -1,0 +1,42 @@
+<div class="button-bar">
+    <a href="javascript: create()" class="button"><img src="{{@baseURI}}media/icons/save.png" alt="">Save</a>
+    <a class="button" href="{{@baseURI}}tickets/requests"><img src="{{@baseURI}}media/icons/delete.png" alt="">Cancel</a>
+</div>
+<form id="ticket-form" class="table-form">
+    <h2 class="region-title"><img src="{{@baseURI}}media/icons/ticket.png" alt="">Request Profile</h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td class="required">Title</td>
+            <td colspan="3"><input type="text" id="title" value="{{@title}}"></td>
+        </tr>
+        <tr>
+            <td class="required">Type</td>
+            <td>
+                <select id="type">
+                    <option value="">--SELECT--</option>
+                    {{@typeSelect}}
+                </select>
+            </td>
+            <td class="required">Category</td>
+            <td>
+                <select id="category">
+                    <option value="">--SELECT--</option>
+                    {{@categorySelect}}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Desired Date</td>
+            <td><input class="date-input" id="desiredDate" value="{{@desiredDate}}"></td>
+        </tr>
+        <tr>
+            <td class="required">Description</td>
+            <td colspan="3">
+                <textarea id="editor"></textarea>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script src="{{@baseURI}}scripts/tickets/requests.js"></script>

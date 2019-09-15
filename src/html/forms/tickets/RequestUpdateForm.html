@@ -1,0 +1,45 @@
+<div class="button-bar">
+    <a class="button" href="javascript: update('{{@workspace}}', '{{@number}}')"><img src="{{@baseURI}}media/icons/save.png">Save</a>
+    <a class="button" href="{{@baseURI}}tickets/requests/{{@workspace}}-{{@number}}"><img src="{{@baseURI}}media/icons/delete.png">Cancel</a>
+</div>
+<h2 class="region-title"><img src="{{@baseURI}}media/icons/help.png" alt="">Request Profile</h2>
+<table class="table-display">
+    <tbody>
+    <tr>
+        <td>Workspace</td>
+        <td>{{@workspaceName}}</td>
+        <td>Number</td>
+        <td>{{@number}}</td>
+    </tr>
+    <tr>
+        <td>Title</td>
+        <td colspan="3">{{@title}}</td>
+    </tr>
+    <tr>
+        <td>Type</td>
+        <td>{{@type}}</td>
+        <td>Category</td>
+        <td>{{@category}}</td>
+    </tr>
+    <tr>
+        <td>Status</td>
+        <td>{{@status}}</td>
+        <td>Closure Code</td>
+        <td>{{@closureCode}}</td>
+    </tr>
+    <tr>
+        <td>Desired Date</td>
+        <td>{{@desiredDate}}</td>
+        <td>Scheduled Date</td>
+        <td>{{@scheduledDate}}</td>
+    </tr>
+    <tr>
+        <td class="required">Append Update</td>
+        <td colspan="3">
+            <textarea id="editor"></textarea>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<script src="{{@baseURI}}scripts/tickets/requests.js"></script>
