@@ -311,6 +311,7 @@ function removeCostItem(number, item)
 
 function send(number)
 {
+    veil();
     apiRequest('PUT', 'purchaseorders/' + number + '/send', {}).done(function(json){
         if(json.code === 204)
         {
@@ -319,12 +320,14 @@ function send(number)
         else
         {
             showNotifications('error', json.data.errors);
+            unveil();
         }
     });
 }
 
 function cancel(number)
 {
+    veil();
     apiRequest('PUT', 'purchaseorders/' + number + '/cancel', {}).done(function(json){
         if(json.code === 204)
         {
@@ -333,12 +336,14 @@ function cancel(number)
         else
         {
             showNotifications('error', json.data.errors);
+            unveil();
         }
     });
 }
 
 function receive(number)
 {
+    veil();
     apiRequest('PUT', 'purchaseorders/' + number + '/receive', getReceiveForm()).done(function(json){
         if(json.code === 204)
         {
@@ -347,6 +352,7 @@ function receive(number)
         else
         {
             showNotifications('error', json.data.errors);
+            unveil();
         }
     });
 
