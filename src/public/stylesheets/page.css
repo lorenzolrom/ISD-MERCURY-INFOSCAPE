@@ -88,13 +88,18 @@ header span#company-logo {
     filter: var(--image-shadow);
 }
 
-header img#app-logo {
+header span#app-logo {
+    background-image: url('../media/merlot_logo.png');
     position: absolute;
-    height: 50px;
+    height: 60px;
+    width: 360px;
     top: 5px;
-    right: 5px;
+    right: 10px;
     filter: var(--image-shadow);
     z-index: 2;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: right;
 }
 
 header span#company-name {
@@ -142,7 +147,7 @@ nav > ul > li {
     display: inline-block;
     list-style-type: none;
     position: relative;
-    min-width: 100px;
+    min-width: 110px;
     border-right: 1px solid #FFF;
 
     padding-left: 5px;

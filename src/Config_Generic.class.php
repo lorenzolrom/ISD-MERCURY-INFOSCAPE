@@ -14,7 +14,7 @@
 abstract class Config_Generic
 {
     const OPTIONS = array(
-        'appName' => 'MAP InfoScape',
+        'appName' => 'MERLOT',
 
         'companyName' => 'Your Company',
 

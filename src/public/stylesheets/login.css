@@ -26,14 +26,12 @@ div#login-reflection {
     border-radius: 6px;
 }
 
-span#login-title {
+img#merlot-logo {
     display: block;
-    font-size: 45px !important;
     position: absolute;
     right: 50px;
     bottom: 50px;
-    color: #FFF;
-    text-shadow: var(--text-shadow);
+    height: 70px;
 }
 
 span#app-version {
@@ -42,7 +40,7 @@ span#app-version {
     text-shadow: var(--text-shadow);
     position: absolute;
     right: 60px;
-    bottom: 35px;
+    bottom: 40px;
 }
 
 div#login-window form {
