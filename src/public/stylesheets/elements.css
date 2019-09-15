@@ -349,7 +349,7 @@ div.main-content table#module-versions td:nth-child(2) {
 }
 
 /* Bulletins */
-div.bulletin-list {
+div#bulletin-list {
     display: flex;
     flex-wrap: wrap;
     margin: auto;
@@ -368,6 +368,10 @@ div.bulletin {
     background-color: #fefefe;
     border: 1px solid var(--bulletin-border-color);
     box-shadow: var(--bulletin-shadow);
+}
+
+div#bulletin-list div.bulletin:last-child {
+    margin-right: 0;
 }
 
 div.bulletin > h2 {
@@ -392,6 +396,14 @@ div.bulletin > div {
     font-size: 1rem;
     padding: 5px 10px;
     text-align: left;
+}
+
+div.bulletin.bulletin-i > h2{
+    background-color: var(--success);
+}
+
+div.bulletin.bulletin-a > h2{
+    background-color: var(--error);
 }
 
 /* Homepage Banner */
