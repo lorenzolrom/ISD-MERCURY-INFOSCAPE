@@ -133,20 +133,20 @@ function search()
     return false;
 }
 
-function updateWarehouseName()
+function updateWarehouseName(code)
 {
     apiRequest('POST', 'warehouses/search', {
-        code: $('#warehouse').val()
+        code: code
     }).done(function(json){
         if(json.data.length > 0)
             $('#warehouseName').html(json.data[0].name);
     });
 }
 
-function updateVendorName()
+function updateVendorName(code)
 {
     apiRequest('POST', 'vendors/search', {
-        code: $('#vendors').val()
+        code: code
     }).done(function(json){
         if(json.data.length > 0)
             $('#vendorName').html(json.data[0].name);
@@ -368,7 +368,7 @@ $(document).ready(function(){
                 select: function(e, ui)
                 {
                     vendor.val(ui.item.value);
-                    updateVendorName();
+                    updateVendorName(ui.item.value);
                 }
             })
         });
@@ -380,7 +380,7 @@ $(document).ready(function(){
                 select: function(e, ui)
                 {
                     warehouse.val(ui.item.value);
-                    updateWarehouseName();
+                    updateWarehouseName(ui.item.value);
                 }
             });
         });
