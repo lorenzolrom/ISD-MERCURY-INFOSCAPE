@@ -584,6 +584,10 @@ div#workspace-name span {
     font-size: 1.2rem;
 }
 
+span#changeWorkspace {
+    color: blue !important;
+}
+
 div#widgets {
     display: table;
     border-collapse: separate;
