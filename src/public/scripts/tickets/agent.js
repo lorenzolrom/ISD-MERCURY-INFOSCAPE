@@ -719,7 +719,11 @@ function setupWidgets()
                             });
 
                             widget.removeChild(widget.lastChild);
-                            widget.appendChild(list);
+
+                            if(json.data.length === 0)
+                                widget.appendChild(document.createTextNode('No results available'));
+                            else
+                                widget.appendChild(list);
                         }
                     });
                 }
