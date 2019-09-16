@@ -615,3 +615,40 @@ div.widget h3 {
     padding-bottom: 2px;
     margin-bottom: 5px;
 }
+
+table.calendar {
+    border-collapse: collapse;
+}
+
+table.calendar tr:nth-child(2n) {
+    background-color: #FFFFFF;
+}
+
+table.calendar td{
+    width: 200px;
+    height: 175px;
+    vertical-align: top;
+    border: 1px solid var(--border-color);
+    padding: 5px;
+}
+
+table.calendar td.currentDate {
+    background-color: var(--border-color);
+}
+
+table.calendar td.currentDate h3 {
+    font-weight: 600;
+}
+
+table.calendar h3 {
+    text-decoration: underline;
+}
+
+table.calendar td ul li.closed a{
+    color: #888;
+}
+
+h3.calendarTitle {
+    font-weight: 600;
+    font-size: 1.15rem;
+}

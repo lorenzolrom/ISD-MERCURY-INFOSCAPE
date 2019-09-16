@@ -4,7 +4,7 @@ function deleteWidget(id)
         if(json.code === 204)
         {
             loadWidgetList();
-            showNotifications('notice', ['Widget deleted']);
+            showNotifications('success', ['Widget deleted']);
         }
         else
         {
@@ -22,7 +22,7 @@ function addWidget()
         if(json.code === 201)
         {
             loadWidgetList();
-            showNotifications('notice', ['Widget added']);
+            showNotifications('success', ['Widget added']);
             $('#addWidget-button-dialog').dialog('close');
             unveil();
         }

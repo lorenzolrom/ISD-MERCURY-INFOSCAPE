@@ -16,7 +16,7 @@ namespace views\pages\tickets;
 
 use views\forms\tickets\TicketForm;
 
-class TicketCreatePage extends ModelPage
+class TicketCreatePage extends PopupModelPage
 {
     /**
      * TicketCreatePage constructor.
@@ -29,7 +29,7 @@ class TicketCreatePage extends ModelPage
     public function __construct(int $workspace)
     {
         // Verify user is in workspace
-        parent::__construct('tickets/workspaces/' . $workspace, 'tickets-agent', 'agent');
+        parent::__construct('tickets/workspaces/' . $workspace);
 
         $this->setVariable('tabTitle', 'Create New Ticket');
         $form = new TicketForm($workspace);

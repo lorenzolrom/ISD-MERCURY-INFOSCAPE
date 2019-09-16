@@ -3,7 +3,8 @@
     <form class="inline-form" onsubmit="return quickSearch()">
         <input title="Search by Title, Number, and Contact Username" type="text" id="search" placeholder="Quick Search">
     </form>
-    <a class="button-noveil" href="{{@baseURI}}tickets/agent/new" target="_blank"><span class="operation add"><img src="{{@baseURI}}media/icons/ticket.png"></span>New Ticket</a>
+    <a class="button-noveil" href="javascript: goToNewTicket();"><span class="operation add"><img src="{{@baseURI}}media/icons/ticket.png"></span>New Ticket</a>
+    <a class="button" href="{{@baseURI}}tickets/agent/calendar"><img src="{{@baseURI}}media/icons/calendar.png">Calendar</a>
     <a class="button" href="{{@baseURI}}tickets/agent/configure"><img src="{{@baseURI}}media/icons/tools.png">Configure Widgets</a>
 </div>
 <div id="widgets"></div>
@@ -17,7 +18,7 @@
             <option value="currentSearch">-- Current Search Results --</option>
         </select>
     </form>
-    <a class="button-noveil" href="javascript: updateFilter()"><img src="{{@baseURI}}media/icons/refresh.png">Refresh</a>
+    <a class="button-noveil" href="javascript: refreshAgent();"><img src="{{@baseURI}}media/icons/refresh.png">Refresh</a>
 </div>
 <div id="tickets"></div>
 <script src="{{@baseURI}}scripts/tickets/agent.js"></script>

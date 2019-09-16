@@ -14,13 +14,13 @@
 namespace views\pages\tickets;
 
 
-class TicketViewPage extends ModelPage
+class TicketViewPage extends PopupModelPage
 {
     public function __construct(?string $number)
     {
         // Workspace number from cookie
 
-        parent::__construct('tickets/workspaces/' . (int)$_COOKIE['ML_agentWorkspace']. '/tickets/' . $number, 'tickets-agent', 'agent');
+        parent::__construct('tickets/workspaces/' . (int)$_COOKIE['ML_agentWorkspace']. '/tickets/' . $number);
 
         $details = $this->response->getBody();
 

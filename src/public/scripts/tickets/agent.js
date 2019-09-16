@@ -130,8 +130,8 @@ function showTickets(tickets)
         header: ['#', 'Title', 'Type', 'Category', 'Severity', 'Status', 'Scheduled', 'Updated'],
         sortColumn: 0, // TODO: add last update time and sort by that
         linkColumn: 0,
-        linkNewTab: true,
-        href: baseURI + 'tickets/agent/',
+        href: "javascript: goToViewTicket('{{%}}');",
+        usePlaceholder: true,
         refs: refs,
         rows: rows
     });
@@ -662,6 +662,12 @@ function setupWidgets()
 {
     let widgets = document.getElementById('widgets');
 
+    // Remove anything from the widgets div
+    while(widgets.firstChild)
+    {
+        widgets.removeChild((widgets.firstChild));
+    }
+
     apiRequest('GET', 'tickets/workspaces/' + getWorkspace() + '/widgets', {}).done(function(json){
         if(json.code !== 200)
             return;
@@ -710,8 +716,7 @@ function setupWidgets()
                                 let li = document.createElement('li');
                                 let a = document.createElement('a');
                                 a.appendChild(document.createTextNode(w.number + ' - ' + w.title));
-                                a.href = baseURI + 'tickets/agent/' + w.number;
-                                a.target = '_blank';
+                                a.href = "javascript: goToViewTicket('" +  w.number + "');";
 
                                 li.appendChild(a);
 
@@ -730,6 +735,32 @@ function setupWidgets()
             });
         });
     });
+}
+
+function openPopupWindow(url)
+{
+    window.open(baseURI + url, "", "width=1024,height=900");
+}
+
+function goToNewTicket()
+{
+    openPopupWindow('tickets/agent/new');
+}
+
+function goToViewTicket(number)
+{
+    openPopupWindow('tickets/agent/' + number);
+}
+
+function closeTicketWindow()
+{
+    window.close();
+}
+
+function refreshAgent()
+{
+    setupWidgets();
+    updateFilter();
 }
 
 $(document).ready(function(){

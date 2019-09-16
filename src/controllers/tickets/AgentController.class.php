@@ -17,6 +17,7 @@ namespace controllers\tickets;
 use controllers\Controller;
 use views\pages\tickets\AgentConfigurePage;
 use views\pages\tickets\MySearchesPage;
+use views\pages\tickets\TicketCalendarPage;
 use views\pages\tickets\TicketCreatePage;
 use views\pages\tickets\TicketEditPage;
 use views\pages\tickets\TicketSearchPage;
@@ -50,6 +51,8 @@ class AgentController extends Controller
                 return new WorkspacePage((string)$_COOKIE['ML_agentWorkspace']);
             case 'configure':
                 return new AgentConfigurePage((string)$_COOKIE['ML_agentWorkspace']);
+            case 'calendar':
+                return new TicketCalendarPage((string)$_COOKIE['ML_agentWorkspace']);
             case 'new':
                 return new TicketCreatePage((int)$_COOKIE['ML_agentWorkspace']);
             case 'search':

@@ -44,13 +44,13 @@ class TicketNavigation extends Navigation
                     'icon' => 'ticket.png',
                     'permission' => 'tickets-agent'
                 ),
-                array(
-                    'title' => 'New Ticket',
-                    'link' => 'agent/new',
-                    'icon' => 'ticket.png',
-                    'operation' => 'add',
-                    'permission' => 'tickets-agent'
-                ),
+//                array(
+//                    'title' => 'New Ticket',
+//                    'link' => 'agent/new',
+//                    'icon' => 'ticket.png',
+//                    'operation' => 'add',
+//                    'permission' => 'tickets-agent'
+//                ),
                 array(
                     'title' => 'Advanced Search',
                     'link' => 'agent/search',

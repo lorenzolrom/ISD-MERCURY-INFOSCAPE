@@ -62,6 +62,7 @@ class Navigation extends View
                     else
                         $icon = "";
 
+
                     $sectionString .= "<li><a href='{{@baseURI}}{$baseURI}{$page['link']}'>" . $icon . "{$page['title']}</a></li>";
                 }
 
