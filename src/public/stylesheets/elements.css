@@ -583,3 +583,35 @@ div#workspace-name span {
     font-weight: 600;
     font-size: 1.2rem;
 }
+
+div#widgets {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 5px;
+    margin-top: 5px;
+}
+
+div#widgets div.widget {
+    width: 300px;
+    display: table-cell;
+    background-color: #e6e6e6;
+    padding: 5px 10px;
+    vertical-align: top;
+    border: 1px solid var(--border-color);
+}
+
+div.widget ul li {
+    list-style-type: none;
+}
+
+div.widget img {
+    display: block;
+    margin: auto;
+}
+
+div.widget h3 {
+    font-size: 1.15rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 2px;
+    margin-bottom: 5px;
+}

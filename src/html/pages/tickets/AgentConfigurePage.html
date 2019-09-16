@@ -1,0 +1,18 @@
+<div class="button-bar">
+    <span id="addWidget-button" class="button-noveil dialog-show-button"><span class="operation add"><img src="{{@baseURI}}media/icons/jobs.png" alt=""></span>New Widget</span>
+    <a href="{{@baseURI}}tickets/agent" class="button"><img src="{{@baseURI}}media/icons/cancel.png" alt="">Back</a>
+</div>
+<div id="widgetList" class="wait"></div>
+<div id="addWidget-button-dialog" class="dialog" title="Add Widget">
+    <form onsubmit="return addWidget()">
+        <p>
+            <span class="required">Search</span>
+            <select id="search">
+                <option value="">--SELECT--</option>
+            </select>
+        </p>
+        <input class="button-noveil" type="submit" value="Add">
+    </form>
+</div>
+<script src="{{@baseURI}}scripts/tickets/agent.js"></script>
+<script src="{{@baseURI}}scripts/tickets/widgets.js"></script>

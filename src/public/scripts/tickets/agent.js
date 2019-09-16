@@ -541,7 +541,12 @@ function unlink(number, linkedNumber)
 
 function runSearch()
 {
-    apiRequest('POST', 'tickets/workspaces/' + getWorkspace() + '/tickets/search', getAdvancedSearchForm()).done(function(json){
+    showTickets(getSearchResults(getAdvancedSearchForm()));
+}
+
+function getSearchResults(search)
+{
+    apiRequest('POST', 'tickets/workspaces/' + getWorkspace() + '/tickets/search', search).done(function(json){
         if(json.code === 200)
         {
             showTickets(json.data);
@@ -653,6 +658,76 @@ function loadSearch()
 
 }
 
+function setupWidgets()
+{
+    let widgets = document.getElementById('widgets');
+
+    apiRequest('GET', 'tickets/workspaces/' + getWorkspace() + '/widgets', {}).done(function(json){
+        if(json.code !== 200)
+            return;
+
+        $.each(json.data, function(i, v){
+            // Create widget
+            let widget = document.createElement('div');
+            widget.classList.add('widget');
+
+            let title = document.createElement('h3');
+            title.appendChild(document.createTextNode(v.search));
+            widget.appendChild(title);
+
+            let image = document.createElement('img');
+            image.src = baseURI + 'media/monitor/loading.gif';
+            image.alt = '';
+            widget.appendChild(image);
+
+            widgets.appendChild(widget);
+
+            let list = document.createElement('ul');
+
+            // Get widget search results
+            // Check for saved search
+            apiRequest('GET', 'tickets/workspaces/' + getWorkspace() + '/searches/' + v.search.replace(/ /g, '_'), {}).done(function(json){
+                if(json.code === 200)
+                {
+                    let search = {};
+
+                    $.each(json.data, function(i, v){
+                        try
+                        {
+                            search[i] = JSON.parse(v);
+                        }
+                        catch(err)
+                        {
+                            search[i] = v;
+                        }
+
+                    });
+
+                    apiRequest('POST', 'tickets/workspaces/' + getWorkspace() + '/tickets/search', search).done(function(json){
+                        if(json.code === 200)
+                        {
+                            $.each(json.data, function(j, w){
+                                let li = document.createElement('li');
+                                let a = document.createElement('a');
+                                a.appendChild(document.createTextNode(w.number + ' - ' + w.title));
+                                a.href = baseURI + 'tickets/agent/' + w.number;
+                                a.target = '_blank';
+
+                                li.appendChild(a);
+
+                                list.appendChild(li);
+                            });
+
+                            widget.removeChild(widget.lastChild);
+                            widget.appendChild(list);
+                        }
+                    });
+                }
+            });
+        });
+    });
+}
+
 $(document).ready(function(){
 
     if($('#filter').length !== 0)
@@ -661,6 +736,8 @@ $(document).ready(function(){
         loadSavedSearches();
     }
 
+    if($('#widgets').length !== 0)
+        setupWidgets();
 
     if($('#ticket-form').length !== 0)
     {
