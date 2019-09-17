@@ -20,7 +20,7 @@ class NetCenterHomePage extends NetCenterDocument
 {
     public function __construct()
     {
-        parent::__construct();
+        parent::__construct('itsm');
         $this->setVariable("tabTitle", "Net Center");
         $this->setVariable('content', self::templateFileContents('Home', self::TEMPLATE_PAGE));
 

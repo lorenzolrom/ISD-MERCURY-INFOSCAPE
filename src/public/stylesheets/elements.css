@@ -363,7 +363,7 @@ div.bulletin {
     box-sizing: border-box;
     flex-direction: column;
     text-align: center;
-    
+
     border-radius: 6px;
     background-color: #fefefe;
     border: 1px solid var(--bulletin-border-color);

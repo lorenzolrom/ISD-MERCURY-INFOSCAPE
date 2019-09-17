@@ -345,7 +345,8 @@ footer p:last-child {
 }
 
 footer p a {
-    text-transform: uppercase;
+    text-decoration: none;
+    cursor: default;
 }
 
 h1 {
