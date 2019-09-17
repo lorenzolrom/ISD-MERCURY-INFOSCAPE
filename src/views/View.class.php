@@ -51,6 +51,8 @@ abstract class View
             $this->setNotices(array($_GET['NOTICE']));
         else if(isset($_GET['SUCCESS']))
             $this->setSuccess(array($_GET['SUCCESS']));
+        else if(isset($_GET['ERROR']))
+            $this->setErrors(array($_GET['ERROR']));
 
         $this->setVariable("baseURI", \Config::OPTIONS['baseURI']);
         $this->setVariable("appName", \Config::OPTIONS['appName']);
