@@ -81,11 +81,6 @@ function createCommodity()
         {
             window.location.replace (baseURI + "netcenter/inventory/commodities?SUCCESS=Commodity created");
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -115,11 +110,6 @@ function saveChanges(id)
         {
             window.location.replace (baseURI + "netcenter/inventory/commodities?SUCCESS=Commodity updated");
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -134,11 +124,6 @@ function deleteCommodity(id)
     apiRequest("DELETE", "commodities/" + id, {}).done(function(json){
         if(json.code === 204)
             window.location.replace(baseURI + "netcenter/inventory/commodities?SUCCESS=Commodity deleted");
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 }
 

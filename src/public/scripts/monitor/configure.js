@@ -45,11 +45,6 @@ function create()
         {
             window.location.replace (baseURI + "netcenter/monitor/configure?SUCCESS=Category created");
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -62,11 +57,6 @@ function save(id)
         {
             window.location.replace (baseURI + "netcenter/monitor/configure?SUCCESS=Category updated");
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -78,11 +68,6 @@ function remove(id)
         if(json.code === 204)
         {
             window.location.replace (baseURI + "netcenter/monitor/configure?SUCCESS=Category deleted");
-        }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
         }
     });
 }

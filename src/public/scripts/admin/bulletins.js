@@ -89,11 +89,6 @@ function create()
     apiRequest('POST', 'bulletins', getForm()).done(function(json){
         if(json.code === 201)
             window.location.replace(baseURI + 'admin/bulletins/?SUCCESS=Bulletin created');
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -104,11 +99,6 @@ function save(id)
     apiRequest('PUT', 'bulletins/' + id, getForm()).done(function(json){
         if(json.code === 204)
             window.location.replace(baseURI + 'admin/bulletins?SUCCESS=Bulletin updated');
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -119,11 +109,6 @@ function remove(id)
     apiRequest('DELETE', 'bulletins/' + id, {}).done(function(json){
         if(json.code === 204)
             window.location.replace(baseURI + 'admin/bulletins?SUCCESS=Bulletin deleted');
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 }
 

@@ -52,10 +52,6 @@ function loadOpen()
         {
             showRequests(json.data);
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-        }
     });
 }
 
@@ -110,11 +106,6 @@ function create()
         {
             window.location.replace(baseURI + 'tickets/requests/' + json.data.workspace + '-' + json.data.number);
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 }
 
@@ -127,11 +118,6 @@ function update(workspace, number)
         if(json.code === 204)
         {
             window.location.replace(baseURI + 'tickets/requests/' + workspace + '-' + number);
-        }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
         }
     });
 }

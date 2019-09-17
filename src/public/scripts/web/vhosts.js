@@ -81,11 +81,6 @@ function saveChanges(id)
     apiRequest('PUT', 'vhosts/' + id, getForm()).done(function(json){
         if(json.code === 204)
             window.location.replace(baseURI + 'netcenter/web/vhosts?SUCCESS=VHost updated');
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -96,11 +91,6 @@ function createVHost()
     apiRequest('POST', 'vhosts', getForm()).done(function(json){
         if(json.code === 201)
             window.location.replace(baseURI + 'netcenter/web/vhosts?SUCCESS=VHost created');
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;

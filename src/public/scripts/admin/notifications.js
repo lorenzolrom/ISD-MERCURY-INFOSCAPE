@@ -18,9 +18,6 @@ function send()
     }).done(function(json){
         if(json.code === 201)
             showNotifications('success', ['Notification sent to ' + json.data.count + ' users']);
-        else
-            showNotifications('error', json.data.errors);
-
         unveil();
     });
 

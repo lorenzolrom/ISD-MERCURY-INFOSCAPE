@@ -66,11 +66,6 @@ function saveChanges(id)
         {
             window.location.replace (baseURI + "netcenter/devices/hosts?SUCCESS=Host updated");
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -81,11 +76,6 @@ function createHost()
     apiRequest('POST', 'hosts', getFormData()).done(function(json){
         if(json.code === 201)
             window.location.replace(baseURI + 'netcenter/devices/hosts?SUCCESS=Host created');
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -96,11 +86,6 @@ function deleteHost(id)
     apiRequest('DELETE', 'hosts/' + id, {}).done(function(json){
         if(json.code === 204)
             window.location.replace(baseURI + 'netcenter/devices/hosts?SUCCESS=Host deleted');
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 }
 

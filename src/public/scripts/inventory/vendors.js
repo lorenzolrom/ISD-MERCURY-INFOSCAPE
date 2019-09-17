@@ -36,11 +36,6 @@ function deleteVendor(id)
     apiRequest('DELETE', 'vendors/' + id, {}).done(function(json){
         if(json.code === 204)
             window.location.replace(baseURI + "netcenter/inventory/vendors?SUCCESS=Vendor deleted");
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 }
 
@@ -68,11 +63,6 @@ function saveChanges(id)
         if(json.code === 204)
         {
             window.location.replace (baseURI + "netcenter/inventory/vendors?SUCCESS=Vendor updated");
-        }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
         }
     });
 
@@ -103,11 +93,6 @@ function createVendor()
         if(json.code === 201)
         {
             window.location.replace (baseURI + "netcenter/inventory/vendors?SUCCESS=Vendor created");
-        }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
         }
     });
 

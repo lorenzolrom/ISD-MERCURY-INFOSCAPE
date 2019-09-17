@@ -48,11 +48,6 @@ function remove(tag)
             showNotifications('success', ['Asset removed']);
             unveil();
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 }
 
@@ -65,11 +60,6 @@ function clearWorksheet()
         {
             loadWorksheet();
             showNotifications('success', [json.data.removed + ' assets removed']);
-            unveil();
-        }
-        else
-        {
-            showNotifications('error', json.data.errors);
             unveil();
         }
     });
@@ -155,11 +145,6 @@ function verify()
             showNotifications('success', ['Assets have been verified']);
             unveil();
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 }
 
@@ -170,11 +155,6 @@ function unVerify()
         {
             loadWorksheet();
             showNotifications('success', ['Assets have been un-verified']);
-            unveil();
-        }
-        else
-        {
-            showNotifications('error', json.data.errors);
             unveil();
         }
     });
@@ -190,11 +170,6 @@ function setWarehouse()
         {
             loadWorksheet();
             showNotifications('success', ['Assets have been moved to warehouse']);
-            unveil();
-        }
-        else
-        {
-            showNotifications('error', json.data.errors);
             unveil();
         }
     });
@@ -213,11 +188,6 @@ function setLocation()
         {
             loadWorksheet();
             showNotifications('success', ['Assets have been moved to location']);
-            unveil();
-        }
-        else
-        {
-            showNotifications('error', json.data.errors);
             unveil();
         }
     });

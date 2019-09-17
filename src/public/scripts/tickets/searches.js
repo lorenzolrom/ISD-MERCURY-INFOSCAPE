@@ -16,10 +16,6 @@ function loadSearches()
                 rawText: true
             });
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-        }
     });
 }
 
@@ -30,10 +26,6 @@ function deleteSearch(name)
         {
             loadSearches();
             showNotifications('notice', ['Search Deleted']);
-        }
-        else
-        {
-            showNotifications('success', json.data.errors);
         }
     });
 }

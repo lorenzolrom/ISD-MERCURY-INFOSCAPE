@@ -43,11 +43,6 @@ function create()
     apiRequest('POST', 'roles', getForm()).done(function(json){
         if(json.code === 201)
             window.location.replace(baseURI + 'admin/roles/?SUCCESS=Role created');
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -58,11 +53,6 @@ function save(id)
     apiRequest('PUT', 'roles/' + id, getForm()).done(function(json){
         if(json.code === 204)
             window.location.replace(baseURI + 'admin/roles?SUCCESS=Role updated');
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -73,11 +63,6 @@ function remove(id)
     apiRequest('DELETE', 'roles/' + id, {}).done(function(json){
         if(json.code === 204)
             window.location.replace(baseURI + 'admin/roles?SUCCESS=Role deleted');
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 }
 

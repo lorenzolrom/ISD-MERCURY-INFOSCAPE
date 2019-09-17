@@ -96,11 +96,6 @@ function create()
         {
             window.location.replace (baseURI + "tickets/admin/workspaces?SUCCESS=Workspace created");
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -113,11 +108,6 @@ function save(id)
         {
             window.location.replace (baseURI + "tickets/admin/workspaces?SUCCESS=Workspace saved");
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -128,11 +118,6 @@ function remove(id)
     apiRequest('DELETE', 'tickets/workspaces/' + id, {}).done(function(json){
         if(json.code === 204)
             window.location.replace(baseURI + "tickets/admin/workspaces?SUCCESS=Workspace deleted");
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 }
 
@@ -146,10 +131,6 @@ function setRequestPortal()
             showNotifications('success', ['Request Portal has been set']);
             load();
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-        }
     });
 
     return false;
@@ -162,10 +143,6 @@ function addAttribute()
         {
             showNotifications('success', ['Attribute has been created']);
             loadAttributes();
-        }
-        else
-        {
-            showNotifications('error', json.data.errors);
         }
     });
 
@@ -205,10 +182,6 @@ function saveAttribute()
             showNotifications('success', ['Attribute has been updated']);
             loadAttributes();
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-        }
     });
 
     return false;
@@ -223,10 +196,6 @@ function deleteAttribute()
         {
             showNotifications('success', ['Attribute has been deleted']);
             loadAttributes();
-        }
-        else
-        {
-            showNotifications('error', json.data.errors);
         }
     });
 }

@@ -43,11 +43,6 @@ function createWarehouse()
         {
             window.location.replace (baseURI + "netcenter/inventory/warehouses?SUCCESS=Warehouse created");
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -58,11 +53,6 @@ function deleteWarehouse(id)
     apiRequest("DELETE", "warehouses/" + id, {}).done(function(json){
         if(json.code === 204)
             window.location.replace(baseURI + "netcenter/inventory/warehouses?SUCCESS=Warehouse deleted");
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 }
 
@@ -78,11 +68,6 @@ function saveChanges(id)
         if(json.code === 204)
         {
             window.location.replace (baseURI + "netcenter/inventory/warehouses?SUCCESS=Warehouse updated");
-        }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
         }
     });
 

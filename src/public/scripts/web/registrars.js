@@ -32,11 +32,6 @@ function deleteRegistrar(id)
     apiRequest('DELETE', 'registrars/' + id, {}).done(function(json){
         if(json.code === 204)
             window.location.replace(baseURI + "netcenter/web/registrars?SUCCESS=Registrar deleted");
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 }
 
@@ -56,11 +51,6 @@ function saveChanges(id)
         if(json.code === 204)
         {
             window.location.replace (baseURI + "netcenter/web/registrars?SUCCESS=Registrar updated");
-        }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
         }
     });
 
@@ -83,11 +73,6 @@ function createRegistrar()
         if(json.code === 201)
         {
             window.location.replace (baseURI + "netcenter/web/registrars?SUCCESS=Registrar created");
-        }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
         }
     });
 

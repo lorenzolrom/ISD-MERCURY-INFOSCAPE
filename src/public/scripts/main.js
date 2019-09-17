@@ -298,15 +298,26 @@ function apiRequest(type, path, data, base64 = false)
             break;
     }
 
-    let result = $.post(baseURI + '!api-request', {type:type, path: path, data:JSON.stringify(data)}, null, 'json');
-
-    if(result.code === 500)
-    {
-        showNotifications('error', ['The API request did not produce a valid response']);
-        unveil();
-    }
-
-    return result;
+    return $.post(baseURI + '!api-request', {type:type, path: path, data:JSON.stringify(data)}, function(json){
+        if(json.code === 401)
+        {
+            if(json.data.errors[0] === 'Session expired')
+                location.reload(); // Reload, which will cause redirect to login
+            else
+                showNotifications('errors', json.data.errors); // Not caused by session expiration
+            unveil();
+        }
+        else if(json.code === 500) // InfoCentral Errors
+        {
+            showNotifications('errors', ['System did not provide a valid response']);
+            unveil();
+        }
+        else if(json.code === 409 || json.code === 400 || json.code === 404) // Form error, bad request, not found
+        {
+            showNotifications('error', json.data.errors);
+            unveil();
+        }
+    }, 'json');
 }
 
 /**

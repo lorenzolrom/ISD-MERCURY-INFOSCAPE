@@ -49,11 +49,6 @@ function saveChanges(id)
     apiRequest('PUT', 'urlaliases/' + id, getForm()).done(function(json){
         if(json.code === 204)
             window.location.replace(baseURI + 'netcenter/web/urlaliases?SUCCESS=URL Alias updated');
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -64,11 +59,7 @@ function createEntry()
     apiRequest('POST', 'urlaliases', getForm()).done(function(json){
         if(json.code === 201)
             window.location.replace(baseURI + 'netcenter/web/urlaliases?SUCCESS=URL Alias created');
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
+        
     });
 
     return false;
@@ -79,11 +70,7 @@ function deleteEntry(id)
     apiRequest('DELETE', 'urlaliases/' + id, {}).done(function(json){
         if(json.code === 204)
             window.location.replace(baseURI + "netcenter/web/urlaliases?SUCCESS=URL Alias deleted");
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
+        
     });
 
     return false;

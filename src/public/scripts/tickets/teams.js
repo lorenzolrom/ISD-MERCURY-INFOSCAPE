@@ -44,11 +44,6 @@ function create()
         {
             window.location.replace (baseURI + "tickets/admin/teams?SUCCESS=Team created");
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -61,11 +56,6 @@ function save(id)
         {
             window.location.replace (baseURI + "tickets/admin/teams?SUCCESS=Team updated");
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -77,11 +67,6 @@ function remove(id)
         if(json.code === 204)
         {
             window.location.replace (baseURI + "tickets/admin/teams?SUCCESS=Team deleted");
-        }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
         }
     });
 

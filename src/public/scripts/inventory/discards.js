@@ -113,10 +113,6 @@ function addAsset(number)
             loadAssets(number);
             showNotifications('success', ['Asset added']);
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-        }
     });
 
     return false;
@@ -130,10 +126,6 @@ function removeAsset(number, asset)
             loadAssets(number);
             showNotifications('success', ['Asset removed']);
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-        }
     });
 
     return false;
@@ -144,11 +136,6 @@ function create()
     apiRequest('POST', 'discardorders', getEditForm()).done(function(json){
         if(json.code === 201)
             window.location.replace(baseURI + 'netcenter/inventory/discards/' + json.data.id + '?SUCCESS=Discard Order created');
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -161,10 +148,6 @@ function save(number)
         {
             window.location.replace(baseURI + 'netcenter/inventory/discards/' + number + '?SUCCESS=Discard Order updated');
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-        }
     });
 }
 
@@ -174,10 +157,6 @@ function approve(number)
         if(json.code === 204)
         {
             window.location.replace (baseURI + "netcenter/inventory/discards/" + number + "?SUCCESS=Discard Order has been approved");
-        }
-        else
-        {
-            showNotifications('error', json.data.errors);
         }
     });
 
@@ -191,10 +170,6 @@ function fulfill(number)
         {
             window.location.replace (baseURI + "netcenter/inventory/discards/" + number + "?SUCCESS=Discard Order has been fulfilled");
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-        }
     });
 
     return false;
@@ -206,10 +181,6 @@ function cancel(number)
         if(json.code === 204)
         {
             window.location.replace (baseURI + "netcenter/inventory/discards/" + number + "?SUCCESS=Discard Order has been canceled");
-        }
-        else
-        {
-            showNotifications('error', json.data.errors);
         }
     });
 

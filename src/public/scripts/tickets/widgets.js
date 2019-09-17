@@ -6,10 +6,6 @@ function deleteWidget(id)
             loadWidgetList();
             showNotifications('success', ['Widget deleted']);
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-        }
     });
 }
 
@@ -26,11 +22,6 @@ function addWidget()
             $('#addWidget-button-dialog').dialog('close');
             unveil();
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -40,11 +31,6 @@ function loadWidgetList()
 {
     // Load widget list
     apiRequest('GET', 'tickets/workspaces/' + getWorkspace() + '/widgets', {}).done(function(json){
-        if(json.code !== 200)
-        {
-            showNotifications('error', json.data.errors);
-            return;
-        }
 
         let rows = [];
         let refs = [];
@@ -75,11 +61,6 @@ $(document).ready(function(){
 
         // Load search select
         apiRequest('GET', 'tickets/workspaces/' + getWorkspace() + '/searches', {}).done(function(json){
-            if(json.code !== 200)
-            {
-                showNotifications('error', json.data.errors);
-                return;
-            }
 
             $.each(json.data, function(i, v){
                 let option = document.createElement('option');

@@ -13,6 +13,8 @@
 
 namespace views\pages;
 
+use views\View;
+
 /**
  * Class JSONOutputPage
  *
@@ -20,12 +22,10 @@ namespace views\pages;
  *
  * @package views\pages
  */
-class JSONOutputPage extends AuthenticatedPage
+class JSONOutputPage extends View
 {
     public function __construct(string $json)
     {
-        parent::__construct();
-
         $this->setTemplate($json);
     }
 }

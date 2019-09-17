@@ -17,12 +17,6 @@ function saveChanges(id, buildingId)
         {
             window.location.replace (baseURI + "facilities/buildings/" + buildingId + "?SUCCESS=Location updated");
         }
-        else
-        {
-            console.log(json);
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -46,16 +40,6 @@ function createLocation(buildingId)
         {
             window.location.replace (baseURI + "facilities/buildings/" + buildingId + "?SUCCESS=Location created");
         }
-        else if(json.code === 409)
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -67,11 +51,6 @@ function deleteLocation(id, buildingId)
         if(json.code === 204)
         {
             window.location.replace(baseURI + "facilities/buildings/" + buildingId + "?SUCCESS=Location deleted");
-        }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
         }
     });
 }

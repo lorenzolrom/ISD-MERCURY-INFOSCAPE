@@ -178,11 +178,6 @@ function create()
     apiRequest('POST', 'purchaseorders', getEditForm()).done(function(json){
         if(json.code === 201)
             window.location.replace(baseURI + 'netcenter/inventory/purchaseorders/' + json.data.id + '?SUCCESS=Purchase Order created');
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -193,11 +188,6 @@ function save(number)
     apiRequest('PUT', 'purchaseorders/' + number, getEditForm()).done(function(json){
         if(json.code === 204)
             window.location.replace(baseURI + 'netcenter/inventory/purchaseorders/' + number + '?SUCCESS=Purchase Order updated');
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -269,10 +259,6 @@ function addCommodity(number)
             loadCommodities(number);
             showNotifications('success', ['Commodity added']);
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-        }
     });
 
     return false;
@@ -285,10 +271,6 @@ function addCostItem(number)
         {
             loadCostItems(number);
             showNotifications('success', ['Cost Item added']);
-        }
-        else
-        {
-            showNotifications('error', json.data.errors);
         }
     });
 
@@ -303,10 +285,6 @@ function removeCommodity(number, item)
             loadCommodities(number);
             showNotifications('success', ['Commodity removed']);
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-        }
     });
 
     return false;
@@ -319,10 +297,6 @@ function removeCostItem(number, item)
         {
             loadCostItems(number);
             showNotifications('success', ['Cost Item removed']);
-        }
-        else
-        {
-            showNotifications('error', json.data.errors);
         }
     });
 
@@ -337,11 +311,6 @@ function send(number)
         {
             window.location.replace (baseURI + "netcenter/inventory/purchaseorders/" + number + "?SUCCESS=Purchase Order has been sent");
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 }
 
@@ -353,11 +322,6 @@ function cancel(number)
         {
             window.location.replace (baseURI + "netcenter/inventory/purchaseorders/" + number + "?SUCCESS=Purchase Order has been canceled");
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 }
 
@@ -368,11 +332,6 @@ function receive(number)
         if(json.code === 204)
         {
             window.location.replace (baseURI + "netcenter/inventory/purchaseorders/" + number + "?SUCCESS=Purchase Order has been received");
-        }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
         }
     });
 

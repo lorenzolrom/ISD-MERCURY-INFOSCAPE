@@ -27,11 +27,6 @@ function addToWorksheet()
             searchAssets();
             unveil();
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 }
 
@@ -220,11 +215,6 @@ function saveChanges(asset)
         {
             window.location.replace (baseURI + "netcenter/inventory/assets/" + assetTag + "/?SUCCESS=Asset updated");
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -316,11 +306,6 @@ function linkToParent(tag)
         {
             window.location.reload();
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -349,11 +334,6 @@ function verify(tag)
         {
             window.location.reload();
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 }
 
@@ -363,11 +343,6 @@ function unverify(tag)
         if(json.code === 204)
         {
             window.location.reload();
-        }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
         }
     });
 }
@@ -407,11 +382,6 @@ function setWarehouse(tag)
         {
             window.location.reload();
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -427,11 +397,6 @@ function setLocation(tag)
         if(json.code === 204)
         {
             window.location.reload();
-            unveil();
-        }
-        else
-        {
-            showNotifications('error', json.data.errors);
             unveil();
         }
     });

@@ -204,11 +204,7 @@ function updateFilter()
                         showTickets(json.data);
                         unveil();
                     }
-                    else
-                    {
-                        showNotifications('error', json.data.errors);
-                        unveil();
-                    }
+                    
                 });
             }
             else
@@ -236,11 +232,7 @@ function create()
         {
             window.location.replace(baseURI + 'tickets/agent/' + json.data.number);
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
+        
     });
 
     return false;
@@ -253,11 +245,7 @@ function update(number)
         {
             window.location.replace(baseURI + 'tickets/agent/' + number);
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
+        
     });
 
     return false;
@@ -427,11 +415,6 @@ function assignTicket(number)
 
             unveil();
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -450,11 +433,6 @@ function removeAssignee(number, code)
 
             if(historyLoaded)
                 loadHistory(number, true);
-            unveil();
-        }
-        else
-        {
-            showNotifications('error', json.data.errors);
             unveil();
         }
     });
@@ -507,11 +485,6 @@ function link(number)
             $('#link-button-dialog').dialog('close');
             unveil();
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 
     return false;
@@ -531,11 +504,6 @@ function unlink(number, linkedNumber)
                 loadHistory(number, true);
             unveil();
         }
-        else
-        {
-            showNotifications('error', json.data.errors);
-            unveil();
-        }
     });
 }
 
@@ -550,11 +518,6 @@ function getSearchResults(search)
         if(json.code === 200)
         {
             showTickets(json.data);
-            unveil();
-        }
-        else
-        {
-            showNotifications('error', json.data.errors);
             unveil();
         }
     });
@@ -582,11 +545,6 @@ function saveSearch()
         else if(json.code === 204)
         {
             showNotifications('success', ['Search updated']);
-            unveil();
-        }
-        else
-        {
-            showNotifications('error', json.data.errors);
             unveil();
         }
     });
@@ -647,11 +605,6 @@ function loadSearch()
             });
 
             $('#searchName').val(json.data.name.replace(/_/g, ' '));
-            unveil();
-        }
-        else
-        {
-            showNotifications('error', json.data.errors);
             unveil();
         }
     });
