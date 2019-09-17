@@ -90,6 +90,13 @@ function buildCalendar(options)
             dayNumber.appendChild(document.createTextNode(days[j]));
             day.appendChild(dayNumber);
 
+            if(days[j].length !== 0) // Only add loading image if day is actually a date
+            {
+                let loadingImage = document.createElement('img');
+                loadingImage.src = baseURI + 'media/monitor/loading.gif';
+                day.appendChild(loadingImage);
+            }
+
             if(days[j] !== '')
                 displayRow = true;
 
@@ -122,11 +129,13 @@ function buildCalendar(options)
                             ticket.appendChild(link);
                             tickets.appendChild(ticket);
                         });
+
+                        day.removeChild(day.lastChild);
+                        day.appendChild(tickets);
                     }
                 });
             }
 
-            day.appendChild(tickets);
             week.appendChild(day);
         }
 
