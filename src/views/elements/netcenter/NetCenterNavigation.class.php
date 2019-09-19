@@ -74,6 +74,12 @@ class NetCenterNavigation extends Navigation
                     'link' => 'devices/hosts',
                     'icon' => 'interface.png',
                 ),
+                array(
+                    'title' => 'DHCP Logs',
+                    'permission' => 'itsm_dhcplogs-r',
+                    'link' => 'devices/dhcplogs',
+                    'icon' => 'macaddress.png'
+                ),
             )
         ),
         'web' => array(

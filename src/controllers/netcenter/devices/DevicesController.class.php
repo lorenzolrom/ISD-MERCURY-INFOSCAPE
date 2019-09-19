@@ -15,6 +15,7 @@ namespace controllers\netcenter\devices;
 
 
 use controllers\Controller;
+use views\pages\netcenter\devices\DHCPLogPage;
 use views\View;
 
 class DevicesController extends Controller
@@ -34,6 +35,8 @@ class DevicesController extends Controller
             case 'hosts':
                 $hosts = new HostController($this->request);
                 return $hosts->getPage();
+            case 'dhcplogs':
+                return new DHCPLogPage();
         }
 
         return NULL;
