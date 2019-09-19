@@ -5,12 +5,12 @@ $(document).ready(function(){
             let rows = [];
 
             $.each(json.data, function(i, v){
-                rows.push([v]);
+                rows.push([v.date, v.type, v.mac, v.ip, v.interface, v.server]);
             });
 
             setupTable({
                 target: 'results',
-                header: ['Line'],
+                header: ['Date', 'Type', 'MAC', 'IP', 'Interface', 'Server'],
                 rows: rows
             });
         }
