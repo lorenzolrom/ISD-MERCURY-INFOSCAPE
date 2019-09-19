@@ -127,8 +127,6 @@ function removeAsset(number, asset)
             showNotifications('success', ['Asset removed']);
         }
     });
-
-    return false;
 }
 
 function create()
@@ -159,8 +157,6 @@ function approve(number)
             window.location.replace (baseURI + "netcenter/inventory/discards/" + number + "?SUCCESS=Discard Order has been approved");
         }
     });
-
-    return false;
 }
 
 function fulfill(number)
@@ -171,8 +167,6 @@ function fulfill(number)
             window.location.replace (baseURI + "netcenter/inventory/discards/" + number + "?SUCCESS=Discard Order has been fulfilled");
         }
     });
-
-    return false;
 }
 
 function cancel(number)
@@ -183,8 +177,6 @@ function cancel(number)
             window.location.replace (baseURI + "netcenter/inventory/discards/" + number + "?SUCCESS=Discard Order has been canceled");
         }
     });
-
-    return false;
 }
 
 $(document).ready(function(){

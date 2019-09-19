@@ -30,6 +30,6 @@ class DiscardOrderEditPage extends ModelPage
         $this->setVariable('tabTitle', "Discard Order - $param (Edit)");
         $this->setVariable('content', $form->getTemplate());
         $this->setVariable('formScript', "return save('$param')");
-        $this->setVariable('cancelLink', \Config::OPTIONS['baseURI'] . "inventory/discards/$param");
+        $this->setVariable('cancelLink', \Config::OPTIONS['baseURI'] . "netcenter/inventory/discards/$param");
     }
 }
