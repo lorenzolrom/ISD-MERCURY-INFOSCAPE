@@ -286,8 +286,6 @@ function removeCommodity(number, item)
             showNotifications('success', ['Commodity removed']);
         }
     });
-
-    return false;
 }
 
 function removeCostItem(number, item)
@@ -299,8 +297,6 @@ function removeCostItem(number, item)
             showNotifications('success', ['Cost Item removed']);
         }
     });
-
-    return false;
 }
 
 function send(number)
