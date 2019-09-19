@@ -1,4 +1,6 @@
-$(document).ready(function(){
+function loadLogs()
+{
+    applyLoadingImage('results');
     apiRequest('GET', 'dhcplogs', {}).done(function(json){
         if(json.code === 200)
         {
@@ -15,4 +17,8 @@ $(document).ready(function(){
             });
         }
     });
+}
+
+$(document).ready(function(){
+    loadLogs();
 });
