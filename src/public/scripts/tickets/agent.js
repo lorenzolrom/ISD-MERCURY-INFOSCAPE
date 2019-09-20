@@ -82,6 +82,9 @@ function selectWorkspace()
 
 function changeWorkspace(workspace)
 {
+    if(workspace === getWorkspace())
+        return;
+
     veil();
     apiRequest('GET', 'tickets/workspaces/' + workspace, {}).done(function(json){
         if(json.code !== 200)
@@ -737,9 +740,10 @@ function displayWorkspaceSelect()
 
         $(select).val(getWorkspace());
 
-        $(workspaceSelect).off("click"); // Remove click event
-        $(workspaceSelect).empty(); // Clear title
+
+        workspaceSelect.removeChild(workspaceSelect.firstChild); // Remove title
         workspaceSelect.appendChild(select); // Add select
+
         $(workspaceSelect).change(function()
         {
             changeWorkspace($(select).val());
@@ -778,9 +782,8 @@ $(document).ready(function(){
 
     let workspaceSelect = document.querySelector('#changeWorkspace');
 
-    if(workspaceSelect.length !== 0)
+    if(workspaceSelect)
     {
-
         workspaceSelect.setAttribute('onclick', 'displayWorkspaceSelect()');
     }
 
