@@ -716,6 +716,50 @@ function refreshAgent()
     updateFilter();
 }
 
+function displayWorkspaceSelect()
+{
+    let workspaceSelect = document.querySelector('#changeWorkspace');
+    workspaceSelect.removeAttribute('onclick');
+
+    let select = document.createElement('select');
+    select.setAttribute("onfocusout", "resetWorkspaceSelect()");
+
+    $(select).attr('id', 'changeWorkspaceMenu');
+
+    apiRequest('GET', 'tickets/workspaces', {}).done(function(json){
+        $.each(json.data, function(i, v){
+            let option = document.createElement('option');
+            $(option).html(v.name);
+            $(option).attr('value', v.id);
+
+            $(select).append(option);
+        });
+
+        $(select).val(getWorkspace());
+
+        $(workspaceSelect).off("click"); // Remove click event
+        $(workspaceSelect).empty(); // Clear title
+        workspaceSelect.appendChild(select); // Add select
+        $(workspaceSelect).change(function()
+        {
+            changeWorkspace($(select).val());
+        });
+    });
+}
+
+function resetWorkspaceSelect()
+{
+    let workspaceSelect = document.querySelector('#changeWorkspace');
+
+    while(workspaceSelect.firstChild)
+    {
+        workspaceSelect.removeChild(workspaceSelect.firstChild);
+    }
+
+    workspaceSelect.appendChild(document.createTextNode(workspaceName));
+    workspaceSelect.setAttribute('onclick', 'displayWorkspaceSelect()');
+}
+
 $(document).ready(function(){
 
     if($('#filter').length !== 0)
@@ -732,35 +776,12 @@ $(document).ready(function(){
         updateEditForm();
     }
 
-    let workspaceSelect = $('#changeWorkspace');
+    let workspaceSelect = document.querySelector('#changeWorkspace');
 
     if(workspaceSelect.length !== 0)
     {
 
-        workspaceSelect.click(function(){
-            let select = document.createElement('select');
-            $(select).attr('id', 'changeWorkspaceMenu');
-
-            apiRequest('GET', 'tickets/workspaces', {}).done(function(json){
-                $.each(json.data, function(i, v){
-                    let option = document.createElement('option');
-                    $(option).html(v.name);
-                    $(option).attr('value', v.id);
-
-                    $(select).append(option);
-                });
-
-                $(select).val(getWorkspace());
-
-                workspaceSelect.off("click"); // Remove click event
-                workspaceSelect.empty(); // Clear title
-                workspaceSelect.append(select); // Add select
-                workspaceSelect.change(function()
-                {
-                    changeWorkspace($(select).val());
-                });
-            });
-        });
+        workspaceSelect.setAttribute('onclick', 'displayWorkspaceSelect()');
     }
 
     // Ticket view page assign button
