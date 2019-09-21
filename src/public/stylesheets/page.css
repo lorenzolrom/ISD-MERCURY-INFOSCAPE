@@ -83,8 +83,9 @@ header span#company-logo {
     top: 0;
     left: 0;
     height: 80px;
-    width: 329px;
+    width: 384px;
     background-image: url('../media/company_logo.png');
+    background-repeat: no-repeat;
     filter: var(--image-shadow);
 }
 
