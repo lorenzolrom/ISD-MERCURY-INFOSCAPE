@@ -1,4 +1,4 @@
-This document is not as up to date as [this one, from InfoCentral](https://github.com/lorenzolrom/ISD-MERCURY-INFOSCAPE/blob/master/README.md)!
+This document is not as up to date as [this one, from InfoCentral](https://github.com/lorenzolrom/ISD-MERCURY-INFOCENTRAL/blob/master/README.md)!
 
 ![netcenter](docs/images/logo.png)
 # NetCenter v4
