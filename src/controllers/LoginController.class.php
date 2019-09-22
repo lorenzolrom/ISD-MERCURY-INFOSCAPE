@@ -53,7 +53,8 @@ class LoginController extends Controller
         if(isset($_POST['username']) AND isset($_POST['password']))
         {
             $response = InfoCentralConnection::getResponse(InfoCentralConnection::POST, "authenticate/login", array('username' => $_POST['username'],
-                                                                                                                                      'password' => $_POST['password']));
+                                                                                                                                      'password' => $_POST['password'],
+                                                                                                                                      'remoteAddr' => $_SERVER['REMOTE_ADDR']));
 
             // If response code is not 204, token was not created
             if($response->getResponseCode() !== HTTPResponse::CREATED AND isset($response->getBody()['errors']))

@@ -27,6 +27,7 @@ class TicketController extends Controller
      * @throws \exceptions\InfoCentralException
      * @throws \exceptions\SecurityException
      * @throws \exceptions\ViewException
+     * @throws \exceptions\ParameterException
      */
     public function getPage(): ?View
     {

@@ -13,8 +13,6 @@
 
 namespace views\pages\netcenter\devices;
 
-
-use views\pages\netcenter\ModelPage;
 use views\pages\netcenter\NetCenterDocument;
 
 class DHCPLogPage extends NetCenterDocument
