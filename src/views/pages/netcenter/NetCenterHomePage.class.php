@@ -23,8 +23,5 @@ class NetCenterHomePage extends NetCenterDocument
         parent::__construct('itsm');
         $this->setVariable("tabTitle", "Net Center");
         $this->setVariable('content', self::templateFileContents('Home', self::TEMPLATE_PAGE));
-
-        $bulletinList = new BulletinList();
-        $this->setVariable('bulletinList', $bulletinList->getTemplate());
     }
 }
