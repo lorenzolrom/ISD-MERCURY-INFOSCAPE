@@ -24,7 +24,7 @@ function getAttributeForm()
 
 function load()
 {
-    apiRequest('GET', 'tickets/workspaces', {}).done(function(json){
+    apiRequest('GET', 'tickets/workspaces/all', {}).done(function(json){
         let rows = [];
         let refs = [];
 
