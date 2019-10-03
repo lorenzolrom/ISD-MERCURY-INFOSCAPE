@@ -101,7 +101,18 @@ img#mercury-logo {
 }
 
 @media screen and (max-device-height: 800px) {
-    form#login-window {
-        margin-top: 20vh;
+    div#login-window {
+        margin-top: 10vh;
+    }
+}
+
+@media screen and (max-device-width: 635px) {
+    div#login-window {
+        margin-top: 0;
+    }
+
+    div#login-window div#notifications {
+        top: 300px;
+        left: 45px;
     }
 }
