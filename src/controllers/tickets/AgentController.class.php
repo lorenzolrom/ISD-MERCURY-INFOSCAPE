@@ -38,6 +38,22 @@ class AgentController extends Controller
      */
     public function getPage(): ?View
     {
+        // Check for workspace provided as cookie
+        if(isset($_GET['w']))
+        {
+            setcookie('ML_agentWorkspace', (int)$_GET['w'], 0, \Config::OPTIONS['baseURI']);
+
+            if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+                $link = "https";
+            else
+                $link = "http";
+
+            $link .= '://';
+
+            header('Location: ' . $link . $_SERVER['HTTP_HOST'] . explode('?', $_SERVER['REQUEST_URI'])[0]);
+            exit;
+        }
+
         // Cannot proceed without selecting workspace
         if(!isset($_COOKIE['ML_agentWorkspace']))
             return new WorkspaceSelectPage();
