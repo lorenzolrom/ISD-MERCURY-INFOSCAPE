@@ -29,18 +29,17 @@ div#login-reflection {
 img#merlot-logo {
     display: block;
     position: absolute;
-    right: 50px;
-    bottom: 50px;
-    height: 70px;
+    left: 50px;
+    top: 50px;
+    height: 100px;
 }
 
 span#app-version {
     font-size: 1.2rem;
     color: #FFF;
-    text-shadow: var(--text-shadow);
     position: absolute;
-    right: 60px;
-    bottom: 40px;
+    right: 10px;
+    bottom: 10px;
 }
 
 div#login-window form {

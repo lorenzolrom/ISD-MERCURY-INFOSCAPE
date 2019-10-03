@@ -40,12 +40,12 @@ abstract class SidebarDocument extends AuthenticatedPage
         // Add footer
         $this->setVariable("footer", self::templateFileContents("Footer", self::TEMPLATE_ELEMENT));
 
-        $this->setVariable('operatorName', 'Operator: ' . $this->user->getUsername());
-
         if($navClass !== NULL AND $sectionTitle !== NULL)
         {
             $sidebar = new Sidebar($navClass, $sectionTitle);
             $this->setVariable("sidebar", $sidebar->getTemplate());
         }
+
+        $this->setVariable('operatorName', 'Operator: ' . $this->user->getUsername());
     }
 }
