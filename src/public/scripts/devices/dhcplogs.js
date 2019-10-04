@@ -1,7 +1,11 @@
 function loadLogs()
 {
+    let query = $('#query').val();
+    let lines = $('#lines').val();
+
     applyLoadingImage('results');
-    apiRequest('GET', 'dhcplogs', {}).done(function(json){
+
+    apiRequest('POST', 'dhcplogs', {query: query, lines: lines}).done(function(json){
         if(json.code === 200)
         {
             let rows = [];
@@ -17,8 +21,6 @@ function loadLogs()
             });
         }
     });
-}
 
-$(document).ready(function(){
-    loadLogs();
-});
+    return false;
+}

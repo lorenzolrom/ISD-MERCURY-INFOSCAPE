@@ -1,5 +1,13 @@
 <div class="button-bar">
-    <a href="javascript: loadLogs()" class="button-noveil"><img src="{{@baseURI}}media/icons/refresh.png" alt="">Refresh</a>
+    <form class="inline-form" onsubmit="return loadLogs()">
+        <span>Search IP or MAC</span>
+        <input type="text" id="query">
+        <span style="margin-left: 20px;">Fetch</span>
+        <input type="text" id="lines" value="100" style="width: 50px;">
+        <span style="margin-right: 10px;">Lines</span>
+        <input type="submit" style="display: none;">
+    </form>
+    <a onclick="loadLogs()" class="button-noveil"><img src="{{@baseURI}}media/icons/ok.png" alt="">Go</a>
 </div>
-<div id="results" class="wait"></div>
+<div id="results"></div>
 <script src="{{@baseURI}}scripts/devices/dhcplogs.js"></script>
