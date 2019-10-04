@@ -72,8 +72,6 @@ function deleteEntry(id)
             window.location.replace(baseURI + "netcenter/web/urlaliases?SUCCESS=URL Alias deleted");
         
     });
-
-    return false;
 }
 
 $(document).ready(function(){
