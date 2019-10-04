@@ -92,9 +92,9 @@ header span#company-logo {
 header span#app-logo {
     background-image: url('../media/merlot_logo_header.png');
     position: absolute;
-    height: 70px;
+    height: 65px;
     width: 360px;
-    top: 5px;
+    top: 7px;
     right: 10px;
     filter: var(--image-shadow);
     z-index: 2;
@@ -389,4 +389,45 @@ h2 {
     margin-top: 10px;
     font-size: 1.6rem;
     padding: 10px 0;
+}
+
+@media screen and (max-device-width: 800px) {
+    * {
+        font-size: 14pt;
+    }
+
+    div#sidebar {
+        display: none;
+    }
+
+    nav > ul > li {
+        display: block;
+    }
+
+    nav > ul > li > .nav-item {
+        text-align: left;
+        padding: 5px;
+    }
+
+    nav ul li ul li a {
+        padding: 10px;
+    }
+
+    div#portal-view, div#view {
+        width: 100%;
+        min-width: 0;
+        overflow-x: scroll;
+        padding: 10px;
+    }
+
+    header span#company-logo {
+        display: none;
+    }
+
+    header span#app-logo {
+        left: 5px;
+        right: auto;
+        background-position: left;
+        max-width: 100%;
+    }
 }
