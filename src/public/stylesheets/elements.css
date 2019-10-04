@@ -146,6 +146,7 @@ h2.region-title {
     font-size: 1.3rem;
     line-height: 19px;
     vertical-align: middle;
+    user-select: none;
 }
 
 h2.region-title img {
@@ -655,4 +656,13 @@ table.calendar td ul li.closed a{
 h3.calendarTitle {
     font-weight: 600;
     font-size: 1.15rem;
+}
+
+@media screen and (max-device-width: 800px) {
+    div#notifications {
+        min-width: 0;
+        width: 90%;
+        left: 10px;
+        right: auto;
+    }
 }

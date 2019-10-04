@@ -125,6 +125,7 @@ header span#app-caption, header span#operator-name {
     color: #FFF;
     position: absolute;
     right: 10px;
+    user-select: none;
 }
 
 header span#operator-name {
@@ -180,6 +181,7 @@ nav > ul > li > .nav-item {
     font-size: 1.1rem;
     font-weight: var(--menu-font-weight);
     text-align: center;
+    user-select: none;
 }
 
 nav > ul > li img {
@@ -276,6 +278,8 @@ div#sidebar h2 {
     font-weight: 600;
 
     margin-top: 0;
+
+    user-select: none;
 }
 
 div#sidebar ul {
@@ -355,6 +359,7 @@ h1 {
     display: block;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 10px;
+    user-select: none;
 }
 
 /* Veil */
@@ -389,6 +394,7 @@ h2 {
     margin-top: 10px;
     font-size: 1.6rem;
     padding: 10px 0;
+    user-select: none;
 }
 
 @media screen and (max-device-width: 800px) {
@@ -406,7 +412,7 @@ h2 {
 
     nav > ul > li > .nav-item {
         text-align: left;
-        padding: 5px;
+        padding: 10px;
     }
 
     nav ul li ul li a {
