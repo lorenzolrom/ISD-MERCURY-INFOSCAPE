@@ -282,21 +282,10 @@ function tinymceSetup()
  */
 function apiRequest(type, path, data, base64 = false)
 {
-    switch(type)
-    {
-        case 'DELETE':
-            type = 'DELETE';
-            break;
-        case 'PUT':
-            type = 'PUT';
-            break;
-        case 'POST':
-            type = 'POST';
-            break;
-        default:
-            type = 'GET';
-            break;
-    }
+    let validTypes = ['DELETE', 'PUT', 'POST', 'GET'];
+
+    if(!validTypes.includes(type))
+        type = 'GET';
 
     return $.post(baseURI + '!api-request', {type:type, path: path, data:JSON.stringify(data)}, function(json){
         if(json.code === 401)
