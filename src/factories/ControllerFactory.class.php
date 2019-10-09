@@ -20,12 +20,6 @@ use models\HTTPRequest;
 class ControllerFactory
 {
     private const CONTROLLERS = array(
-        'tickets' => 'controllers\tickets\TicketController',
-
-        'facilities' => 'controllers\facilities\FacilitiesController',
-
-        'netcenter' => 'controllers\netcenter\NetCenterController',
-
         'admin' => 'controllers\admin\AdminController',
         'history' => 'controllers\HistoryController',
         'logout' => 'controllers\LogoutController',
@@ -45,12 +39,14 @@ class ControllerFactory
     {
         $route = $request->next();
 
+        $controllers = array_merge(self::CONTROLLERS, \Config::OPTIONS['additionalRoutes']);
+
         if($route == null)
             $controller = 'controllers\PortalController';
-        else if(!in_array($route, array_keys(self::CONTROLLERS)))
+        else if(!in_array($route, array_keys($controllers)))
             throw new PageNotFoundException(PageNotFoundException::MESSAGES[PageNotFoundException::PAGE_NOT_FOUND], PageNotFoundException::PAGE_NOT_FOUND);
         else
-            $controller = self::CONTROLLERS[$route];
+            $controller = $controllers[$route];
 
         return new $controller($request);
     }

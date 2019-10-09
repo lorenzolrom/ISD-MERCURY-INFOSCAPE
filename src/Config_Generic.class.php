@@ -26,6 +26,12 @@ abstract class Config_Generic
         'icURL' => 'https://infocentral.url/',
         'icSecret' => 'INFOCENTRAL_SECRET',
 
+        'additionalRoutes' => array(
+            'tickets' => 'controllers\tickets\TicketController',
+            'facilities' => 'controllers\facilities\FacilitiesController',
+            'netcenter' => 'controllers\netcenter\NetCenterController',
+        ),
+
         // Optional filter for public pages
         'ipWhitelist' => array(
             '10.0.0.0/24'
