@@ -14,8 +14,6 @@
 namespace views\pages\netcenter;
 
 
-use views\elements\BulletinList;
-
 class NetCenterHomePage extends NetCenterDocument
 {
     public function __construct()

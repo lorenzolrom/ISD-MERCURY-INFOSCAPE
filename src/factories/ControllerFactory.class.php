@@ -20,8 +20,6 @@ use models\HTTPRequest;
 class ControllerFactory
 {
     private const CONTROLLERS = array(
-        //'lockshop' => 'controllers\lockshop\LockShopController',
-
         'tickets' => 'controllers\tickets\TicketController',
 
         'facilities' => 'controllers\facilities\FacilitiesController',
