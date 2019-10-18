@@ -32,17 +32,17 @@ class PortalMenu extends View
             'icon' => 'ticket.png',
             'link' => 'tickets'
         ),
+        'formcenter' => array(
+            'title' => 'Form Center (DEV)',
+            'permission' => 'forms',
+            'icon' => 'forms.png',
+            'link' => 'forms'
+        ),
         'facilities' => array(
             'title' => 'Facilities Management',
             'permission' => 'facilities',
             'icon' => 'facilities.png',
             'link' => 'facilities'
-        ),
-        'lockshop' => array(
-            'title' => 'Lock Management',
-            'permission' => 'lockshop',
-            'icon' => 'lockshop.png',
-            'link' => 'lockshop'
         ),
         'configuration' => array(
             'title' => 'Configuration',
