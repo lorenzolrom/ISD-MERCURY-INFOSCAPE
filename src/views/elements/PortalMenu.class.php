@@ -44,11 +44,11 @@ class PortalMenu extends View
             'icon' => 'facilities.png',
             'link' => 'facilities'
         ),
-        'chat' => array(
-            'title' => 'Chateau (DEV)',
-            'permission' => 'chat',
-            'icon' => 'chat.png',
-            'link' => 'chat'
+        'game' => array(
+            'title' => 'Game (DEV)',
+            'permission' => 'game',
+            'icon' => 'bang.png',
+            'link' => 'game'
         ),
         'configuration' => array(
             'title' => 'Configuration',

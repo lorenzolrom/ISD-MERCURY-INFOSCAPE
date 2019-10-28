@@ -11,14 +11,14 @@
  */
 
 
-namespace controllers\chat;
+namespace controllers\game;
 
 
 use controllers\Controller;
-use views\pages\chat\ChatClientPage;
+use views\pages\game\ChatClientPage;
 use views\View;
 
-class ChatController extends Controller
+class GameController extends Controller
 {
 
     /**

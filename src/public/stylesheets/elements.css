@@ -683,6 +683,7 @@ div#chatClient div#messageContainer {
 
 div#chatClient div#messagePane {
     height: 400px;
+    overflow-y: scroll;
 }
 
 div#chatClient textarea {
@@ -712,6 +713,26 @@ div#chatClient div#conversationSelect ul li {
 div#chatClient div#conversationSelect ul li span {
     color: blue;
     cursor: pointer;
+}
+
+div#chatClient div#messageHeader {
+    font-weight: 600;
+    font-size: 1.1rem;
+    background-color: #FFF;
+    border: 1px solid var(--border-color);
+}
+
+div#chatClient span.time {
+    margin-right: 5px;
+}
+
+div#chatClient span.user {
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+div#chatClient span.user::after {
+    content: ":";
 }
 
 @media screen and (max-device-width: 800px) {
