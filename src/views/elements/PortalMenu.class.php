@@ -44,12 +44,6 @@ class PortalMenu extends View
             'icon' => 'facilities.png',
             'link' => 'facilities'
         ),
-        'game' => array(
-            'title' => 'Game (DEV)',
-            'permission' => 'game',
-            'icon' => 'bang.png',
-            'link' => 'game'
-        ),
         'configuration' => array(
             'title' => 'Configuration',
             'permission' => 'settings',
