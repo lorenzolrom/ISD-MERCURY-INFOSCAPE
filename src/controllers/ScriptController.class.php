@@ -14,6 +14,7 @@
 namespace controllers;
 
 
+use views\pages\ScriptPage;
 use views\View;
 
 /**
@@ -25,12 +26,38 @@ use views\View;
  */
 class ScriptController extends Controller
 {
-
     /**
      * @return View
      */
     public function getPage(): ?View
     {
-        // TODO: Implement getPage() method.
+        $scriptPath = dirname(__FILE__) . '/../';
+
+        // Check for extension prefix
+        $extension = $this->request->next();
+
+        if(in_array($extension, \Config::OPTIONS['enabledExtensions']))
+        {
+            $scriptPath .= 'extensions/' . $extension . '/scripts';
+        }
+        else
+        {
+            $scriptPath .= 'scripts/' . $extension;
+        }
+
+        while($part = $this->request->next())
+        {
+            $scriptPath .= '/' . $part;
+        }
+
+        if(file_exists($scriptPath))
+        {
+            // Set javascript MIME type
+            header('Content-type: application/javascript');
+
+            return new ScriptPage($scriptPath);
+        }
+
+        return NULL;
     }
 }

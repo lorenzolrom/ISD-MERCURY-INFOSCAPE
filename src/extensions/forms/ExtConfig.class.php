@@ -25,7 +25,5 @@ class ExtConfig
         ),
     );
 
-    public const ROUTES = array(
-        // TODO: add route
-    );
+    public const ROUTES = array();
 }

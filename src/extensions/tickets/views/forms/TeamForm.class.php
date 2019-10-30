@@ -27,7 +27,7 @@ class TeamForm extends Form
      */
     public function __construct(?array $details = NULL)
     {
-        $this->setTemplateFromHTML("tickets/TeamForm", self::TEMPLATE_FORM, 'tickets');
+        $this->setTemplateFromHTML("TeamForm", self::TEMPLATE_FORM, 'tickets');
 
         $users = InfoCentralConnection::getResponse(InfoCentralConnection::GET, 'users')->getBody();
 

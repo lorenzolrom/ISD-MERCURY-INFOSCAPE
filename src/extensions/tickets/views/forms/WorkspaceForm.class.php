@@ -27,7 +27,7 @@ class WorkspaceForm extends Form
      */
     public function __construct(?array $details = NULL)
     {
-        $this->setTemplateFromHTML("tickets/WorkspaceForm", self::TEMPLATE_FORM, 'tickets');
+        $this->setTemplateFromHTML("WorkspaceForm", self::TEMPLATE_FORM, 'tickets');
 
         $teams = InfoCentralConnection::getResponse(InfoCentralConnection::GET, 'tickets/teams')->getBody();
 
