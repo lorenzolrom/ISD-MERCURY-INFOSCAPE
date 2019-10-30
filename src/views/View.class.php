@@ -28,12 +28,17 @@ abstract class View
     /**
      * @param string $htmlDocumentName The name of the html source document (without .html)
      * @param string $type The directory the document is stored in (e.g., content, elements, pages)
+     * @param string|null $extension If not null, will look for template in the extension provided
      * @return string
      * @throws ViewException
      */
-    public static function templateFileContents(string $htmlDocumentName, string $type): string
+    public static function templateFileContents(string $htmlDocumentName, string $type, ?string $extension = NULL): string
     {
-        $file = dirname(__FILE__) . "/../html/$type/$htmlDocumentName.html";
+        if($extension !== NULL)
+            $file = dirname(__FILE__) . "/../extensions/$extension/html/$type/$htmlDocumentName.html";
+        else
+            $file = dirname(__FILE__) . "/../html/$type/$htmlDocumentName.html";
+
         if (!is_file($file))
         {
             throw new ViewException(ViewException::MESSAGES[ViewException::TEMPLATE_NOT_FOUND] . ": $htmlDocumentName", ViewException::TEMPLATE_NOT_FOUND);
@@ -102,12 +107,13 @@ abstract class View
 
     /**
      * @param string $htmlDocumentName
-     * @param $type
+     * @param string $type
+     * @param string|null $extension
      * @throws ViewException
      */
-    protected function setTemplateFromHTML(string $htmlDocumentName, $type)
+    protected function setTemplateFromHTML(string $htmlDocumentName, string $type, ?string $extension = NULL)
     {
-        $this->template = self::templateFileContents($htmlDocumentName, $type);
+        $this->template = self::templateFileContents($htmlDocumentName, $type, $extension);
     }
 
     /**

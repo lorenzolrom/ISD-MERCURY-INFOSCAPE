@@ -11,11 +11,11 @@
  */
 
 
-namespace controllers\facilities;
+namespace extensions\facilities\controllers;
 
 
 use controllers\Controller;
-use views\pages\facilities\FacilitiesHome;
+use extensions\facilities\views\pages\FacilitiesHome;
 use views\View;
 
 class FacilitiesController extends Controller

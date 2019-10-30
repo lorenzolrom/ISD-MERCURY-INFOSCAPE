@@ -26,6 +26,13 @@ abstract class Config_Generic
         'icURL' => 'https://infocentral.url/',
         'icSecret' => 'INFOCENTRAL_SECRET',
 
+        // Specify enabled extensions
+        'enabledExtensions' => array(
+            'facilities',
+            'tickets',
+            'netcenter'
+        ),
+
         'additionalRoutes' => array(
             'tickets' => 'controllers\tickets\TicketController',
             'facilities' => 'controllers\facilities\FacilitiesController',

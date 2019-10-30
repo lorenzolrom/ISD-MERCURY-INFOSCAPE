@@ -11,7 +11,7 @@
  */
 
 
-namespace views\pages\facilities;
+namespace extensions\facilities\views\pages;
 
 
 use exceptions\EntryNotFoundException;

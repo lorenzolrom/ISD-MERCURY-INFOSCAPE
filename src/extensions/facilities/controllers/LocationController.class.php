@@ -11,11 +11,11 @@
  */
 
 
-namespace controllers\facilities;
+namespace extensions\facilities\controllers;
 
 
 use controllers\Controller;
-use views\pages\facilities\LocationEditPage;
+use extensions\facilities\views\pages\LocationEditPage;
 use views\View;
 
 class LocationController extends Controller

@@ -11,7 +11,7 @@
  */
 
 
-namespace views\forms\facilities;
+namespace extensions\facilities\views\forms;
 
 
 use views\forms\Form;
@@ -25,7 +25,7 @@ class BuildingForm extends Form
      */
     public function __construct(?array $details = NULL)
     {
-        $this->setTemplateFromHTML("facilities/BuildingForm", self::TEMPLATE_FORM);
+        $this->setTemplateFromHTML("BuildingForm", self::TEMPLATE_FORM, 'facilities');
 
         if($details !== NULL)
         {

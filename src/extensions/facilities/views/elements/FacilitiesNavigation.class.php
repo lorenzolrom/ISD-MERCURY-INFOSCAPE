@@ -11,7 +11,7 @@
  */
 
 
-namespace views\elements\facilities;
+namespace extensions\facilities\views\elements;
 
 use views\elements\Navigation;
 

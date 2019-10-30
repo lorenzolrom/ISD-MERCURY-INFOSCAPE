@@ -11,10 +11,10 @@
  */
 
 
-namespace views\pages\facilities;
+namespace extensions\facilities\views\pages;
 
 
-use views\elements\facilities\FacilitiesNavigation;
+use extensions\facilities\views\elements\FacilitiesNavigation;
 use views\pages\SidebarDocument;
 
 abstract class FacilitiesDocument extends SidebarDocument
@@ -29,7 +29,7 @@ abstract class FacilitiesDocument extends SidebarDocument
      */
     public function __construct(?string $permission = NULL, ?string $sectionTitle = NULL)
     {
-        parent::__construct($permission, 'views\elements\facilities\FacilitiesNavigation', $sectionTitle);
+        parent::__construct($permission, 'extensions\facilities\views\elements\FacilitiesNavigation', $sectionTitle);
 
         $navigation = new FacilitiesNavigation();
         $this->setVariable('navigation', $navigation->getTemplate());

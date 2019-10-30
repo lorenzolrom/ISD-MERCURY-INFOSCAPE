@@ -183,7 +183,7 @@ class Building extends Model
 While the front-end might represent the page displayed for searching volumes like this:
 
 ```php
-namespace views\pages\facilities;
+namespace extensions\facilities\views\pages;
 
 use views\pages\ModelPage;
 

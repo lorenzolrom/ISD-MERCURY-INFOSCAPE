@@ -11,7 +11,7 @@
  */
 
 
-namespace views\forms\facilities;
+namespace extensions\facilities\views\forms;
 
 
 use views\forms\Form;
@@ -25,7 +25,7 @@ class LocationForm extends Form
      */
     public function __construct(array $details = NULL)
     {
-        $this->setTemplateFromHTML("facilities/LocationForm", self::TEMPLATE_FORM);
+        $this->setTemplateFromHTML("LocationForm", self::TEMPLATE_FORM, 'facilities');
 
         $this->setVariable("buildingId", $details['buildingId']);
         $this->setVariable("buildingName", htmlentities($details['buildingName']));

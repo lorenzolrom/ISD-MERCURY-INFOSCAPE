@@ -11,7 +11,7 @@
  */
 
 
-namespace views\pages\facilities;
+namespace extensions\facilities\views\pages;
 
 
 class FacilitiesHome extends FacilitiesDocument
@@ -21,6 +21,6 @@ class FacilitiesHome extends FacilitiesDocument
         parent::__construct('facilitiescore_facilities-r');
         $this->setVariable('tabTitle', 'Facilities Management');
 
-        $this->setVariable('content', self::templateFileContents('facilities/FacilitiesHome', self::TEMPLATE_PAGE));
+        $this->setVariable('content', self::templateFileContents('FacilitiesHome', self::TEMPLATE_PAGE, 'facilities'));
     }
 }

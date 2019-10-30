@@ -11,7 +11,7 @@
  */
 
 
-namespace views\pages\facilities;
+namespace extensions\facilities\views\pages;
 
 class BuildingViewPage extends ModelPage
 {
@@ -21,7 +21,7 @@ class BuildingViewPage extends ModelPage
 
         $building = $this->response->getBody();
 
-        $this->setVariable("content", self::templateFileContents("facilities/Building", self::TEMPLATE_PAGE));
+        $this->setVariable("content", self::templateFileContents("Building", self::TEMPLATE_PAGE,'facilities'));
 
         $this->setVariable("tabTitle", "Building - " . htmlentities($building['name']));
 

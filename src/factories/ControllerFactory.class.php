@@ -37,9 +37,29 @@ class ControllerFactory
      */
     public static function getController(HTTPRequest $request): Controller
     {
+        // Hold all controllers
+        $controllers = self::CONTROLLERS;
+
+        // Import routes from extensions
+        foreach(\Config::OPTIONS['enabledExtensions'] as $extension)
+        {
+            // Check for ExtConfig.class inside extension
+            $extConfig = "extensions\\$extension\\ExtConfig";
+
+            // If it doesn't exist, skip the extension
+            if(!class_exists($extConfig))
+                continue;
+
+            // Merge ROUTES from ExtConfig into $controllers
+            $extConfig = new $extConfig();
+
+            $controllers = array_merge($controllers, $extConfig::ROUTES);
+        }
+
         $route = $request->next();
 
-        $controllers = array_merge(self::CONTROLLERS, \Config::OPTIONS['additionalRoutes']);
+        // TODO deprecate, remove when all extensions ported over
+        $controllers = array_merge($controllers, \Config::OPTIONS['additionalRoutes']);
 
         if($route == null)
             $controller = 'controllers\PortalController';

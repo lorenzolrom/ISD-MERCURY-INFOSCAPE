@@ -11,10 +11,10 @@
  */
 
 
-namespace views\pages\facilities;
+namespace extensions\facilities\views\pages;
 
 
-use views\forms\facilities\BuildingForm;
+use extensions\facilities\views\forms\BuildingForm;
 
 class BuildingEditPage extends ModelPage
 {

@@ -38,12 +38,6 @@ class PortalMenu extends View
             'icon' => 'forms.png',
             'link' => 'forms'
         ),
-        'facilities' => array(
-            'title' => 'Facilities Management',
-            'permission' => 'facilities',
-            'icon' => 'facilities.png',
-            'link' => 'facilities'
-        ),
         'configuration' => array(
             'title' => 'Configuration',
             'permission' => 'settings',
@@ -59,11 +53,33 @@ class PortalMenu extends View
      */
     public function __construct()
     {
+        // Import extension menus
+        $menuItems = array();
+
+        // Import routes from extensions
+        foreach(\Config::OPTIONS['enabledExtensions'] as $extension)
+        {
+            // Check for ExtConfig.class inside extension
+            $extConfig = "extensions\\$extension\\ExtConfig";
+
+            // If it doesn't exist, skip the extension
+            if(!class_exists($extConfig))
+                continue;
+
+            // Merge ROUTES from ExtConfig into $controllers
+            $extConfig = new $extConfig();
+
+            $menuItems = array_merge($menuItems, $extConfig::MENU);
+        }
+
+        // Include core menu items at the bottom
+        $menuItems = array_merge($menuItems, self::MENU);
+
         $this->setTemplateFromHTML('PortalMenu', self::TEMPLATE_ELEMENT);
         $permissions = InfoCentralConnection::getResponse(InfoCentralConnection::GET, "currentUser/permissions")->getBody();
         $menu = '';
 
-        foreach(self::MENU as $item)
+        foreach($menuItems as $item)
         {
             if(!in_array($item['permission'], $permissions))
                 continue;

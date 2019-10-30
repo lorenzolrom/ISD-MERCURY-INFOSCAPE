@@ -11,15 +11,15 @@
  */
 
 
-namespace controllers\facilities;
+namespace extensions\facilities\controllers;
 
 
 use controllers\Controller;
-use views\pages\facilities\BuildingCreatePage;
-use views\pages\facilities\BuildingEditPage;
-use views\pages\facilities\BuildingSearchPage;
-use views\pages\facilities\BuildingViewPage;
-use views\pages\facilities\LocationCreatePage;
+use extensions\facilities\views\pages\BuildingCreatePage;
+use extensions\facilities\views\pages\BuildingEditPage;
+use extensions\facilities\views\pages\BuildingSearchPage;
+use extensions\facilities\views\pages\BuildingViewPage;
+use extensions\facilities\views\pages\LocationCreatePage;
 use views\View;
 
 class BuildingController extends Controller

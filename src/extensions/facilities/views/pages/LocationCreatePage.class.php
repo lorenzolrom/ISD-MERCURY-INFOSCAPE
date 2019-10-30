@@ -11,12 +11,12 @@
  */
 
 
-namespace views\pages\facilities;
+namespace extensions\facilities\views\pages;
 
 
 use exceptions\EntryNotFoundException;
 use utilities\InfoCentralConnection;
-use views\forms\facilities\LocationForm;
+use extensions\facilities\views\forms\LocationForm;
 
 class LocationCreatePage extends FacilitiesDocument
 {

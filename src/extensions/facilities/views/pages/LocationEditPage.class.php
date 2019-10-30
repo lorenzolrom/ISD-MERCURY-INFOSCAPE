@@ -11,9 +11,9 @@
  */
 
 
-namespace views\pages\facilities;
+namespace extensions\facilities\views\pages;
 
-use views\forms\facilities\LocationForm;
+use extensions\facilities\views\forms\LocationForm;
 
 class LocationEditPage extends ModelPage
 {
