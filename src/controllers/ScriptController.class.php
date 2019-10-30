@@ -52,8 +52,13 @@ class ScriptController extends Controller
 
         if(file_exists($scriptPath))
         {
-            // Set javascript MIME type
-            header('Content-type: application/javascript');
+            // Set MIME type
+            $ext = pathinfo($scriptPath, PATHINFO_EXTENSION);
+
+            if($ext == 'css')
+                header('Content-type: text/css');
+            else
+                header('Content-type: application/javascript');
 
             return new ScriptPage($scriptPath);
         }
