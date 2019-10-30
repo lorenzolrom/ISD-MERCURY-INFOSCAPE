@@ -28,15 +28,9 @@ abstract class Config_Generic
 
         // Specify enabled extensions
         'enabledExtensions' => array(
-            'facilities',
+            'netcenter',
             'tickets',
-            'netcenter'
-        ),
-
-        'additionalRoutes' => array(
-            'tickets' => 'controllers\tickets\TicketController',
-            'facilities' => 'controllers\facilities\FacilitiesController',
-            'netcenter' => 'controllers\netcenter\NetCenterController',
+            'facilities',
         ),
 
         // Optional filter for public pages

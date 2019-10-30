@@ -20,18 +20,6 @@ use views\View;
 class PortalMenu extends View
 {
     private const MENU = array(
-        'servicenter' => array(
-            'title' => 'Service Center',
-            'permission' => 'tickets',
-            'icon' => 'ticket.png',
-            'link' => 'tickets'
-        ),
-        'formcenter' => array(
-            'title' => 'Form Center (DEV)',
-            'permission' => 'forms',
-            'icon' => 'forms.png',
-            'link' => 'forms'
-        ),
         'configuration' => array(
             'title' => 'Configuration',
             'permission' => 'settings',

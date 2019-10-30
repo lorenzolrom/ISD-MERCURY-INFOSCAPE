@@ -58,9 +58,6 @@ class ControllerFactory
 
         $route = $request->next();
 
-        // TODO deprecate, remove when all extensions ported over
-        $controllers = array_merge($controllers, \Config::OPTIONS['additionalRoutes']);
-
         if($route == null)
             $controller = 'controllers\PortalController';
         else if(!in_array($route, array_keys($controllers)))
