@@ -42,5 +42,7 @@ abstract class NetCenterDocument extends SidebarDocument
         $this->setVariable('navigation', $navigation->getTemplate());
 
         $this->setVariable('appCaption', 'Net Center');
+
+        $this->addStylesheets(array('netcenter/elements.css'));
     }
 }

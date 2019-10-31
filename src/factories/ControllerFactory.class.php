@@ -28,6 +28,7 @@ class ControllerFactory
         'account' => 'controllers\AccountController',
         'about' => 'controllers\AboutController',
         'scripts' => 'controllers\ScriptController',
+        'stylesheets' => 'controllers\StylesheetController',
         '!api-request' => 'controllers\APIProxyController'
     );
 

@@ -130,15 +130,19 @@ function setupTable(data)
  */
 function loginSetup()
 {
-    let loginWindow = $('#login-window');
+    let loginWindow = document.getElementById('login-window');
+
+    if(!loginWindow)
+        return;
 
     // Add listener to login button
-    loginWindow.submit(function () {
-        $('#login-button').val("Logging in...");
-    });
+    loginWindow.onsubmit = function () {
+        document.getElementById('login-button').value = 'Logging in...';
+    };
 
     // Set login page background
-    loginWindow.parent().css('background-color', "#38383d");
+
+    loginWindow.parentNode.style.backgroundColor = '#38383d';
 }
 
 /**
@@ -602,7 +606,6 @@ function disableAutocomplete()
 $(document).ready(function(){
     loginSetup();
     notificationSetup();
-    tableFilterSetup();
     formSubmitButtonSetup();
     confirmButtonSetup();
     buttonSetup();

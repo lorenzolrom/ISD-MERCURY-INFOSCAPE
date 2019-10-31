@@ -1,0 +1,72 @@
+/* Monitor Tiles */
+div.monitor-tile-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+div.monitor-tile-container div.monitor-tile {
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 225px;
+    display: inline-block;
+    padding: 5px;
+    box-sizing: border-box;
+    flex-direction: column;
+
+    border-radius: 6px;
+    background-color: var(--main-background);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+}
+
+div.monitor-tile-container div.monitor-tile h3 {
+    display: block;
+    width: 100%;
+    background: var(--primary-color);
+    color: #FFF;
+    font-weight: 600;
+    padding: 3px;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+div.monitor-tile-container div.monitor-tile img.monitor-indicator {
+    margin: auto;
+    display: block;
+    padding: 5px;
+    height: 32px;
+}
+
+div.monitor-tile span {
+    font-weight: 600;
+}
+
+div.monitor-tile ul li {
+    list-style-type: none;
+    font-size: .8rem;
+    display: block;
+    position: relative;
+    margin-top: 3px;
+    line-height: 16px;
+}
+
+div.monitor-tile ul li img {
+    position: absolute;
+    right: 0;
+    vertical-align: middle;
+}
+
+div.monitor-countdown {
+    float: right;
+    color: #006699;
+    font-weight: 600;
+}
+
+#monitor-countdown-timer {
+    color: #000;
+    text-decoration: underline;
+    font-weight: 600;
+    font-size: 1.1rem;
+}

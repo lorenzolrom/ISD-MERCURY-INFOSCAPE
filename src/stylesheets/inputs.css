@@ -104,23 +104,6 @@ form.inline-form input {
     display: inline-block;
 }
 
-span#changeWorkspace {
-    cursor: pointer;
-}
-
-select#assigneeSelect {
-    width: 100%;
-}
-
-select#assigneeSelect option.team, select#assignees option.team {
-    font-weight: bold;
-    padding-left: .5em;
-}
-
-select#assigneeSelect option.user, select#assignees option.user {
-    padding-left: 2em;
-}
-
 @media screen and (max-device-width: 800px) {
     .button, .button-noveil {
         padding: 5px 10px;

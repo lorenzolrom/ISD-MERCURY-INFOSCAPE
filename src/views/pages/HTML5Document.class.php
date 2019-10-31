@@ -26,4 +26,25 @@ abstract class HTML5Document extends View
     {
         $this->setTemplateFromHTML("HTML5Document", self::TEMPLATE_PAGE);
     }
+
+    /**
+     * Add additional stylesheets to this document
+     * @param string | array $sheets
+     */
+    protected function addStylesheets($sheets)
+    {
+        if(!is_array($sheets))
+        {
+            $sheets = array((string)$sheets);
+        }
+
+        $styleString = '';
+
+        foreach($sheets as $sheet)
+        {
+            $styleString .= "<link rel='stylesheet' href='" . \Config::OPTIONS['baseURI'] . "stylesheets/$sheet'>";
+        }
+
+        $this->setVariable('additionalSheets', $styleString);
+    }
 }
