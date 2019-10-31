@@ -3,15 +3,16 @@
     --notice: #6a97c4;
     --success: #39B54A;
 
-    --primary-color: #004479;
-    --accent-color: #4F6BA0;
-    --nav-color: #000000;
+    --primary-color: #4095cd;
+    --accent-color: #333;
+    --nav-color: #DFDECB;
+    --nav-text-color: #000;
 
     --drop-down-color: #F3F3F3;
     --border-color: #D3D3D3;
-    --drop-down-link-hover: #333;
+    --drop-down-link-hover: #888;
 
-    --main-background: #F3F3F3;
+    --main-background: #F3F2E2;
     --dark-background: #38383D;
 
     --shadow: 0px 3px 4px #444;
@@ -77,23 +78,21 @@ header span#company-logo {
     left: 0;
     height: 80px;
     width: 384px;
-    background-image: url('../media/company_logo.png');
+    background-image: none;
     background-repeat: no-repeat;
-    filter: var(--image-shadow);
 }
 
 header span#app-logo {
-    background-image: url('../media/merlot_logo_header.png');
+    background-image: url('../media/mercury_logo.png');
     position: absolute;
     height: 65px;
     width: 360px;
     top: 7px;
-    right: 10px;
-    filter: var(--image-shadow);
+    left: 10px;
     z-index: 2;
     background-size: auto 100%;
     background-repeat: no-repeat;
-    background-position: right;
+    background-position: left;
 }
 
 header span#company-name {
@@ -133,7 +132,6 @@ header span#app-caption {
 /* Navigation */
 
 nav {
-    box-shadow: var(--shadow);
     z-index: 998;
     background-color: var(--nav-color);
 }
@@ -169,7 +167,7 @@ nav ul li .nav-item, nav ul li a {
 }
 
 nav > ul > li > .nav-item {
-    color: #FFF;
+    color: var(--nav-text-color);
     line-height: 25px;
     font-size: 1.1rem;
     font-weight: var(--menu-font-weight);

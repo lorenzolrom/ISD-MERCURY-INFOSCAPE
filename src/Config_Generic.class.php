@@ -17,6 +17,7 @@ abstract class Config_Generic
         'appName' => 'MERLOT',
 
         'companyName' => 'Your Company',
+        'useCustomStyles' => FALSE,
 
         'baseURL' => 'https://your.domain',
         'baseURI' => '/',
@@ -33,7 +34,7 @@ abstract class Config_Generic
             'facilities',
         ),
 
-        // Optional filter for public pages
+        // Specify whitelist I.P. networks for public pages
         'ipWhitelist' => array(
             '10.0.0.0/24'
         )

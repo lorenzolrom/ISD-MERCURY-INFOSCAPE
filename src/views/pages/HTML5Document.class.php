@@ -25,6 +25,10 @@ abstract class HTML5Document extends View
     public function __construct()
     {
         $this->setTemplateFromHTML("HTML5Document", self::TEMPLATE_PAGE);
+
+        // Check for custom styles
+        if(\Config::OPTIONS['useCustomStyles'] === TRUE)
+            $this->setVariable('customSheets', "<link rel='stylesheet' href='" . \Config::OPTIONS['baseURI'] . "stylesheets/customtheme.css'>");
     }
 
     /**

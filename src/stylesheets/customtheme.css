@@ -1,0 +1,27 @@
+:root {
+    --primary-color: #004479;
+    --accent-color: #4F6BA0;
+    --nav-color: #000000;
+
+    --nav-text-color: #FFF;
+    --drop-down-link-hover: #333;
+
+    --main-background: #F3F3F3;
+}
+
+header span#company-logo {
+    background-image: url('../media/custommedia/company_logo.png');
+    filter: var(--image-shadow);
+}
+
+header span#app-logo {
+    background-image: url('../media/custommedia/merlot_logo_header.png');
+    filter: var(--image-shadow);
+    right: 10px;
+    left: auto;
+    background-position: right;
+}
+
+nav {
+    box-shadow: var(--shadow);
+}

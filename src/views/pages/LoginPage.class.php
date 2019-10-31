@@ -16,7 +16,7 @@ namespace views\pages;
 
 use views\View;
 
-class LoginPage extends View
+class LoginPage extends HTML5Document
 {
     /**
      * LoginPage constructor.
@@ -24,7 +24,7 @@ class LoginPage extends View
      */
     public function __construct()
     {
-        $this->setTemplateFromHTML("HTML5Document", self::TEMPLATE_PAGE);
+        parent::__construct();
         $this->setVariable("content", self::templateFileContents("LoginForm", self::TEMPLATE_FORM));
         $this->setVariable("tabTitle", "Login");
         $this->setVariable("appVersion", \Version::CURRENT_VERSION);
