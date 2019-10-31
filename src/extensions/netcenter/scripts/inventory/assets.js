@@ -101,14 +101,12 @@ function searchAssets()
             ]);
         });
 
-        setupTable({
-            target: 'asset-results',
-            checkboxes: true,
+        $('#asset-results').mlTable({
             checkboxColumn: 1,
             header: ['In W.S.', '', 'Asset Tag', 'Code', 'Name', 'Asset Type', 'Serial Number', 'Location', 'Warehouse', 'Verified'],
             sortColumn: 2,
             linkColumn: 2,
-            href: baseURI + "netcenter/inventory/assets/",
+            href: baseURI + 'netcenter/inventory/assets/',
             refs: refs,
             rows: rows
         });
