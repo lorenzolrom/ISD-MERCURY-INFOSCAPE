@@ -26,12 +26,16 @@ div#login-reflection {
     border-radius: 6px;
 }
 
-img#merlot-logo {
+span#login-logo {
     display: block;
     position: absolute;
     left: 25px;
     top: 30px;
+    width: 300px;
     height: 100px;
+    background-image: url("../media/mercury_logo.png");
+    background-position: left;
+    background-repeat: no-repeat;
 }
 
 span#app-version {
@@ -94,12 +98,6 @@ div#login-window div#notifications {
 
     background-color: var(--accent-color);
     color: #FFFFFF;
-}
-
-img#mercury-logo {
-    position: absolute;
-    top: 25px;
-    left: 25px;
 }
 
 @media screen and (max-device-height: 800px) {
