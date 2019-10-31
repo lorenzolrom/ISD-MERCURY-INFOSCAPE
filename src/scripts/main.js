@@ -1,4 +1,5 @@
 /**
+ * DEPRECATED: use MAINX.js jQuery plugin .mlTable()
  * Create a table based on JSON and format it as a datatable
  */
 function setupTable(data)
@@ -154,48 +155,6 @@ function notificationSetup()
 function datePickerSetup()
 {
     $('.date-input').datepicker({dateFormat: 'yy-mm-dd'});
-}
-
-/**
- * Filters a result table list
- * @param input The input field
- */
-function filterTableList(input)
-{
-    // Get the input from the filter field
-    let filter = input.value.toUpperCase();
-
-    // Get the table immediately following the filter
-    let table = input.nextElementSibling;
-    let rows = table.getElementsByTagName("tr");
-
-    for(let i = 0; i < rows.length; i++)
-    {
-        // Get second cell (after edit link)
-        let cell = rows[i].getElementsByTagName("td")[1];
-
-        if(cell)
-        {
-            if(cell.innerHTML.toUpperCase().indexOf(filter) > -1)
-            {
-                rows[i].style.display = "";
-            }
-            else
-            {
-                rows[i].style.display = "none";
-            }
-        }
-    }
-}
-
-/**
- * Initialize any table filters
- */
-function tableFilterSetup()
-{
-    $('.list-table-filter').keyup(function(){
-        filterTableList(this);
-    });
 }
 
 /**

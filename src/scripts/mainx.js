@@ -1,3 +1,15 @@
+/*
+    MAINX.js
+    Re-implemented functions from MAIN.js.
+    Including functions converted to jQuery plugins.
+
+    Generated 2019-10-30
+    by lromero
+ */
+
+/**
+ * Generates a DataTable with the supplied data and settings
+ */
 (function($){
     $.fn.mlTable = function(options){
 
