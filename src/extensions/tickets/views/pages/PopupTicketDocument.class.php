@@ -22,6 +22,7 @@ abstract class PopupTicketDocument extends PortalDocument
     {
         parent::__construct('tickets-agent');
         self::setTemplateFromHTML('HTML5Document', self::TEMPLATE_PAGE);
+        $this->loadCustomStyles();
         $this->setVariable('content', self::templateFileContents('PopupTicketDocument', self::TEMPLATE_PAGE, 'tickets'));
         $this->setVariable('header', self::templateFileContents('Header', self::TEMPLATE_ELEMENT));
         $this->addStylesheets(array('tickets/inputs.css', 'tickets/elements.css'));

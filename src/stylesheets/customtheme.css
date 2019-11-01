@@ -1,12 +1,4 @@
 :root {
-    --primary-color: #004479;
-    --accent-color: #4F6BA0;
-    --nav-color: #000000;
-
-    --nav-text-color: #FFF;
-    --drop-down-link-hover: #333;
-
-    --main-background: #F3F3F3;
 }
 
 header span#company-logo {
@@ -20,10 +12,6 @@ header span#app-logo {
     right: 10px;
     left: auto;
     background-position: right;
-}
-
-nav {
-    box-shadow: var(--shadow);
 }
 
 span#login-logo {

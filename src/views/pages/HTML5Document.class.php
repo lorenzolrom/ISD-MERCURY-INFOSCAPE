@@ -28,7 +28,16 @@ abstract class HTML5Document extends View
 
         // Check for custom styles
         if(\Config::OPTIONS['useCustomStyles'] === TRUE)
-            $this->setVariable('customSheets', "<link rel='stylesheet' href='" . \Config::OPTIONS['baseURI'] . "stylesheets/customtheme.css'>");
+            $this->loadCustomStyles();
+
+    }
+
+    /**
+     * Apply the custom stylesheet
+     */
+    protected function loadCustomStyles()
+    {
+        $this->setVariable('customSheets', "<link rel='stylesheet' href='" . \Config::OPTIONS['baseURI'] . "stylesheets/customtheme.css'>");
     }
 
     /**

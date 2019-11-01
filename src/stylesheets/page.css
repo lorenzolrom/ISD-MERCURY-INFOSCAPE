@@ -3,16 +3,16 @@
     --notice: #6a97c4;
     --success: #39B54A;
 
-    --primary-color: #4095cd;
-    --accent-color: #333;
-    --nav-color: #DFDECB;
-    --nav-text-color: #000;
+    --primary-color: #004479;
+    --accent-color: #4F6BA0;
+    --nav-color: #000000;
+    --nav-text-color: #FFF;
 
     --drop-down-color: #F3F3F3;
     --border-color: #D3D3D3;
-    --drop-down-link-hover: #888;
+    --drop-down-link-hover: #333;
 
-    --main-background: #F3F2E2;
+    --main-background: #F3F3F3;
     --dark-background: #38383D;
 
     --shadow: 0px 3px 4px #444;
@@ -134,6 +134,7 @@ header span#app-caption {
 nav {
     z-index: 998;
     background-color: var(--nav-color);
+    box-shadow: var(--shadow);
 }
 
 nav > ul > li {
