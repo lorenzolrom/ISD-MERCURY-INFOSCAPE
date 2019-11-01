@@ -1,0 +1,20 @@
+table.table-display {
+    position: relative;
+}
+
+img.thumbnailphoto {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    width: 150px;
+}
+
+table.table-display#groups td, th{
+    font-weight: normal;
+    text-align: left;
+}
+
+table.table-display#groups th {
+    font-weight: 600;
+}

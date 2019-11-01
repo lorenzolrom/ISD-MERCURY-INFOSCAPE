@@ -1,0 +1,79 @@
+<div class="button-bar">
+    <span id="uploadPicture-button" class="button-noveil dialog-show-button"><img src="{{@baseURI}}media/icons/camera.png" alt="">Upload Photo</span>
+    <a class="button" href="{{@baseURI}}netuserman/search"><img src="{{@baseURI}}media/icons/cancel.png" alt="">Back</a>
+</div>
+<h2 class="region-title">General</h2>
+<table class="table-display">
+    <tbody>
+    <tr>
+        <td>Given Name</td>
+        <td>{{@givenname}}</td>
+        <td>Initials</td>
+        <td>{{@initials}}</td>
+    </tr>
+    <tr>
+        <td>Surname</td>
+        <td>{{@sn}}</td>
+    </tr>
+    <tr>
+        <td>Display Name</td>
+        <td>{{@displayname}}</td>
+    </tr>
+    <tr>
+        <td>Description</td>
+        <td>{{@description}}</td>
+    </tr>
+    <tr>
+        <td>Office</td>
+        <td>{{@physicaldeliveryofficename}}</td>
+    </tr>
+    <tr>
+        <td>Telephone Number</td>
+        <td>{{@telephonenumber}}</td>
+    </tr>
+    <tr>
+        <td>E-Mail</td>
+        <td>{{@mail}}</td>
+    </tr>
+    <tr>
+        <td>Webpage</td>
+        <td>{{@wwwhomepage}}</td>
+    </tr>
+    <tr>
+        <td><img class="thumbnailphoto" src="{{@thumbnailphotoPath}}" alt="thumbnailPhoto"></td>
+    </tr>
+    </tbody>
+</table>
+<h2 class="region-title">Account</h2>
+<table class="table-display">
+    <tbody>
+    <tr>
+        <td>Logon Name</td>
+        <td>{{@userprincipalname}}</td>
+    </tr>
+    <tr>
+        <td>SAM Account Name</td>
+        <td>{{@samaccountname}}</td>
+    </tr>
+    </tbody>
+</table>
+<h2 class="region-title">Groups</h2>
+<table class="table-display" id="groups">
+    <tbody>
+    <tr>
+        <th>Name</th>
+        <th>Folder</th>
+    </tr>
+    {{@memberofList}}
+    </tbody>
+</table>
+
+<!-- Dialog Forms -->
+<div id="uploadPicture-button-dialog" class="dialog" title="Upload Picture">
+    <form method="post" enctype="multipart/form-data">
+        <p>
+            <input type="file" name="thumbnailphoto">
+        </p>
+        <input type="submit" value="Upload">
+    </form>
+</div>
