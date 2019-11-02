@@ -21,13 +21,13 @@ class NetUserManNavigation extends Navigation
     public const BASE_URI = 'netuserman/';
 
     public const LINKS = array(
-        'queryLDAP' => array(
-            'title' => 'LDAP Users',
+        'netUsers' => array(
+            'title' => 'Net Users',
             'permission' => 'netuserman-read',
             'icon' => 'user.png',
             'pages' => array(
                 array(
-                    'title' => 'Query User',
+                    'title' => 'Search Users',
                     'operation' => 'search',
                     'permission' => 'netuserman-read',
                     'icon' => 'user.png',

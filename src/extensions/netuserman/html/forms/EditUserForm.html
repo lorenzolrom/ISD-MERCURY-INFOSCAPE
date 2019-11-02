@@ -1,0 +1,71 @@
+<div class="button-bar">
+    <span class="button form-submit-button" id="user"><img src="{{@baseURI}}media/icons/save.png">Save</span>
+    <a class="button" href="{{@baseURI}}netuserman/view/{{@loginname}}"><img src="{{@baseURI}}media/icons/cancel.png" alt="">Cancel</a>
+</div>
+<form id="user-form" class="table-form" onsubmit="return updateUser('{{@loginname}}')">
+    <h2 class="region-title">{{@distinguishedname}}</h2>
+    <img class="thumbnailphoto" src="{{@thumbnailphotoPath}}" alt="thumbnailPhoto">
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td>Given Name</td>
+            <td><input id="givenname" value="{{@givenname}}"></td>
+            <td>Initials</td>
+            <td><input id="initials" value="{{@initials}}"></td>
+        </tr>
+        <tr>
+            <td>Surname</td>
+            <td><input id="sn" value="{{@sn}}"></td>
+        </tr>
+        <tr>
+            <td>Display Name</td>
+            <td><input id="displayname" value="{{@displayname}}"></td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td><input id="description" value="{{@description}}"></td>
+        </tr>
+        <tr>
+            <td>Title</td>
+            <td><input id="title" value="{{@title}}"></td>
+        </tr>
+        <tr>
+            <td>Office</td>
+            <td><input id="physicaldeliveryofficename" value="{{@physicaldeliveryofficename}}"></td>
+        </tr>
+        <tr>
+            <td>Telephone Number</td>
+            <td><input id="telephonenumber" value="{{@telephonenumber}}"></td>
+        </tr>
+        <tr>
+            <td>E-Mail</td>
+            <td><input id="mail" value="{{@mail}}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <h2 class="region-title">Account</h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td>Logon Name</td>
+            <td><input id="userprincipalname" value="{{@userprincipalname}}"></td>
+        </tr>
+        <tr>
+            <td>User Account Control</td>
+            <td>
+                <select id="useraccountcontrol">
+                    <option value="enabled">enabled</option>
+                    <option value="enabled_password_never_expires">enabled_password_never_expires</option>
+                    <option value="disabled">disabled</option>
+                    <option value="disabled_password_never_expires">disabled_password_never_expires</option>
+                </select>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script src="{{@baseURI}}scripts/netuserman/users.js"></script>
+<script>
+    let select = document.getElementById('useraccountcontrol');
+    select.value = '{{@useraccountcontrol}}';
+</script>

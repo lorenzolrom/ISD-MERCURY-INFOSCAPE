@@ -16,6 +16,11 @@
         return this.each(function(){
             let $this = $(this);
 
+            while(this.firstChild)
+            {
+                this.removeChild(this.firstChild);
+            }
+
             let data = $.extend({
                 header: [],
 

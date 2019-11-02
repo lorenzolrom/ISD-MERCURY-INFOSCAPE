@@ -1,8 +1,10 @@
 <div class="button-bar">
+    <a class="button" href="{{@baseURI}}netuserman/edit/{{@loginname}}"><img src="{{@baseURI}}media/icons/edit.png" alt="">Edit Attributes</a>
     <span id="uploadPicture-button" class="button-noveil dialog-show-button"><img src="{{@baseURI}}media/icons/camera.png" alt="">Upload Photo</span>
     <a class="button" href="{{@baseURI}}netuserman/search"><img src="{{@baseURI}}media/icons/cancel.png" alt="">Back</a>
 </div>
-<h2 class="region-title">General</h2>
+<h2 class="region-title">{{@distinguishedname}}</h2>
+<img class="thumbnailphoto" src="{{@thumbnailphotoPath}}" alt="thumbnailPhoto">
 <table class="table-display">
     <tbody>
     <tr>
@@ -18,10 +20,13 @@
     <tr>
         <td>Display Name</td>
         <td>{{@displayname}}</td>
-    </tr>
     <tr>
         <td>Description</td>
         <td>{{@description}}</td>
+    </tr>
+    <tr>
+        <td>Title</td>
+        <td>{{@title}}</td>
     </tr>
     <tr>
         <td>Office</td>
@@ -35,13 +40,6 @@
         <td>E-Mail</td>
         <td>{{@mail}}</td>
     </tr>
-    <tr>
-        <td>Webpage</td>
-        <td>{{@wwwhomepage}}</td>
-    </tr>
-    <tr>
-        <td><img class="thumbnailphoto" src="{{@thumbnailphotoPath}}" alt="thumbnailPhoto"></td>
-    </tr>
     </tbody>
 </table>
 <h2 class="region-title">Account</h2>
@@ -52,8 +50,8 @@
         <td>{{@userprincipalname}}</td>
     </tr>
     <tr>
-        <td>SAM Account Name</td>
-        <td>{{@samaccountname}}</td>
+        <td>User Account Control</td>
+        <td>{{@useraccountcontrol}}</td>
     </tr>
     </tbody>
 </table>

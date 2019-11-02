@@ -3,9 +3,7 @@ table.table-display {
 }
 
 img.thumbnailphoto {
-    position: absolute;
-    top: 0;
-    right: 0;
+    float: right;
     display: inline-block;
     width: 150px;
 }

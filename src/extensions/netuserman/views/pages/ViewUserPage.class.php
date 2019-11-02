@@ -25,12 +25,14 @@ class ViewUserPage extends ModelPage
      */
     public function __construct(string $username)
     {
-        parent::__construct('netuserman/' . $username, 'netuserman-read', 'queryLDAP');
+        parent::__construct('netuserman/' . $username, 'netuserman-read', 'netUsers');
         $details = $this->response->getBody();
 
-        $this->setVariable('tabTitle', 'View User: ' . $details['cn']);
+        $this->setVariable('tabTitle', 'View User: ' . $details['userprincipalname']);
 
         $this->setVariable('content', self::templateFileContents('ViewUserPage', self::TEMPLATE_PAGE, 'netuserman'));
+
+        $this->setVariable('loginname', explode('@', $details['userprincipalname'])[0]);
 
         // Set image path
         $this->setVariable('thumbnailphotoPath', \Config::OPTIONS['baseURI'] . 'netuserman/photo/' . $username);
@@ -38,51 +40,54 @@ class ViewUserPage extends ModelPage
         // Format member of list
         $memberofList = '';
 
-        foreach($details['memberof'] as $group)
+        if(is_array($details['memberof']))
         {
-            $memberofList .= '<tr>';
-
-            $parts = explode(',', $group);
-
-            // Get name
-            $name = explode('CN=', array_shift($parts))[1];
-            $memberofList .= "<td>$name</td>";
-
-            // Break folder path into DC, CN, and OU
-            $folderParts = array(
-                'DC' => array(),
-                'CN' => array(),
-                'OU' => array(),
-            );
-
-            foreach($parts as $part)
+            foreach($details['memberof'] as $group)
             {
-                $partsParts = explode('=', $part);
-                $folderParts[$partsParts[0]][] = $partsParts[1];
+                $memberofList .= '<tr>';
+
+                $parts = explode(',', $group);
+
+                // Get name
+                $name = explode('CN=', array_shift($parts))[1];
+                $memberofList .= "<td>$name</td>";
+
+                // Break folder path into DC, CN, and OU
+                $folderParts = array(
+                    'DC' => array(),
+                    'CN' => array(),
+                    'OU' => array(),
+                );
+
+                foreach($parts as $part)
+                {
+                    $partsParts = explode('=', $part);
+                    $folderParts[$partsParts[0]][] = $partsParts[1];
+                }
+
+                $folderString = '';
+
+                foreach($folderParts['DC'] as $part)
+                {
+                    $folderString .= $part . '.';
+                }
+
+                $folderString = rtrim($folderString, '.');
+
+                while($part = array_pop($folderParts['CN']))
+                {
+                    $folderString .= "/$part";
+                }
+
+                while($part = array_pop($folderParts['OU']))
+                {
+                    $folderString .= "/$part";
+                }
+
+                $memberofList .= "<td>$folderString</td>";
+
+                $memberofList .= '</tr>';
             }
-
-            $folderString = '';
-
-            foreach($folderParts['DC'] as $part)
-            {
-                $folderString .= $part . '.';
-            }
-
-            $folderString = rtrim($folderString, '.');
-
-            while($part = array_pop($folderParts['CN']))
-            {
-                $folderString .= "/$part";
-            }
-
-            while($part = array_pop($folderParts['OU']))
-            {
-                $folderString .= "/$part";
-            }
-
-            $memberofList .= "<td>$folderString</td>";
-
-            $memberofList .= '</tr>';
         }
 
         $this->setVariables($details);

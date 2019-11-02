@@ -15,8 +15,9 @@ namespace extensions\netuserman\controllers;
 
 
 use controllers\Controller;
+use extensions\netuserman\views\pages\EditUserPage;
 use extensions\netuserman\views\pages\NetUserManHomePage;
-use extensions\netuserman\views\pages\QueryUsernamePage;
+use extensions\netuserman\views\pages\SearchUserPage;
 use extensions\netuserman\views\pages\ViewUserPage;
 use models\HTTPResponse;
 use views\View;
@@ -38,8 +39,6 @@ class NetUserManController extends Controller
 
         if($route === NULL)
             return new NetUserManHomePage();
-        else if($route === 'search')
-            return new QueryUsernamePage();
         else if($route === 'view')
         {
             if(!empty($_FILES))
@@ -48,6 +47,10 @@ class NetUserManController extends Controller
         }
         else if($route === 'photo')
             $this->getUserPhoto((string)$username);
+        else if($route === 'edit')
+            return new EditUserPage((string)$username);
+        else if($route === 'search')
+            return new SearchUserPage();
 
         return NULL;
     }
@@ -101,7 +104,6 @@ class NetUserManController extends Controller
             )
         );
 
-        $response = curl_exec($link);
         $responseCode = curl_getinfo($link, CURLINFO_HTTP_CODE);
 
         curl_close($link);
