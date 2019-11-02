@@ -53,11 +53,8 @@
         <tr>
             <td>User Account Control</td>
             <td>
-                <select id="useraccountcontrol">
-                    <option value="enabled">enabled</option>
-                    <option value="enabled_password_never_expires">enabled_password_never_expires</option>
-                    <option value="disabled">disabled</option>
-                    <option value="disabled_password_never_expires">disabled_password_never_expires</option>
+                <select id="useraccountcontrol" multiple size="10">
+                    {{@useraccountcontrolOptions}}
                 </select>
             </td>
         </tr>
@@ -65,7 +62,3 @@
     </table>
 </form>
 <script src="{{@baseURI}}scripts/netuserman/users.js"></script>
-<script>
-    let select = document.getElementById('useraccountcontrol');
-    select.value = '{{@useraccountcontrol}}';
-</script>

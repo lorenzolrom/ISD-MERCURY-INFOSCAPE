@@ -10,8 +10,9 @@ function getForm()
     let mail = document.getElementById('mail').value;
     let userprincipalname = document.getElementById('userprincipalname').value;
     let title = document.getElementById('title').value;
+
     let useraccountcontrolSelect = document.getElementById('useraccountcontrol');
-    let useraccountcontrol = useraccountcontrolSelect.options[useraccountcontrolSelect.selectedIndex].value;
+    let useraccountcontrol = $(useraccountcontrolSelect).val();
 
 
     return {
@@ -55,16 +56,25 @@ function search()
             let refs = [];
 
             $.each(json.data, function(i, v){
+
+                let useraccountcontrol = v.useraccountcontrol;
+
+                let disabled = '';
+
+                if(useraccountcontrol.includes('ACCOUNTDISABLE'))
+                    disabled = '✓';
+
                 refs.push(v.userprincipalname.split('@')[0]);
                 rows.push([
                     v.userprincipalname,
                     v.givenname,
-                    v.sn
+                    v.sn,
+                    disabled
                 ]);
             });
 
             $('#results').mlTable({
-                header: ['Login Name', 'Given Name', 'Surname'],
+                header: ['Login Name', 'Given Name', 'Surname', 'Disabled'],
                 linkColumn: 0,
                 href: baseURI + 'netuserman/view/',
                 refs: refs,

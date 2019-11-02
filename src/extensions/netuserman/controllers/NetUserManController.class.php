@@ -104,6 +104,7 @@ class NetUserManController extends Controller
             )
         );
 
+        curl_exec($link);
         $responseCode = curl_getinfo($link, CURLINFO_HTTP_CODE);
 
         curl_close($link);

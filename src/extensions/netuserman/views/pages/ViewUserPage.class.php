@@ -37,6 +37,19 @@ class ViewUserPage extends ModelPage
         // Set image path
         $this->setVariable('thumbnailphotoPath', \Config::OPTIONS['baseURI'] . 'netuserman/photo/' . $username);
 
+        // Format useraccountcontrol list
+        $useraccountcontrolList = '';
+
+        if(is_array($details['useraccountcontrol']))
+        {
+            foreach($details['useraccountcontrol'] as $flag)
+            {
+                $useraccountcontrolList .= "<li>$flag</li>";
+            }
+        }
+
+        $this->setVariable('useraccountcontrolList', $useraccountcontrolList);
+
         // Format member of list
         $memberofList = '';
 
