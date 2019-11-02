@@ -1,5 +1,6 @@
 <div class="button-bar">
     <a class="button" href="{{@baseURI}}netuserman/edit/{{@loginname}}"><img src="{{@baseURI}}media/icons/edit.png" alt="">Edit Attributes</a>
+    <span id="resetPassword-button" class="button-noveil dialog-show-button"><img src="{{@baseURI}}media/icons/account_change.png" alt="">Reset Password</span>
     <span id="uploadPicture-button" class="button-noveil dialog-show-button"><img src="{{@baseURI}}media/icons/camera.png" alt="">Upload Photo</span>
     <a class="button" href="{{@baseURI}}netuserman/search"><img src="{{@baseURI}}media/icons/cancel.png" alt="">Back</a>
 </div>
@@ -79,3 +80,18 @@
         <input type="submit" value="Upload">
     </form>
 </div>
+
+<div id="resetPassword-button-dialog" class="dialog" title="Reset Password">
+    <form onsubmit="return resetPassword('{{@loginname}}');">
+        <p>
+            <span>Password</span>
+            <input type="password" id="password">
+        </p>
+        <p>
+            <span>Confirm</span>
+            <input type="password" id="confirm">
+        </p>
+        <input type="submit" value="Reset">
+    </form>
+</div>
+<script src="{{@baseURI}}scripts/netuserman/users.js"></script>

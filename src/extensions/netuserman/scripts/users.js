@@ -66,44 +66,26 @@ function search()
 
                 refs.push(v.userprincipalname.split('@')[0]);
                 rows.push([
-                    v.userprincipalname,
+                    v.userprincipalname.split('@')[0],
                     v.givenname,
                     v.sn,
+                    v.title,
+                    v.description,
                     disabled
                 ]);
             });
 
             $('#results').mlTable({
-                header: ['Login Name', 'Given Name', 'Surname', 'Disabled'],
+                header: ['Login Name', 'Given Name', 'Surname', 'Title', 'Description', 'Disabled'],
                 linkColumn: 0,
                 href: baseURI + 'netuserman/view/',
                 refs: refs,
-                rows: rows
+                rows: rows,
+                sortMethod: 'asc'
             });
         }
 
         unveil();
-    });
-
-    return false;
-}
-
-/**
- * Find an exact match SAM Account Name and redirect to it
- * Or display an error when 404 is received
- * @returns {boolean}
- */
-function getUsername()
-{
-    let username = document.getElementById('samaccountname').value;
-
-    apiRequest('GET', 'netuserman/' + username, {}).done(function(json){
-
-        if(json.code === 200)
-        {
-            window.location.replace(baseURI + 'netuserman/view/' + json.data.userprincipalname.split('@')[0]);
-        }
-
     });
 
     return false;
@@ -119,6 +101,29 @@ function updateUser(username)
     apiRequest('PUT', 'netuserman/' + username, getForm()).done(function(json){
         if(json.code === 204)
             window.location.replace(baseURI + 'netuserman/view/' + username + '?SUCCESS=User updated');
+    });
+
+    return false;
+}
+
+function resetPassword(username)
+{
+    veil();
+    $('#resetPassword-button-dialog').dialog('close');
+
+    let password = document.getElementById('password').value;
+    let confirm = document.getElementById('confirm').value;
+
+    apiRequest('PUT', 'netuserman/' + username + '/password', {
+        password: password,
+        confirm: confirm
+    }).done(function(json){
+        if(json.code === 204)
+        {
+            showNotifications('success', ['Password has been reset']);
+        }
+
+        unveil();
     });
 
     return false;
