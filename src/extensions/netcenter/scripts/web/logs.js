@@ -29,8 +29,8 @@ $(document).ready(function(){
                 usePlaceholder: true,
                 rows: rows,
                 refs: refs,
-                sortColumn: 0,
-                sortMethod: 'asc'
+                sortColumn: 1,
+                sortMethod: 'desc'
             });
         }
     });

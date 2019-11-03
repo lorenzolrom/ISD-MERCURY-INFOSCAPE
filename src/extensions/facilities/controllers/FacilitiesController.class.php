@@ -38,6 +38,9 @@ class FacilitiesController extends Controller
             case 'locations':
                 $locations = new LocationController($this->request);
                 return $locations->getPage();
+            case 'floorplans':
+                $fp = new FloorplanController($this->request);
+                return $fp->getPage();
             case NULL:
                 return new FacilitiesHome();
         }

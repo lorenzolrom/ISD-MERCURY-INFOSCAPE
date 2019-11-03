@@ -1,0 +1,25 @@
+<div class="button-bar">
+    <span class="button form-submit-button" id="floorplan"><img src="{{@baseURI}}media/icons/save.png" alt="">Save</span>
+    <a class="button" href="{{@baseURI}}facilities/floorplans"><img src="{{@baseURI}}media/icons/cancel.png" alt="">Cancel</a>
+</div>
+<form id="floorplan-form" class="table-form" enctype="multipart/form-data" method="post">
+    <h2 class="region-title"><img src="{{@baseURI}}media/icons/floorplan.png" alt="">Floorplan Profile</h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td class="required">Building Code</td>
+            <td><input type="text" name="buildingCode" value="{{@buildingCode}}"></td>
+            <td>Building Name</td>
+            <td><span id="buildingName"></span></td>
+        </tr>
+        <tr>
+            <td class="required">Floor Name</td>
+            <td><input maxlength="16" type="text" name="floor" value="{{@floor}}"></td>
+        </tr>
+        <tr>
+            <td class="required">Image</td>
+            <td><input type="file" name="floorplanImage"></td>
+        </tr>
+        </tbody>
+    </table>
+</form>

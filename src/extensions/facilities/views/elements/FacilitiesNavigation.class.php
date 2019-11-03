@@ -41,6 +41,20 @@ class FacilitiesNavigation extends Navigation
                 )
             )
         ),
+        'floorplans' => array(
+            'title' => 'Floorplans',
+            'permission' => 'facilitiescore_floorplans-r',
+            'icon' => 'floorplan.png',
+            'pages' => array(
+                array(
+                    'title' => 'Create Floorplan',
+                    'link' => 'floorplans/create',
+                    'icon' => 'floorplan.png',
+                    'operation' => 'add',
+                    'permission' => 'facilitiescore_floorplans-w',
+                )
+            )
+        )
     );
 
     /**
