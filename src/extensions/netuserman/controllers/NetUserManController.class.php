@@ -15,9 +15,12 @@ namespace extensions\netuserman\controllers;
 
 
 use controllers\Controller;
+use extensions\netuserman\views\pages\EditGroupPage;
 use extensions\netuserman\views\pages\EditUserPage;
 use extensions\netuserman\views\pages\NetUserManHomePage;
+use extensions\netuserman\views\pages\SearchGroupPage;
 use extensions\netuserman\views\pages\SearchUserPage;
+use extensions\netuserman\views\pages\ViewGroupPage;
 use extensions\netuserman\views\pages\ViewUserPage;
 use models\HTTPResponse;
 use views\View;
@@ -45,12 +48,18 @@ class NetUserManController extends Controller
                 $this->uploadThumbnailPhoto($username);
             return new ViewUserPage((string)$username);
         }
+        else if($route === 'viewgroup')
+            return new ViewGroupPage((string)$username);
         else if($route === 'photo')
             $this->getUserPhoto((string)$username);
         else if($route === 'edit')
             return new EditUserPage((string)$username);
+        else if($route === 'editgroup')
+            return new EditGroupPage((string)$username);
         else if($route === 'search')
             return new SearchUserPage();
+        else if($route === 'searchgroups')
+            return new SearchGroupPage();
 
         return NULL;
     }

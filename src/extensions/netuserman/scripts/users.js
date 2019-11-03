@@ -3,6 +3,7 @@ function getForm()
     let givenname = document.getElementById('givenname').value;
     let initials = document.getElementById('initials').value;
     let sn = document.getElementById('sn').value;
+    let distinguishedname = document.getElementById('distinguishedname').value;
     let displayname = document.getElementById('displayname').value;
     let description = document.getElementById('description').value;
     let physicaldeliveryofficename = document.getElementById('physicaldeliveryofficename').value;
@@ -19,6 +20,7 @@ function getForm()
         givenname: givenname,
         initials: initials,
         sn: sn,
+        distinguishedname: distinguishedname,
         displayname: displayname,
         description: description,
         physicaldeliveryofficename: physicaldeliveryofficename,
@@ -26,7 +28,7 @@ function getForm()
         mail: mail,
         userprincipalname: userprincipalname,
         title: title,
-        useraccountcontrol: useraccountcontrol
+        useraccountcontrol: useraccountcontrol,
     };
 }
 
@@ -124,6 +126,32 @@ function resetPassword(username)
         }
 
         unveil();
+    });
+
+    return false;
+}
+
+function modifyGroups(username)
+{
+    veil();
+
+    $('#modGroups-button-dialog').dialog('close');
+
+    let addGroups = document.getElementById('addGroups').value.split(/\n/);
+    let remGroups = document.getElementById('removeGroups').value.split(/\n/);
+
+    console.log(addGroups);
+
+    let data = {
+        addGroups: addGroups,
+        removeGroups: remGroups
+    };
+
+    apiRequest('PUT', 'netuserman/' + username + '/groups', data).done(function(json){
+        if(json.code === 204)
+            window.location.replace(baseURI + 'netuserman/view/' + username + '?SUCCESS=Groups updated');
+        else
+            unveil();
     });
 
     return false;

@@ -34,6 +34,20 @@ class NetUserManNavigation extends Navigation
                     'link' => 'search'
                 )
             )
+        ),
+        'netGroups' => array(
+            'title' => 'Net Groups',
+            'permission' => 'netuserman-readgroups',
+            'icon' => 'group.png',
+            'pages' => array(
+                array(
+                    'title' => 'Search Groups',
+                    'operation' => 'search',
+                    'permission' => 'netuserman-readgroups',
+                    'icon' => 'group.png',
+                    'link' => 'searchgroups'
+                )
+            )
         )
     );
 

@@ -1,5 +1,6 @@
 <div class="button-bar">
     <a class="button" href="{{@baseURI}}netuserman/edit/{{@loginname}}"><img src="{{@baseURI}}media/icons/edit.png" alt="">Edit Attributes</a>
+    <span id="modGroups-button" class="button-noveil dialog-show-button"><span class="operation edit"><img src="{{@baseURI}}media/icons/group.png" alt=""></span>Modify Groups</span>
     <span id="resetPassword-button" class="button-noveil dialog-show-button"><img src="{{@baseURI}}media/icons/account_change.png" alt="">Reset Password</span>
     <span id="uploadPicture-button" class="button-noveil dialog-show-button"><img src="{{@baseURI}}media/icons/camera.png" alt="">Upload Photo</span>
     <a class="button" href="{{@baseURI}}netuserman/search"><img src="{{@baseURI}}media/icons/cancel.png" alt="">Back</a>
@@ -64,7 +65,7 @@
 <table class="table-display" id="groups">
     <tbody>
     <tr>
-        <th>Name</th>
+        <th>CN</th>
         <th>Folder</th>
     </tr>
     {{@memberofList}}
@@ -78,6 +79,22 @@
             <input type="file" name="thumbnailphoto">
         </p>
         <input type="submit" value="Upload">
+    </form>
+</div>
+
+<div id="modGroups-button-dialog" class="dialog" title="Modify Groups">
+    <form onsubmit="return modifyGroups('{{@loginname}}')">
+        <p>Multiple groups on new lines</p>
+        <br/>
+        <p>
+            <span>Add Groups</span>
+            <textarea id="addGroups"></textarea>
+        </p>
+        <p>
+            <span>Remove Groups</span>
+            <textarea id="removeGroups"></textarea>
+        </p>
+        <input type="submit" value="Modify">
     </form>
 </div>
 

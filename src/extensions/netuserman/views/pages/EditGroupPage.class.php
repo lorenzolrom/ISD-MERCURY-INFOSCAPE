@@ -1,0 +1,32 @@
+<?php
+/**
+ * LLR Technologies & Associated Services
+ * Information Systems Development
+ *
+ * Mercury MAP Navigator
+ *
+ * User: lromero
+ * Date: 11/01/2019
+ * Time: 8:40 PM
+ */
+
+
+namespace extensions\netuserman\views\pages;
+
+
+use extensions\netuserman\views\forms\EditGroupForm;
+
+class EditGroupPage extends ModelPage
+{
+    public function __construct(string $cn)
+    {
+        parent::__construct('netgroupman/' . $cn, 'netuserman-editgroups', 'netGroups');
+
+        $details = $this->response->getBody();
+
+        $form = new EditGroupForm($details);
+
+        $this->setVariable('content', $form->getTemplate());
+        $this->setVariable('tabTitle', 'Edit Group: ' . $details['cn']);
+    }
+}

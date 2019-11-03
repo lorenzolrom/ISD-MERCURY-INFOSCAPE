@@ -1,0 +1,30 @@
+<div class="button-bar">
+    <a class="button" href="{{@baseURI}}netuserman/editgroup/{{@cn}}"><img src="{{@baseURI}}media/icons/edit.png" alt="">Edit Attributes</a>
+    <a class="button" href="{{@baseURI}}netuserman/searchgroups"><img src="{{@baseURI}}media/icons/cancel.png" alt="">Back</a>
+</div>
+<h2 class="region-title">{{@distinguishedname}}</h2>
+<table class="table-display">
+    <tbody>
+    <tr>
+        <td>Name</td>
+        <td>{{@cn}}</td>
+    </tr>
+    <tr>
+        <td>Description</td>
+        <td>{{@description}}</td>
+    </tr>
+    </tbody>
+</table>
+<h2 class="region-title">Members</h2>
+<table class="table-display" id="groups">
+    <tbody>
+    <tr>
+        <th>CN</th>
+        <th>Folder</th>
+    </tr>
+    {{@memberList}}
+    </tbody>
+</table>
+
+<!-- Dialog Forms -->
+<script src="{{@baseURI}}scripts/netuserman/groups.js"></script>

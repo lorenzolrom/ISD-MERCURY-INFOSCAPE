@@ -57,49 +57,15 @@ class ViewUserPage extends ModelPage
         {
             foreach($details['memberof'] as $group)
             {
-                $memberofList .= '<tr>';
 
                 $parts = explode(',', $group);
 
                 // Get name
                 $name = explode('CN=', array_shift($parts))[1];
-                $memberofList .= "<td>$name</td>";
-
                 // Break folder path into DC, CN, and OU
-                $folderParts = array(
-                    'DC' => array(),
-                    'CN' => array(),
-                    'OU' => array(),
-                );
+                $ou = implode(',', $parts);
 
-                foreach($parts as $part)
-                {
-                    $partsParts = explode('=', $part);
-                    $folderParts[$partsParts[0]][] = $partsParts[1];
-                }
-
-                $folderString = '';
-
-                foreach($folderParts['DC'] as $part)
-                {
-                    $folderString .= $part . '.';
-                }
-
-                $folderString = rtrim($folderString, '.');
-
-                while($part = array_pop($folderParts['CN']))
-                {
-                    $folderString .= "/$part";
-                }
-
-                while($part = array_pop($folderParts['OU']))
-                {
-                    $folderString .= "/$part";
-                }
-
-                $memberofList .= "<td>$folderString</td>";
-
-                $memberofList .= '</tr>';
+                $memberofList .= "<tr><td>$name</td><td>$ou</td></tr>";
             }
         }
 
