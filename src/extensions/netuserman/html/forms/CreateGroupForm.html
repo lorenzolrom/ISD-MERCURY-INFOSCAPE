@@ -1,0 +1,19 @@
+<div class="button-bar">
+    <span class="button form-submit-button" id="user"><img src="{{@baseURI}}media/icons/save.png">Save</span>
+</div>
+<form id="user-form" class="table-form" onsubmit="return createGroup()">
+    <h2 class="region-title">General</h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td>DN</td>
+            <td><input style="width: 500px;" id="distinguishedname" value="{{@distinguishedname}}"></td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td><textarea id="description">{{@description}}</textarea></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script src="{{@baseURI}}scripts/netuserman/groups.js"></script>

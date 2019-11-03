@@ -88,3 +88,27 @@ function updateGroup(cn)
 
     return false;
 }
+
+function deleteGroup(cn)
+{
+    veil();
+    apiRequest('DELETE', 'netgroupman/' + cn, {}).done(function(json){
+        if(json.code === 204)
+            window.location.replace(baseURI + 'netuserman/searchgroups?SUCCESS=Group deleted');
+        else
+            unveil();
+    });
+}
+
+function createGroup()
+{
+    veil();
+    apiRequest('POST', 'netgroupman', getForm()).done(function(json){
+        if(json.code === 201)
+            window.location.replace(baseURI + 'netuserman/viewgroup/' + json.data.cn + '?SUCCESS=Group created');
+        else
+            unveil();
+    });
+
+    return false;
+}

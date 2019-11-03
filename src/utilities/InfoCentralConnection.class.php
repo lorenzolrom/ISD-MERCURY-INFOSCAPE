@@ -28,10 +28,11 @@ class InfoCentralConnection
      * @param int $requestType
      * @param string $resource
      * @param array $data
+     * @param bool $ignore500 // If true, this will not throw an ICException.  This is intended for use by the API page
      * @return HTTPResponse
      * @throws InfoCentralException
      */
-    public static function getResponse(int $requestType, string $resource, array $data = array()): HTTPResponse
+    public static function getResponse(int $requestType, string $resource, array $data = array(), bool $ignore500 = FALSE): HTTPResponse
     {
         $link = curl_init(\Config::OPTIONS['icURL'] . $resource);
 
@@ -68,7 +69,7 @@ class InfoCentralConnection
         $responseCode = curl_getinfo($link, CURLINFO_HTTP_CODE);
         curl_close($link);
 
-        if($responseCode == 500)
+        if($responseCode == 500 AND !$ignore500)
             throw new InfoCentralException(InfoCentralException::MESSAGES[InfoCentralException::IC_RESPONDED_500], InfoCentralException::IC_RESPONDED_500);
 
         if(!is_array($data = json_decode($response, TRUE)))

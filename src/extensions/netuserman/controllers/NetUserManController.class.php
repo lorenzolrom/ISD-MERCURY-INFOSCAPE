@@ -15,6 +15,8 @@ namespace extensions\netuserman\controllers;
 
 
 use controllers\Controller;
+use extensions\netuserman\views\pages\CreateGroupPage;
+use extensions\netuserman\views\pages\CreateUserPage;
 use extensions\netuserman\views\pages\EditGroupPage;
 use extensions\netuserman\views\pages\EditUserPage;
 use extensions\netuserman\views\pages\NetUserManHomePage;
@@ -60,6 +62,10 @@ class NetUserManController extends Controller
             return new SearchUserPage();
         else if($route === 'searchgroups')
             return new SearchGroupPage();
+        else if($route === 'create')
+            return new CreateUserPage();
+        else if($route === 'creategroup')
+            return new CreateGroupPage();
 
         return NULL;
     }

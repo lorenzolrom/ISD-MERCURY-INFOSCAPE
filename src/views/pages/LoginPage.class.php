@@ -13,9 +13,6 @@
 
 namespace views\pages;
 
-
-use views\View;
-
 class LoginPage extends HTML5Document
 {
     /**

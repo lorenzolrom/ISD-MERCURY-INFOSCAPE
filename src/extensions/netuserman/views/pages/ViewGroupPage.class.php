@@ -28,7 +28,6 @@ class ViewGroupPage extends ModelPage
         parent::__construct('netgroupman/' . $cn, 'netuserman-readgroups', 'netGroups');
         $details = $this->response->getBody();
 
-        $cn = urldecode($cn);
         $this->setVariable('tabTitle', 'View Group: ' . $details['cn']);
 
         $this->setVariable('content', self::templateFileContents('ViewGroupPage', self::TEMPLATE_PAGE, 'netuserman'));

@@ -32,6 +32,17 @@ function getForm()
     };
 }
 
+function getCreateForm()
+{
+    let password = document.getElementById('password').value;
+    let confirm = document.getElementById('confirm').value;
+
+    return $.extend({
+        password: password,
+        confirm: confirm
+    }, getForm());
+}
+
 function getSearchForm()
 {
     let givenname = document.getElementById('givenname').value;
@@ -140,8 +151,6 @@ function modifyGroups(username)
     let addGroups = document.getElementById('addGroups').value.split(/\n/);
     let remGroups = document.getElementById('removeGroups').value.split(/\n/);
 
-    console.log(addGroups);
-
     let data = {
         addGroups: addGroups,
         removeGroups: remGroups
@@ -150,6 +159,31 @@ function modifyGroups(username)
     apiRequest('PUT', 'netuserman/' + username + '/groups', data).done(function(json){
         if(json.code === 204)
             window.location.replace(baseURI + 'netuserman/view/' + username + '?SUCCESS=Groups updated');
+        else
+            unveil();
+    });
+
+    return false;
+}
+
+function deleteUser(username)
+{
+    veil();
+
+    apiRequest('DELETE', 'netuserman/' + username, {}).done(function(json){
+        if(json.code === 204)
+            window.location.replace(baseURI + 'netuserman/search?SUCCESS=User deleted');
+        else
+            unveil();
+    });
+}
+
+function createUser()
+{
+    veil();
+    apiRequest('POST', 'netuserman', getCreateForm()).done(function(json){
+        if(json.code === 201)
+            window.location.replace(baseURI + 'netuserman/view/' + json.data.userprincipalname.split('@')[0] + '?SUCCESS=User created');
         else
             unveil();
     });

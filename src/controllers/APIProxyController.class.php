@@ -62,8 +62,7 @@ class APIProxyController extends Controller
             // Ensure body was decoded successfully
             if($body !== NULL AND is_array($body))
             {
-                $result = InfoCentralConnection::getResponse($type, $path, $body);
-
+                $result = InfoCentralConnection::getResponse($type, $path, $body, TRUE);
                 $json = json_encode(array('code' => $result->getResponseCode(), 'data' => $result->getBody()));
             }
         }

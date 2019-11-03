@@ -18,7 +18,7 @@ use views\forms\Form;
 
 class EditUserForm extends Form
 {
-    private const UAC_FORWARD_LOOKUP = array(
+    public const UAC_FORWARD_LOOKUP = array(
         'SCRIPT' => 1, // Running the login script
         'ACCOUNTDISABLE' => 2, // The account id disabled
         'HOMEDIR_REQUIRED' => 8, // The home folder is required

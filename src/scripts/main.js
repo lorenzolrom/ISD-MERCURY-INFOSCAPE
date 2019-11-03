@@ -261,7 +261,12 @@ function apiRequest(type, path, data, base64 = false)
         }
         else if(json.code === 500) // InfoCentral Errors
         {
-            showNotifications('errors', ['System did not provide a valid response']);
+            let errors = ['System did not provide a valid response'];
+
+            if(json.data.errors !== 'undefined')
+                errors = json.data.errors;
+
+            showNotifications('error', errors);
             unveil();
         }
         else if(json.code === 409 || json.code === 400 || json.code === 404) // Form error, bad request, not found

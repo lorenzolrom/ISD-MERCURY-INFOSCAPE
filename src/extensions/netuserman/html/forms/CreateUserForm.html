@@ -1,0 +1,74 @@
+<div class="button-bar">
+    <span class="button form-submit-button" id="user"><img src="{{@baseURI}}media/icons/save.png">Save</span>
+</div>
+<form id="user-form" class="table-form" onsubmit="return createUser()">
+    <h2 class="region-title">General</h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td>DN</td>
+            <td><input id="distinguishedname" value="{{@distinguishedname}}"></td>
+        </tr>
+        <tr>
+            <td>Given Name</td>
+            <td><input id="givenname" value="{{@givenname}}"></td>
+            <td>Initials</td>
+            <td><input id="initials" value="{{@initials}}"></td>
+        </tr>
+        <tr>
+            <td>Surname</td>
+            <td><input id="sn" value="{{@sn}}"></td>
+        </tr>
+        <tr>
+            <td>Display Name</td>
+            <td><input id="displayname" value="{{@displayname}}"></td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td><textarea id="description">{{@description}}</textarea></td>
+        </tr>
+        <tr>
+            <td>Title</td>
+            <td><input id="title" value="{{@title}}"></td>
+        </tr>
+        <tr>
+            <td>Office</td>
+            <td><input id="physicaldeliveryofficename" value="{{@physicaldeliveryofficename}}"></td>
+        </tr>
+        <tr>
+            <td>Telephone Number</td>
+            <td><input id="telephonenumber" value="{{@telephonenumber}}"></td>
+        </tr>
+        <tr>
+            <td>E-Mail</td>
+            <td><input id="mail" value="{{@mail}}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <h2 class="region-title">Account</h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td>Logon Name</td>
+            <td><input id="userprincipalname" value="{{@userprincipalname}}"></td>
+        </tr>
+        <tr>
+            <td>User Account Control</td>
+            <td>
+                <select id="useraccountcontrol" multiple size="10">
+                    {{@useraccountcontrolOptions}}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" id="password"></td>
+        </tr>
+        <tr>
+            <td>Confirm Password</td>
+            <td><input type="password" id="confirm"></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script src="{{@baseURI}}scripts/netuserman/users.js"></script>
