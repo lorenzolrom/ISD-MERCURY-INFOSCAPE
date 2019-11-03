@@ -83,7 +83,7 @@ function search()
 
 function updateGroup(cn)
 {
-    apiRequest('PUT', 'netgroupman/' + cn, getForm()).done(
+    apiRequest('PUT', 'netgroupman/' + encodeURI(cn), getForm()).done(
         function(json)
         {
             if(json.code === 204)
@@ -97,7 +97,7 @@ function updateGroup(cn)
 function deleteGroup(cn)
 {
     veil();
-    apiRequest('DELETE', 'netgroupman/' + cn, {}).done(function(json){
+    apiRequest('DELETE', 'netgroupman/' + encodeURI(cn), {}).done(function(json){
         if(json.code === 204)
             window.location.replace(baseURI + 'netuserman/searchgroups?SUCCESS=Group deleted');
         else
