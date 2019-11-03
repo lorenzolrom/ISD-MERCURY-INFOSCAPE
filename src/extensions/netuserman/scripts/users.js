@@ -68,6 +68,11 @@ function search()
             let rows = [];
             let refs = [];
 
+            if(json.data.length === 1) // Only one result
+            {
+                window.location.replace(baseURI + 'netuserman/view/' + json.data[0].userprincipalname.split('@')[0]);
+            }
+
             $.each(json.data, function(i, v){
 
                 let useraccountcontrol = v.useraccountcontrol;

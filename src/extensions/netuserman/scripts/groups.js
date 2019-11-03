@@ -29,6 +29,11 @@ function search()
             let rows = [];
             let refs = [];
 
+            if(json.data.length === 1) // Only one result
+            {
+                window.location.replace(baseURI + 'netuserman/viewgroup/' + json.data[0].cn);
+            }
+
             $.each(json.data, function(i, v){
 
                 let dnParts = v.distinguishedname.split(',');
