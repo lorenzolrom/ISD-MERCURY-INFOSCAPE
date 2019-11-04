@@ -33,13 +33,39 @@ function search()
                 sortMethod: 'asc',
                 header: ['Building Code', 'Building Name', 'Floor'],
                 linkColumn: 0,
-                href: 'floorplans/'
+                href: baseURI + 'facilities/floorplans/'
             });
         }
 
         setSearchCookie('floorplanSearch', getForm());
 
         unveil();
+    });
+
+    return false;
+}
+
+function update(id)
+{
+    let floor = document.getElementById('floor').value;
+
+    apiRequest('PUT', 'floorplans/' + id, {floor:floor}).done(function(json){
+        if(json.code === 204)
+        {
+            window.location.replace(baseURI + "facilities/floorplans/" + id + "?SUCCESS=Floorplan updated");
+        }
+    });
+
+    return false;
+}
+
+function del(id)
+{
+    apiRequest('DELETE', 'floorplans/' + id, {}).done(function(json){
+        if(json.code === 204)
+        {
+            window.location.replace(baseURI + "facilities/floorplans?SUCCESS=Floorplan deleted");
+        }
     });
 
     return false;

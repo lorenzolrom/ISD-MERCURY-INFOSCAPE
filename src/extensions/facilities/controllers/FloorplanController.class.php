@@ -16,8 +16,10 @@ namespace extensions\facilities\controllers;
 
 use controllers\Controller;
 use extensions\facilities\views\pages\FloorplanCreatePage;
+use extensions\facilities\views\pages\FloorplanEditPage;
 use extensions\facilities\views\pages\FloorplanPage;
 use extensions\facilities\views\pages\FloorplanSearchPage;
+use models\HTTPResponse;
 use views\View;
 
 class FloorplanController extends Controller
@@ -41,7 +43,18 @@ class FloorplanController extends Controller
         else if($param === 'image')
             return $this->getFloorplanPhoto((int)$this->request->next());
         else
+        {
+            // Edit
+            if($this->request->next() === 'edit')
+                return new FloorplanEditPage((int)$param);
+
+            // Update image
+            if(!empty($_FILES))
+                return $this->updateFloorplanImage((int)$param);
+
+            // View
             return new FloorplanPage((int)$param);
+        }
     }
 
     /**
@@ -90,7 +103,12 @@ class FloorplanController extends Controller
             if($responseCode !== 201 AND isset($response['errors']))
                 $page->setErrors($response['errors']);
 
-            header('Location: ' . \Config::OPTIONS['baseURI'] . 'facilities/floorplans/' . $response['id']);
+            $url = \Config::OPTIONS['baseURI'] . 'facilities/floorplans/';
+
+            if(isset($response['id']))
+                header('Location: ' . $url . $response['id'] . '?SUCCESS=Floorplan Created');
+            else
+                header('Location: ' . $url . '?ERROR=Could not create floorplan');
         }
 
         return $page;
@@ -123,5 +141,62 @@ class FloorplanController extends Controller
         header('Content-type: ' . $type);
         echo $response;
         exit;
+    }
+
+    /**
+     * @param int $id
+     * @return FloorplanPage
+     * @throws \exceptions\EntryNotFoundException
+     * @throws \exceptions\InfoCentralException
+     * @throws \exceptions\SecurityException
+     * @throws \exceptions\ViewException
+     */
+    private function updateFloorplanImage(int $id)
+    {
+        $page = new FloorplanPage($id);
+
+        if(!isset($_FILES['floorplanImage']) OR $_FILES['floorplanImage']['size'] === 0)
+        {
+            $page->setErrors(['Floorplan image required']);
+            return $page;
+        }
+
+        // Add API secret
+        $headers = array(
+            'Secret: ' . \Config::OPTIONS['icSecret']
+        );
+
+        // Add the user's token if it has been defined
+        if(isset($_COOKIE[\Config::OPTIONS['cookieName']]))
+            $headers[] = 'Token: ' . $_COOKIE[\Config::OPTIONS['cookieName']];
+
+
+        $link = curl_init(\Config::OPTIONS['icURL'] . 'floorplans/' . $id . '/image');
+        curl_setopt($link, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($link, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($link, CURLOPT_POST, true);
+        curl_setopt(
+            $link,
+            CURLOPT_POSTFIELDS,
+            array(
+                'floorplanImage' => curl_file_create($_FILES['floorplanImage']['tmp_name'], $_FILES['floorplanImage']['type'], basename($_FILES['floorplanImage']['name']))
+            )
+        );
+
+        curl_exec($link);
+        $responseCode = curl_getinfo($link, CURLINFO_HTTP_CODE);
+
+        curl_close($link);
+
+        if($responseCode === HTTPResponse::NO_CONTENT)
+        {
+            $page->setSuccess(['Floorplan image updated']);
+        }
+        else
+        {
+            $page->setErrors(['Floorplan image could not be updated']);
+        }
+
+        return $page;
     }
 }

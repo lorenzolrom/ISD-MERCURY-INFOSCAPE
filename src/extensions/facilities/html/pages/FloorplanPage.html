@@ -1,7 +1,7 @@
 <div class="button-bar">
     <a href="{{@baseURI}}facilities/floorplans/{{@id}}/edit" class="button"><img src="{{@baseURI}}media/icons/edit.png" alt="">Edit</a>
-    <span class="button-noveil"><span class="operation add"><img src="{{@baseURI}}media/icons/camera.png" alt=""></span>Change Image</span>
-    <a class="button delete-button confirm-button" href="javascript: delete('{{@id}}')"><img src="{{@baseURI}}media/icons/delete.png" alt="">Delete</a>
+    <span id="uploadPicture-button" class="button-noveil dialog-show-button"><img src="{{@baseURI}}media/icons/camera.png" alt="">Update Image</span>
+    <a class="button delete-button confirm-button" href="javascript: del('{{@id}}')"><img src="{{@baseURI}}media/icons/delete.png" alt="">Delete</a>
     <a class="button" href="{{@baseURI}}facilities/floorplans"><img src="{{@baseURI}}media/icons/cancel.png" alt="">Back</a>
 </div>
 <h2 class="region-title"><img src="{{@baseURI}}media/icons/floorplan.png" alt="">Floorplan Profile<a class="history-link" href="{{@baseURI}}history/floorplan/{{@id}}"><img src="{{@baseURI}}media/icons/history.png" alt="" title="View History"></a></h2>
@@ -22,3 +22,12 @@
 <hr />
 <img src="{{@src}}" alt="{{@floor}}">
 <script src="{{@baseURI}}scripts/facilities/floorplans.js"></script>
+<!-- Dialog Forms -->
+<div id="uploadPicture-button-dialog" class="dialog" title="Update Image">
+    <form method="post" enctype="multipart/form-data">
+        <p>
+            <input type="file" name="floorplanImage">
+        </p>
+        <input type="submit" value="Upload">
+    </form>
+</div>
