@@ -47,8 +47,15 @@ class FacilitiesNavigation extends Navigation
             'icon' => 'floorplan.png',
             'pages' => array(
                 array(
-                    'title' => 'Create Floorplan',
-                    'link' => 'floorplans/create',
+                    'title' => 'Search Floorplans',
+                    'link' => 'floorplans',
+                    'icon' => 'floorplan.png',
+                    'operation' => 'search',
+                    'permission' => 'facilitiescore_floorplans-r',
+                ),
+                array(
+                    'title' => 'New Floorplan',
+                    'link' => 'floorplans/new',
                     'icon' => 'floorplan.png',
                     'operation' => 'add',
                     'permission' => 'facilitiescore_floorplans-w',

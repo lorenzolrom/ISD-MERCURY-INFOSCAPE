@@ -14,18 +14,18 @@
 namespace extensions\facilities\views\pages;
 
 
-use extensions\facilities\views\forms\CreateFloorplanForm;
+use extensions\facilities\views\forms\FloorplanCreateForm;
 
-class CreateFloorplanPage extends FacilitiesDocument
+class FloorplanCreatePage extends FacilitiesDocument
 {
     public function __construct(?array $details = NULL)
     {
         parent::__construct('facilitiescore_floorplans-w', 'floorplans');
 
-        $form = new CreateFloorplanForm();
+        $form = new FloorplanCreateForm();
 
         $this->setVariable('content', $form->getTemplate());
-        $this->setVariable('tabTitle', 'Create Floorplan');
+        $this->setVariable('tabTitle', 'New Floorplan');
 
         if($details !== NULL)
             $this->setVariables($details);

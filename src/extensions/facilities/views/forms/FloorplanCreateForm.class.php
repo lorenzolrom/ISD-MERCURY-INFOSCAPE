@@ -16,7 +16,7 @@ namespace extensions\facilities\views\forms;
 
 use views\forms\Form;
 
-class CreateFloorplanForm extends Form
+class FloorplanCreateForm extends Form
 {
     /**
      * CreateFloorplanForm constructor.
