@@ -29,5 +29,6 @@ class FloorplanPage extends ModelPage
         $this->setVariables($details);
 
         $this->setVariable('src', \Config::OPTIONS['baseURI'] . 'facilities/floorplans/image/' . $id);
+        $this->setVariable('id', $id);
     }
 }

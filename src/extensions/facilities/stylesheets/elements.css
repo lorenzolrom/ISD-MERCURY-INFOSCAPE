@@ -1,3 +1,39 @@
-img#floorplanImage {
+div#floorplanArea {
+    position: relative;
     width: 100%;
+}
+
+img#floorplanImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 558;
+}
+
+svg#spaceArea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 559;
+}
+
+svg.selectPoints {
+    cursor: copy !important;
+}
+
+div.spaceLabel {
+    position: absolute;
+    display: inline-block;
+    width: 20px;
+    z-index: 560;
+    text-align: center;
+}
+
+div.spaceLabel span {
+    font-weight: 600;
+}
+
+div.spaceLabel p {
+    font-size: .8rem;
 }

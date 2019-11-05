@@ -1,6 +1,8 @@
 <div class="button-bar">
     <a href="{{@baseURI}}facilities/floorplans/{{@id}}/edit" class="button"><img src="{{@baseURI}}media/icons/edit.png" alt="">Edit</a>
     <span id="uploadPicture-button" class="button-noveil dialog-show-button"><img src="{{@baseURI}}media/icons/camera.png" alt="">Update Image</span>
+    <span id="spacesButton" onclick="toggleSpaces('{{@id}}')" class="button-noveil"><img src="{{@baseURI}}media/icons/floorplan.png" alt="">Hide Spaces</span>
+    <span id="defineSpace" onclick="listenPoints()" class="button-noveil dialog-show-button"><span class="operation add"><img src="{{@baseURI}}media/icons/floorplan.png" alt=""></span>Define Space</span>
     <a class="button delete-button confirm-button" href="javascript: del('{{@id}}')"><img src="{{@baseURI}}media/icons/delete.png" alt="">Delete</a>
     <a class="button" href="{{@baseURI}}facilities/floorplans"><img src="{{@baseURI}}media/icons/cancel.png" alt="">Back</a>
 </div>
@@ -20,7 +22,10 @@
     </tbody>
 </table>
 <hr />
-<img src="{{@src}}" id="floorplanImage" alt="{{@floor}}">
+<div id="floorplanArea">
+    <svg id="spaceArea"></svg>
+    <img src="{{@src}}" onload="loadSpaces('{{@id}}')" id="floorplanImage" alt="{{@floor}}">
+</div>
 <script src="{{@baseURI}}scripts/facilities/floorplans.js"></script>
 <!-- Dialog Forms -->
 <div id="uploadPicture-button-dialog" class="dialog" title="Update Image">
@@ -29,5 +34,38 @@
             <input type="file" name="floorplanImage">
         </p>
         <input type="submit" value="Upload">
+    </form>
+</div>
+<div id="defineSpace-dialog" class="dialog" title="Define Space">
+    <p>Click floorplan to add points</p>
+    <form id="defineSpaceForm" onsubmit="return defineSpace('{{@id}}')">
+        <p>
+            <span>Building: <span id="defineBuildingCode">{{@buildingCode}}</span></span>
+        </p>
+        <p>
+            <span>Floor: {{@floor}}</span>
+        </p>
+        <p>
+            <span>Location Code</span>
+            <input id="defineLocationCode" type="text">
+        </p>
+        <p>
+            <span>Hex Fill Color</span>
+            <input id="defineHexColor" type="text">
+        </p>
+        <p>
+            <span>Area</span>
+            <input type="text" id="defineArea" placeholder="0">
+        </p>
+        <p>
+            <span>Units</span>
+            <input type="text" maxlength="2" id="defineUnit">
+        </p>
+        <p>
+            <span>Points</span>
+            <textarea id="defineSpacePoints"></textarea>
+        </p>
+        <input type="submit" value="Define">
+        <input onclick="cancelDefine()" type="button" value="Cancel">
     </form>
 </div>
