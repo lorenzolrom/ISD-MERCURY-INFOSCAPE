@@ -1,7 +1,8 @@
 <div class="button-bar">
     <a href="{{@baseURI}}facilities/floorplans/{{@id}}/edit" class="button"><img src="{{@baseURI}}media/icons/edit.png" alt="">Edit</a>
     <span id="uploadPicture-button" class="button-noveil dialog-show-button"><img src="{{@baseURI}}media/icons/camera.png" alt="">Update Image</span>
-    <span id="spacesButton" onclick="toggleSpaces('{{@id}}')" class="button-noveil"><img src="{{@baseURI}}media/icons/floorplan.png" alt="">Hide Spaces</span>
+    <span id="spacesButton" onclick="toggleSpaces()" class="button-noveil"><img src="{{@baseURI}}media/icons/floorplan.png" alt="">Hide Spaces</span>
+    <span id="labelButton" onclick="toggleLabels()" class="button-noveil"><img src="{{@baseURI}}media/icons/about.png" alt="">Hide Labels</span>
     <span id="defineSpace" onclick="listenPoints()" class="button-noveil dialog-show-button"><span class="operation add"><img src="{{@baseURI}}media/icons/floorplan.png" alt=""></span>Define Space</span>
     <a class="button delete-button confirm-button" href="javascript: del('{{@id}}')"><img src="{{@baseURI}}media/icons/delete.png" alt="">Delete</a>
     <a class="button" href="{{@baseURI}}facilities/floorplans"><img src="{{@baseURI}}media/icons/cancel.png" alt="">Back</a>
@@ -27,15 +28,19 @@
     <img src="{{@src}}" onload="loadSpaces('{{@id}}')" id="floorplanImage" alt="{{@floor}}">
 </div>
 <script src="{{@baseURI}}scripts/facilities/floorplans.js"></script>
-<!-- Dialog Forms -->
+<script src="{{@baseURI}}scripts/facilities/spaces.js"></script>
+
+<!-- Dialog for changing a floorplan image -->
 <div id="uploadPicture-button-dialog" class="dialog" title="Update Image">
     <form method="post" enctype="multipart/form-data">
         <p>
             <input type="file" name="floorplanImage">
         </p>
-        <input type="submit" value="Upload">
+        <input class="button-noveil" type="submit" value="Upload">
     </form>
 </div>
+
+<!-- Dialog for defining a new space -->
 <div id="defineSpace-dialog" class="dialog" title="Define Space">
     <p>Click floorplan to add points</p>
     <form id="defineSpaceForm" onsubmit="return defineSpace('{{@id}}')">
@@ -65,7 +70,64 @@
             <span>Points</span>
             <textarea id="defineSpacePoints"></textarea>
         </p>
-        <input type="submit" value="Define">
-        <input onclick="cancelDefine()" type="button" value="Cancel">
+        <input class="button-noveil" type="submit" value="Define">
+        <input class="button-noveil" onclick="cancelDefine()" type="button" value="Cancel">
     </form>
+</div>
+
+<!-- Dialog for displaying information about a Space -->
+<div id="inspectSpace-dialog" class="dialog" title="Inspect Space">
+    <p>
+        <span>Location Code<a id="goToLocationLink"><img src="{{@baseURI}}media/icons/location.png" alt="Go to location" title="Go To Location"></a></span>
+        <input id="inspectLocationCode" type="text" readonly class="readonly">
+    </p>
+    <p>
+        <span>Location Name</span>
+        <input id="inspectLocationName" type="text" readonly class="readonly">
+    </p>
+    <p>
+        <span>Hex Fill Color</span>
+        <input id="inspectHexColor" type="text" readonly class="readonly">
+    </p>
+    <p>
+        <span>Area</span>
+        <input type="text" id="inspectArea" readonly class="readonly">
+    </p>
+    <p>
+        <span>Units</span>
+        <input type="text" maxlength="2" id="inspectUnit" readonly class="readonly">
+    </p>
+    <p>
+        <a id="editSpace" class="button-noveil">Edit Space</a>
+        <span id="redefineSpace" class="button-noveil">Redefine Space</span>
+        <a id="deleteSpace" class="button-noveil delete-button confirm-button">Delete Space</a>
+    </p>
+</div>
+
+<!-- Space edit form -->
+<div id="editSpace-dialog" class="dialog" title="Edit Space">
+    <p>
+        <span>Location Code</span>
+        <input id="editLocationCode" type="text" readonly class="readonly">
+    </p>
+    <p>
+        <span>Location Name</span>
+        <input id="editLocationName" type="text" readonly class="readonly">
+    </p>
+    <p>
+        <span>Hex Fill Color</span>
+        <input id="editHexColor" type="text">
+    </p>
+    <p>
+        <span>Area</span>
+        <input type="text" id="editArea">
+    </p>
+    <p>
+        <span>Units</span>
+        <input type="text" maxlength="2" id="editUnit">
+    </p>
+    <p>
+        <a id="saveSpace" class="button-noveil">Save</a>
+        <a href="javascript: closeDialog('editSpace-dialog')" id="cancelSave" class="button-noveil">Cancel</a>
+    </p>
 </div>

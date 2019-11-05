@@ -269,7 +269,7 @@ function apiRequest(type, path, data, base64 = false)
             showNotifications('error', errors);
             unveil();
         }
-        else if(json.code === 409 || json.code === 400 || json.code === 404) // Form error, bad request, not found
+        else if(json.code === 409 || json.code === 400 || json.code === 404 || json.code === 403) // Form error, bad request, not found
         {
             showNotifications('error', json.data.errors);
             unveil();

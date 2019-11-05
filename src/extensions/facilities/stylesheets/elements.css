@@ -37,3 +37,16 @@ div.spaceLabel span {
 div.spaceLabel p {
     font-size: .8rem;
 }
+
+polyline.space, div.spaceLabel {
+    cursor: pointer;
+}
+
+span#defineBuildingCode {
+    font-weight: 100 !important;
+    display: inline !important;
+}
+
+div.dialog .readonly {
+    background-color: #D3D3D3;
+}

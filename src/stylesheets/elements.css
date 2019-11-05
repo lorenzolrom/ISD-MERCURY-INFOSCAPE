@@ -239,6 +239,17 @@ div.ui-dialog {
     z-index: 999;
 }
 
+div.dialog > p span:first-child {
+    font-weight: 600;
+    display: block;
+}
+
+div.dialog > p input {
+    margin-top: 2px;
+    display: block;
+    margin-bottom: 5px;
+}
+
 /* Dialog table */
 table.dialog-table {
     border-collapse: collapse;
