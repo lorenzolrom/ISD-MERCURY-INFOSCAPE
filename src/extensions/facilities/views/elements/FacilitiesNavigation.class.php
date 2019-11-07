@@ -42,7 +42,7 @@ class FacilitiesNavigation extends Navigation
             )
         ),
         'floorplans' => array(
-            'title' => 'Floorplans',
+            'title' => 'Spaces',
             'permission' => 'facilitiescore_floorplans-r',
             'icon' => 'floorplan.png',
             'pages' => array(

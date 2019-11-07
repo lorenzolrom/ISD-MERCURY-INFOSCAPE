@@ -99,7 +99,7 @@
     </p>
     <p>
         <a id="editSpace" class="button-noveil">Edit Space</a>
-        <span id="redefineSpace" class="button-noveil">Redefine Space</span>
+        <a id="redefineSpace" class="button-noveil">Redefine Space</a>
         <a id="deleteSpace" class="button-noveil delete-button confirm-button">Delete Space</a>
     </p>
 </div>
@@ -130,4 +130,25 @@
         <a id="saveSpace" class="button-noveil">Save</a>
         <a href="javascript: closeDialog('editSpace-dialog')" id="cancelSave" class="button-noveil">Cancel</a>
     </p>
+</div>
+
+<!-- Redefine points form -->
+<div id="redefineSpace-dialog" class="dialog" title="Re-Define Space">
+    <p>Click floorplan to add points</p>
+    <form id="redefineSpaceForm" onsubmit="return redefineSpace('{{@id}}')">
+        <p>
+            <span>Location Code</span>
+            <input id="redefineLocationCode" type="text" readonly class="readonly">
+        </p>
+        <p>
+            <span>Location Name</span>
+            <input id="redefineLocationName" type="text" readonly class="readonly">
+        </p>
+        <p>
+            <span>Points</span>
+            <textarea id="redefineSpacePoints"></textarea>
+        </p>
+        <a id="saveRedefine" class="button-noveil" type="submit">Re-Define</a>
+        <a class="button-noveil" href="javascript: cancelRedefine()">Cancel</a>
+    </form>
 </div>

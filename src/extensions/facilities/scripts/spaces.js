@@ -195,12 +195,53 @@ function defineSpace(id)
     }).done(function(json){
         if(json.code === 201)
         {
+            showNotifications('success', ['Space defined']);
             loadSpaces(id);
             cancelDefine();
         }
     });
 
     return false;
+}
+
+/**
+ * Re-defines a space
+ * @param id
+ */
+function redefineSpace(id)
+{
+    // Remove trailing or leading new line, and split into array by contained new lines
+    let points = document.getElementById('redefineSpacePoints').value.replace(/^\s+|\s+$/g, '').split(/\r?\n/);
+
+    let floorplanImage = document.getElementById('floorplanImage'); // Image of floor
+    let height = floorplanImage.height;
+    let width = floorplanImage.width;
+
+    let convertedPoints = [];
+
+    // Convert points to percentages
+    for(let i = 0; i < points.length; i++)
+    {
+        let parts = points[i].split(',');
+        let orgX = parts[0];
+        let orgY = parts[1];
+
+        let pR = (orgX / width) * 100.0;
+        let pD = (orgY / height) * 100.0;
+
+        convertedPoints.push([pD, pR]);
+    }
+
+    apiRequest('PUT', 'spaces/' + id + '/points', {
+        points: convertedPoints,
+    }).done(function(json){
+        if(json.code === 204)
+        {
+            showNotifications('success', ['Space re-defined']);
+            loadSpaces(floorId);
+            cancelRedefine();
+        }
+    });
 }
 
 /**
@@ -254,6 +295,15 @@ function cancelDefine()
 }
 
 /**
+ * Cancel re-define of space
+ */
+function cancelRedefine()
+{
+    let dialog = document.getElementById('redefineSpace-dialog');
+    $(dialog).dialog('close');
+}
+
+/**
  * Create a dialog for viewing a space
  * @param id Space ID
  */
@@ -267,6 +317,7 @@ function inspectSpace(id)
     let goToLocationLink = document.getElementById('goToLocationLink');
     let editSpaceButton = document.getElementById('editSpace');
     let deleteButton = document.getElementById('deleteSpace');
+    let redefineSpace = document.getElementById('redefineSpace');
 
     // Remove existing event listeners
     $(editSpaceButton).unbind();
@@ -283,6 +334,7 @@ function inspectSpace(id)
 
             //Add edit and delete button scripts
             editSpaceButton.href = "javascript: openSpaceEditDialog('" + id + "')";
+            redefineSpace.href = "javascript: openSpaceRedefineDialog('" + id + "')";
             deleteButton.href = "javascript: deleteSpace('" + id + "')";
 
             $('#inspectSpace-dialog').dialog();
@@ -326,6 +378,41 @@ function openSpaceEditDialog(id)
     // Close inspect and open edit
     $('#inspectSpace-dialog').dialog('close');
     $(editSpaceDialog).dialog();
+}
+
+function openSpaceRedefineDialog(id)
+{
+    // Fill in values from inspect and set up buttons
+    let redefineSpaceDialog = document.getElementById('redefineSpace-dialog');
+
+    let inspectLocationCode = document.getElementById('inspectLocationCode');
+    let inspectLocationName = document.getElementById('inspectLocationName');
+
+    let redefineLocationCode = document.getElementById('redefineLocationCode');
+    let redefineLocationName = document.getElementById('redefineLocationName');
+
+    let saveButton = document.getElementById('saveRedefine');
+
+    redefineLocationCode.value = inspectLocationCode.value;
+    redefineLocationName.value = inspectLocationName.value;
+    saveButton.href = "javascript: redefineSpace('" + id + "')";
+
+    // Import existing points
+    let polyLine = document.getElementById('space_' + id);
+    let points = polyLine.points; // Raw SVG points from polyline
+    let pointArray = []; // Converted points to array
+
+    let pointBox = document.getElementById('redefineSpacePoints');
+    pointBox.innerHTML = '';
+
+    for(let i = 0; i < points.length; i++)
+    {
+        pointBox.appendChild(document.createTextNode(points[i].x + ',' + points[i].y));
+        pointBox.innerHTML = pointBox.innerHTML + '\n'; // Add new line
+    }
+
+    $('#inspectSpace-dialog').dialog('close');
+    $(redefineSpaceDialog).dialog();
 }
 
 /**

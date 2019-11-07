@@ -19,15 +19,12 @@ div.button-bar {
     color: #666;
     text-decoration: none;
     cursor: pointer;
-    line-height: 22px;
     display: inline-block !important;
 
     background: linear-gradient(#e7e7e7, #fff, #fff ,#fff, #e9e9e9, #e9e9e9, #e9e9e9);
     box-shadow: 0 2px 2px #888;
     border-radius: 3px;
     border: 1px solid #000;
-
-    margin-bottom: 5px;
 
     position: relative;
     width: auto;
