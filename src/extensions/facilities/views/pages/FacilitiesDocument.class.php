@@ -35,6 +35,6 @@ abstract class FacilitiesDocument extends SidebarDocument
         $this->setVariable('navigation', $navigation->getTemplate());
         $this->setVariable('appCaption', 'Facilities Management');
 
-        $this->addStylesheets(array('facilities/elements.css'));
+        $this->addStylesheets(array('facilities/elements.css', 'facilities/inputs.css'));
     }
 }

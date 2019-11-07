@@ -68,7 +68,7 @@
         </p>
         <p>
             <span>Points</span>
-            <textarea id="defineSpacePoints"></textarea>
+            <textarea id="defineSpacePoints" class="pointField"></textarea>
         </p>
         <input class="button-noveil" type="submit" value="Define">
         <input class="button-noveil" onclick="cancelDefine()" type="button" value="Cancel">
@@ -134,7 +134,7 @@
 
 <!-- Redefine points form -->
 <div id="redefineSpace-dialog" class="dialog" title="Re-Define Space">
-    <p>Click floorplan to add points</p>
+    <p>Use 'Define Space' to select points from floorplan</p>
     <form id="redefineSpaceForm" onsubmit="return redefineSpace('{{@id}}')">
         <p>
             <span>Location Code</span>
@@ -146,7 +146,7 @@
         </p>
         <p>
             <span>Points</span>
-            <textarea id="redefineSpacePoints"></textarea>
+            <textarea id="redefineSpacePoints" class="pointField"></textarea>
         </p>
         <a id="saveRedefine" class="button-noveil" type="submit">Re-Define</a>
         <a class="button-noveil" href="javascript: cancelRedefine()">Cancel</a>
