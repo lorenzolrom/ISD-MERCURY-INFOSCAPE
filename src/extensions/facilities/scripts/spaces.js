@@ -1,6 +1,8 @@
 let spacesShown = true;
 let labelsShown = true;
-let floorId = null; // This will be set on the initial load of the page
+
+const svgns = 'http://www.w3.org/2000/svg'; // SVG namespace
+const opacity = '75%'; // Opacity of polylines
 
 
 /**
@@ -55,7 +57,6 @@ function toggleLabels()
  */
 function loadSpaces(id)
 {
-    floorId = id;
     // Make div#floorplanArea the same height as img#floorplanImage
     let floorplanArea = document.getElementById('floorplanArea'); // Container of floorplanImage and spaceArea
     let floorplanImage = document.getElementById('floorplanImage'); // Image of floor
@@ -76,8 +77,6 @@ function loadSpaces(id)
     // Remove any labels
     $('.spaceLabel').remove();
 
-    let svgns = 'http://www.w3.org/2000/svg';
-
     // Load spaces
     apiRequest('GET', 'spaces/floor/' + id, {}).done(function(json){
         $.each(json.data, function(i, v){
@@ -88,8 +87,8 @@ function loadSpaces(id)
 
             let polyline = document.createElementNS(svgns, 'polyline');
             polyline.setAttributeNS(null, 'fill', '#' + v.hexColor);
-            polyline.setAttributeNS(null, 'stroke', 0);
-            polyline.setAttributeNS(null, 'opacity', '75%');
+            polyline.setAttributeNS(null, 'stroke', '0');
+            polyline.setAttributeNS(null, 'opacity', opacity);
 
             polyline.id = 'space_' + v.location; // Add ID
             polyline.classList.add('space'); // Add class
@@ -463,3 +462,6 @@ function deleteSpace(id)
         }
     });
 }
+
+// Load spaces
+document.getElementById('floorplanImage').addEventListener('load', function(){loadSpaces(floorId);});

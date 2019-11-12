@@ -25,8 +25,11 @@
 <hr />
 <div id="floorplanArea">
     <svg id="spaceArea"></svg>
-    <img src="{{@src}}" onload="loadSpaces('{{@id}}')" id="floorplanImage" alt="{{@floor}}">
+    <img src="{{@src}}" id="floorplanImage" alt="{{@floor}}">
 </div>
+<script>
+    let floorId = '{{@id}}';
+</script>
 <script src="{{@baseURI}}scripts/facilities/floorplans.js"></script>
 <script src="{{@baseURI}}scripts/facilities/spaces.js"></script>
 

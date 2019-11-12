@@ -69,6 +69,12 @@ class ViewUserPage extends ModelPage
             }
         }
 
+        // Convert UNIX timestamp of lastlogon to ISO 8601
+        if(isset($details['lastlogon']))
+        {
+            $details['lastlogon'] = date('Y-m-d H:i:s', $details['lastlogon']);
+        }
+
         $this->setVariables($details);
         $this->setVariable('memberofList', $memberofList);
     }

@@ -85,7 +85,7 @@ header span#company-logo {
 header span#app-logo {
     background-image: url('../media/mercury_logo.png');
     position: absolute;
-    height: 65px;
+    height: 70px;
     width: 360px;
     top: 7px;
     left: 10px;
