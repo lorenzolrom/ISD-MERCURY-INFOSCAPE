@@ -24,20 +24,18 @@ class NetUserManNavigation extends Navigation
         'netUsers' => array(
             'title' => 'Net Users',
             'permission' => 'netuserman-read',
-            'icon' => 'user.png',
+            'icon' => 'account_circle',
             'pages' => array(
                 array(
                     'title' => 'Search Users',
-                    'operation' => 'search',
                     'permission' => 'netuserman-read',
-                    'icon' => 'user.png',
+                    'icon' => 'search',
                     'link' => 'search'
                 ),
                 array(
                     'title' => 'Create User',
-                    'operation' => 'add',
                     'permission' => 'netuserman-create',
-                    'icon' => 'user.png',
+                    'icon' => 'add',
                     'link' => 'create'
                 )
             )
@@ -45,20 +43,18 @@ class NetUserManNavigation extends Navigation
         'netGroups' => array(
             'title' => 'Net Groups',
             'permission' => 'netuserman-readgroups',
-            'icon' => 'group.png',
+            'icon' => 'group',
             'pages' => array(
                 array(
                     'title' => 'Search Groups',
-                    'operation' => 'search',
                     'permission' => 'netuserman-readgroups',
-                    'icon' => 'group.png',
+                    'icon' => 'search',
                     'link' => 'searchgroups'
                 ),
                 array(
                     'title' => 'Create Group',
-                    'operation' => 'add',
                     'permission' => 'netuserman-creategroups',
-                    'icon' => 'group.png',
+                    'icon' => 'add',
                     'link' => 'creategroup'
                 )
             )

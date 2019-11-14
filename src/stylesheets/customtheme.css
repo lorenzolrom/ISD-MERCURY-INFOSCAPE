@@ -1,4 +1,5 @@
 :root {
+
 }
 
 header span#company-logo {
@@ -7,7 +8,7 @@ header span#company-logo {
 }
 
 header span#app-logo {
-    background-image: url('../media/custommedia/merlot_logo_header.png');
+    background-image: url('../media/custommedia/merlot_logo.png');
     filter: var(--image-shadow);
     right: 10px;
     left: auto;

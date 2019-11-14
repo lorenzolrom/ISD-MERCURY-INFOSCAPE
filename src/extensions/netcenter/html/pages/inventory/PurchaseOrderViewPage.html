@@ -1,13 +1,13 @@
 <div class="button-bar">
-    <a href="{{@baseURI}}netcenter/inventory/purchaseorders/{{@number}}/edit" id="edit-button" class="button"><img src="{{@baseURI}}media/icons/purchaseorder.png" alt="">Edit</a>
-    <span id="addCommodity-button" class="button-noveil dialog-show-button"><span class="operation add"><img src="{{@baseURI}}media/icons/commodity.png" alt=""></span>Add Commodity</span>
-    <span id="addCostItem-button" class="button-noveil dialog-show-button"><span class="operation add"><img src="{{@baseURI}}media/icons/purchaseorder.png" alt=""></span>Add Cost Item</span>
-    <a class="button confirm-button" id="send" href="javascript: send('{{@number}}')"><img src="{{@baseURI}}media/icons/proceed.png" alt="">Send</a>
-    <span class="button-noveil dialog-show-button" id="receive-button"><img src="{{@baseURI}}media/icons/ok.png" alt="">Receive</span>
-    <a class="button confirm-button" id="cancel" href="javascript: cancel('{{@number}}')"><img src="{{@baseURI}}media/icons/delete.png" alt="">Cancel</a>
-    <a class="button" href="{{@baseURI}}netcenter/inventory/purchaseorders"><img src="{{@baseURI}}media/icons/cancel.png" alt="">Back</a>
+    <a href="{{@baseURI}}netcenter/inventory/purchaseorders/{{@number}}/edit" id="edit-button" class="button"><i class="icon">monetization_on</i>Edit</a>
+    <span id="addCommodity-button" class="button-noveil dialog-show-button"><i class="icon">shopping_cart</i>Add Commodity</span>
+    <span id="addCostItem-button" class="button-noveil dialog-show-button"><i class="icon">monetization_on</i>Add Cost Item</span>
+    <a class="button confirm-button" id="send" href="javascript: send('{{@number}}')"><i class="icon">forward</i>Send</a>
+    <span class="button-noveil dialog-show-button" id="receive-button"><i class="icon">check_circle</i>Receive</span>
+    <a class="button confirm-button" id="cancel" href="javascript: cancel('{{@number}}')"><i class="icon">delete</i>Cancel</a>
+    <a class="button" href="{{@baseURI}}netcenter/inventory/purchaseorders"><i class="icon">backspace</i>Back</a>
 </div>
-<h2 class="region-title"><img src="{{@baseURI}}media/icons/purchaseorder.png" alt="">Purchase Order Profile<a class="history-link" href="{{@baseURI}}history/purchaseorder/{{@number}}"><img src="{{@baseURI}}media/icons/history.png" alt="" title="View History"></a></h2>
+<h2 class="region-title"><i class="icon">monetization_on</i>Purchase Order Profile<a class="history-link" href="{{@baseURI}}history/purchaseorder/{{@number}}"><i class="icon" title="View History">history</i></a></h2>
 <table class="table-display" id="po-display">
     <tbody>
     <tr>
@@ -53,13 +53,13 @@
     </tbody>
 </table>
 
-<h2 class="region-title region-expand region-expand-collapsed" onclick="loadCommodities('{{@number}}')"><img src="{{@baseURI}}media/icons/commodity.png" alt="">Commodities</h2>
+<h2 class="region-title region-expand region-expand-collapsed" onclick="loadCommodities('{{@number}}')"><i class="icon">shopping_cart</i>Commodities</h2>
 <div id="commodity-region" class="region wait"></div>
 
-<h2 class="region-title region-expand region-expand-collapsed" onclick="loadCostItems('{{@number}}')"><img src="{{@baseURI}}media/icons/purchaseorder.png" alt="">Cost Items</h2>
+<h2 class="region-title region-expand region-expand-collapsed" onclick="loadCostItems('{{@number}}')"><i class="icon">monetization_on</i>Cost Items</h2>
 <div id="cost-region" class="region wait"></div>
 
-<h2 class="region-title"><img src="{{@baseURI}}media/icons/bulk.png" alt="">Additional Details</h2>
+<h2 class="region-title"><i class="icon">details</i>Additional Details</h2>
 <table class="table-display">
     <tbody>
     <tr>

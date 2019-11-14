@@ -39,9 +39,9 @@ class Navigation extends View
                 continue;
 
             if(isset($section['link']))
-                $sectionString = "<li><a class='nav-item' href='{{@baseURI}}{$baseURI}{$section['link']}'><img src='{{@baseURI}}media/icons/{$section['icon']}' alt=''>{$section['title']}</a>\n";
+                $sectionString = "<li><a class='nav-item' href='{{@baseURI}}{$baseURI}{$section['link']}'><i class='icon'>{$section['icon']}</i>{$section['title']}</a>\n";
             else
-                $sectionString = "<li><span class='nav-item'><img src='{{@baseURI}}media/icons/{$section['icon']}' alt=''>{$section['title']}</span>\n";
+                $sectionString = "<li><span class='nav-item'><i class='icon'>{$section['icon']}</i>{$section['title']}</span>\n";
 
             if(isset($section['pages']))
             {
@@ -54,10 +54,7 @@ class Navigation extends View
 
                     if(isset($page['icon']))
                     {
-                        $icon = "<img src='{{@baseURI}}media/icons/{$page['icon']}' alt=''>";
-
-                        if(isset($page['operation']))
-                            $icon = "<span class='operation {$page['operation']}'>$icon</span>";
+                        $icon = "<i class='icon'>{$page['icon']}</i>";
                     }
                     else
                         $icon = "";

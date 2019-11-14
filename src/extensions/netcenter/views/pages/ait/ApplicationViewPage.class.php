@@ -35,7 +35,7 @@ class ApplicationViewPage extends ModelPage
 
         foreach($details['webHosts'] as $webHost)
         {
-            $webHosts .= "<li><a href='{{@baseURI}}netcenter/devices/hosts/{$webHost['id']}'><img src='{{@baseURI}}media/icons/interface.png' alt=''>{$webHost['systemName']} ({$webHost['ipAddress']})</a></li>";
+            $webHosts .= "<li><a href='{{@baseURI}}netcenter/devices/hosts/{$webHost['id']}'><i class='icon'>desktop_windows</i>{$webHost['systemName']} ({$webHost['ipAddress']})</a></li>";
         }
 
         $this->setVariable('webHostList', $webHosts);
@@ -45,7 +45,7 @@ class ApplicationViewPage extends ModelPage
 
         foreach($details['dataHosts'] as $dataHost)
         {
-            $dataHosts .= "<li><a href='{{@baseURI}}netcenter/devices/hosts/{$dataHost['id']}'><img src='{{@baseURI}}media/icons/interface.png' alt=''>{$dataHost['systemName']} ({$dataHost['ipAddress']})</a></li>";
+            $dataHosts .= "<li><a href='{{@baseURI}}netcenter/devices/hosts/{$dataHost['id']}'><i class='icon'>desktop_windows</i>{$dataHost['systemName']} ({$dataHost['ipAddress']})</a></li>";
         }
 
         $this->setVariable('dataHostList', $dataHosts);
@@ -55,7 +55,7 @@ class ApplicationViewPage extends ModelPage
 
         foreach($details['appHosts'] as $appHost)
         {
-            $appHosts .= "<li><a href='{{@baseURI}}netcenter/devices/hosts/{$appHost['id']}'><img src='{{@baseURI}}media/icons/interface.png' alt=''>{$appHost['systemName']} ({$appHost['ipAddress']})</a></li>";
+            $appHosts .= "<li><a href='{{@baseURI}}netcenter/devices/hosts/{$appHost['id']}'><i class='icon'>desktop_windows</i>{$appHost['systemName']} ({$appHost['ipAddress']})</a></li>";
         }
 
         $this->setVariable('appHostList', $appHosts);
@@ -65,7 +65,7 @@ class ApplicationViewPage extends ModelPage
 
         foreach($details['vHosts'] as $vhost)
         {
-            $vhosts .= "<li><a href='{{@baseURI}}netcenter/web/vhosts/{$vhost['id']}'><img src='{{@baseURI}}media/icons/hostname.png' alt=''>{$vhost['subdomain']}.{$vhost['domain']}</a></li>";
+            $vhosts .= "<li><a href='{{@baseURI}}netcenter/web/vhosts/{$vhost['id']}'><i class='icon'>dns</i>{$vhost['subdomain']}.{$vhost['domain']}</a></li>";
         }
 
         $this->setVariable('vhostList', $vhosts);

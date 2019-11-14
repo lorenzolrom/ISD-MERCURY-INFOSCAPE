@@ -24,32 +24,30 @@ class AdminNavigation extends Navigation
         'users' => array(
             'title' => 'Users',
             'permission' => 'settings',
-            'icon' => 'user.png',
+            'icon' => 'account_circle',
             'pages' => array(
                 array(
                     'title' => 'Search Users',
                     'link' => 'users',
-                    'icon' => 'user.png',
-                    'operation' => 'search',
+                    'icon' => 'search',
                     'permission' => 'settings'
                 ),
                 array(
                     'title' => 'New User',
                     'link' => 'users/new',
-                    'icon' => 'user.png',
-                    'operation' => 'add',
+                    'icon' => 'add_circle',
                     'permission' => 'settings'
                 ),
                 array(
                     'title' => 'Login History',
                     'link' => 'userlogs',
-                    'icon' => 'history.png',
+                    'icon' => 'history',
                     'permission' => 'settings'
                 ),
                 array(
                     'title' => 'Audit Permissions',
                     'link' => 'permissions',
-                    'icon' => 'account_searchpermissions.png',
+                    'icon' => 'vpn_key',
                     'permission' => 'settings'
                 )
             )
@@ -57,20 +55,18 @@ class AdminNavigation extends Navigation
         'roles' => array(
             'title' => 'Roles',
             'permission' => 'settings',
-            'icon' => 'group.png',
+            'icon' => 'group',
             'pages' => array(
                 array(
                     'title' => 'Search Roles',
                     'permission' => 'settings',
-                    'icon' => 'group.png',
-                    'operation' => 'search',
+                    'icon' => 'search',
                     'link' => 'roles'
                 ),
                 array(
                     'title' => 'New Role',
                     'permission' => 'settings',
-                    'icon' => 'group.png',
-                    'operation' => 'add',
+                    'icon' => 'add_circle',
                     'link' => 'roles/new'
                 )
             )
@@ -78,20 +74,18 @@ class AdminNavigation extends Navigation
         'api_keys' => array(
             'title' => 'API Keys',
             'permission' => 'api-settings',
-            'icon' => 'operator.png',
+            'icon' => 'vpn_key',
             'pages' => array(
                 array(
                     'title' => 'Search API Keys',
                     'permission' => 'api-settings',
-                    'icon' => 'operator.png',
-                    'operation' => 'search',
+                    'icon' => 'search',
                     'link' => 'icadmin'
                 ),
                 array(
                     'title' => 'Issue API Key',
                     'permission' => 'api-settings',
-                    'icon' => 'operator.png',
-                    'operation' => 'add',
+                    'icon' => 'add_circle',
                     'link' => 'icadmin/new'
                 )
             )
@@ -99,26 +93,24 @@ class AdminNavigation extends Navigation
         'notifications' => array(
             'title' => 'Send Notification',
             'permission' => 'settings',
-            'icon' => 'toemail.png',
+            'icon' => 'email',
             'link' => 'notifications/send'
         ),
         'bulletins' => array(
             'title' => 'Bulletins',
             'permission' => 'settings',
-            'icon' => 'about.png',
+            'icon' => 'event_note',
             'pages' => array(
                 array(
                     'title' => 'Search Bulletins',
                     'permission' => 'settings',
-                    'icon' => 'about.png',
-                    'operation' => 'search',
+                    'icon' => 'search',
                     'link' => 'bulletins',
                 ),
                 array(
                     'title' => 'New Bulletin',
                     'permission' => 'settings',
-                    'icon' => 'about.png',
-                    'operation' => 'add',
+                    'icon' => 'add_circle',
                     'link' => 'bulletins/new',
                 )
             )

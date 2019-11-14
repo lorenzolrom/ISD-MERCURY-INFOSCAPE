@@ -23,42 +23,42 @@ class NetCenterNavigation extends Navigation
         'inventory' => array(
             'title' => 'Inventory',
             'permission' => 'itsm_inventory',
-            'icon' => 'asset.png',
+            'icon' => 'view_list',
             'pages' => array(
                 array(
                     'title' => 'Assets',
                     'link' => 'inventory/assets',
-                    'icon' => 'asset.png',
+                    'icon' => 'class',
                     'permission' => 'itsm_inventory-assets-r'
                 ),
                 array(
                     'title' => 'Commodities',
                     'link' => 'inventory/commodities',
-                    'icon' => 'commodity.png',
+                    'icon' => 'shopping_cart',
                     'permission' => 'itsm_inventory-commodities-r'
                 ),
                 array(
                     'title' => 'Purchase Orders',
                     'link' => 'inventory/purchaseorders',
-                    'icon' => 'purchaseorder.png',
+                    'icon' => 'monetization_on',
                     'permission' => 'itsm_inventory-purchaseorders-r'
                 ),
                 array(
                     'title' => 'Discards',
                     'link' => 'inventory/discards',
-                    'icon' => 'discardorder.png',
+                    'icon' => 'delete_forever',
                     'permission' => 'itsm_inventory-discards-r'
                 ),
                 array(
                     'title' => 'Warehouses',
                     'link' => 'inventory/warehouses',
-                    'icon' => 'warehouse.png',
+                    'icon' => 'local_shipping',
                     'permission' => 'itsm_inventory-warehouses-r'
                 ),
                 array(
                     'title' => 'Vendors',
                     'link' => 'inventory/vendors',
-                    'icon' => 'business.png',
+                    'icon' => 'business_center',
                     'permission' => 'itsm_inventory-vendors-r'
                 )
             )
@@ -66,43 +66,43 @@ class NetCenterNavigation extends Navigation
         'devices' => array(
             'title' => 'Devices',
             'permission' => 'itsm_devices',
-            'icon' => 'computer.png',
+            'icon' => 'desktop_windows',
             'pages' => array(
                 array(
                     'title' => 'Hosts',
                     'permission' => 'itsm_devices-hosts-r',
                     'link' => 'devices/hosts',
-                    'icon' => 'interface.png',
+                    'icon' => 'memory',
                 ),
                 array(
                     'title' => 'DHCP Logs',
                     'permission' => 'itsm_dhcplogs-r',
                     'link' => 'devices/dhcplogs',
-                    'icon' => 'macaddress.png'
+                    'icon' => 'description'
                 ),
             )
         ),
         'web' => array(
             'title' => 'Web',
             'permission' => 'itsm_web',
-            'icon' => 'website.png',
+            'icon' => 'language',
             'pages' => array(
                 array(
                     'title' => 'VHosts',
                     'link' => 'web/vhosts',
-                    'icon' => 'hostname.png',
+                    'icon' => 'dns',
                     'permission' => 'itsm_web-vhosts-r'
                 ),
                 array(
                     'title' => 'URL Aliases',
                     'link' => 'web/urlaliases',
-                    'icon' => 'hostname.png',
+                    'icon' => 'forward',
                     'permission' => 'itsm_web-aliases-rw',
                 ),
                 array(
                     'title' => 'Registrars',
                     'link' => 'web/registrars',
-                    'icon' => 'business.png',
+                    'icon' => 'business_center',
                     'permission' => 'itsm_web-registrars-r'
                 )
             )
@@ -110,14 +110,14 @@ class NetCenterNavigation extends Navigation
         'ait' => array(
             'title' => 'Applications',
             'permission' => 'itsm_ait',
-            'icon' => 'apps.png',
+            'icon' => 'developer_board',
             'link' => 'ait/applications'
         ),
         'monitor' => array(
             'title' => 'Monitor',
             'permission' => 'itsmmonitor',
             'link' => 'monitor',
-            'icon' => 'monitor.png',
+            'icon' => 'dashboard',
         )
     );
 

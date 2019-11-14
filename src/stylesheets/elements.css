@@ -1,3 +1,29 @@
+/* Icons */
+.icon {
+    font-family: "Material Icons", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
+
+    margin-right: 3px;
+}
+
+.button .icon, .button-noveil .icon {
+    line-height: 18px;
+    vertical-align: text-top;
+}
+
 /* Notifications */
 
 div#notifications {
@@ -20,12 +46,24 @@ div#notifications.notifications-error {
     border-left: 4px solid var(--error);
 }
 
+div#notifications.notifications-error .icon {
+    color: var(--error);
+}
+
 div#notifications.notifications-notice {
     border-left: 4px solid var(--notice);
 }
 
+div#notifications.notifications-notice .icon {
+    color: var(--notice);
+}
+
 div#notifications.notifications-success {
     border-left: 4px solid var(--success);
+}
+
+div#notifications.notifications-success .icon {
+    color: var(--success);
 }
 
 div#notifications div#notifications-dismiss {
@@ -141,7 +179,6 @@ table.dataTable a {
 h2.region-title {
     background-color: var(--primary-color);
     color: #FFF;
-    font-weight: 600;
     padding: 5px 5px;
     font-size: 1.3rem;
     line-height: 19px;
@@ -157,6 +194,7 @@ h2.region-title img {
 
 a.history-link {
     float: right;
+    color: #FFF;
 }
 
 table.table-display {
@@ -168,9 +206,9 @@ table.table-display tr {
 }
 
 table.table-display tr td:nth-child(2n+1) {
-    font-weight: 600;
     text-align: right;
     min-width: 100px;
+    color: #888;
 }
 
 table.table-display tr td:nth-child(2n) {
@@ -372,8 +410,6 @@ div#home-banner {
     font-size: 2em;
     padding: 10px;
     text-align: center;
-    border-radius: 6px;
-    border: 1px solid var(--bulletin-border-color);
     box-shadow: var(--bulletin-shadow);
     background: var(--error);
     color: #FFF;
@@ -445,7 +481,7 @@ ul#portal-menu li a:hover span{
 }
 
 ul#portal-menu li a img {
-    height: 75px;
+    height: 65px;
     vertical-align: middle;
     margin-right: 10px;
 }
@@ -456,7 +492,7 @@ ul#portal-menu li a span {
     font-weight: var(--menu-font-weight);
     position: absolute;
     left: 90px;
-    top: 30px;
+    top: 25px;
 }
 
 table.calendar {

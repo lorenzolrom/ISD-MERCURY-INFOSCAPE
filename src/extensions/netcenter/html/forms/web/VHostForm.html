@@ -1,10 +1,10 @@
 <div class="button-bar">
-    <span class="button form-submit-button" id="vendor"><img src="{{@baseURI}}media/icons/save.png" alt="">Save</span>
-    <a class="button delete-button confirm-button" href="javascript: deleteVHost('{{@id}}')"><img src="{{@baseURI}}media/icons/delete.png" alt="">Delete</a>
-    <a class="button" href="{{@baseURI}}netcenter/web/vhosts"><img src="{{@baseURI}}media/icons/cancel.png" alt="">Cancel</a>
+    <span class="button form-submit-button" id="vendor"><i class="icon">save</i>Save</span>
+    <a class="button delete-button confirm-button" href="javascript: deleteVHost('{{@id}}')"><i class="icon">delete</i>Delete</a>
+    <a class="button" href="{{@baseURI}}netcenter/web/vhosts"><i class="icon">backspace</i>Cancel</a>
 </div>
 <form id="vendor-form" class="table-form" onsubmit="{{@formScript}}">
-    <h2 class="region-title"><img src="{{@baseURI}}media/icons/hostname.png" alt="">VHost Profile<a class="history-link" href="{{@baseURI}}history/vhost/{{@id}}"><img src="{{@baseURI}}media/icons/history.png" alt="" title="View History"></a></h2>
+    <h2 class="region-title"><i class="icon">dns</i>VHost Profile<a class="history-link" href="{{@baseURI}}history/vhost/{{@id}}"><i class="icon" title="View History">history</i></a></h2>
     <table class="table-display">
         <tbody>
         <tr>
@@ -20,7 +20,7 @@
             <td><input type="text" id="renewCost" value="{{@renewCost}}"></td>
         </tr>
         <tr>
-            <td class="required"><a href="{{@baseURI}}netcenter/devices/hosts/{{@host}}"><img src="{{@baseURI}}media/icons/interface.png" alt="View Host"></a>Host I.P. Address</td>
+            <td class="required"><a href="{{@baseURI}}netcenter/devices/hosts/{{@host}}"><i class="icon">memory</i></a>Host I.P. Address</td>
             <td><input type="text" id="ipAddress" value="{{@ipAddress}}"></td>
             <td class="required">Status</td>
             <td>
@@ -37,18 +37,18 @@
         </tr>
         </tbody>
     </table>
-    <h2 class="region-title"><img src="{{@baseURI}}media/icons/business.png" alt="">Registrar Details</h2>
+    <h2 class="region-title"><i class="icon">business_center</i>Registrar Details</h2>
     <table class="table-display">
         <tbody>
         <tr>
-            <td class="required"><a href="{{@baseURI}}netcenter/web/registrars/{{@registrar}}"><img src="{{@baseURI}}media/icons/business.png" alt="View Registrar"></a>Registrar Code</td>
+            <td class="required"><a href="{{@baseURI}}netcenter/web/registrars/{{@registrar}}"><i class="icon">business_center</i></a>Registrar Code</td>
             <td><input type="text" id="registrar" value="{{@registrarCode}}"></td>
             <td>Registrar Name</td>
             <td id="registrarName">{{@registrarName}}</td>
         </tr>
         </tbody>
     </table>
-    <h2 class="region-title"><img src="{{@baseURI}}media/icons/computer.png" alt="">Server Information<a class="history-link" href="{{@baseURI}}netcenter/web/sitelogs/{{@id}}"><img src="{{@baseURI}}media/icons/report.png" alt="" title="View Logs"></a></h2>
+    <h2 class="region-title"><i class="icon">desktop_windows</i>Server Information<a class="history-link" href="{{@baseURI}}netcenter/web/sitelogs/{{@id}}"><i class="icon">description</i></a></h2>
     <table class="table-display">
         <tbody>
         <tr>
@@ -59,7 +59,7 @@
         </tr>
         </tbody>
     </table>
-    <h2 class="region-title"><img src="{{@baseURI}}media/icons/bulk.png" alt="">Additional Details</h2>
+    <h2 class="region-title"><i class="icon">details</i>Additional Details</h2>
     <table class="table-display">
         <tbody>
         <tr>

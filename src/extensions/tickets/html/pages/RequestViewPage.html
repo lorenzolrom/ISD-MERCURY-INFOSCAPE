@@ -1,8 +1,8 @@
 <div class="button-bar">
-    <a class="button" href="{{@baseURI}}tickets/requests/{{@workspace}}-{{@number}}/update"><img src="{{@baseURI}}media/icons/edit.png">Update</a>
-    <a class="button" href="{{@baseURI}}tickets/requests"><img src="{{@baseURI}}media/icons/cancel.png">Back</a>
+    <a class="button" href="{{@baseURI}}tickets/requests/{{@workspace}}-{{@number}}/update"><i class="icon">edit</i>Update</a>
+    <a class="button" href="{{@baseURI}}tickets/requests"><i class="icon">backspace</i>Back</a>
 </div>
-<h2 class="region-title"><img src="{{@baseURI}}media/icons/help.png" alt="">Request Profile</h2>
+<h2 class="region-title"><i class="icon">help</i>Request Profile</h2>
 <table class="table-display">
     <tbody>
     <tr>
@@ -35,7 +35,7 @@
     </tr>
     </tbody>
 </table>
-<h2 id="update" class="region-title region-expand region-expand-collapsed" onclick="loadUpdates('{{@workspace}}', '{{@number}}')"><img src="{{@baseURI}}media/icons/report.png" alt="">Updates</h2>
+<h2 id="update" class="region-title region-expand region-expand-collapsed" onclick="loadUpdates('{{@workspace}}', '{{@number}}')"><i class="icon">description</i>Updates</h2>
 <div id="update-region" class="region wait"></div>
 
 <script src="{{@baseURI}}scripts/tickets/requests.js"></script>

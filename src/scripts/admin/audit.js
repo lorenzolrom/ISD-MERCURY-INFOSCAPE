@@ -52,8 +52,9 @@ function viewUser(id)
         let userLink = document.createElement('a');
         $(userLink).attr('href', baseURI + 'admin/users/' + id);
 
-        let userIcon = document.createElement('img');
-        $(userIcon).attr('src', baseURI + 'media/icons/user.png');
+        let userIcon = document.createElement('i');
+        userIcon.classList.add('icon');
+        userIcon.appendChild(document.createTextNode("account_circle"));
 
         userLink.appendChild(userIcon);
         userLink.appendChild(document.createTextNode(json.data.username));
@@ -70,8 +71,9 @@ function viewUser(id)
         $.each(json.data.roles, function(i, v){
             let role = document.createElement('li');
 
-            let roleIcon = document.createElement('img');
-            $(roleIcon).attr('src', baseURI + 'media/icons/group.png');
+            let roleIcon = document.createElement('i');
+            roleIcon.classList.add('icon');
+            roleIcon.appendChild(document.createTextNode('group'));
 
             let roleLink = document.createElement('a');
             $(roleLink).attr('href', baseURI + 'admin/roles/' + v.id);

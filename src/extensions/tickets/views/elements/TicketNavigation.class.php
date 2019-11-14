@@ -31,31 +31,23 @@ class TicketNavigation extends Navigation
             'title' => 'Requests',
             'permission' => 'tickets-customer',
             'link' => 'requests',
-            'icon' => 'help.png'
+            'icon' => 'help'
         ),
         'agent' => array(
             'title' => 'Agent',
             'permission' => 'tickets-agent',
-            'icon' => 'business.png',
+            'icon' => 'business',
             'pages' => array(
                 array(
                     'title' => 'Service Desk',
                     'link' => 'agent',
-                    'icon' => 'ticket.png',
+                    'icon' => 'assignment',
                     'permission' => 'tickets-agent'
                 ),
-//                array(
-//                    'title' => 'New Ticket',
-//                    'link' => 'agent/new',
-//                    'icon' => 'ticket.png',
-//                    'operation' => 'add',
-//                    'permission' => 'tickets-agent'
-//                ),
                 array(
                     'title' => 'Advanced Search',
                     'link' => 'agent/search',
-                    'icon' => 'ticket.png',
-                    'operation' => 'search',
+                    'icon' => 'search',
                     'permission' => 'tickets-agent'
                 )
             )
@@ -63,18 +55,18 @@ class TicketNavigation extends Navigation
         'admin' => array(
             'title' => 'Admin',
             'permission' => 'tickets-admin',
-            'icon' => 'admin.png',
+            'icon' => 'settings_applications',
             'pages' => array(
                 array(
                     'title' => 'Workspaces',
                     'permission' => 'tickets-admin',
-                    'icon' => 'report.png',
+                    'icon' => 'description',
                     'link' => 'admin/workspaces'
                 ),
                 array(
                     'title' => 'Teams',
                     'permission' => 'tickets-admin',
-                    'icon' => 'group.png',
+                    'icon' => 'group',
                     'link' => 'admin/teams'
                 )
             )

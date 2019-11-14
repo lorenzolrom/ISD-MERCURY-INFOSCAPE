@@ -20,7 +20,7 @@ class ExtConfig
         'netcenter' => array(
             'title' => 'Net Center',
             'permission' => 'itsm',
-            'icon' => 'main.png',
+            'icon' => 'netcenter.svg',
             'link' => 'netcenter'
         ),
     );

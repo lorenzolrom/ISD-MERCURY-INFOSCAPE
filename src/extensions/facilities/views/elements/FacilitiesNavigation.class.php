@@ -23,20 +23,18 @@ class FacilitiesNavigation extends Navigation
         'buildings' => array(
             'title' => 'Buildings',
             'permission' => 'facilitiescore_facilities-r',
-            'icon' => 'building.png',
+            'icon' => 'business',
             'pages' => array(
                 array(
                     'title' => 'Search Buildings',
                     'link' => 'buildings',
-                    'icon' => 'building.png',
-                    'operation' => 'search',
+                    'icon' => 'search',
                     'permission' => 'facilitiescore_facilities-r',
                 ),
                 array(
                     'title' => 'New Building',
                     'link' => 'buildings/new',
-                    'icon' => 'building.png',
-                    'operation' => 'add',
+                    'icon' => 'add_circle',
                     'permission' => 'facilitiescore_facilities-w',
                 )
             )
@@ -44,20 +42,18 @@ class FacilitiesNavigation extends Navigation
         'floorplans' => array(
             'title' => 'Spaces',
             'permission' => 'facilitiescore_floorplans-r',
-            'icon' => 'floorplan.png',
+            'icon' => 'fullscreen',
             'pages' => array(
                 array(
                     'title' => 'Search Floorplans',
                     'link' => 'floorplans',
-                    'icon' => 'floorplan.png',
-                    'operation' => 'search',
+                    'icon' => 'search',
                     'permission' => 'facilitiescore_floorplans-r',
                 ),
                 array(
                     'title' => 'New Floorplan',
                     'link' => 'floorplans/new',
-                    'icon' => 'floorplan.png',
-                    'operation' => 'add',
+                    'icon' => 'add_circle',
                     'permission' => 'facilitiescore_floorplans-w',
                 )
             )

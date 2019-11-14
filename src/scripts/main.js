@@ -526,23 +526,23 @@ function showNotifications(type, items)
 
     // Add heading
     let heading = document.createElement("h3");
-    let icon = document.createElement("img");
-    $(icon).attr("alt", "");
+    let icon = document.createElement("i");
+    icon.classList.add('icon');
 
     let title = "Notice";
 
     switch(type)
     {
         case "error":
-            $(icon).attr("src", baseURI + "media/icons/fail.png");
+            icon.appendChild(document.createTextNode("error"));
             title = "Error";
             break;
         case "success":
-            $(icon).attr("src", baseURI + "media/icons/pass.png");
+            icon.appendChild(document.createTextNode("check_circle"));
             title = "Success";
             break;
         default:
-            $(icon).attr("src", baseURI + "media/icons/info.png");
+            icon.appendChild(document.createTextNode("info"));
     }
 
     heading.appendChild(icon);

@@ -194,9 +194,9 @@ abstract class View
         $this->setVariable("notifications", $notificationString);
 
         if($type == 'error')
-            $this->setVariable('icon', 'fail');
+            $this->setVariable('icon', 'error');
         if($type == 'success')
-            $this->setVariable('icon', 'pass');
+            $this->setVariable('icon', 'check_circle');
         else
             $this->setVariable('icon', 'info');
     }

@@ -1,10 +1,10 @@
 <div class="button-bar">
-    <span class="button form-submit-button" id="assetType"><img src="{{@baseURI}}media/icons/save.png" alt="">Save</span>
-    <a class="button delete-button confirm-button" href="javascript: deleteAssetType('{{@id}}')"><img src="{{@baseURI}}media/icons/delete.png" alt="">Delete</a>
-    <a class="button" href="{{@cancelLink}}"><img src="{{@baseURI}}media/icons/cancel.png" alt="">Cancel</a>
+    <span class="button form-submit-button" id="assetType"><i class="icon">save</i>Save</span>
+    <a class="button delete-button confirm-button" href="javascript: deleteAssetType('{{@id}}')"><i class="icon">delete</i>Delete</a>
+    <a class="button" href="{{@cancelLink}}"><i class="icon">backspace</i>Cancel</a>
 </div>
 <form id="assetType-form" class="table-form" onsubmit="{{@formScript}}">
-    <h2 class="region-title"><img src="{{@baseURI}}media/icons/commodity.png" alt="">Asset Type Profile</h2>
+    <h2 class="region-title"><i class="icon">shopping_cart</i>Asset Type Profile</h2>
     <table class="table-display">
         <tbody>
         <tr>

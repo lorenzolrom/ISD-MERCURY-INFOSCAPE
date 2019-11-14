@@ -1,18 +1,18 @@
 <div class="button-bar">
-    <a href="{{@baseURI}}facilities/floorplans/{{@id}}/edit" class="button"><img src="{{@baseURI}}media/icons/edit.png" alt="">Edit</a>
-    <span id="uploadPicture-button" class="button-noveil dialog-show-button"><img src="{{@baseURI}}media/icons/camera.png" alt="">Update Image</span>
-    <span id="spacesButton" onclick="toggleSpaces()" class="button-noveil"><img src="{{@baseURI}}media/icons/floorplan.png" alt="">Hide Spaces</span>
-    <span id="labelButton" onclick="toggleLabels()" class="button-noveil"><img src="{{@baseURI}}media/icons/about.png" alt="">Hide Labels</span>
-    <span id="defineSpace" onclick="listenPoints()" class="button-noveil dialog-show-button"><span class="operation add"><img src="{{@baseURI}}media/icons/floorplan.png" alt=""></span>Define Space</span>
-    <a class="button delete-button confirm-button" href="javascript: del('{{@id}}')"><img src="{{@baseURI}}media/icons/delete.png" alt="">Delete</a>
-    <a class="button" href="{{@baseURI}}facilities/floorplans"><img src="{{@baseURI}}media/icons/cancel.png" alt="">Back</a>
+    <a href="{{@baseURI}}facilities/floorplans/{{@id}}/edit" class="button"><i class="icon">edit</i>Edit</a>
+    <span id="uploadPicture-button" class="button-noveil dialog-show-button"><i class="icon">photo_camera</i>Update Image</span>
+    <span id="spacesButton" onclick="toggleSpaces()" class="button-noveil"><i class="icon">map</i>Hide Spaces</span>
+    <span id="labelButton" onclick="toggleLabels()" class="button-noveil"><i class="icon">info</i>Hide Labels</span>
+    <span id="defineSpace" onclick="listenPoints()" class="button-noveil dialog-show-button"><i class="icon">map</i>Define Space</span>
+    <a class="button delete-button confirm-button" href="javascript: del('{{@id}}')"><i class="icon">delete</i>Delete</a>
+    <a class="button" href="{{@baseURI}}facilities/floorplans"><i class="icon">backspace</i>Back</a>
 </div>
-<h2 class="region-title"><img src="{{@baseURI}}media/icons/floorplan.png" alt="">Floorplan Profile<a class="history-link" href="{{@baseURI}}history/floorplan/{{@id}}"><img src="{{@baseURI}}media/icons/history.png" alt="" title="View History"></a></h2>
+<h2 class="region-title"><i class="icon">map</i>Floorplan Profile<a class="history-link" href="{{@baseURI}}history/floorplan/{{@id}}"><i class="icon" title="View History">history</i></a></h2>
 <table class="table-display">
     <tbody>
     <tr>
         <td>Building Code</td>
-        <td><a href="{{@baseURI}}facilities/buildings/{{@building}}"><img src="{{@baseURI}}media/icons/building.png"></a>{{@buildingCode}}</td>
+        <td><a href="{{@baseURI}}facilities/buildings/{{@building}}"><i class="icon">business</i></a>{{@buildingCode}}</td>
         <td>Building Name</td>
         <td>{{@buildingName}}</td>
     </tr>
@@ -81,7 +81,7 @@
 <!-- Dialog for displaying information about a Space -->
 <div id="inspectSpace-dialog" class="dialog" title="Inspect Space">
     <p>
-        <span>Location Code<a id="goToLocationLink"><img src="{{@baseURI}}media/icons/location.png" alt="Go to location" title="Go To Location"></a></span>
+        <span>Location Code<a id="goToLocationLink"><i class="icon">room</i></a></span>
         <input id="inspectLocationCode" type="text" readonly class="readonly">
     </p>
     <p>

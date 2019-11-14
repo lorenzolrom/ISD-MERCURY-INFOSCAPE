@@ -58,7 +58,7 @@ function loadMonitor()
 
                     let status = document.createElement('img');
                     let icon = v.status === 'offline' ? 'fail.png' : 'pass.png';
-                    icon = baseURI + 'media/icons/' + icon;
+                    icon = baseURI + 'media/monitor/' + icon;
                     $(status).attr('src', icon);
 
                     host.appendChild(document.createTextNode(v.systemName));

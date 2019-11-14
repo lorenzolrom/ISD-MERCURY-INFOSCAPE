@@ -15,13 +15,13 @@
     --main-background: #F3F3F3;
     --dark-background: #38383D;
 
-    --shadow: 0px 3px 4px #444;
-    --md-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    --text-shadow: 5px 4px 10px #000;
-    --image-shadow: drop-shadow(3px 3px 3px #000);
+    --shadow: 0 1px 6px -1px rgba(0, 0, 0, 0.1);
+    --md-shadow: 0 1px 6px -1px rgba(0, 0, 0, 0.1);
+    --text-shadow: 0 1px 6px -1px rgba(0, 0, 0, 0.1);
+    --image-shadow: 0 1px 6px -1px rgba(0, 0, 0, 0.1);
 
     --bulletin-border-color: #888;
-    --bulletin-shadow: 0px 2px 5px #888;
+    --bulletin-shadow: 0 1px 6px -1px rgba(0, 0, 0, 0.1);
 
     --menu-font-weight: 400;
 }
@@ -29,9 +29,19 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: "Times New Roman", serif;
-    font-size: 12pt;
+    font-family: "Open Sans", Arial, sans-serif;
+    font-size: 10pt;
     font-weight: normal;
+}
+
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/OpenSans-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Material Icons";
+    src: url("../fonts/MaterialIcons-Regular.ttf");
 }
 
 a {
@@ -54,7 +64,7 @@ div#wrapper {
 
 header {
     background-color: var(--primary-color);
-    height: 80px;
+    height: 60px;
     position: relative;
     display: block;
 }
@@ -64,7 +74,7 @@ header div#header-accent {
     width: 100%;
     background-color: var(--accent-color);
     position: absolute;
-    display: block;
+    display: none;
     bottom: 0;
 }
 
@@ -74,18 +84,19 @@ header span {
 
 header span#company-logo {
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 80px;
+    top: 5px;
+    left: 5px;
+    height: 50px;
     width: 384px;
     background-image: none;
     background-repeat: no-repeat;
+    background-size: auto 100%;
 }
 
 header span#app-logo {
     background-image: url('../media/mercury_logo.png');
     position: absolute;
-    height: 70px;
+    height: 50px;
     width: 360px;
     top: 7px;
     left: 10px;
@@ -121,7 +132,7 @@ header span#app-caption, header span#operator-name {
 }
 
 header span#operator-name {
-    bottom: 2px;
+    bottom: -20px;
 }
 
 header span#app-caption {
@@ -134,7 +145,6 @@ header span#app-caption {
 nav {
     z-index: 998;
     background-color: var(--nav-color);
-    box-shadow: var(--shadow);
 }
 
 nav > ul > li {
@@ -176,12 +186,10 @@ nav > ul > li > .nav-item {
     user-select: none;
 }
 
-nav > ul > li img {
+nav > ul > li i.icon {
+    font-size: 16px;
+    line-height: 25px;
     vertical-align: top;
-    margin-right: 3px;
-    margin-top: 3px;
-    height: 19px;
-    width: 19px;
 }
 
 nav ul li ul {
@@ -267,9 +275,8 @@ div#sidebar h2 {
     padding: 7px 5px 5px 10px;
 
     font-size: 1.4rem;
-    font-weight: 600;
 
-    margin-top: 0;
+    margin-top: -1px;
 
     user-select: none;
 }

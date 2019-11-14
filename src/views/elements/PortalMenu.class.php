@@ -23,7 +23,7 @@ class PortalMenu extends View
         'configuration' => array(
             'title' => 'Configuration',
             'permission' => 'settings',
-            'icon' => 'config.png',
+            'icon' => 'configuration.svg',
             'link' => 'admin'
         )
     );

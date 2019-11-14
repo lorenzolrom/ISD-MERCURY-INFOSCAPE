@@ -3,9 +3,9 @@
     <form class="inline-form" onsubmit="return quickSearch()">
         <input title="Search by Title, Number, and Contact Username" type="text" id="search" placeholder="Quick Search">
     </form>
-    <a class="button-noveil" href="javascript: goToNewTicket();"><span class="operation add"><img src="{{@baseURI}}media/icons/ticket.png"></span>New Ticket</a>
-    <a class="button" href="{{@baseURI}}tickets/agent/calendar"><img src="{{@baseURI}}media/icons/calendar.png">Calendar</a>
-    <a class="button" href="{{@baseURI}}tickets/agent/configure"><img src="{{@baseURI}}media/icons/tools.png" alt="configure">Configure</a>
+    <a class="button-noveil" href="javascript: goToNewTicket();"><i class="icon">assignment</i>New Ticket</a>
+    <a class="button" href="{{@baseURI}}tickets/agent/calendar"><i class="icon">date_range</i>Calendar</a>
+    <a class="button" href="{{@baseURI}}tickets/agent/configure"><i class="icon">settings_applications</i>Configure</a>
 </div>
 <div id="widgets"></div>
 <div class="button-bar">
@@ -18,7 +18,7 @@
             <option value="currentSearch">-- Current Search Results --</option>
         </select>
     </form>
-    <a class="button-noveil" href="javascript: refreshAgent();"><img src="{{@baseURI}}media/icons/refresh.png">Refresh</a>
+    <a class="button-noveil" href="javascript: refreshAgent();"><i class="icon">refresh</i>Refresh</a>
 </div>
 <div id="tickets"></div>
 <script>let workspaceName = '{{@workspace}}'</script>

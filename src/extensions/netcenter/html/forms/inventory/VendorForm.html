@@ -1,10 +1,10 @@
 <div class="button-bar">
-    <span class="button form-submit-button" id="vendor"><img src="{{@baseURI}}media/icons/save.png" alt="">Save</span>
-    <a class="button delete-button confirm-button" href="javascript: deleteVendor('{{@id}}')"><img src="{{@baseURI}}media/icons/delete.png" alt="">Delete</a>
-    <a class="button" href="{{@cancelLink}}"><img src="{{@baseURI}}media/icons/cancel.png" alt="">Cancel</a>
+    <span class="button form-submit-button" id="vendor"><i class="icon">save</i>Save</span>
+    <a class="button delete-button confirm-button" href="javascript: deleteVendor('{{@id}}')"><i class="icon">delete</i>Delete</a>
+    <a class="button" href="{{@cancelLink}}"><i class="icon">backspace</i>Cancel</a>
 </div>
 <form id="vendor-form" class="table-form" onsubmit="{{@formScript}}">
-    <h2 class="region-title"><img src="{{@baseURI}}media/icons/business.png" alt="">Vendor Profile<a class="history-link" href="{{@baseURI}}history/vendor/{{@id}}"><img src="{{@baseURI}}media/icons/history.png" alt="" title="View History"></a></h2>
+    <h2 class="region-title"><i class="icon">business_center</i>Vendor Profile<a class="history-link" href="{{@baseURI}}history/vendor/{{@id}}"><i class="icon" title="View History">history</i></a></h2>
     <table class="table-display">
         <tbody>
         <tr>
@@ -15,7 +15,7 @@
         </tr>
         </tbody>
     </table>
-    <h2 class="region-title"><img src="{{@baseURI}}media/icons/mail.png" alt="">Contact Information</h2>
+    <h2 class="region-title"><i class="icon">email</i>Contact Information</h2>
     <table class="table-display">
         <tbody>
         <tr>

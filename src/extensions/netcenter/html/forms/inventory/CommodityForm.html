@@ -1,10 +1,10 @@
 <div class="button-bar">
-    <span class="button form-submit-button" id="commodity"><img src="{{@baseURI}}media/icons/save.png" alt="">Save</span>
-    <a class="button delete-button confirm-button" href="javascript: deleteCommodity('{{@id}}')"><img src="{{@baseURI}}media/icons/delete.png" alt="">Delete</a>
-    <a class="button" href="{{@baseURI}}netcenter/inventory/commodities"><img src="{{@baseURI}}media/icons/cancel.png" alt="">Cancel</a>
+    <span class="button form-submit-button" id="commodity"><i class="icon">save</i>Save</span>
+    <a class="button delete-button confirm-button" href="javascript: deleteCommodity('{{@id}}')"><i class="icon">delete</i>Delete</a>
+    <a class="button" href="{{@baseURI}}netcenter/inventory/commodities"><i class="icon">backspace</i>Cancel</a>
 </div>
 <form id="commodity-form" class="table-form" onsubmit="{{@formScript}}">
-    <h2 class="region-title"><img src="{{@baseURI}}media/icons/commodity.png" alt="">Commodity Profile<a class="history-link" href="{{@baseURI}}history/commodity/{{@id}}"><img src="{{@baseURI}}media/icons/history.png" alt="" title="View History"></a></h2>
+    <h2 class="region-title"><i class="icon">shopping_cart</i>Commodity Profile<a class="history-link" href="{{@baseURI}}history/commodity/{{@id}}"><i class="icon" title="View History">history</i></a></h2>
     <table class="table-display">
         <tbody>
         <tr>

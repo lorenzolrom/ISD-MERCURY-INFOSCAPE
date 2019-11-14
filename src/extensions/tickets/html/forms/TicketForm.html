@@ -1,10 +1,10 @@
 <div id="workspace-name">You are in the <span>{{@workspace}}</span> workspace</div>
 <div class="button-bar">
-    <span class="button form-submit-button" id="ticket"><img src="{{@baseURI}}media/icons/save.png" alt="">Save</span>
-    <a class="button" href="{{@cancelLink}}"><img src="{{@baseURI}}media/icons/delete.png" alt="">Cancel</a>
+    <span class="button form-submit-button" id="ticket"><i class="icon">save</i>Save</span>
+    <a class="button" href="{{@cancelLink}}"><i class="icon">delete</i>Cancel</a>
 </div>
 <form id="ticket-form" class="table-form" onsubmit="{{@formScript}}">
-    <h2 class="region-title"><img src="{{@baseURI}}media/icons/ticket.png" alt="">Ticket Profile #{{@number}}</h2>
+    <h2 class="region-title"><i class="icon">assignment</i>Ticket Profile #{{@number}}</h2>
     <table class="table-display">
         <tbody>
         <tr>
@@ -68,7 +68,7 @@
         </tr>
         </tbody>
     </table>
-    <h2 class="region-title"><img src="{{@baseURI}}media/icons/group.png" alt="">Assignees</h2>
+    <h2 class="region-title"><i class="icon">group</i>Assignees</h2>
     <table class="table-display">
         <tbody>
         <tr>

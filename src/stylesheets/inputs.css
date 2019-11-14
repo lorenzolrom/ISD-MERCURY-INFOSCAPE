@@ -21,10 +21,8 @@ div.button-bar {
     cursor: pointer;
     display: inline-block !important;
 
-    background: linear-gradient(#e7e7e7, #fff, #fff ,#fff, #e9e9e9, #e9e9e9, #e9e9e9);
+    background: #fefefe;
     box-shadow: 0 2px 2px #888;
-    border-radius: 3px;
-    border: 1px solid #000;
 
     position: relative;
     width: auto;
@@ -34,7 +32,8 @@ div.button-bar {
 }
 
 .button:hover, .button-noveil:hover {
-    color: #000;
+    color: #fff;
+    background: #d3d3d3;
 }
 
 .delete-button:hover {
@@ -78,6 +77,10 @@ form table select, form table input {
 
 form table input[type='checkbox'], form table input[type='radio'] {
     width: auto !important;
+}
+
+form.search-form table.table-display tr td:nth-child(2n+1) {
+    color: #000;
 }
 
 table.table-display textarea {

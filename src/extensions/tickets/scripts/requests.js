@@ -29,7 +29,7 @@ function toggle()
 
     if(open)
     {
-        button.innerHTML = "<img src='" + baseURI + "media/icons/history.png'>View Open Requests";
+        button.innerHTML = "<i class='icon'>history</i>View Open Requests";
         title.textContent = 'Closed Requests';
         open = false;
 
@@ -37,7 +37,7 @@ function toggle()
     }
     else
     {
-        button.innerHTML = "<img src='" + baseURI + "media/icons/history.png'>View Closed Requests";
+        button.innerHTML = "<i class='icon'>history</i>View Closed Requests";
         title.textContent = 'Open Requests';
 
         open = true;

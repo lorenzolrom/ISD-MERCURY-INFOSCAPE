@@ -14,9 +14,7 @@ div.monitor-tile-container div.monitor-tile {
     box-sizing: border-box;
     flex-direction: column;
 
-    border-radius: 6px;
     background-color: var(--main-background);
-    border: 1px solid var(--border-color);
     box-shadow: var(--shadow);
 }
 
