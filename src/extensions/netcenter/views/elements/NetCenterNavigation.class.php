@@ -72,7 +72,7 @@ class NetCenterNavigation extends Navigation
                     'title' => 'Hosts',
                     'permission' => 'itsm_devices-hosts-r',
                     'link' => 'devices/hosts',
-                    'icon' => 'memory',
+                    'icon' => 'desktop_windows',
                 ),
                 array(
                     'title' => 'DHCP Logs',

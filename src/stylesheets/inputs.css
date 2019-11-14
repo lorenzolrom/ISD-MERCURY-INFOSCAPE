@@ -21,8 +21,9 @@ div.button-bar {
     cursor: pointer;
     display: inline-block !important;
 
-    background: #fefefe;
-    box-shadow: 0 2px 2px #888;
+    background-color: #fefefe;
+    transition: background-color .1s linear;
+    box-shadow: 0 1px 2px #888;
 
     position: relative;
     width: auto;
@@ -33,12 +34,12 @@ div.button-bar {
 
 .button:hover, .button-noveil:hover {
     color: #fff;
-    background: #d3d3d3;
+    background-color: #d3d3d3;
 }
 
 .delete-button:hover {
     color: #FFF;
-    background: linear-gradient(#8B0000, #FF0000, #FF0000 ,#FF0000, #8B0000, #8B0000, #8B0000);
+    background-color: var(--error);
 }
 
 .button img, .button-noveil img {
@@ -46,6 +47,16 @@ div.button-bar {
     vertical-align: middle;
     height: 16px;
     width: 16px;
+}
+
+/* Icon Links */
+
+a.history-link {
+    font-size: inherit;
+}
+
+a.history-link:hover {
+    border-bottom: 1px solid #FFF;
 }
 
 /* Search forms */
@@ -71,8 +82,14 @@ div.button-bar .button-bar-title {
 
 /* Table forms */
 form table select, form table input {
-    border: 1px solid #333;
+    border: 1px solid var(--border-color);
     width: 100%;
+    border-radius: 3px;
+}
+
+form table input[type='submit'] {
+    border: none;
+    border-radius: 0;
 }
 
 form table input[type='checkbox'], form table input[type='radio'] {

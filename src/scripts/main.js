@@ -197,7 +197,7 @@ function formSubmitButtonSetup()
  */
 function veil()
 {
-    $('#veil').show();
+    $('#veil').fadeIn();
 }
 
 /**
@@ -205,7 +205,7 @@ function veil()
  */
 function unveil()
 {
-    $('#veil').hide();
+    $('#veil').fadeOut();
 }
 
 /**

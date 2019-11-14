@@ -186,10 +186,10 @@ h2.region-title {
     user-select: none;
 }
 
-h2.region-title img {
-    vertical-align: middle;
-    margin-right: 5px;
-    height: 19px;
+h2.region-title i.icon {
+    font-size: inherit;
+    line-height: 19px;
+    vertical-align: top;
 }
 
 a.history-link {
@@ -314,12 +314,10 @@ table.dialog-table tr:first-child {
 /* Main content */
 div.main-content {
     background-color: #FFF;
-    border: solid 1px var(--bulletin-border-color);
     box-shadow: var(--bulletin-shadow);
     margin-top: 15px;
     margin-bottom: 15px;
     padding: 10px;
-    border-radius: 6px;
 }
 
 div.main-content > h2 {
@@ -328,7 +326,6 @@ div.main-content > h2 {
     color: #FFF;
     margin-top: 0;
     padding: 5px;
-    border-radius: 6px;
 }
 
 div.main-content p.about-dialog {
@@ -361,9 +358,7 @@ div.bulletin {
     flex-direction: column;
     text-align: center;
 
-    border-radius: 6px;
     background-color: #fefefe;
-    border: 1px solid var(--bulletin-border-color);
     box-shadow: var(--bulletin-shadow);
 }
 
@@ -468,16 +463,36 @@ ul#portal-menu li a {
     text-decoration: none;
     vertical-align: middle;
     min-width: 275px;
-    border-radius: 6px;
-    border: 1px solid var(--border-color);
     background-color: #F3F3F3;
     padding: 5px 10px;
     box-shadow: var(--bulletin-shadow);
     margin-bottom: 12px;
+    transition: background-color 0.3s linear;
 }
 
-ul#portal-menu li a:hover span{
-    text-decoration: underline;
+ul#portal-menu li a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+ul#portal-menu li a:hover {
+    background-color: #E3E3E3;
+}
+
+ul#portal-menu li a:hover::before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
 }
 
 ul#portal-menu li a img {

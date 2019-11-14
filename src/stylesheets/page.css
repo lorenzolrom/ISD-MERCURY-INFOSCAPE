@@ -8,7 +8,7 @@
     --nav-color: #000000;
     --nav-text-color: #FFF;
 
-    --drop-down-color: #F3F3F3;
+    --drop-down-color: #FFF;
     --border-color: #D3D3D3;
     --drop-down-link-hover: #333;
 
@@ -194,19 +194,18 @@ nav > ul > li i.icon {
 
 nav ul li ul {
     margin-left: -1px;
-    box-shadow: 3px 4px 4px #555;
     z-index: 998;
     text-align: left;
+    box-shadow: var(--shadow);
 
     visibility: hidden;
     opacity: 0;
-    /*transition: visibility 0s, opacity .1s linear;*/
+    transition: visibility 0s, opacity .1s linear;
     position: absolute;
     left: 0;
     top: 100%;
     overflow: auto;
     background-color: var(--drop-down-color);
-    border: 1px solid var(--border-color);
     min-width: 180px;
 }
 
@@ -281,6 +280,10 @@ div#sidebar h2 {
     user-select: none;
 }
 
+div#sidebar h2 i.icon {
+    font-size: inherit;
+}
+
 div#sidebar ul {
     padding: 10px 0 0 15px;
     color: #FFF;
@@ -293,12 +296,30 @@ div#sidebar ul li {
 
 div#sidebar ul li a {
     color: #FFFFFF;
-    font-size: 1rem;
+    font-size: 1.1rem;
     text-decoration: none;
+    position: relative;
 }
 
-div#sidebar ul li a:hover {
-    text-decoration: underline;
+div#sidebar ul li a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.2s ease-in-out 0s;
+    transition: all 0.2s ease-in-out 0s;
+}
+
+div#sidebar ul li a:hover::before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
 }
 
 /* View */
