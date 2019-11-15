@@ -36,7 +36,7 @@ class TicketNavigation extends Navigation
         'agent' => array(
             'title' => 'Agent',
             'permission' => 'tickets-agent',
-            'icon' => 'business',
+            'icon' => 'work',
             'pages' => array(
                 array(
                     'title' => 'Service Desk',

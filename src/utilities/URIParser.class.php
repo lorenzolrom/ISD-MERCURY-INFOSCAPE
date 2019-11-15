@@ -27,17 +27,18 @@ class URIParser
      */
     public static function getURIParts(): array
     {
-        // Create string of URL requested by browser
-        if(isset($_SERVER['HTTPS']))
-            $requestedURL = "https";
-        else
-            $requestedURL = "http";
+        // Remove the baseURI and convert to lowercase
+        $reqURI = explode(\Config::OPTIONS['baseURI'], strtolower($_SERVER['REQUEST_URI']))[1];
 
-        $requestedURL .= "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+        // Remove Query Params
+        $reqURI = explode('?', $reqURI)[0];
 
-        // Produce final resource identifier
-        $uri = strtolower(rtrim(explode(\Config::OPTIONS['baseURL'] . \Config::OPTIONS['baseURI'], explode('?', $requestedURL)[0])[1], "/"));
+        // Remove trailing slash
+        $reqURI = rtrim($reqURI, '/');
 
-        return explode('/', $uri);
+        // Break up into parts
+        $reqURI = explode('/', $reqURI);
+
+        return $reqURI;
     }
 }

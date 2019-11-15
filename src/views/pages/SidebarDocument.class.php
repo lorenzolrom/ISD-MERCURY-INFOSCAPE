@@ -46,6 +46,6 @@ abstract class SidebarDocument extends AuthenticatedPage
             $this->setVariable("sidebar", $sidebar->getTemplate());
         }
 
-        $this->setVariable('operatorName', 'Operator: ' . $this->user->getUsername());
+        $this->setVariable('operatorName', $this->user->getUsername());
     }
 }

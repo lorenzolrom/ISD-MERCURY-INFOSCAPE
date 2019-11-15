@@ -58,7 +58,7 @@ class NetCenterNavigation extends Navigation
                 array(
                     'title' => 'Vendors',
                     'link' => 'inventory/vendors',
-                    'icon' => 'business_center',
+                    'icon' => 'work',
                     'permission' => 'itsm_inventory-vendors-r'
                 )
             )
@@ -102,7 +102,7 @@ class NetCenterNavigation extends Navigation
                 array(
                     'title' => 'Registrars',
                     'link' => 'web/registrars',
-                    'icon' => 'business_center',
+                    'icon' => 'work',
                     'permission' => 'itsm_web-registrars-r'
                 )
             )

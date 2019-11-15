@@ -638,7 +638,8 @@ function setupWidgets()
             widget.appendChild(title);
 
             let image = document.createElement('img');
-            image.src = baseURI + 'media/monitor/loading.gif';
+            image.src = baseURI + 'media/animations/loading.gif';
+            image.classList.add('ticketLoading');
             image.alt = '';
             widget.appendChild(image);
 

@@ -93,7 +93,8 @@ function buildCalendar(options)
             if(days[j].length !== 0) // Only add loading image if day is actually a date
             {
                 let loadingImage = document.createElement('img');
-                loadingImage.src = baseURI + 'media/monitor/loading.gif';
+                loadingImage.classList.add('ticketLoading');
+                loadingImage.src = baseURI + 'media/animations/loading.gif';
                 day.appendChild(loadingImage);
             }
 

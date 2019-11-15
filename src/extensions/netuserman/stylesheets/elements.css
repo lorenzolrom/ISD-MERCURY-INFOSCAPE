@@ -14,5 +14,5 @@ table.table-display#groups td, th{
 }
 
 table.table-display#groups th {
-    font-weight: 600;
+    text-decoration: underline;
 }

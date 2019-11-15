@@ -41,6 +41,6 @@ abstract class PortalDocument extends AuthenticatedPage
 
         $this->setVariable("footer", self::templateFileContents("Footer", self::TEMPLATE_ELEMENT));
 
-        $this->setVariable('operatorName', 'Operator: ' . $this->user->getUsername());
+        $this->setVariable('operatorName', $this->user->getUsername());
     }
 }

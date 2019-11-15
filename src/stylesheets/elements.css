@@ -370,11 +370,8 @@ div.bulletin > h2 {
     color: #FFF;
     margin-top: 0;
     font-size: 1.2rem;
-    font-weight: 600;
     padding: 3px;
     background-color: var(--primary-color);
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
 }
 
 div.bulletin > h2 > img {

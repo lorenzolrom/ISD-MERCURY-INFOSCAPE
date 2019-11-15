@@ -19,7 +19,6 @@ abstract class Config_Generic
         'companyName' => 'Your Company',
         'useCustomStyles' => FALSE,
 
-        'baseURL' => 'https://your.domain',
         'baseURI' => '/',
 
         'cookieName' => 'ML',

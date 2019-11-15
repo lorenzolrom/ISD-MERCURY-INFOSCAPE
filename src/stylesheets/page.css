@@ -124,15 +124,11 @@ header span#app-name {
     text-shadow: var(--text-shadow);
 }
 
-header span#app-caption, header span#operator-name {
+header span#app-caption{
     color: #FFF;
     position: absolute;
     right: 10px;
     user-select: none;
-}
-
-header span#operator-name {
-    bottom: -20px;
 }
 
 header span#app-caption {

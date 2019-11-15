@@ -7,22 +7,11 @@ div#login-window {
     position: relative;
     max-width: 600px;
     height: 440px;
-    border: 2px solid #185796;
     background-color: var(--primary-color);
-    background-image: -webkit-linear-gradient(top, rgba(0,200,255,.15) 0%, rgba(0,200,255,0) 8%), -webkit-radial-gradient(750px 600px, circle cover, rgba(0,200,255,.65) 0%,rgba(0,200,255,0) 55%);
-    border-radius: 6px;
+    box-shadow: var(--shadow);
     margin: 200px auto auto;
     text-align: center;
     box-sizing: border-box;
-}
-
-div#login-reflection {
-    display: block;
-    width: 600px;
-    height: 98px;
-    background-image: -webkit-linear-gradient(top, rgba(0,200,255,.1) 0%, rgba(0,200,255,0) 90%), -webkit-radial-gradient(735px -370px, circle cover, rgba(0,200,255,.65) 0%,rgba(0,200,255,0) 55%);
-    margin: auto;
-    border-radius: 6px;
 }
 
 span#login-logo {
@@ -79,6 +68,7 @@ div#login-window form input[type="submit"] {
     color: #FFF;
     cursor: pointer;
     padding: 0 .5em;
+    box-shadow: var(--shadow);
 }
 
 div#login-window form input[type="submit"]:hover {
@@ -90,7 +80,6 @@ div#login-window div#notifications {
     width: 259px;
     height: 63px;
     min-width: 250px;
-    border-radius: .2em;
 
     top: 220px;
     left: 25px;

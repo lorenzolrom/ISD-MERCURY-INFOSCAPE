@@ -44,3 +44,8 @@ div.widget h3 {
     padding-bottom: 2px;
     margin-bottom: 5px;
 }
+
+img.ticketLoading {
+    width: 32px;
+    height: 32px;
+}
