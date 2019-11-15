@@ -27,8 +27,12 @@ class URIParser
      */
     public static function getURIParts(): array
     {
-        // Remove the baseURI and convert to lowercase
-        $reqURI = explode(\Config::OPTIONS['baseURI'], strtolower($_SERVER['REQUEST_URI']))[1];
+        // Remove baseURI
+        $pos = strpos($_SERVER['REQUEST_URI'], \Config::OPTIONS['baseURI']);
+        $reqURI = substr_replace($_SERVER['REQUEST_URI'], '', $pos, strlen(\Config::OPTIONS['baseURI']));
+
+        // Remove Query Params and convert to lowercase
+        $reqURI = strtolower(explode('?', $reqURI)[0]);
 
         // Remove Query Params
         $reqURI = explode('?', $reqURI)[0];
