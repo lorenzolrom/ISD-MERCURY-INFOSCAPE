@@ -65,7 +65,7 @@ class ViewUserPage extends ModelPage
                 // Break folder path into DC, CN, and OU
                 $ou = implode(',', $parts);
 
-                $memberofList .= "<tr><td>$name</td><td>$ou</td></tr>";
+                $memberofList .= "<tr><td><a href='" . \Config::OPTIONS['baseURI'] . "netuserman/viewgroup/$name'><i class='icon'>group</i>$name</a></td><td>$ou</td></tr>";
             }
         }
 
