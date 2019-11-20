@@ -5,7 +5,7 @@ div#workspace-name {
 
 div#workspace-name span {
     color: #006699;
-    font-weight: 600;
+    text-decoration: underline;
     font-size: 1.2rem;
 }
 
