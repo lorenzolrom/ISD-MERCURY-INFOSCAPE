@@ -16,6 +16,7 @@ namespace controllers\admin;
 
 use controllers\Controller;
 use views\pages\admin\AdminHomePage;
+use views\pages\admin\BadLogSearchPage;
 use views\pages\admin\PermissionAuditSearchPage;
 use views\pages\admin\SendNotificationPage;
 use views\pages\admin\UserLogSearchPage;
@@ -51,6 +52,8 @@ class AdminController extends Controller
                 return $users->getPage();
             case 'userlogs':
                 return new UserLogSearchPage();
+            case 'badlogs':
+                return new BadLogSearchPage();
             case 'permissions':
                 return new PermissionAuditSearchPage();
             case 'notifications':
