@@ -45,6 +45,12 @@ class AdminNavigation extends Navigation
                     'permission' => 'settings'
                 ),
                 array(
+                    'title' => 'Failed Login History',
+                    'link' => 'badlogs',
+                    'icon' => 'error',
+                    'permission' => 'settings'
+                ),
+                array(
                     'title' => 'Audit Permissions',
                     'link' => 'permissions',
                     'icon' => 'vpn_key',
