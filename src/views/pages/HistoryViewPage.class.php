@@ -20,6 +20,9 @@ class HistoryViewPage extends PortalDocument
         parent::__construct();
 
         $this->setVariable('content', self::templateFileContents('History', self::TEMPLATE_PAGE));
+
+        $index = urldecode($index);
+
         $this->setVariable('tabTitle', "Get History - $object($index)");
 
         $this->setVariable('object', $object);

@@ -18,9 +18,9 @@ use extensions\netuserman\views\forms\EditUserForm;
 
 class EditUserPage extends ModelPage
 {
-    public function __construct(string $username)
+    public function __construct(string $cn)
     {
-        parent::__construct('netuserman/' . $username, 'netuserman-edit-details', 'netUsers');
+        parent::__construct('netuserman/' . $cn, 'netuserman-edit-details', 'netUsers');
 
         $details = $this->response->getBody();
 
@@ -28,6 +28,6 @@ class EditUserPage extends ModelPage
 
         $this->setVariable('content', $form->getTemplate());
         $this->setVariable('tabTitle', 'Edit User: ' . $details['userprincipalname']);
-        $this->setVariable('thumbnailphotoPath', \Config::OPTIONS['baseURI'] . 'netuserman/photo/' . $username);
+        $this->setVariable('thumbnailphotoPath', \Config::OPTIONS['baseURI'] . 'netuserman/photo/' . $cn);
     }
 }

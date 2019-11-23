@@ -44,7 +44,7 @@ class ViewGroupPage extends ModelPage
                 $memCN = explode('=', array_shift($memParts))[1];
                 $memOU = implode(',', $memParts);
 
-                $memberList .= "<tr><td>$memCN</td><td>$memOU</td></tr>";
+                $memberList .= '<tr><td><a href="' . \Config::OPTIONS['baseURI'] . 'netuserman/view/' . $memCN . '"><i class="icon">account_circle</i>' . $memCN . '</a></td><td>' . $memOU . '</td></tr>';
             }
 
             $this->setVariable('memberList', $memberList);

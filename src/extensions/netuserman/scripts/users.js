@@ -70,7 +70,7 @@ function search()
 
             if(json.data.length === 1) // Only one result
             {
-                window.location.replace(baseURI + 'netuserman/view/' + json.data[0].userprincipalname.split('@')[0]);
+                window.location.replace(baseURI + 'netuserman/view/' + json.data[0].cn);
             }
 
             $.each(json.data, function(i, v){
@@ -82,11 +82,10 @@ function search()
                 if(useraccountcontrol.includes('ACCOUNTDISABLE'))
                     disabled = '✓';
 
-                refs.push(v.userprincipalname.split('@')[0]);
+                refs.push(v.cn);
                 rows.push([
                     v.userprincipalname.split('@')[0],
-                    v.givenname,
-                    v.sn,
+                    v.cn,
                     v.title,
                     v.description,
                     disabled
@@ -94,8 +93,8 @@ function search()
             });
 
             $('#results').mlTable({
-                header: ['Login Name', 'Given Name', 'Surname', 'Title', 'Description', 'Disabled'],
-                linkColumn: 0,
+                header: ['Login Name', 'Name', 'Title', 'Description', 'Disabled'],
+                linkColumn: 1,
                 href: baseURI + 'netuserman/view/',
                 refs: refs,
                 rows: rows,
@@ -111,20 +110,20 @@ function search()
 
 /**
  * Update user attributes
- * @param username
+ * @param cn
  * @returns {boolean}
  */
-function updateUser(username)
+function updateUser(cn)
 {
-    apiRequest('PUT', 'netuserman/' + username, getForm()).done(function(json){
+    apiRequest('PUT', 'netuserman/' + encodeURI(cn), getForm()).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + 'netuserman/view/' + username + '?SUCCESS=User updated');
+            window.location.replace(baseURI + 'netuserman/view/' + cn + '?SUCCESS=User updated');
     });
 
     return false;
 }
 
-function resetPassword(username)
+function resetPassword(cn)
 {
     veil();
     $('#resetPassword-button-dialog').dialog('close');
@@ -132,7 +131,7 @@ function resetPassword(username)
     let password = document.getElementById('password').value;
     let confirm = document.getElementById('confirm').value;
 
-    apiRequest('PUT', 'netuserman/' + username + '/password', {
+    apiRequest('PUT', 'netuserman/' + encodeURI(cn) + '/password', {
         password: password,
         confirm: confirm
     }).done(function(json){
@@ -147,7 +146,7 @@ function resetPassword(username)
     return false;
 }
 
-function modifyGroups(username)
+function modifyGroups(cn)
 {
     veil();
 
@@ -161,9 +160,9 @@ function modifyGroups(username)
         removeGroups: remGroups
     };
 
-    apiRequest('PUT', 'netuserman/' + username + '/groups', data).done(function(json){
+    apiRequest('PUT', 'netuserman/' + encodeURI(cn) + '/groups', data).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + 'netuserman/view/' + username + '?SUCCESS=Groups updated');
+            window.location.replace(baseURI + 'netuserman/view/' + cn + '?SUCCESS=Groups updated');
         else
             unveil();
     });
@@ -171,11 +170,11 @@ function modifyGroups(username)
     return false;
 }
 
-function deleteUser(username)
+function deleteUser(cn)
 {
     veil();
 
-    apiRequest('DELETE', 'netuserman/' + username, {}).done(function(json){
+    apiRequest('DELETE', 'netuserman/' + encodeURI(cn), {}).done(function(json){
         if(json.code === 204)
             window.location.replace(baseURI + 'netuserman/search?SUCCESS=User deleted');
         else

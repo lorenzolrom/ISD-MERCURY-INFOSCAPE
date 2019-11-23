@@ -17,25 +17,25 @@ class ViewUserPage extends ModelPage
 {
     /**
      * ViewUserPage constructor.
-     * @param string $username
+     * @param string $cn
      * @throws \exceptions\EntryNotFoundException
      * @throws \exceptions\InfoCentralException
      * @throws \exceptions\SecurityException
      * @throws \exceptions\ViewException
      */
-    public function __construct(string $username)
+    public function __construct(string $cn)
     {
-        parent::__construct('netuserman/' . $username, 'netuserman-read', 'netUsers');
+        parent::__construct('netuserman/' . $cn, 'netuserman-read', 'netUsers');
         $details = $this->response->getBody();
 
-        $this->setVariable('tabTitle', 'View User: ' . $details['userprincipalname']);
+        $this->setVariable('tabTitle', 'View User: ' . $details['cn']);
 
         $this->setVariable('content', self::templateFileContents('ViewUserPage', self::TEMPLATE_PAGE, 'netuserman'));
 
         $this->setVariable('loginname', explode('@', $details['userprincipalname'])[0]);
 
         // Set image path
-        $this->setVariable('thumbnailphotoPath', \Config::OPTIONS['baseURI'] . 'netuserman/photo/' . $username);
+        $this->setVariable('thumbnailphotoPath', \Config::OPTIONS['baseURI'] . 'netuserman/photo/' . $cn);
 
         // Format useraccountcontrol list
         $useraccountcontrolList = '';
@@ -61,11 +61,11 @@ class ViewUserPage extends ModelPage
                 $parts = explode(',', $group);
 
                 // Get name
-                $name = explode('CN=', array_shift($parts))[1];
+                $name = htmlentities(explode('CN=', array_shift($parts))[1]);
                 // Break folder path into DC, CN, and OU
                 $ou = implode(',', $parts);
 
-                $memberofList .= "<tr><td><a href='" . \Config::OPTIONS['baseURI'] . "netuserman/viewgroup/$name'><i class='icon'>group</i>$name</a></td><td>$ou</td></tr>";
+                $memberofList .= '<tr><td><a href="' . \Config::OPTIONS['baseURI'] . 'netuserman/viewgroup/' . $name . '"><i class="icon">group</i>' . $name . '</a></td><td>' . $ou .'</td></tr>';
             }
         }
 
