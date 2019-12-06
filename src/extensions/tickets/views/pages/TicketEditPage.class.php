@@ -24,12 +24,19 @@ class TicketEditPage extends PopupModelPage
 
         $details = $this->response->getBody();
 
-        $form = new TicketForm((int)$_COOKIE['ML_agentWorkspace'], $details);
-
-        $this->setVariable('content', $form->getTemplate());
+        if($details['locked'] == 'yes')
+        {
+            $this->setVariable('content', self::templateFileContents('TicketLockedPage', self::TEMPLATE_PAGE, 'tickets'));
+        }
+        else
+        {
+            $form = new TicketForm((int)$_COOKIE['ML_agentWorkspace'], $details);
+            $this->setVariable('content', $form->getTemplate());
+            $this->setVariable('cancelLink', '{{@baseURI}}tickets/agent/' . $number);
+            $this->setVariable('formScript', "return update('$number');");
+            $this->setVariable('lock_script', "<script src=\"{{@baseURI}}scripts/tickets/tickets.js\"></script>");
+        }
         $this->setVariable('tabTitle', 'Editing Ticket #' . $number);
-        $this->setVariable('cancelLink', '{{@baseURI}}tickets/agent/' . $number);
-        $this->setVariable('formScript', "return update('$number');");
         $this->setVariables($details);
     }
 }

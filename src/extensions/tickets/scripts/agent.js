@@ -243,12 +243,16 @@ function create()
 
 function update(number)
 {
+    pauseLockUpdate();
     apiRequest('PUT', 'tickets/workspaces/' + getWorkspace() + '/tickets/' + number, getTicketForm()).done(function(json){
         if(json.code === 204)
         {
             window.location.replace(baseURI + 'tickets/agent/' + number);
         }
-        
+        else
+        {
+            startLockUpdate();
+        }
     });
 
     return false;

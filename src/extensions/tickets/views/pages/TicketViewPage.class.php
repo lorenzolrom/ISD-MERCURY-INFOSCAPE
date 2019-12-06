@@ -25,6 +25,12 @@ class TicketViewPage extends PopupModelPage
         $details = $this->response->getBody();
 
         $this->setVariable('content', self::templateFileContents('TicketViewPage', self::TEMPLATE_PAGE, 'tickets'));
+
+        if($details['locked'] == 'yes')
+        {
+            $this->setVariable('lockedMessage', "This ticket has been locked by {$details['lockedBy']} and is still locked as of {$details['lockedTime']}.");
+        }
+
         $this->setVariable('tabTitle', 'View Ticket #' . $number);
         $this->setVariables($details);
     }
