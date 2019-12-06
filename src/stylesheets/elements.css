@@ -544,6 +544,12 @@ h3.calendarTitle {
     font-size: 1.15rem;
 }
 
+.tooltip {
+    cursor: help;
+    color: var(--error) !important;
+    text-decoration: underline;
+}
+
 @media screen and (max-device-width: 800px) {
     div#notifications {
         min-width: 0;
