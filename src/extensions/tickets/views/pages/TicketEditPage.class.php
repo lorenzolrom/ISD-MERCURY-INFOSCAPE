@@ -20,7 +20,7 @@ class TicketEditPage extends PopupModelPage
 {
     public function __construct(?string $number)
     {
-        parent::__construct('tickets/workspaces/' . (int)$_COOKIE['ML_agentWorkspace'] . '/tickets/' . $number);
+        parent::__construct('tickets/workspaces/' . (int)$_COOKIE['ML_agentWorkspace'] . '/tickets/' . $number . '/edit');
 
         $details = $this->response->getBody();
 
