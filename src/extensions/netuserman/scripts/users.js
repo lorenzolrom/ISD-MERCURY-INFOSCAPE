@@ -187,7 +187,7 @@ function createUser()
     veil();
     apiRequest('POST', 'netuserman', getCreateForm()).done(function(json){
         if(json.code === 201)
-            window.location.replace(baseURI + 'netuserman/view/' + json.data.userprincipalname.split('@')[0] + '?SUCCESS=User created');
+            window.location.replace(baseURI + 'netuserman/view/' + json.data.cn + '?SUCCESS=User created');
         else
             unveil();
     });
