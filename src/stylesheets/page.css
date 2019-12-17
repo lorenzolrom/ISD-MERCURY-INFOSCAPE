@@ -136,6 +136,17 @@ header span#app-caption {
     font-weight: 600;
 }
 
+/* Operator */
+
+header span#operator {
+    position: absolute;
+    right: 5px;
+    top: 85px;
+    color: #888;
+    opacity: 50%;
+    font-size: 1.5rem;
+}
+
 /* Navigation */
 
 nav {
