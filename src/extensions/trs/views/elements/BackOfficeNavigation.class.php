@@ -22,7 +22,7 @@ class BackOfficeNavigation extends Navigation
 
     public const LINKS = array(
         'organizations' => array(
-            'title' => 'Org Management',
+            'title' => 'Organizations',
             'permission' => 'trs_organizations-r',
             'icon' => 'work',
             'pages' => array(
@@ -41,7 +41,7 @@ class BackOfficeNavigation extends Navigation
             )
         ),
         'commodities' => array(
-            'title' => 'Commodity Mgmt',
+            'title' => 'Commodities',
             'permission' => 'trs_commodities-r',
             'icon' => 'shopping_cart',
             'pages' => array(

@@ -16,6 +16,7 @@ namespace extensions\trs\controllers;
 
 use controllers\Controller;
 use extensions\trs\views\pages\BackOfficeHomePage;
+use extensions\trs\views\pages\OrganizationSearchPage;
 use views\View;
 
 class TRSBackOfficeController extends Controller
@@ -30,9 +31,17 @@ class TRSBackOfficeController extends Controller
     public function getPage(): ?View
     {
         $p1 = $this->request->next(); // First part of URI
+        $p2 = $this->request->next(); // Second part of URI
 
         if($p1 === NULL)
             return new BackOfficeHomePage();
+        else if($p1 === 'organizations')
+        {
+            if($p2 === NULL)
+            {
+                return new OrganizationSearchPage();
+            }
+        }
 
         return NULL;
     }
