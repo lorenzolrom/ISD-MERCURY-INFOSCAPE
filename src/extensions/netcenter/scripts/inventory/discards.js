@@ -147,6 +147,8 @@ function save(number)
             window.location.replace(baseURI + 'netcenter/inventory/discards/' + number + '?SUCCESS=Discard Order updated');
         }
     });
+
+    return false;
 }
 
 function approve(number)
