@@ -122,6 +122,7 @@ div#login-window div#notifications {
 
     div#login-window div#notifications {
         margin-bottom: 20px;
+        display: inline-block;
     }
 
     div#login-window form {
@@ -131,5 +132,13 @@ div#login-window div#notifications {
 
     span#app-version {
         padding: 10px;
+    }
+
+    span#login-logo {
+        display: none;
+    }
+
+    div#notifications div#notifications-dismiss {
+        display: none;
     }
 }

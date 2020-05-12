@@ -69,8 +69,6 @@ function remove(id)
             window.location.replace (baseURI + "tickets/admin/teams?SUCCESS=Team deleted");
         }
     });
-
-    return false;
 }
 
 if($('#results').length !== 0)

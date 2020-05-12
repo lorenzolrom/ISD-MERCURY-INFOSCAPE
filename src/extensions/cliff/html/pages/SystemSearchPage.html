@@ -1,0 +1,18 @@
+<div class="button-bar">
+    <span id="search" class="button form-submit-button"><i class="icon">search</i>Search</span>
+    <a href="systems/new" class="button"><i class="icon">work</i>New</a>
+</div>
+<form id="search-form" class="search-form" onsubmit="return search()">
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td>Code</td>
+            <td><input type="text" id="code"></td>
+            <td>Name</td>
+            <td><input type="text" id="name"></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<div id="results"></div>
+<script src="{{@baseURI}}scripts/cliff/systems.js"></script>

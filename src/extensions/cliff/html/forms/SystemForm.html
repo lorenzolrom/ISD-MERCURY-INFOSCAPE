@@ -1,0 +1,19 @@
+<div class="button-bar">
+    <span class="button form-submit-button" id="edit"><i class="icon">save</i>Save</span>
+    {{@editToolbar}}
+    <a class="button" href="{{@baseURI}}cliff/systems"><i class="icon">backspace</i>Cancel</a>
+</div>
+<form id="edit-form" class="table-form" onsubmit="return {{@formScript}}">
+    <h2 class="region-title"><i class="icon">work</i>System Profile {{@historyLink}}</h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td class="required">Code</td>
+            <td><input maxlength="16" type="text" id="code" name="code" value="{{@code}}"></td>
+            <td class="required">Name</td>
+            <td><input type="text" id="name" name="name" value="{{@name}}"></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script src="{{@baseURI}}scripts/cliff/systems.js"></script>

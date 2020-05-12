@@ -1,0 +1,40 @@
+<div class="button-bar">
+    <span class="button form-submit-button" id="edit"><i class="icon">save</i>Save</span>
+    {{@editToolbar}}
+    <a class="button" href="{{@baseURI}}cliff/keys"><i class="icon">backspace</i>Cancel</a>
+</div>
+<form id="edit-form" class="table-form" onsubmit="return {{@formScript}}">
+    <h2 class="region-title"><i class="icon">vpn_key</i>Key Profile {{@historyLink}}</h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td class="required">System</td>
+            <td>
+                <select id="systemCode">
+                    <option value="">--SELECT--</option>
+                    {{@systemSelect}}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="required">Stamp</td>
+            <td><input type="text" id="stamp" value="{{@stamp}}"></td>
+            <td class="required">Bitting</td>
+            <td><input type="text" id="bitting" value="{{@bitting}}"></td>
+        </tr>
+        <tr>
+            <td class="required">Type</td>
+            <td><input type="text" id="type" value="{{@type}}"></td>
+            <td class="required">Keyway</td>
+            <td><input type="text" id="keyway" value="{{@keyway}}"></td>
+        </tr>
+        <tr>
+            <td>Notes</td>
+            <td colspan="3">
+                <textarea id="notes" name="notes">{{@notes}}</textarea>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script src="{{@baseURI}}scripts/cliff/keys.js"></script>

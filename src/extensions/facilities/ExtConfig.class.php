@@ -26,6 +26,6 @@ class ExtConfig
     );
 
     public const ROUTES = array(
-        'netcenter' => 'extensions\netcenter\controllers\NetCenterController'
+        'facilities' => 'extensions\facilities\controllers\FacilitiesController',
     );
 }
