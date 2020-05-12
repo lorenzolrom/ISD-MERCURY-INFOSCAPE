@@ -152,3 +152,80 @@ function restoreSearch()
 $(document).ready(function(){
     restoreSearch();
 });
+
+function readCore(id)
+{
+    veil();
+
+    apiRequest('GET', 'lockprocess/read/' + id, []).done(function(json){
+        if(json.code !== 200)
+        {
+            unveil();
+            return;
+        }
+
+        let display = document.getElementById('readCoreResults');
+        $(display).html('');
+
+        let data = json.data;
+
+        // Display Control Key
+        let control = document.createElement("p");
+        control.id = 'readCoreControlDisplay';
+        let controlLabel = document.createElement('span');
+        controlLabel.appendChild(document.createTextNode("Control: "));
+        control.appendChild(controlLabel);
+
+        if(data.control.key !== null)
+        {
+            let controlLink = document.createElement('a');
+            controlLink.target = "_blank";
+            controlLink.appendChild(document.createTextNode(data.control.bitting + " (" + data.control.key.stamp + ")"));
+            controlLink.href = baseURI + 'cliff/keys/' + data.control.key.id;
+            control.appendChild(controlLink);
+        }
+        else
+        {
+            control.appendChild(document.createTextNode(data.control.bitting));
+        }
+
+        display.appendChild(control);
+
+        // Display Operating Keys
+        let operatingLabel = document.createElement('p');
+        operatingLabel.id = 'readCoreOperatingLabel';
+        operatingLabel.appendChild(document.createTextNode('There are ' + data.operating.length + ' operating keys'));
+        display.appendChild(operatingLabel);
+
+        let operatingList = document.createElement('ul');
+        operatingList.id = 'readCoreOperatingList';
+
+        $.each(data.operating, function(i, e){
+            let key = document.createElement('li');
+
+            if(e.key !== null)
+            {
+                let link = document.createElement('a');
+                link.appendChild(document.createTextNode(e.bitting + " (" + e.key.stamp + ")"));
+                link.href = baseURI + 'cliff/keys/' + e.key.id;
+                link.target = "_blank";
+                key.appendChild(link);
+            }
+            else
+            {
+                key.appendChild(document.createTextNode(e.bitting));
+            }
+
+            operatingList.appendChild(key);
+        });
+
+        display.appendChild(operatingList);
+
+        $(display).dialog().dialog('option', {
+            minWidth: 300,
+            height: 600
+        });
+
+        unveil();
+    });
+}

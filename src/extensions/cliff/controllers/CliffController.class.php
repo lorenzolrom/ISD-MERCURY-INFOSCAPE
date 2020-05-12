@@ -15,14 +15,17 @@ namespace extensions\cliff\controllers;
 
 
 use controllers\Controller;
+use extensions\cliff\views\pages\BuildCorePage;
 use extensions\cliff\views\pages\Cheatsheet;
 use extensions\cliff\views\pages\CliffHome;
+use extensions\cliff\views\pages\CompareCoresPage;
 use extensions\cliff\views\pages\CoreCreatePage;
 use extensions\cliff\views\pages\CoreEditPage;
 use extensions\cliff\views\pages\CoreSearchPage;
 use extensions\cliff\views\pages\KeyCreatePage;
 use extensions\cliff\views\pages\KeyEditPage;
 use extensions\cliff\views\pages\KeySearchPage;
+use extensions\cliff\views\pages\SequenceKeysPage;
 use extensions\cliff\views\pages\SystemCreatePage;
 use extensions\cliff\views\pages\SystemEditPage;
 use extensions\cliff\views\pages\SystemSearchPage;
@@ -65,6 +68,12 @@ class CliffController extends Controller
             return new CoreCreatePage();
         else if($p1 === 'cores' AND $p2 !== NULL)
             return new CoreEditPage((int)$p2);
+        else if($p1 === 'buildcore' AND $p2 === NULL)
+            return new BuildCorePage();
+        else if($p1 === 'comparecores' AND $p2 === NULL)
+            return new CompareCoresPage();
+        else if($p1 === 'seqkeys' AND $p2 === NULL)
+            return new SequenceKeysPage();
 
         return NULL;
     }

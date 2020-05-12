@@ -1,0 +1,27 @@
+<div class="button-bar">
+    <a class="button" href="javascript: compareCores()"><i class="icon">book</i>Compare</a>
+</div>
+<h2 class="region-title"><i class="icon">book</i>Compare Cores</h2>
+<table class="table-display">
+    <tbody>
+    <tr>
+        <td class="required">System</td>
+        <td>
+            <select id="systemCode">
+                <option value="">--SELECT--</option>
+                {{@systemSelect}}
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="required">Core Stamps</td>
+        <td><input type="text" id="coreStamps" placeholder="Separate by comma"></td>
+    </tr>
+    </tbody>
+</table>
+<h2 class="region-title">Results</h2>
+<div>
+    <p id="compareLabel"></p>
+    <ul id="compareResults"></ul>
+</div>
+<script src="{{@baseURI}}scripts/cliff/process.js"></script>

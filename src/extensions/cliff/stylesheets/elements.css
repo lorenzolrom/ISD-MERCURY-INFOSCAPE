@@ -6,3 +6,26 @@ table#pinTable tr td {
 table#pinTable tr td input{
     width: 25px !important;
 }
+
+p#readCoreControlDisplay span {
+    font-weight: 600;
+}
+
+div#readCoreResults a {
+    color: blue;
+}
+
+ul#readCoreOperatingList li {
+    list-style-position: inside;
+}
+
+div#view > table#pinTable td { /* this is the table on Build Core page */
+    border: 1px solid var(--border-color);
+    background-color: white;
+}
+
+h3 {
+    font-weight: 600;
+    margin-top: 5px;
+    font-size: 1.25rem;
+}

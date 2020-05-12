@@ -21,6 +21,12 @@ class CliffNavigation extends Navigation
     public const BASE_URI = 'cliff/';
 
     public const LINKS = array(
+        'home' => array(
+            'title' => 'CLIFF',
+            'permission' => 'cliff-r',
+            'icon' => 'home',
+            'link' => ''
+        ),
         'records' => array(
             'title' => 'Records',
             'permission' => 'cliff-r',
@@ -58,8 +64,8 @@ class CliffNavigation extends Navigation
             'icon' => 'sync',
             'pages' => array(
                 array(
-                    'title' => 'Read Core',
-                    'link' => 'readcore',
+                    'title' => 'Compare Cores',
+                    'link' => 'comparecores',
                     'icon' => 'book',
                     'permission' => 'cliff-r',
                 ),
@@ -75,6 +81,19 @@ class CliffNavigation extends Navigation
                     'icon' => 'vpn_key',
                     'permission' => 'cliff-w',
                 ),
+            )
+        ),
+        'facilities' => array(
+            'title' => 'Fac. Integration',
+            'permission' => 'cliff-r',
+            'icon' => 'business',
+            'pages' => array(
+                array(
+                    'title' => 'X-Ref Locations',
+                    'link' => 'xreflocations',
+                    'icon' => 'search',
+                    'permission' => 'cliff-r'
+                )
             )
         )
     );

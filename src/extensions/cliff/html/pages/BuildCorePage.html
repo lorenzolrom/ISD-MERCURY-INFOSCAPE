@@ -1,0 +1,33 @@
+<div class="button-bar">
+    <a class="button" href="javascript: buildCore()"><i class="icon">build</i>Build</a>
+</div>
+<h2 class="region-title"><i class="icon">build</i>Build Core</h2>
+<table class="table-display">
+    <tbody>
+    <tr>
+        <td class="required">System</td>
+        <td>
+            <select id="systemCode">
+                <option value="">--SELECT--</option>
+                {{@systemSelect}}
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="required">Control Stamp</td>
+        <td><input type="text" id="controlStamp"></td>
+        <td class="required">Operating Stamp(s)</td>
+        <td><input type="text" id="operatingStamps" placeholder="Separate by comma"></td>
+    </tr>
+    <tr>
+        <td>Build to Core (Optional)</td>
+        <td><input type="text" id="buildToCore" placeholder="Enter core stamp"></td>
+    </tr>
+    </tbody>
+</table>
+<h2 class="region-title">Results</h2>
+<p><i>Tip -> Bow</i></p>
+<table id="pinTable">
+
+</table>
+<script src="{{@baseURI}}scripts/cliff/process.js"></script>
