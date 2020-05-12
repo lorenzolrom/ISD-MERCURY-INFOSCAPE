@@ -47,6 +47,14 @@
 <script>
     let pinData = '{{@pinData}}';
 
+    let pinArray = [];
+
+    $.each(pinData.split('|'), function(i, e){
+        pinArray.push(e.split(','));
+    });
+
+    pinData = pinArray;
+
     let pinTable = document.getElementById("pinTable");
     let addRowButton = document.getElementById('addRow');
     let delRowButton = document.getElementById('delRow');
@@ -83,12 +91,10 @@
             rowCount--;
         });
 
-        if(pinData.length < 1 || pinData === '[[""]]')
+        if(pinData.length < 1 || pinData == '[]') // This only works when using ==
             return; // Stop if there is no pin data
 
         // Convert string to array
-
-        pinData = JSON.parse(pinData);
         rowCount = pinData.length;
 
         for(let i = 0; i < pinData.length; i++) {

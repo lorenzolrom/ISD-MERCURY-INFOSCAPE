@@ -18,6 +18,7 @@ use controllers\Controller;
 use extensions\cliff\views\pages\Cheatsheet;
 use extensions\cliff\views\pages\CliffHome;
 use extensions\cliff\views\pages\CoreCreatePage;
+use extensions\cliff\views\pages\CoreEditPage;
 use extensions\cliff\views\pages\CoreSearchPage;
 use extensions\cliff\views\pages\KeyCreatePage;
 use extensions\cliff\views\pages\KeyEditPage;
@@ -62,6 +63,8 @@ class CliffController extends Controller
             return new CoreSearchPage();
         else if($p1 === 'cores' AND $p2 === 'new')
             return new CoreCreatePage();
+        else if($p1 === 'cores' AND $p2 !== NULL)
+            return new CoreEditPage((int)$p2);
 
         return NULL;
     }

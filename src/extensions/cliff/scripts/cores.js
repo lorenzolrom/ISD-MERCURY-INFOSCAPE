@@ -47,7 +47,7 @@ function getForm()
         pinDataString += e.join(',') + '|';
     });
 
-    pinDataString = pinDataString.replace(/|$/, '');
+    pinDataString = pinDataString.substr(0, pinDataString.length - 1); // Remove trailing |
 
     return {
         systemCode: systemCode,
