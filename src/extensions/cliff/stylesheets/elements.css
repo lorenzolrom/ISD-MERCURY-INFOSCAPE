@@ -1,0 +1,8 @@
+table#pinTable tr td {
+    min-width: 25px !important;
+    width: 25px;
+}
+
+table#pinTable tr td input{
+    width: 25px !important;
+}

@@ -284,12 +284,12 @@ function apiRequest(type, path, data, base64 = false)
  */
 function setSearchCookie(name, data)
 {
-    document.cookie = "ML_" + name + "=" + window.btoa(JSON.stringify(data)) + ";path=" + baseURI;
+    document.cookie = "ML_" + name + "=" + window.btoa(JSON.stringify(data)) + ";path=" + baseURI + ";samesite=strict";
 }
 
 function setCookie(name, value)
 {
-    document.cookie = "ML_" + name + "=" + value + ";path=" + baseURI;
+    document.cookie = "ML_" + name + "=" + value + ";path=" + baseURI + ";samesite=strict";
     return true;
 }
 

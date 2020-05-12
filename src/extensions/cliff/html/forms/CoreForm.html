@@ -1,0 +1,112 @@
+<div class="button-bar">
+    <span class="button form-submit-button" id="edit"><i class="icon">save</i>Save</span>
+    {{@editToolbar}}
+    <a class="button" href="{{@baseURI}}cliff/cores"><i class="icon">backspace</i>Cancel</a>
+</div>
+<form id="edit-form" class="table-form" onsubmit="return {{@formScript}}">
+    <h2 class="region-title"><i class="icon">security</i>Core Profile {{@historyLink}}</h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td class="required">System</td>
+            <td>
+                <select id="systemCode">
+                    <option value="">--SELECT--</option>
+                    {{@systemSelect}}
+                </select>
+            </td>
+            <td class="required">Stamp</td>
+            <td><input type="text" id="stamp" value="{{@stamp}}"></td>
+        </tr>
+        <tr>
+            <td class="required">Type</td>
+            <td><input type="text" id="type" value="{{@type}}"></td>
+            <td class="required">Keyway</td>
+            <td><input type="text" id="keyway" value="{{@keyway}}"></td>
+        </tr>
+        <tr>
+            <td>Pin Data</td>
+            <td colspan="3">
+                <p style="font-size: 10pt; color: red">Count up the maximum number of pins in any stack first, and add the rows.  The bottom-most row is the key pin.</p>
+                <table id="pinTable"></table>
+                <input class="button-noveil" type=button id="addRow" value="Add Row">
+                <input class="button-noveil" type="button" id="delRow" value="Del Row">
+                <i>(Front -> Back, Top -> Bottom)</i>
+            </td>
+        </tr>
+        <tr>
+            <td>Notes</td>
+            <td colspan="3">
+                <textarea id="notes" name="notes">{{@notes}}</textarea>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script src="{{@baseURI}}scripts/cliff/cores.js"></script>
+<script>
+    let pinData = '{{@pinData}}';
+
+    let pinTable = document.getElementById("pinTable");
+    let addRowButton = document.getElementById('addRow');
+    let delRowButton = document.getElementById('delRow');
+
+    let rowCount = 0; // This will be set when loading in data
+    let colCount = 7; // This is the number of chambers, default is 7
+
+    document.addEventListener("DOMContentLoaded", function(){
+
+        // Add action listeners to buttons
+        addRowButton.addEventListener('click', function(){
+            let tr = document.createElement('tr');
+            tr.id = 'pinRow_' + rowCount;
+
+            for(let i = 0; i < colCount; i++)
+            {
+                let td = document.createElement('td');
+                let input = document.createElement('input');
+
+                input.name = 'pin_' + rowCount + '_' + i;
+
+                td.appendChild(input);
+                tr.appendChild(td);
+            }
+
+            pinTable.appendChild(tr);
+
+            rowCount++;
+        });
+
+        delRowButton.addEventListener('click', function(){
+            let lastRow = pinTable.rows[pinTable.rows.length - 1];
+            pinTable.removeChild(lastRow);
+            rowCount--;
+        });
+
+        if(pinData.length < 1 || pinData === '[[""]]')
+            return; // Stop if there is no pin data
+
+        // Convert string to array
+
+        pinData = JSON.parse(pinData);
+        rowCount = pinData.length;
+
+        for(let i = 0; i < pinData.length; i++) {
+            let data = pinData[i];
+            let tr = document.createElement('tr');
+            tr.id = 'pinRow_' + i;
+
+            for(let j = 0; j < data.length; j++)
+            {
+                let td  = document.createElement('td');
+                let input = document.createElement('input');
+                input.value = data[j];
+                input.name = 'pin_' + i + '_' + j;
+
+                td.appendChild(input);
+                tr.appendChild(td);
+            }
+            pinTable.appendChild(tr);
+        }
+    });
+</script>

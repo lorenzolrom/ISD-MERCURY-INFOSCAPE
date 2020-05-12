@@ -17,6 +17,8 @@ namespace extensions\cliff\controllers;
 use controllers\Controller;
 use extensions\cliff\views\pages\Cheatsheet;
 use extensions\cliff\views\pages\CliffHome;
+use extensions\cliff\views\pages\CoreCreatePage;
+use extensions\cliff\views\pages\CoreSearchPage;
 use extensions\cliff\views\pages\KeyCreatePage;
 use extensions\cliff\views\pages\KeyEditPage;
 use extensions\cliff\views\pages\KeySearchPage;
@@ -56,6 +58,10 @@ class CliffController extends Controller
             return new KeyCreatePage();
         else if($p1 === 'keys' AND $p2 !== NULL)
             return new KeyEditPage((int)$p2);
+        else if($p1 === 'cores' AND $p2 === NULL)
+            return new CoreSearchPage();
+        else if($p1 === 'cores' AND $p2 === 'new')
+            return new CoreCreatePage();
 
         return NULL;
     }
