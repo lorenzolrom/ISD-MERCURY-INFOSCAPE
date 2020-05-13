@@ -1,3 +1,5 @@
+let issuesLoaded = false;
+
 function getForm()
 {
     let systemCode = document.getElementById('systemCode').value;
@@ -81,6 +83,130 @@ function del(id)
     apiRequest('DELETE', 'lockkeys/' + id, []).done(function(json){
         if(json.code === 204)
             window.location.replace(baseURI + 'cliff/keys?SUCCESS=Key deleted');
+    });
+}
+
+function loadIssues(id, override = false)
+{
+    let issueRegion = document.getElementById('issues-region');
+
+    if(issuesLoaded && !override)
+        return;
+
+    apiRequest('GET', 'lockkeys/' + id + '/issues', {}).done(function(json){
+        let rows = [];
+        let refs = [];
+
+        $.each(json.data, function(i, v){
+            refs.push(v.id);
+
+            rows.push([
+                v.serial,
+                v.issuedTo
+            ]);
+        });
+
+        $(issueRegion).mlTable({
+            refs: refs,
+            rows: rows,
+            sortColumn: 0,
+            sortMethod: 'asc',
+            header: ['Serial', 'Issued To'],
+            linkColumn: 0,
+            href: "javascript: popupEditIssue('{{%}}')",
+            usePlaceholder: true
+        });
+
+        issuesLoaded = true;
+    });
+}
+
+function popupEditIssue(id)
+{
+    let editIssueSerial = document.getElementById('editIssueSerial');
+    let editIssueIssuedTo = document.getElementById('editIssueIssuedTo');
+    let delIssueButton = document.getElementById('delIssueButton');
+    let editIssueForm = document.getElementById('editIssueForm');
+
+    apiRequest('GET', 'lockkeys/' + keyId + '/issues/' + id, []).done(function(json){
+        if(json.code !== 200)
+            return;
+
+        editIssueSerial.value = json.data.serial;
+        editIssueIssuedTo.value = json.data.issuedTo;
+        delIssueButton.onclick = function(){
+            delIssue(json.data.id);
+        };
+
+        editIssueForm.onsubmit = function(){
+          updateIssue(json.data.id);
+          return false;
+        };
+
+        let dialog = document.getElementById('editIssue-dialog');
+        $(dialog).dialog().dialog("option", {
+            position: {
+                my: 'top',
+                at: 'right',
+                of: event
+            }
+        });
+    });
+}
+
+function createIssue(id)
+{
+    let serial = document.getElementById('issueKeySerial').value;
+    let issuedTo = document.getElementById('issueKeyIssuedTo').value;
+
+    apiRequest('POST', 'lockkeys/' + id + '/issues', {
+        serial: serial,
+        issuedTo: issuedTo
+    }).done(function(json){
+        if(json.code === 201)
+        {
+            showNotifications('success', ['Key issued']);
+
+            if(issuesLoaded)
+                loadIssues(id, true); // Force re-load of issues if already loaded
+        }
+
+        unveil();
+    });
+
+    return false;
+}
+
+function updateIssue(id)
+{
+    let issuedTo = document.getElementById('editIssueIssuedTo').value;
+
+    apiRequest('PUT', 'lockkeys/' + keyId + '/issues/' + id, {
+        issuedTo: issuedTo
+    }).done(function(json){
+        if(json.code === 204)
+        {
+            showNotifications('success', ['Issue updated']);
+            if(issuesLoaded)
+                loadIssues(keyId, true);
+        }
+        unveil();
+    });
+}
+
+function delIssue(id)
+{
+    apiRequest('DELETE', 'lockkeys/' + keyId + '/issues/' + id, []).done(function(json){
+        if(json.code === 204)
+        {
+            showNotifications('success', ['Issue deleted']);
+            if(issuesLoaded)
+                loadIssues(keyId, true);
+
+            $('#editIssue-dialog').dialog('close');
+        }
+
+        unveil();
     });
 }
 

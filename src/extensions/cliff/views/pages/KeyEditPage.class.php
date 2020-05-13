@@ -31,6 +31,7 @@ class KeyEditPage extends ModelPage
         $this->setVariable('content', $form->getTemplate());
         $this->setVariable('formScript', "update('{{@id}}')");
         $this->setVariable('editToolbar', self::templateFileContents('KeyFormEditToolbar', self::TEMPLATE_ELEMENT, 'cliff'));
+        $this->setVariable('keyIssues', self::templateFileContents('KeyIssues', self::TEMPLATE_ELEMENT, 'cliff'));
         $this->setVariable('historyLink', self::templateFileContents('KeyHistoryLink', self::TEMPLATE_ELEMENT, 'cliff'));
         $this->setVariable('id', $id);
     }

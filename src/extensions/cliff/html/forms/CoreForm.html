@@ -43,7 +43,46 @@
         </tbody>
     </table>
 </form>
+{{@coreLocations}}
 <div id="readCoreResults" title="Examine Core (Last Saved)"></div>
+<div id="assignLocation-dialog" class="dialog" title="Assign Location">
+    <form onsubmit="return createLocation('{{@id}}')">
+        <p>
+            <span class="required">Building</span>
+            <input type="text" id="assignLocationBuilding">
+        </p>
+        <p>
+            <span class="required">Location</span>
+            <input type="text" id="assignLocationLocation">
+        </p>
+        <p>
+            <span>Notes</span>
+            <textarea id="assignLocationNotes"></textarea>
+        </p>
+        <input class="button" type="submit" value="Go">
+    </form>
+</div>
+<div id="editLocation-dialog" class="dialog" title="Edit Location">
+    <form id="editLocationForm">
+        <p>
+            <span class="required">Building</span>
+            <input type="text" id="editLocationBuilding">
+        </p>
+        <p>
+            <span class="required">Location</span>
+            <input type="text" id="editLocationLocation">
+        </p>
+        <p>
+            <span>Notes</span>
+            <textarea id="editLocationNotes"></textarea>
+        </p>
+        <input class="button" type="submit" value="Go">
+        <input id="delLocationButton" class="button delete-button" type="button" value="Delete">
+    </form>
+</div>
+<script>
+    let coreId = '{{@id}}';
+</script>
 <script src="{{@baseURI}}scripts/cliff/cores.js"></script>
 <script>
     let pinData = '{{@pinData}}';

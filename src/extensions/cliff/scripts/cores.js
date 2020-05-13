@@ -1,3 +1,5 @@
+let locationsLoaded = false;
+
 function getSearchForm()
 {
     let systemCode = document.getElementById('systemCode').value;
@@ -125,34 +127,6 @@ function del(id)
     });
 }
 
-/**
- * If a search cookie is set, re-run the search
- */
-function restoreSearch()
-{
-    if(!document.getElementById("results"))
-        return;
-
-    let last =  getCookie('cliffcoresearch');
-
-    if(last !== "")
-    {
-        veil();
-
-        last = JSON.parse(window.atob(last));
-        $('#stamp').val(last.stamp);
-        $('#systemCode').val(last.systemCode);
-        $('#keyway').val(last.keyway);
-        $('#type').val(last.type);
-        $('#notes').val(last.notes);
-        search();
-    }
-}
-
-$(document).ready(function(){
-    restoreSearch();
-});
-
 function readCore(id)
 {
     veil();
@@ -229,3 +203,164 @@ function readCore(id)
         unveil();
     });
 }
+
+function loadLocations(id, override = false)
+{
+    let issueRegion = document.getElementById('locations-region');
+
+    if(locationsLoaded && !override)
+        return;
+
+    apiRequest('GET', 'lockcores/' + id + '/locations', {}).done(function(json){
+        let rows = [];
+        let refs = [];
+
+        $.each(json.data, function(i, v){
+            refs.push(v.id);
+
+            rows.push([
+                v.building,
+                v.location,
+                v.notes
+            ]);
+        });
+
+        $(issueRegion).mlTable({
+            refs: refs,
+            rows: rows,
+            sortColumn: 0,
+            sortMethod: 'asc',
+            header: ['Building', 'Location', 'Notes'],
+            linkColumn: 1,
+            href: "javascript: popupEditLocation('{{%}}')",
+            usePlaceholder: true
+        });
+
+        locationsLoaded = true;
+    });
+}
+
+function popupEditLocation(id)
+{
+    let editLocationBuilding = document.getElementById('editLocationBuilding');
+    let editLocationLocation = document.getElementById('editLocationLocation');
+    let editLocationNotes = document.getElementById('editLocationNotes');
+    let delLocationButton = document.getElementById('delLocationButton');
+    let editLocationForm = document.getElementById('editLocationForm');
+
+    apiRequest('GET', 'lockcores/' + coreId + '/locations/' + id, []).done(function(json){
+        if(json.code !== 200)
+            return;
+
+        editLocationBuilding.value = json.data.building;
+        editLocationLocation.value = json.data.location;
+        editLocationNotes.value = json.data.notes;
+        delLocationButton.onclick = function(){
+            delLocation(json.data.id);
+        };
+
+        editLocationForm.onsubmit = function(){
+            updateLocation(json.data.id);
+            return false;
+        };
+
+        let dialog = document.getElementById('editLocation-dialog');
+        $(dialog).dialog().dialog("option", {
+            position: {
+                my: 'top',
+                at: 'right',
+                of: event
+            }
+        });
+    });
+}
+
+function createLocation(id)
+{
+    let building = document.getElementById('assignLocationBuilding').value;
+    let location = document.getElementById('assignLocationLocation').value;
+    let notes = document.getElementById('assignLocationNotes').value;
+
+    apiRequest('POST', 'lockcores/' + id + '/locations', {
+        building: building,
+        location: location,
+        notes: notes
+    }).done(function(json){
+        if(json.code === 201)
+        {
+            showNotifications('success', ['Location assigned']);
+
+            if(locationsLoaded)
+                loadLocations(id, true); // Force re-load of issues if already loaded
+        }
+
+        unveil();
+    });
+
+    return false;
+}
+
+function updateLocation(id)
+{
+    let building = document.getElementById('editLocationBuilding').value;
+    let location = document.getElementById('editLocationLocation').value;
+    let notes = document.getElementById('editLocationNotes').value;
+
+    apiRequest('PUT', 'lockcores/' + coreId + '/locations/' + id, {
+        building: building,
+        location: location,
+        notes: notes
+    }).done(function(json){
+        if(json.code === 204)
+        {
+            showNotifications('success', ['Location updated']);
+            if(locationsLoaded)
+                loadLocations(coreId, true);
+        }
+        unveil();
+    });
+}
+
+function delLocation(id)
+{
+    apiRequest('DELETE', 'lockcores/' + coreId + '/locations/' + id, []).done(function(json){
+        if(json.code === 204)
+        {
+            showNotifications('success', ['Location deleted']);
+            if(locationsLoaded)
+                loadLocations(coreId, true);
+
+            $('#editLocation-dialog').dialog('close');
+        }
+
+        unveil();
+    });
+}
+
+/**
+ * If a search cookie is set, re-run the search
+ */
+function restoreSearch()
+{
+    if(!document.getElementById("results"))
+        return;
+
+    let last =  getCookie('cliffcoresearch');
+
+    if(last !== "")
+    {
+        veil();
+
+        last = JSON.parse(window.atob(last));
+        $('#stamp').val(last.stamp);
+        $('#systemCode').val(last.systemCode);
+        $('#keyway').val(last.keyway);
+        $('#type').val(last.type);
+        $('#notes').val(last.notes);
+        search();
+    }
+}
+
+$(document).ready(function(){
+    restoreSearch();
+});

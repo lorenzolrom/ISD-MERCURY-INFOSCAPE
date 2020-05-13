@@ -12,7 +12,7 @@
                 {{@systemSelect}}
             </select>
         </td>
-        <td class="required">Stamp</td>
+        <td class="required tooltip" title="Prefix that will be put before each change number">Stamp</td>
         <td><input type="text" id="stamp"></td>
     </tr>
     <tr>
@@ -22,13 +22,13 @@
         <td><input type="text" id="keyway"></td>
     </tr>
     <tr>
-        <td class="required">Seq Start</td>
+        <td class="required tooltip" title="The number assigned to the first change key, increasing up to SeqEnd">Seq Start</td>
         <td><input type="text" id="seqStart" value="1"></td>
-        <td class="required">Seq End</td>
+        <td class="required tooltip" title="The maximum change number that will be generated.  If your cuts do not allow for this many changes, this limit won't be reached">Seq End</td>
         <td><input type="text" id="seqEnd" value="256"></td>
     </tr>
     <tr>
-        <td class="required">Padding</td>
+        <td class="required tooltip" title="Number of '0's that will be prepended to the change numbers, ideal for keeping them sorted in numeric order">Padding</td>
         <td><input type="text" id="padding" value="3"></td>
     </tr>
     <tr>
@@ -68,12 +68,5 @@
     <li>When generating keys in a branch (or beneath a master key), only enter multiple values for the chambers that should vary at this level of the system.</li>
     <li>Remember that A2 chambers are ideally set up odd-over-odd or even-over-even.</li>
     <li>VERIFY your key codes by building a core and reading it.  Ensure there is no key-crossover.</li>
-</ul>
-<h3>Field Explanations</h3>
-<ul>
-    <li>Stamp: The letter or number prefix that will be put before the change number.</li>
-    <li>SeqStart: The number to assign to the first change key, increasing up to a maximum of SeqEnd.</li>
-    <li>SeqEnd: A limit on how many keys to generate.  If your cuts only allow for a small number of changes, this limit may not be reached.</li>
-    <li>Padding: Toggle '0's added to the front of a change number, ideal for keeping them sorted in numeric order.</li>
 </ul>
 <script src="{{@baseURI}}scripts/cliff/process.js"></script>

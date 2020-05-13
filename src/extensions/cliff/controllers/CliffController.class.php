@@ -29,6 +29,8 @@ use extensions\cliff\views\pages\SequenceKeysPage;
 use extensions\cliff\views\pages\SystemCreatePage;
 use extensions\cliff\views\pages\SystemEditPage;
 use extensions\cliff\views\pages\SystemSearchPage;
+use extensions\cliff\views\pages\XRefLocationsPage;
+use extensions\cliff\views\pages\XRefPeoplePage;
 use views\View;
 
 class CliffController extends Controller
@@ -74,6 +76,10 @@ class CliffController extends Controller
             return new CompareCoresPage();
         else if($p1 === 'seqkeys' AND $p2 === NULL)
             return new SequenceKeysPage();
+        else if($p1 === 'xrefpeople' AND $p2 === NULL)
+            return new XRefPeoplePage();
+        else if($p1 === 'xreflocations' AND $p2 === NULL)
+            return new XRefLocationsPage();
 
         return NULL;
     }

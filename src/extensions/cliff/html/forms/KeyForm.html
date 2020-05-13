@@ -37,4 +37,35 @@
         </tbody>
     </table>
 </form>
+{{@keyIssues}}
+<div id="issueKey-dialog" class="dialog" title="Issue Key">
+    <form onsubmit="return createIssue('{{@id}}')">
+        <p>
+            <span class="required">Serial</span>
+            <input type="text" id="issueKeySerial">
+        </p>
+        <p>
+            <span class="required">Issued To</span>
+            <input type="text" id="issueKeyIssuedTo">
+        </p>
+        <input class="button" type="submit" value="Go">
+    </form>
+</div>
+<div id="editIssue-dialog" class="dialog" title="Edit Issue">
+    <form id="editIssueForm">
+        <p>
+            <span class="required">Serial</span>
+            <input disabled type="text" id="editIssueSerial">
+        </p>
+        <p>
+            <span class="required">Issued To</span>
+            <input type="text" id="editIssueIssuedTo">
+        </p>
+        <input class="button" type="submit" value="Go">
+        <input id="delIssueButton" class="button delete-button" type="button" value="Delete">
+    </form>
+</div>
+<script>
+    let keyId = '{{@id}}';
+</script>
 <script src="{{@baseURI}}scripts/cliff/keys.js"></script>

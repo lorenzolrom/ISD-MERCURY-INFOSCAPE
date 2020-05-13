@@ -83,15 +83,21 @@ class CliffNavigation extends Navigation
                 ),
             )
         ),
-        'facilities' => array(
-            'title' => 'Fac. Integration',
+        'xref' => array(
+            'title' => 'X-Reference',
             'permission' => 'cliff-r',
-            'icon' => 'business',
+            'icon' => 'search',
             'pages' => array(
                 array(
                     'title' => 'X-Ref Locations',
                     'link' => 'xreflocations',
-                    'icon' => 'search',
+                    'icon' => 'room',
+                    'permission' => 'cliff-r'
+                ),
+                array(
+                    'title' => 'X-Ref People',
+                    'link' => 'xrefpeople',
+                    'icon' => 'account_circle',
                     'permission' => 'cliff-r'
                 )
             )

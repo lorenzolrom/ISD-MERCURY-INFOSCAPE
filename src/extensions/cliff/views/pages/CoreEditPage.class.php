@@ -31,6 +31,7 @@ class CoreEditPage extends ModelPage
         $this->setVariable('content', $form->getTemplate());
         $this->setVariable('formScript', "update('{{@id}}')");
         $this->setVariable('editToolbar', self::templateFileContents('CoreFormEditToolbar', self::TEMPLATE_ELEMENT, 'cliff'));
+        $this->setVariable('coreLocations', self::templateFileContents('CoreLocations', self::TEMPLATE_ELEMENT, 'cliff'));
         $this->setVariable('historyLink', self::templateFileContents('CoreHistoryLink', self::TEMPLATE_ELEMENT, 'cliff'));
         $this->setVariable('id', $id);
     }

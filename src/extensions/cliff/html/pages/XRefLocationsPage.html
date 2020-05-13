@@ -1,0 +1,16 @@
+<div class="button-bar">
+    <a class="button" href="javascript: xRefLocations()"><i class="icon">search</i>Query</a>
+</div>
+<h2 class="region-title"><i class="icon">book</i>Cross-Reference Locations</h2>
+<table class="table-display">
+    <tbody>
+    <tr>
+        <td class="tooltip" title="Exact match, use '%' as a wildcard.">Building</td>
+        <td><input type="text" id="building"></td>
+        <td class="tooltip" title="Exact match, use '%' as a wildcard.">Location</td>
+        <td><input type="text" id="location" value="%"></td>
+    </tr>
+    </tbody>
+</table>
+<div id="results"></div>
+<script src="{{@baseURI}}scripts/cliff/xref.js"></script>
