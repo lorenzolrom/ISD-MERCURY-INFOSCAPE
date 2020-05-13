@@ -20,7 +20,7 @@ class ExtConfig
         'netuserman' => array(
             'title' => 'Net User Management',
             'permission' => 'netuserman',
-            'icon' => 'netusermanagement.svg',
+            'icon' => 'users.svg',
             'link' => 'netuserman'
         ),
     );

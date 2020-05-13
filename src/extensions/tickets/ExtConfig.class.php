@@ -20,7 +20,7 @@ class ExtConfig
         'servicenter' => array(
             'title' => 'Service Center',
             'permission' => 'tickets',
-            'icon' => 'servicecenter.svg',
+            'icon' => 'dialog.svg',
             'link' => 'tickets'
         ),
     );
