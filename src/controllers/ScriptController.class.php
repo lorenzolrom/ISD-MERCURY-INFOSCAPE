@@ -14,7 +14,7 @@
 namespace controllers;
 
 
-use views\pages\ScriptPage;
+use views\pages\RawFileContentPage;
 use views\View;
 
 /**
@@ -60,7 +60,7 @@ class ScriptController extends Controller
             else
                 header('Content-type: application/javascript');
 
-            return new ScriptPage($scriptPath);
+            return new RawFileContentPage($scriptPath);
         }
 
         return NULL;

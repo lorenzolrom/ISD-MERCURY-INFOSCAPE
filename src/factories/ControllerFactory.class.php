@@ -29,6 +29,7 @@ class ControllerFactory
         'about' => 'controllers\AboutController',
         'scripts' => 'controllers\ScriptController',
         'stylesheets' => 'controllers\StylesheetController',
+        'emedia' => 'controllers\ExtensionMediaController',
         '!api-request' => 'controllers\APIProxyController'
     );
 

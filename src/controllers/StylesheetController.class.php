@@ -14,7 +14,7 @@
 namespace controllers;
 
 
-use views\pages\ScriptPage;
+use views\pages\RawFileContentPage;
 use views\View;
 
 class StylesheetController extends Controller
@@ -47,7 +47,7 @@ class StylesheetController extends Controller
         if(file_exists($scriptPath))
         {
             header('Content-type: text/css');
-            return new ScriptPage($scriptPath);
+            return new RawFileContentPage($scriptPath);
         }
 
         return NULL;

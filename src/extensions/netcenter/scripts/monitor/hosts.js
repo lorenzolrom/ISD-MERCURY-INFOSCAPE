@@ -25,7 +25,7 @@ function loadMonitor()
 
             let loadingImage = document.createElement('img');
             $(loadingImage).addClass('monitor-indicator');
-            $(loadingImage).attr('src', baseURI + 'media/monitor/loading.gif');
+            $(loadingImage).attr('src', baseURI + 'emedia/netcenter/monitor/loading.gif');
             tile.appendChild(loadingImage);
 
             let status = document.createElement('span');
@@ -58,7 +58,7 @@ function loadMonitor()
 
                     let status = document.createElement('img');
                     let icon = v.status === 'offline' ? 'fail.png' : 'pass.png';
-                    icon = baseURI + 'media/monitor/' + icon;
+                    icon = baseURI + 'emedia/netcenter/monitor/' + icon;
                     $(status).attr('src', icon);
 
                     host.appendChild(document.createTextNode(v.systemName));
@@ -76,14 +76,14 @@ function loadMonitor()
                 if(offlineCount === total)
                     icon = 'red-blink.gif';
 
-                $(indicator).attr('src', baseURI + 'media/monitor/' + icon);
+                $(indicator).attr('src', baseURI + 'emedia/netcenter/monitor/' + icon);
             });
         });
     });
 }
 
 $(document).ready(function(){
-    $('#content').css('background-image', "url('" + baseURI + "media/monitor/globe.jpg')").css('background-size', 'cover');
+    $('#content').css('background-image', "url('" + baseURI + "emedia/netcenter/monitor/globe.jpg')").css('background-size', 'cover');
     loadMonitor();
 });
 

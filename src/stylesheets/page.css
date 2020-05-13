@@ -415,6 +415,44 @@ div#veil img {
     left: 0;
 }
 
+/* Interactive nag icon color assignment */
+nav>ul>li:last-child>span>i.icon {
+    color: #009CBD;
+}
+
+
+nav>ul>li:nth-last-child(2)>a>i.icon{
+    color: #ACA39A;
+}
+
+nav>ul>li:nth-last-child(3)>span>i.icon, nav>ul>li:nth-last-child(3)>a>i.icon{
+    color: #DA291C;
+}
+
+nav>ul>li:nth-last-child(4)>span>i.icon, nav>ul>li:nth-last-child(4)>a>i.icon{
+    color: #A2AAAD;
+}
+
+nav>ul>li:nth-last-child(5)>span>i.icon, nav>ul>li:nth-last-child(5)>a>i.icon{
+    color: #7D55C7;
+}
+
+nav>ul>li:nth-last-child(6)>span>i.icon, nav>ul>li:nth-last-child(6)>a>i.icon{
+    color: #C4D600;
+}
+
+nav>ul>li:nth-last-child(7)>span>i.icon, nav>ul>li:nth-last-child(7)>a>i.icon{
+    color: #84BD00;
+}
+
+nav>ul>li:nth-last-child(8)>span>i.icon, nav>ul>li:nth-last-child(8)>a>i.icon{
+    color: #7C878E;
+}
+
+nav>ul>li:nth-last-child(9)>span>i.icon, nav>ul>li:nth-last-child(9)>a>i.icon{
+    color: #F6BE00;
+}
+
 /* Basic page elements */
 
 h2 {

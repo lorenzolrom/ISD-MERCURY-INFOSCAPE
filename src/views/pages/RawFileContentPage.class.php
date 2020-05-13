@@ -16,7 +16,7 @@ namespace views\pages;
 
 use views\View;
 
-class ScriptPage extends View
+class RawFileContentPage extends View
 {
     public function __construct($path)
     {

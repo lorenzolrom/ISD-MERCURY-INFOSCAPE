@@ -18,9 +18,9 @@ class ExtConfig
 {
     public const MENU = array(
         'cliff' => array(
-            'title' => 'CLIFF Lock & Key Management',
+            'title' => 'Lock & Key Management',
             'permission' => 'cliff-r',
-            'icon' => 'key.svg',
+            'icon' => 'emedia/cliff/eicon.svg',
             'link' => 'cliff'
         ),
     );

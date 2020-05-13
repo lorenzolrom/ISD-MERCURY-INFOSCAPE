@@ -23,7 +23,7 @@ class PortalMenu extends View
         'configuration' => array(
             'title' => 'Configuration',
             'permission' => 'settings',
-            'icon' => 'configuration.svg',
+            'icon' => 'media/menu/configuration.svg',
             'link' => 'admin'
         )
     );
@@ -66,7 +66,10 @@ class PortalMenu extends View
             if(!in_array($item['permission'], $permissions))
                 continue;
 
-            $menu .= "<li><a href='{{@baseURI}}{$item['link']}'><img src='{{@baseURI}}media/menu/{$item['icon']}' alt=''><span>{$item['title']}</span></a></li>";
+            if(!isset($item['icon']) OR strlen($item['icon']) < 1)
+                $item['icon'] = 'media/menu/default.svg';
+
+            $menu .= "<li><a href='{{@baseURI}}{$item['link']}'><img src='{{@baseURI}}{$item['icon']}' alt=''><span>{$item['title']}</span></a></li>";
         }
 
         $this->setVariable('portalMenu', $menu);

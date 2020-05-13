@@ -20,7 +20,7 @@ class ExtConfig
         'facilities' => array(
             'title' => 'Facilities Management',
             'permission' => 'facilities',
-            'icon' => 'facility.svg',
+            'icon' => 'emedia/facilities/eicon.svg',
             'link' => 'facilities'
         ),
     );
