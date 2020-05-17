@@ -19,7 +19,7 @@ class FacilitiesHome extends FacilitiesDocument
     public function __construct()
     {
         parent::__construct('facilitiescore_facilities-r');
-        $this->setVariable('tabTitle', 'Facilities Management');
+        $this->setVariable('tabTitle', 'Facilities');
 
         $this->setVariable('content', self::templateFileContents('FacilitiesHome', self::TEMPLATE_PAGE, 'facilities'));
     }

@@ -27,5 +27,6 @@ class KeyCreatePage extends CliffDocument
         $form = new KeyForm();
         $this->setVariable('content', $form->getTemplate());
         $this->setVariable('formScript', 'create()');
+        $this->setVariable('createToolbar', self::templateFileContents('KeyFormCreateToolbar', self::TEMPLATE_ELEMENT, 'cliff'));
     }
 }

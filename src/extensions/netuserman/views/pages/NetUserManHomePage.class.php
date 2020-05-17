@@ -19,7 +19,7 @@ class NetUserManHomePage extends NetUserManDocument
     public function __construct()
     {
         parent::__construct('netuserman');
-        $this->setVariable("tabTitle", "Net User Management");
+        $this->setVariable("tabTitle", "AD Users & Groups");
         $this->setVariable('content', self::templateFileContents('Home', self::TEMPLATE_PAGE, 'netuserman'));
     }
 }

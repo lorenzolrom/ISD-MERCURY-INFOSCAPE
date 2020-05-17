@@ -42,7 +42,7 @@ class ChangePasswordForm extends Form
         $response = InfoCentralConnection::getResponse(InfoCentralConnection::PUT, "currentUser/changepassword", $fields);
 
         if($response->getResponseCode() != "204")
-            return $response->getBody();
+            return $response->getBody()['errors'];
 
         return array();
     }

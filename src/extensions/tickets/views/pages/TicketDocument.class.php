@@ -33,7 +33,7 @@ abstract class TicketDocument extends SidebarDocument
 
         $navigation = new TicketNavigation();
         $this->setVariable('navigation', $navigation->getTemplate());
-        $this->setVariable('appCaption', 'Service Center');
+        $this->setVariable('appCaption', 'Tickets');
         $this->addStylesheets(array('tickets/inputs.css', 'tickets/elements.css'));
     }
 }

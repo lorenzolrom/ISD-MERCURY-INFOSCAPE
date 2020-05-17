@@ -18,7 +18,7 @@ class ExtConfig
 {
     public const MENU = array(
         'netuserman' => array(
-            'title' => 'Net User Management',
+            'title' => 'AD Users & Groups',
             'permission' => 'netuserman',
             'icon' => 'emedia/netuserman/eicon.svg',
             'link' => 'netuserman'

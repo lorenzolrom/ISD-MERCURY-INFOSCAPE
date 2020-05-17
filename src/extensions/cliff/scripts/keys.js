@@ -58,14 +58,26 @@ function search()
     return false;
 }
 
-function create()
+function create(createAnother = false)
 {
     apiRequest('POST', 'lockkeys', getForm()).done(function(json){
         if(json.code === 201)
-            window.location.replace(baseURI + 'cliff/keys?SUCCESS=Key created');
+        {
+            if(createAnother) // Do not redirect
+            {
+                showNotifications('success', ['Key created']);
+                unveil();
+            }
+            else
+            {
+                window.location.replace(baseURI + 'cliff/keys?SUCCESS=Key created');
+            }
+        }
+
     });
 
-    return false;
+    if(!createAnother)
+        return false;
 }
 
 function update(id)

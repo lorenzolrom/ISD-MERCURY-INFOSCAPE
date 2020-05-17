@@ -18,7 +18,7 @@ class ExtConfig
 {
     public const MENU = array(
         'servicenter' => array(
-            'title' => 'Service Center',
+            'title' => 'Tickets',
             'permission' => 'tickets',
             'icon' => 'emedia/tickets/eicon.svg',
             'link' => 'tickets'

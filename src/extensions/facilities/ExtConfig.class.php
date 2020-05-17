@@ -18,7 +18,7 @@ class ExtConfig
 {
     public const MENU = array(
         'facilities' => array(
-            'title' => 'Facilities Management',
+            'title' => 'Facilities',
             'permission' => 'facilities',
             'icon' => 'emedia/facilities/eicon.svg',
             'link' => 'facilities'
