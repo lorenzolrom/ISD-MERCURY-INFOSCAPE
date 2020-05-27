@@ -7,7 +7,7 @@ function buildCore()
 
     let requestType = 'POST'; // Default to building core for data only
 
-    if(buildToCore.length > 1) // If core specified, switch to PUT
+    if(buildToCore.length > 0) // If core specified, switch to PUT
         requestType = 'PUT';
 
     apiRequest(requestType, 'lockprocess/build', {
