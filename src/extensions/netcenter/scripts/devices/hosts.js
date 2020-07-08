@@ -42,7 +42,7 @@ function searchHosts()
 
         setupTable({
             target: 'host-results',
-            header: ['I.P. Address', 'MAC Address', 'Asset', 'System Name'],
+            header: ['IP Address/FQDN', 'MAC Address', 'Asset', 'System Name'],
             sortColumn: 0,
             sortMethod: 'asc',
             linkColumn: 0,
