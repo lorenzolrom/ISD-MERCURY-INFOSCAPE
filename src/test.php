@@ -7,15 +7,12 @@
  * InfoScape
  *
  * User: lromero
- * Date: 4/07/2019
- * Time: 3:44 PM
+ * Date: 7/07/2020
+ * Time: 9:45 PM
  */
 
 
-namespace exceptions;
-
-
-abstract class MercuryException extends \Exception
+class test
 {
 
 }

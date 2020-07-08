@@ -1,9 +1,10 @@
 <?php
 /**
- * LLR Technologies & Associated Services
- * Information Systems Development
+ * LLR Information Systems Development
+ * part of LLR Services Group - www.llrweb.com/isd
  *
- * Mercury MAP InfoScape
+ * Mercury Application Platform
+ * InfoScape
  *
  * User: lromero
  * Date: 6/13/2019

@@ -2,7 +2,8 @@ This document is not as up to date as [this one, from InfoCentral](https://githu
 
 ![netcenter](docs/images/logo.png)
 # NetCenter v4
-LLR Technologies & Associated Services  
+LLR Information Systems Development  
+LLR Services Group  
 Network Central Administrative Toolbox  
 Built on the MERCURY platform
 
@@ -1178,7 +1179,7 @@ name 'Tommy', since this was hard-coded into the prepared statement.
 
 ### Prerequisites 
 
-NetCenter version 4 is comprised of two software packages: MERCURY INFOCENTRAL and MERCURY MERLOT.  Both items require 
+NetCenter version 4 is comprised of two software packages: MERCURY INFOCENTRAL and MERCURY INFOSCAPE.  Both items require 
 the following:
 
 * Apache web server running on a UNIX-based operating system
@@ -1190,7 +1191,7 @@ The recommended configuration for both software packages is that they be on sepa
 and merlot.your.domain), however they can also be placed in nested folders--though I suspect symlinks will be required.
 
 The recommended configuration for both software packages is three separate web roots; one root for INFOCENTRAL and one 
-for MERLOT that are not public-facing, and a third that contains two symbolic links to the aforementioned roots that is
+for INFOSCAPE that are not public-facing, and a third that contains two symbolic links to the aforementioned roots that is
 public facing.  The symbolic links should point to the  '/public' directory, to avoid any back-end files being exposed
 through the internet.  
 
@@ -1222,7 +1223,7 @@ Ensure that you have created a user with the appropriate permissions in your dat
 
 ### Web Applications
 
-The following documents the steps used to set up INFOCENTRAL and MERLOT on the LLR Network web services platform:
+The following documents the steps used to set up INFOCENTRAL and INFOSCAPE on the LLR Network web services platform:
 
 Create two webroots in the /var/www directory on a unix-based operating system running the Apache web server.
 
@@ -1231,7 +1232,7 @@ Create two webroots in the /var/www directory on a unix-based operating system r
     mkdir /var/www/isd-merlot
 ```
 
-Create two virtual hosts with the following apache configuration files for both INFOCENTRAL and MERLOT, those should be 
+Create two virtual hosts with the following apache configuration files for both INFOCENTRAL and INFOSCAPE, those should be 
 placed under /etc/apache2/sites-available (or equivalent)  
 
 ```apacheconfig
@@ -1307,7 +1308,7 @@ The first two options must be edited to reflect the web environment INFOCENTRAL 
 FQDN, including protocol, of the server.  BaseURI defines any sub-directories that INFOCENTRAL is under. The database 
 information should be edited appropriately.
 
-MERLOT has the following base configuration file:
+INFOSCAPE has the following base configuration file:
 
 ```php
 abstract class Config_Generic
@@ -1318,7 +1319,7 @@ abstract class Config_Generic
         'baseURL' => 'https://your.domain',
         'baseURI' => '/',
 
-        'cookieName' => 'MERLOT',
+        'cookieName' => 'INFOSCAPE',
 
         'icURL' => 'https://infocentral.url/',
         'icSecret' => 'INFOCENTRAL_SECRET'
@@ -1326,15 +1327,15 @@ abstract class Config_Generic
 }
 ```
 
-The baseURL and baseURI options refer to the web environment MERLOT will be running off of.  AppName and cookieName are 
+The baseURL and baseURI options refer to the web environment INFOSCAPE will be running off of.  AppName and cookieName are 
 optional configurations that determine the display name of the app in browsers and the name of the cookie, respectively. 
 The icURL option should point to the FQDN and subdirectory of the virtual host running INFOCENTRAL.  The icSecret should
-be the 'secret' token generated for this installation of MERLOT.  
+be the 'secret' token generated for this installation of INFOSCAPE.  
 
 There is currently no web-based way of generating a secret token, it will need to be manually created in the INFOCENTRAL 
-database (in the Secret table) and issued to the MERLOT client.
+database (in the Secret table) and issued to the INFOSCAPE client.
 
-If The following steps have succeeded, there should be a functional INFOCENTRAL server and MERLOT client.  If I remember 
+If The following steps have succeeded, there should be a functional INFOCENTRAL server and INFOSCAPE client.  If I remember 
 correctly the default username is 'isdadmin' and the default password is 'isdpassword'--a fresh installation has not been
 attempted with the MERCURY platform, I can only attest to the fresh install working under FASTAPPS. 
 
@@ -1355,7 +1356,7 @@ attempted with the MERCURY platform, I can only attest to the fresh install work
 ## Code Repositories
 
 [ISD-MERCURY-INFOCENTRAL (back-end)](https://github.com/lorenzolrom/ISD-MERCURY-INFOCENTRAL)  
-[ISD-MERCURY-MERLOT (front-end)](https://github.com/lorenzolrom/ISD-MERCURY-MERLOT)
+[ISD-MERCURY-INFOSCAPE (front-end)](https://github.com/lorenzolrom/ISD-MERCURY-INFOSCAPE)
 
 ## Timeline
 

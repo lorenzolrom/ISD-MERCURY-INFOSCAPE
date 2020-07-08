@@ -1,9 +1,10 @@
 <?php
 /**
- * LLR Technologies & Associated Services
- * Information Systems Development
+ * LLR Information Systems Development
+ * part of LLR Services Group - www.llrweb.com/isd
  *
- * Mercury MAP InfoScape
+ * Mercury Application Platform
+ * InfoScape
  *
  * User: lromero
  * Date: 5/04/2019
@@ -16,7 +17,6 @@ namespace views\pages\admin;
 
 use utilities\InfoCentralConnection;
 use views\forms\admin\RoleForm;
-;
 
 class RoleEditPage extends ModelPage
 {

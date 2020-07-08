@@ -1,9 +1,10 @@
 <?php
 /**
- * LLR Technologies & Associated Services
- * Information Systems Development
+ * LLR Information Systems Development
+ * part of LLR Services Group - www.llrweb.com/isd
  *
- * Mercury MAP InfoScape
+ * Mercury Application Platform
+ * InfoScape
  *
  * User: lromero
  * Date: 4/07/2019
@@ -14,7 +15,7 @@
 abstract class Config_Generic
 {
     const OPTIONS = array(
-        'appName' => 'MERLOT',
+        'appName' => 'INFOSCAPE',
 
         'companyName' => 'Your Company',
         'useCustomStyles' => FALSE,
