@@ -31,6 +31,6 @@ class PurchaseOrderEditPage extends ModelPage
         $this->setVariable('tabTitle', "Purchase Order - $param (Edit)");
         $this->setVariable('content', $form->getTemplate());
         $this->setVariable('formScript', "return save('$param')");
-        $this->setVariable('cancelLink', \Config::OPTIONS['baseURI'] . "inventory/purchaseorders/$param");
+        $this->setVariable('cancelLink', '{{@baseURI}}netcenter/inventory/purchaseorders/' . $param);
     }
 }
