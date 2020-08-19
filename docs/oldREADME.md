@@ -2,8 +2,8 @@ This document is not as up to date as [this one, from InfoCentral](https://githu
 
 ![netcenter](docs/images/logo.png)
 # NetCenter v4
-LLR Information Systems Development  
-LLR Services Group  
+LLR Technologies  
+LLR Enterprises  
 Network Central Administrative Toolbox  
 Built on the MERCURY platform
 

@@ -1,7 +1,7 @@
 <?php
 /**
- * LLR Information Systems Development
- * part of LLR Services Group - www.llrweb.com/isd
+  * LLR Technologies
+ * part of LLR Enterprises - www.llrweb.com/technologies
  *
  * Mercury Application Platform
  * InfoScape
@@ -23,7 +23,10 @@ abstract class PopupTicketDocument extends PortalDocument
     {
         parent::__construct('tickets-agent');
         self::setTemplateFromHTML('HTML5Document', self::TEMPLATE_PAGE);
-        $this->loadCustomStyles();
+
+        if(\Config::OPTIONS['useCustomStyles'])
+            $this->loadCustomStyles();
+
         $this->setVariable('content', self::templateFileContents('PopupTicketDocument', self::TEMPLATE_PAGE, 'tickets'));
         $this->setVariable('header', self::templateFileContents('Header', self::TEMPLATE_ELEMENT));
         $this->addStylesheets(array('tickets/inputs.css', 'tickets/elements.css'));
