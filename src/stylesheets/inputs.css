@@ -52,11 +52,21 @@ div.button-bar {
 /* Icon Links */
 
 a.history-link {
+    float: right;
+    color: var(--primary-color);
+    height: 19px;
+    width: 19px;
+    text-align: center;
     font-size: inherit;
+    box-shadow: 0 1px 2px #888;
+
+    background-color: #fefefe;
+    transition: background-color .1s linear;
 }
 
 a.history-link:hover {
-    border-bottom: 1px solid #FFF;
+    color: #fff;
+    background-color: #d3d3d3;
 }
 
 /* Search forms */

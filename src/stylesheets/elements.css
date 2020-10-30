@@ -184,17 +184,13 @@ h2.region-title {
     line-height: 19px;
     vertical-align: middle;
     user-select: none;
+    position: relative;
 }
 
 h2.region-title i.icon {
     font-size: inherit;
     line-height: 19px;
     vertical-align: top;
-}
-
-a.history-link {
-    float: right;
-    color: #FFF;
 }
 
 table.table-display {
