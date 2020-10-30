@@ -25,7 +25,7 @@ function xRefPeople()
             sortMethod: 'asc',
             header: ['System', 'Stamp'],
             linkColumn: 1,
-            href: "cliff/keys/",
+            href: "keys/",
         });
 
         unveil();
@@ -61,7 +61,7 @@ function xRefLocations()
             sortMethod: 'asc',
             header: ['System', 'Stamp'],
             linkColumn: 1,
-            href: "cliff/cores/",
+            href: "cores/",
         });
 
         unveil();

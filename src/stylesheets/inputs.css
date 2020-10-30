@@ -19,7 +19,7 @@ div.button-bar {
     color: #666;
     text-decoration: none;
     cursor: pointer;
-    display: inline-block !important;
+    display: inline-block;
 
     background-color: #fefefe;
     transition: background-color .1s linear;
