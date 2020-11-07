@@ -44,6 +44,9 @@ class WebController extends Controller
             case 'sitelogs':
                 $sitelogs = new SiteLogsController($this->request);
                 return $sitelogs->getPage();
+            case 'servers':
+                $servers = new WebServerController($this->request);
+                return $servers->getPage();
         }
 
         return NULL;

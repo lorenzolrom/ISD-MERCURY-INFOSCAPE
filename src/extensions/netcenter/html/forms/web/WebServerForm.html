@@ -1,0 +1,34 @@
+<div class="button-bar">
+    <span class="button form-submit-button" id="edit"><i class="icon">save</i>Save</span>
+    {{@editMenu}}
+    <a class="button" href="{{@baseURI}}netcenter/web/servers"><i class="icon">backspace</i>Cancel</a>
+</div>
+<form id="edit-form" class="table-form" onsubmit="{{@formScript}}">
+    <h2 class="region-title"><i class="icon">desktop_windows</i>Web Server Profile {{@historyLink}}</h2>
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td class="required">{{@hostLink}}Hostname</td>
+            <td><input type="text" id="systemName" value="{{@systemName}}"></td>
+            <td>IP Address</td>
+            <td><input type="text" disabled id="ipAddress" value="{{@ipAddress}}"></td>
+            <input type="hidden" id="host" value="{{@host}}">
+        </tr>
+        <tr>
+            <td class="required">Web Root</td>
+            <td><input type="text" id="webroot" name="webroot" value="{{@webroot}}"></td>
+            <td class="required">Log Path</td>
+            <td><input type="text" id="logpath" name="logpath" value="{{@logpath}}"></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script>
+    // If the current page contains a delete button, we are editing an existing record and the systemName input should
+    // be disabled.  SystemName is not accepted by the server on PUT even if it is changed here...
+    if(document.getElementsByClassName('confirm-button').length)
+    {
+        document.getElementById('systemName').disabled = true;
+    }
+</script>
+<script src="{{@baseURI}}scripts/netcenter/web/webservers.js"></script>

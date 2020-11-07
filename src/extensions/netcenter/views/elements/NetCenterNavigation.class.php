@@ -89,6 +89,12 @@ class NetCenterNavigation extends Navigation
             'icon' => 'language',
             'pages' => array(
                 array(
+                    'title' => 'Web Servers',
+                    'link' => 'web/servers',
+                    'icon' => 'desktop_windows',
+                    'permission' => 'itsm_web-servers-r'
+                ),
+                array(
                     'title' => 'VHosts',
                     'link' => 'web/vhosts',
                     'icon' => 'dns',

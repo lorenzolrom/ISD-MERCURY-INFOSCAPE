@@ -31,6 +31,11 @@ class VHostEditPage extends ModelPage
         $form = new VHostForm($details);
         $this->setVariable('content', $form->getTemplate());
         $this->setVariable('formScript', "return saveChanges('{{@id}}')");
+        $this->setVariable('serverLink', '<a href="../servers/{{@host}}"><i class="icon">desktop_windows</i></a>');
+        $this->setVariable('historyLink', '<a class="history-link" href="{{@baseURI}}history/vhost/{{@id}}"><i class="icon" title="View History">history</i></a>');
+        $this->setVariable('editMenu', '<a class="button delete-button confirm-button" href="javascript: deleteVHost(\'{{@id}}\')"><i class="icon">delete</i>Delete</a>');
+        $this->setVariable('logLink', '<a class="history-link" href="{{@baseURI}}netcenter/web/sitelogs/{{@id}}"><i class="icon" title="View Logs">description</i></a>');
+        $this->setVariable('regLink', '<a href="{{@baseURI}}netcenter/web/registrars/{{@registrar}}"><i class="icon">work</i></a>');
         $this->setVariable('id', $vhostId);
 
         $this->setVariables($details);

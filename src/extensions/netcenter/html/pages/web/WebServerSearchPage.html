@@ -1,0 +1,19 @@
+<div class="button-bar">
+    <span id="search" class="button form-submit-button"><i class="icon">search</i>Search</span>
+    <a href="servers/new" class="button"><i class="icon">dns</i>New</a>
+</div>
+<form id="search-form" class="search-form" onsubmit="return searchServers()">
+    <input type="hidden" name="submitted" value="true">
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td>System Name</td>
+            <td><input type="text" id="systemName"></td>
+            <td>IP Address</td>
+            <td><input type="text" id="ipAddress"></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<div id="results"></div>
+<script src="{{@baseURI}}scripts/netcenter/web/webservers.js"></script>

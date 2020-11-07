@@ -60,7 +60,7 @@ function searchVHosts()
 
         setupTable({
             target: 'results',
-            header: ['Sub-Domain', 'Domain', 'Registrar', 'Name', 'Status', 'Host'],
+            header: ['Sub-Domain', 'Domain', 'Registrar', 'Name', 'Status', 'Web Server'],
             sortColumn: 1,
             sortMethod: 'asc',
             linkColumn: 0,
