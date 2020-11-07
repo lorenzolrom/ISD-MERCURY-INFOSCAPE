@@ -14,11 +14,13 @@ function getForm()
     let host = document.getElementById('host').value;
     let webroot = document.getElementById('webroot').value;
     let logpath = document.getElementById('logpath').value;
+    let confpath = document.getElementById('confpath').value;
 
     return {
         host: host,
         webroot: webroot,
-        logpath: logpath
+        logpath: logpath,
+        confpath: confpath
     }
 }
 
