@@ -6,7 +6,7 @@ function getForm()
     let domain = $('#domain').val();
     let name = $('#name').val();
     let status = $('#status').val();
-    let host = $('#ipAddress').val();
+    let host = $('#systemName').val();
     let registrar = $('#registrar').val();
     let registerDate = $('#registerDate').val();
     let expireDate = $('#expireDate').val();
@@ -54,7 +54,7 @@ function searchVHosts()
                 v.registrarName,
                 v.name,
                 v.statusName,
-                v.hostName
+                v.systemName
             ]);
         });
 
