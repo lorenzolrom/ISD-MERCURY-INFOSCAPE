@@ -53,7 +53,7 @@ class ApplicationForm extends Form
         // 3x Host Select
         $hosts = InfoCentralConnection::getResponse(InfoCentralConnection::GET, 'hosts')->getBody();
 
-        foreach(array('app', 'web', 'data') as $hostType)
+        foreach(array('app', 'data') as $hostType)
         {
             $hostSelect = "";
 

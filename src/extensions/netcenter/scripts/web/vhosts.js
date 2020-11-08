@@ -135,6 +135,24 @@ function updateRegistrarName()
     });
 }
 
+let statusSelect = document.getElementById('status');
+let systemNameInput = document.getElementById('systemName');
+
+function processStatusChange()
+{
+    if(statusSelect.value === 'expi')
+    {
+        systemNameInput.disabled = true;
+        systemNameInput.parentElement.previousElementSibling.classList.remove('required');
+        systemNameInput.value = '';
+    }
+    else
+    {
+        systemNameInput.disabled = false;
+        systemNameInput.parentElement.previousElementSibling.classList.add('required');
+    }
+}
+
 $(document).ready(function(){
     let registrar = $('#registrar');
 
@@ -152,6 +170,10 @@ $(document).ready(function(){
                 }
             })
         });
+
+        // Add listener to the status select
+        statusSelect.addEventListener('change', processStatusChange);
+        processStatusChange(); // Initial process
 
         return;
     }

@@ -31,16 +31,6 @@ class ApplicationViewPage extends ModelPage
         $this->setVariable('publicFacing', $details['publicFacing'] ? 'Yes' : 'No');
         $this->setVariables($details);
 
-        // Web hosts
-        $webHosts = "";
-
-        foreach($details['webHosts'] as $webHost)
-        {
-            $webHosts .= "<li><a href='{{@baseURI}}netcenter/devices/hosts/{$webHost['id']}'><i class='icon'>desktop_windows</i>{$webHost['systemName']} ({$webHost['ipAddress']})</a></li>";
-        }
-
-        $this->setVariable('webHostList', $webHosts);
-
         // Data hosts
         $dataHosts = "";
 

@@ -47,7 +47,6 @@ function getEditForm()
 
     let vHosts = $('#vHosts').val();
     let publicFacing = $('#publicFacing').val();
-    let webHosts = $('#webHosts').val();
     let port = $('#port').val();
 
     return{
@@ -63,7 +62,6 @@ function getEditForm()
         dataVolume: dataVolume,
         vHosts: vHosts,
         publicFacing: publicFacing,
-        webHosts: webHosts,
         port: port
     };
 }
