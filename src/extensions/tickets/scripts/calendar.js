@@ -12,7 +12,7 @@ let monthDayCount = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; // Will ne
  */
 function buildCalendar(options)
 {
-    apiRequest('GET', 'tickets/workspaces/' + getWorkspace() + '/tickets/calendar/' + options.year + '/' + (options.month + 1), {}).done(
+    return apiRequest('GET', 'tickets/workspaces/' + getWorkspace() + '/tickets/calendar/' + options.year + '/' + (options.month + 1), {}).done(
         function(json)
         {
             if(json.code !== 200)
@@ -153,6 +153,7 @@ function buildCalendar(options)
 
 function updateCalendar()
 {
+    veil();
     let month = parseInt(document.getElementById('month').value);
     let year = parseInt(document.getElementById('year').value);
 
@@ -160,6 +161,8 @@ function updateCalendar()
         target: 'ticketCalendar',
         year: year,
         month: month
+    }).done(function(){
+        unveil();
     });
 }
 
