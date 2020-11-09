@@ -12,7 +12,7 @@ let monthDayCount = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; // Will ne
  */
 function buildCalendar(options)
 {
-    apiRequest('POST', 'tickets/workspaces/' + getWorkspace() + '/tickets/calendar', {year: options.year, month: options.month + 1}).done(
+    apiRequest('GET', 'tickets/workspaces/' + getWorkspace() + '/tickets/calendar/' + options.year + '/' + (options.month + 1), {}).done(
         function(json)
         {
             if(json.code !== 200)
