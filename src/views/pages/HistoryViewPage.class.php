@@ -16,7 +16,7 @@ namespace views\pages;
 
 class HistoryViewPage extends PortalDocument
 {
-    public function __construct(string $object, string $index)
+    public function __construct(string $object, ?string $index = NULL)
     {
         parent::__construct();
 

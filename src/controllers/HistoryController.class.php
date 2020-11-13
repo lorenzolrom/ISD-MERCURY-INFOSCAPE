@@ -16,6 +16,7 @@ namespace controllers;
 
 
 use exceptions\ParameterException;
+use views\pages\HistorySearchPage;
 use views\pages\HistoryViewPage;
 use views\View;
 
@@ -35,7 +36,9 @@ class HistoryController extends Controller
         $object = $this->request->next();
         $index = $this->request->next();
 
-        if($object === NULL OR $index === NULL)
+        if($object === 'search')
+            return new HistorySearchPage();
+        if($object === NULL)
             throw new ParameterException(ParameterException::MESSAGES[ParameterException::URI_PARAMETER_MISSING], ParameterException::URI_PARAMETER_MISSING);
 
         return new HistoryViewPage($object, $index);

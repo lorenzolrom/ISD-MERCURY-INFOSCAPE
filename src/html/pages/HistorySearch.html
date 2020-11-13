@@ -1,0 +1,21 @@
+<h1>{{@tabTitle}}</h1>
+<div class="button-bar">
+    <a class="button" href="javascript: searchHistory()"><i class="icon">history</i>Search</a>
+</div>
+<form id="search-form" class="search-form" onsubmit="return search()">
+    <table class="table-display">
+        <tbody>
+        <tr>
+            <td>Object</td>
+            <td>
+                <select id="object">
+                    <option value="">--SELECT--</option>
+                </select>
+            </td>
+            <td>Index</td>
+            <td><input type="text" id="index"></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script src="{{@baseURI}}scripts/historysearch.js"></script>

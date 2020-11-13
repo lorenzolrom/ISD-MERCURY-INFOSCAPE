@@ -14,6 +14,7 @@ function loadHistory(object, index)
                 refs.push(v.id);
 
                 rows.push([
+                    v.index,
                     v.username,
                     v.action,
                     v.time
@@ -66,12 +67,12 @@ function loadHistory(object, index)
 
             setupTable({
                 target: 'results',
-                header: ['Operator', 'Action', 'Time'],
-                linkColumn: 2,
+                header: ['Index', 'Operator', 'Action', 'Time'],
+                linkColumn: 3,
                 href: "javascript: viewHistory('{{%}}')",
                 usePlaceholder: true,
                 refs: refs,
-                sortColumn: 2,
+                sortColumn: 3,
                 rows: rows
             });
         }
