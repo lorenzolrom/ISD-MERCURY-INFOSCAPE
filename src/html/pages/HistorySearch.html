@@ -1,6 +1,6 @@
 <h1>{{@tabTitle}}</h1>
 <div class="button-bar">
-    <a class="button" href="javascript: searchHistory()"><i class="icon">history</i>Search</a>
+    <a class="button" href="javascript: search()"><i class="icon">history</i>Search</a>
 </div>
 <form id="search-form" class="search-form" onsubmit="return search()">
     <table class="table-display">
@@ -14,6 +14,12 @@
             </td>
             <td>Index</td>
             <td><input type="text" id="index"></td>
+        </tr>
+        <tr>
+            <td>Username</td>
+            <td><input type="text" id="username"></td>
+            <td>Action</td>
+            <td><input type="text" id="action"></td>
         </tr>
         </tbody>
     </table>

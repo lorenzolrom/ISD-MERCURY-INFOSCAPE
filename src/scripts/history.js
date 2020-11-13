@@ -1,8 +1,15 @@
 function loadHistory(object, index)
 {
+    // Determine if username and action were specified in address
+    let username = getQueryParameter('username');
+    let action = getQueryParameter('action');
+
+    // Get objects from server
     apiRequest('GET', 'history', {
         object: object,
-        index: index
+        index: index,
+        username: username,
+        action: action
     }).done(function(json){
         if(json.code === 200)
         {

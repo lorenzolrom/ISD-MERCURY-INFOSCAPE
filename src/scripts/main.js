@@ -629,6 +629,26 @@ function formToJSON(form)
 }
 
 /**
+ * Retrieve the specified parameter from the URL query string
+ * @param name
+ * @param url
+ * @returns {string|null}
+ */
+function getQueryParameter(name, url = window.location.href)
+{
+    name = name.replace(/[\[\]]/g, '\\$&');
+
+    let regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'), results = regex.exec(url);
+
+    if (!results)
+        return null;
+    else if (!results[2])
+        return '';
+    else
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+/**
  * Setup document
  */
 $(document).ready(function(){

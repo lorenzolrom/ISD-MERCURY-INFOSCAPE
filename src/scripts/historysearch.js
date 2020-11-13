@@ -19,10 +19,13 @@ function loadObjects()
     });
 }
 
-function searchHistory()
+function search()
 {
     let index = document.getElementById('index').value;
-    window.location.href = baseURI + 'history/' + objectSelect.value + '/' + index;
+    let username = document.getElementById('username').value;
+    let action = document.getElementById('action').value;
+
+    window.location.href = baseURI + 'history/' + objectSelect.value + '/' + index + '?username=' + username + '&action=' + action;
 }
 
 $(document).ready(function(){
