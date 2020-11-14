@@ -154,9 +154,19 @@ function processStatusChange()
 }
 
 $(document).ready(function(){
-    let registrar = $('#registrar');
+
+    // Hide view-logs if the form was initialized with an empty log path
+    let logPathInput = document.getElementById('logPath');
+    if(logPathInput && logPathInput.value.length < 1)
+    {
+        let viewLogButton = document.getElementById('viewLogButton');
+
+        if(viewLogButton)
+            viewLogButton.style.display = 'none';
+    }
 
     // If we are viewing/creating, set up registrar auto-complete
+    let registrar = $('#registrar');
     if(!document.getElementById("results"))
     {
         registrar.focus(function(){

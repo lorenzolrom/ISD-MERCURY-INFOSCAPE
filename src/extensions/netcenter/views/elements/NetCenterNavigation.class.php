@@ -101,17 +101,17 @@ class NetCenterNavigation extends Navigation
                     'permission' => 'itsm_web-vhosts-r'
                 ),
                 array(
+                    'title' => 'Registrars',
+                    'link' => 'web/registrars',
+                    'icon' => 'work',
+                    'permission' => 'itsm_web-registrars-r'
+                ),
+                array(
                     'title' => 'URL Aliases',
                     'link' => 'web/urlaliases',
                     'icon' => 'forward',
                     'permission' => 'itsm_web-aliases-rw',
                 ),
-                array(
-                    'title' => 'Registrars',
-                    'link' => 'web/registrars',
-                    'icon' => 'work',
-                    'permission' => 'itsm_web-registrars-r'
-                )
             )
         ),
         'ait' => array(
