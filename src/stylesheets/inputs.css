@@ -132,6 +132,11 @@ form.inline-form input {
     display: inline-block;
 }
 
+/* Multiple-Selects  */
+select[multiple] {
+    resize: vertical;
+}
+
 @media screen and (max-device-width: 800px) {
     .button, .button-noveil {
         padding: 5px 10px;
