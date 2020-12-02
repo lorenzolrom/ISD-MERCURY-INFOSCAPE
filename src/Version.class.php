@@ -15,5 +15,5 @@
 abstract class Version
 {
     const SOFTWARE_TITLE = "Mercury InfoScape";
-    const CURRENT_VERSION = "2.3.0";
+    const CURRENT_VERSION = "2.3.1";
 }

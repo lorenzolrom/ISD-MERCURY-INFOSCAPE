@@ -648,6 +648,24 @@ function getQueryParameter(name, url = window.location.href)
         return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
+function setupMultipleSelectHandling()
+{
+    $('select[multiple] > option').mousedown(function(e) {
+
+        let $this = $(this), self = this, scroll = self.parentElement.scrollTop;
+
+        e.preventDefault();
+
+        $this.prop('selected', !$this.prop('selected'));
+        setTimeout(function(){
+            self.parentElement.scrollTop = scroll;
+        }, 0);
+
+        return false;
+
+    });
+}
+
 /**
  * Setup document
  */
@@ -665,6 +683,7 @@ $(document).ready(function(){
     setupExpandableRegions();
     setupDialogButtons();
     disableAutocomplete();
+    setupMultipleSelectHandling();
 
     setupLoadingImage();
 
