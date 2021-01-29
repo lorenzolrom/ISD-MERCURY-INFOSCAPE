@@ -1,8 +1,8 @@
 <div class="button-bar">
     <span class="button form-submit-button" id="user"><i class="icon">save</i>Save</span>
-    <a class="button" href="{{@baseURI}}netuserman/viewgroup/{{@cn}}"><i class="icon">backspace</i>Cancel</a>
+    <a class="button" href="{{@baseURI}}netuserman/viewgroup/{{@objectguid}}"><i class="icon">backspace</i>Cancel</a>
 </div>
-<form id="user-form" class="table-form" onsubmit="return updateGroup(&quot;{{@cn}}&quot;)">
+<form id="user-form" class="table-form" onsubmit="return updateGroup(&quot;{{@objectguid}}&quot;)">
     <h2 class="region-title">{{@distinguishedname}}</h2>
     <table class="table-display">
         <tbody>

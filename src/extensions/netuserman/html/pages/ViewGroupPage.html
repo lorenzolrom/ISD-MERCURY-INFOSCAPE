@@ -1,11 +1,15 @@
 <div class="button-bar">
-    <a class="button" href="{{@baseURI}}netuserman/editgroup/{{@cn}}"><i class="icon">edit</i>Edit Attributes</a>
-    <a href="javascript: deleteGroup(&quot;{{@cn}}&quot;)" class="button dialog-show-button delete-button confirm-button"><i class="icon">delete</i>Delete</a>
+    <a class="button" href="{{@baseURI}}netuserman/editgroup/{{@objectguid}}"><i class="icon">edit</i>Edit Attributes</a>
+    <a href="javascript: deleteGroup(&quot;{{@objectguid}}&quot;)" class="button dialog-show-button delete-button confirm-button"><i class="icon">delete</i>Delete</a>
     <a class="button" href="{{@baseURI}}netuserman/searchgroups"><i class="icon">backspace</i>Back</a>
 </div>
-<h2 class="region-title">{{@distinguishedname}}<a class="history-link" href="{{@baseURI}}history/netgroup/{{@cn}}"><i class="icon" title="View History">history</i></a></h2>
+<h2 class="region-title">{{@distinguishedname}}<a class="history-link" href="{{@baseURI}}history/netgroup/{{@objectguid}}"><i class="icon" title="View History">history</i></a></h2>
 <table class="table-display">
     <tbody>
+    <tr>
+        <td>Object GUID</td>
+        <td>{{@objectguid}}</td>
+    </tr>
     <tr>
         <td>Name</td>
         <td>{{@cn}}</td>

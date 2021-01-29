@@ -18,15 +18,15 @@ class ViewUserPage extends ModelPage
 {
     /**
      * ViewUserPage constructor.
-     * @param string $cn
+     * @param string $guid
      * @throws \exceptions\EntryNotFoundException
      * @throws \exceptions\InfoCentralException
      * @throws \exceptions\SecurityException
      * @throws \exceptions\ViewException
      */
-    public function __construct(string $cn)
+    public function __construct(string $guid)
     {
-        parent::__construct('netuserman/' . $cn, 'netuserman-read', 'netUsers');
+        parent::__construct('netuserman/' . $guid, 'netuserman-read', 'netUsers');
         $details = $this->response->getBody();
 
         $this->setVariable('tabTitle', 'View User: ' . $details['cn']);
@@ -36,7 +36,7 @@ class ViewUserPage extends ModelPage
         $this->setVariable('loginname', explode('@', $details['userprincipalname'])[0]);
 
         // Set image path
-        $this->setVariable('thumbnailphotoPath', \Config::OPTIONS['baseURI'] . 'netuserman/photo/' . $cn);
+        $this->setVariable('thumbnailphotoPath', \Config::OPTIONS['baseURI'] . 'netuserman/photo/' . $guid);
 
         // Format useraccountcontrol list
         $useraccountcontrolList = '';

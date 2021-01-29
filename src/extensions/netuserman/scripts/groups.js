@@ -31,7 +31,7 @@ function search()
 
             if(json.data.length === 1) // Only one result
             {
-                window.location.replace(baseURI + 'netuserman/viewgroup/' + json.data[0].cn);
+                window.location.replace(baseURI + 'netuserman/viewgroup/' + json.data[0].objectguid);
             }
 
             $.each(json.data, function(i, v){
@@ -57,7 +57,7 @@ function search()
 
                 folder = folder.replace(/\/+$/,''); // Remove trailing slash in folder
 
-                refs.push(v.cn);
+                refs.push(v.objectguid);
                 rows.push([
                     v.cn,
                     dc + '/' + folder,
@@ -81,23 +81,23 @@ function search()
     return false;
 }
 
-function updateGroup(cn)
+function updateGroup(guid)
 {
-    apiRequest('PUT', 'netgroupman/' + encodeURI(cn), getForm()).done(
+    apiRequest('PUT', 'netgroupman/' + guid, getForm()).done(
         function(json)
         {
             if(json.code === 204)
-                window.location.replace(baseURI + 'netuserman/viewgroup/' + cn + '?SUCCESS=Group updated');
+                window.location.replace(baseURI + 'netuserman/viewgroup/' + guid + '?SUCCESS=Group updated');
         }
     );
 
     return false;
 }
 
-function deleteGroup(cn)
+function deleteGroup(guid)
 {
     veil();
-    apiRequest('DELETE', 'netgroupman/' + encodeURI(cn), {}).done(function(json){
+    apiRequest('DELETE', 'netgroupman/' + guid, {}).done(function(json){
         if(json.code === 204)
             window.location.replace(baseURI + 'netuserman/searchgroups?SUCCESS=Group deleted');
         else
@@ -110,7 +110,7 @@ function createGroup()
     veil();
     apiRequest('POST', 'netgroupman', getForm()).done(function(json){
         if(json.code === 201)
-            window.location.replace(baseURI + 'netuserman/viewgroup/' + json.data.cn + '?SUCCESS=Group created');
+            window.location.replace(baseURI + 'netuserman/viewgroup/' + json.data.objectguid + '?SUCCESS=Group created');
         else
             unveil();
     });

@@ -70,7 +70,7 @@ function search()
 
             if(json.data.length === 1) // Only one result
             {
-                window.location.replace(baseURI + 'netuserman/view/' + json.data[0].cn);
+                window.location.replace(baseURI + 'netuserman/view/' + json.data[0].objectguid);
             }
 
             $.each(json.data, function(i, v){
@@ -82,7 +82,7 @@ function search()
                 if(useraccountcontrol.includes('ACCOUNTDISABLE'))
                     disabled = '✓';
 
-                refs.push(v.cn);
+                refs.push(v.objectguid);
                 rows.push([
                     v.userprincipalname.split('@')[0],
                     v.cn,
@@ -110,20 +110,20 @@ function search()
 
 /**
  * Update user attributes
- * @param cn
+ * @param guid
  * @returns {boolean}
  */
-function updateUser(cn)
+function updateUser(guid)
 {
-    apiRequest('PUT', 'netuserman/' + encodeURI(cn), getForm()).done(function(json){
+    apiRequest('PUT', 'netuserman/' + guid, getForm()).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + 'netuserman/view/' + cn + '?SUCCESS=User updated');
+            window.location.replace(baseURI + 'netuserman/view/' + guid + '?SUCCESS=User updated');
     });
 
     return false;
 }
 
-function resetPassword(cn)
+function resetPassword(guid)
 {
     veil();
     $('#resetPassword-button-dialog').dialog('close');
@@ -131,7 +131,7 @@ function resetPassword(cn)
     let password = document.getElementById('password').value;
     let confirm = document.getElementById('confirm').value;
 
-    apiRequest('PUT', 'netuserman/' + encodeURI(cn) + '/password', {
+    apiRequest('PUT', 'netuserman/' + guid + '/password', {
         password: password,
         confirm: confirm
     }).done(function(json){
@@ -146,7 +146,7 @@ function resetPassword(cn)
     return false;
 }
 
-function modifyGroups(cn)
+function modifyGroups(guid)
 {
     veil();
 
@@ -160,9 +160,9 @@ function modifyGroups(cn)
         removeGroups: remGroups
     };
 
-    apiRequest('PUT', 'netuserman/' + encodeURI(cn) + '/groups', data).done(function(json){
+    apiRequest('PUT', 'netuserman/' + guid + '/groups', data).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + 'netuserman/view/' + cn + '?SUCCESS=Groups updated');
+            window.location.replace(baseURI + 'netuserman/view/' + guid + '?SUCCESS=Groups updated');
         else
             unveil();
     });
@@ -170,11 +170,11 @@ function modifyGroups(cn)
     return false;
 }
 
-function deleteUser(cn)
+function deleteUser(guid)
 {
     veil();
 
-    apiRequest('DELETE', 'netuserman/' + encodeURI(cn), {}).done(function(json){
+    apiRequest('DELETE', 'netuserman/' + guid, {}).done(function(json){
         if(json.code === 204)
             window.location.replace(baseURI + 'netuserman/search?SUCCESS=User deleted');
         else
@@ -187,7 +187,7 @@ function createUser()
     veil();
     apiRequest('POST', 'netuserman', getCreateForm()).done(function(json){
         if(json.code === 201)
-            window.location.replace(baseURI + 'netuserman/view/' + json.data.cn + '?SUCCESS=User created');
+            window.location.replace(baseURI + 'netuserman/view/' + json.data.objectguid + '?SUCCESS=User created');
         else
             unveil();
     });
