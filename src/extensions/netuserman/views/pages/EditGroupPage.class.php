@@ -19,9 +19,9 @@ use extensions\netuserman\views\forms\EditGroupForm;
 
 class EditGroupPage extends ModelPage
 {
-    public function __construct(string $guid)
+    public function __construct(string $cn)
     {
-        parent::__construct('netgroupman/' . $guid, 'netuserman-editgroups', 'netGroups');
+        parent::__construct('netgroupman/' . $cn, 'netuserman-editgroups', 'netGroups');
 
         $details = $this->response->getBody();
 

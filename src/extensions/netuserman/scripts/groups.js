@@ -31,7 +31,7 @@ function search()
 
             if(json.data.length === 1) // Only one result
             {
-                window.location.replace(baseURI + 'netuserman/viewgroup/' + json.data[0].objectguid);
+                window.location.replace(baseURI + 'netuserman/viewgroup/' + json.data[0].cn);
             }
 
             $.each(json.data, function(i, v){
@@ -57,7 +57,7 @@ function search()
 
                 folder = folder.replace(/\/+$/,''); // Remove trailing slash in folder
 
-                refs.push(v.objectguid);
+                refs.push(v.cn);
                 rows.push([
                     v.cn,
                     dc + '/' + folder,
@@ -66,7 +66,7 @@ function search()
             });
 
             $('#results').mlTable({
-                header: ['Name', 'Folder', 'Description'],
+                header: ['Common Name', 'Folder', 'Description'],
                 linkColumn: 0,
                 href: baseURI + 'netuserman/viewgroup/',
                 refs: refs,
@@ -81,23 +81,23 @@ function search()
     return false;
 }
 
-function updateGroup(guid)
+function updateGroup(cn)
 {
-    apiRequest('PUT', 'netgroupman/' + guid, getForm()).done(
+    apiRequest('PUT', 'netgroupman/' + encodeURI(cn), getForm()).done(
         function(json)
         {
             if(json.code === 204)
-                window.location.replace(baseURI + 'netuserman/viewgroup/' + guid + '?SUCCESS=Group updated');
+                window.location.replace(baseURI + 'netuserman/viewgroup/' + cn + '?SUCCESS=Group updated');
         }
     );
 
     return false;
 }
 
-function deleteGroup(guid)
+function deleteGroup(cn)
 {
     veil();
-    apiRequest('DELETE', 'netgroupman/' + guid, {}).done(function(json){
+    apiRequest('DELETE', 'netgroupman/' + encodeURI(cn), {}).done(function(json){
         if(json.code === 204)
             window.location.replace(baseURI + 'netuserman/searchgroups?SUCCESS=Group deleted');
         else
@@ -110,7 +110,7 @@ function createGroup()
     veil();
     apiRequest('POST', 'netgroupman', getForm()).done(function(json){
         if(json.code === 201)
-            window.location.replace(baseURI + 'netuserman/viewgroup/' + json.data.objectguid + '?SUCCESS=Group created');
+            window.location.replace(baseURI + 'netuserman/viewgroup/' + json.data.cn + '?SUCCESS=Group created');
         else
             unveil();
     });

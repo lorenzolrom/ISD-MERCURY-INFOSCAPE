@@ -41,24 +41,24 @@ class NetUserManController extends Controller
     public function getPage(): ?View
     {
         $route = $this->request->next();
-        $guid = $this->request->next();
+        $cn = $this->request->next();
 
         if($route === NULL)
             return new NetUserManHomePage();
         else if($route === 'view')
         {
             if(!empty($_FILES))
-                $this->uploadThumbnailPhoto($guid);
-            return new ViewUserPage((string)$guid);
+                $this->uploadThumbnailPhoto($cn);
+            return new ViewUserPage((string)$cn);
         }
         else if($route === 'viewgroup')
-            return new ViewGroupPage((string)$guid);
+            return new ViewGroupPage((string)$cn);
         else if($route === 'photo')
-            $this->getUserPhoto((string)$guid);
+            $this->getUserPhoto((string)$cn);
         else if($route === 'edit')
-            return new EditUserPage((string)$guid);
+            return new EditUserPage((string)$cn);
         else if($route === 'editgroup')
-            return new EditGroupPage((string)$guid);
+            return new EditGroupPage((string)$cn);
         else if($route === 'search')
             return new SearchUserPage();
         else if($route === 'searchgroups')
@@ -72,11 +72,11 @@ class NetUserManController extends Controller
     }
 
     /**
-     * @param string $guid
+     * @param string $cn
      */
-    private function getUserPhoto(string $guid): void
+    private function getUserPhoto(string $cn): void
     {
-        $link = curl_init(\Config::OPTIONS['icURL'] . 'netuserman/' . $guid . '/photo');
+        $link = curl_init(\Config::OPTIONS['icURL'] . 'netuserman/' . $cn . '/photo');
 
         // Add API secret
         $headers = array(
@@ -100,9 +100,9 @@ class NetUserManController extends Controller
     }
 
     /**
-     * @param string $guid
+     * @param string $cn
      */
-    private function uploadThumbnailPhoto(string $guid)
+    private function uploadThumbnailPhoto(string $cn)
     {
         // Add API secret
         $headers = array(
@@ -114,7 +114,7 @@ class NetUserManController extends Controller
             $headers[] = 'Token: ' . $_COOKIE[\Config::OPTIONS['cookieName']];
 
 
-        $link = curl_init(\Config::OPTIONS['icURL'] . 'netuserman/' . $guid . '/photo');
+        $link = curl_init(\Config::OPTIONS['icURL'] . 'netuserman/' . $cn . '/photo');
         curl_setopt($link, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($link, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($link, CURLOPT_POST, true);
@@ -131,7 +131,7 @@ class NetUserManController extends Controller
 
         curl_close($link);
 
-        $currPage = \Config::OPTIONS['baseURI'] . 'netuserman/view/' . $guid;
+        $currPage = \Config::OPTIONS['baseURI'] . 'netuserman/view/' . $cn;
 
         if($responseCode === HTTPResponse::NO_CONTENT)
             header('Location: ' . $currPage . '?SUCCESS=Photo updated');

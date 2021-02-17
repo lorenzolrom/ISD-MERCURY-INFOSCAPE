@@ -1,19 +1,15 @@
 <div class="button-bar">
-    <a class="button" href="{{@baseURI}}netuserman/edit/{{@objectguid}}"><i class="icon">edit</i>Edit Attributes</a>
+    <a class="button" href="{{@baseURI}}netuserman/edit/{{@cn}}"><i class="icon">edit</i>Edit Attributes</a>
     <span id="modGroups-button" class="button-noveil dialog-show-button"><i class="icon">group</i>Modify Groups</span>
     <span id="resetPassword-button" class="button-noveil dialog-show-button"><i class="icon">refresh</i>Reset Password</span>
     <span id="uploadPicture-button" class="button-noveil dialog-show-button"><i class="icon">photo_camera</i>Upload Photo</span>
-    <a href="javascript: deleteUser('{{@objectguid}}')" class="button dialog-show-button delete-button confirm-button"><i class="icon">delete</i>Delete</a>
+    <a href="javascript: deleteUser('{{@cn}}')" class="button dialog-show-button delete-button confirm-button"><i class="icon">delete</i>Delete</a>
     <a class="button" href="{{@baseURI}}netuserman/search"><i class="icon">backspace</i>Back</a>
 </div>
-<h2 class="region-title">{{@distinguishedname}}<a class="history-link" href="{{@baseURI}}history/netuser/{{@objectguid}}"><i class="icon" title="View History">history</i></a></h2>
+<h2 class="region-title">{{@distinguishedname}}<a class="history-link" href="{{@baseURI}}history/netuser/{{@cn}}"><i class="icon" title="View History">history</i></a></h2>
 <img class="thumbnailphoto" src="{{@thumbnailphotoPath}}" alt="thumbnailPhoto">
 <table class="table-display">
     <tbody>
-    <tr>
-        <td>Object GUID</td>
-        <td>{{@objectguid}}</td>
-    </tr>
     <tr>
         <td>Given Name</td>
         <td>{{@givenname}}</td>
@@ -91,7 +87,7 @@
 </div>
 
 <div id="modGroups-button-dialog" class="dialog" title="Modify Groups">
-    <form onsubmit="return modifyGroups('{{@objectguid}}')">
+    <form onsubmit="return modifyGroups('{{@cn}}')">
         <p>Multiple groups on new lines</p>
         <br/>
         <p>
@@ -107,7 +103,7 @@
 </div>
 
 <div id="resetPassword-button-dialog" class="dialog" title="Reset Password">
-    <form onsubmit="return resetPassword('{{@objectguid}}');">
+    <form onsubmit="return resetPassword('{{@cn}}');">
         <p>
             <span>Password</span>
             <input type="password" id="password">

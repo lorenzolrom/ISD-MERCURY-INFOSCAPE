@@ -18,15 +18,15 @@ class ViewGroupPage extends ModelPage
 {
     /**
      * ViewUserPage constructor.
-     * @param string $guid
+     * @param string $cn
      * @throws \exceptions\EntryNotFoundException
      * @throws \exceptions\InfoCentralException
      * @throws \exceptions\SecurityException
      * @throws \exceptions\ViewException
      */
-    public function __construct(string $guid)
+    public function __construct(string $cn)
     {
-        parent::__construct('netgroupman/' . $guid, 'netuserman-readgroups', 'netGroups');
+        parent::__construct('netgroupman/' . $cn, 'netuserman-readgroups', 'netGroups');
         $details = $this->response->getBody();
 
         $this->setVariable('tabTitle', 'View Group: ' . $details['cn']);

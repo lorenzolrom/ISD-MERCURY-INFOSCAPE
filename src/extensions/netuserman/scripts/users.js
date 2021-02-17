@@ -70,7 +70,7 @@ function search()
 
             if(json.data.length === 1) // Only one result
             {
-                window.location.replace(baseURI + 'netuserman/view/' + json.data[0].objectguid);
+                window.location.replace(baseURI + 'netuserman/view/' + json.data[0].cn);
             }
 
             $.each(json.data, function(i, v){
@@ -82,10 +82,10 @@ function search()
                 if(useraccountcontrol.includes('ACCOUNTDISABLE'))
                     disabled = '✓';
 
-                refs.push(v.objectguid);
+                refs.push(v.cn);
                 rows.push([
-                    v.userprincipalname.split('@')[0],
                     v.cn,
+                    v.displayname,
                     v.title,
                     v.description,
                     disabled
@@ -93,7 +93,7 @@ function search()
             });
 
             $('#results').mlTable({
-                header: ['Login Name', 'Name', 'Title', 'Description', 'Disabled'],
+                header: ['Common Name', 'Display Name', 'Title', 'Description', 'Disabled'],
                 linkColumn: 1,
                 href: baseURI + 'netuserman/view/',
                 refs: refs,
@@ -110,20 +110,20 @@ function search()
 
 /**
  * Update user attributes
- * @param guid
+ * @param cn
  * @returns {boolean}
  */
-function updateUser(guid)
+function updateUser(cn)
 {
-    apiRequest('PUT', 'netuserman/' + guid, getForm()).done(function(json){
+    apiRequest('PUT', 'netuserman/' + encodeURI(cn), getForm()).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + 'netuserman/view/' + guid + '?SUCCESS=User updated');
+            window.location.replace(baseURI + 'netuserman/view/' + cn + '?SUCCESS=User updated');
     });
 
     return false;
 }
 
-function resetPassword(guid)
+function resetPassword(cn)
 {
     veil();
     $('#resetPassword-button-dialog').dialog('close');
@@ -131,7 +131,7 @@ function resetPassword(guid)
     let password = document.getElementById('password').value;
     let confirm = document.getElementById('confirm').value;
 
-    apiRequest('PUT', 'netuserman/' + guid + '/password', {
+    apiRequest('PUT', 'netuserman/' + encodeURI(cn) + '/password', {
         password: password,
         confirm: confirm
     }).done(function(json){
@@ -146,7 +146,7 @@ function resetPassword(guid)
     return false;
 }
 
-function modifyGroups(guid)
+function modifyGroups(cn)
 {
     veil();
 
@@ -160,9 +160,9 @@ function modifyGroups(guid)
         removeGroups: remGroups
     };
 
-    apiRequest('PUT', 'netuserman/' + guid + '/groups', data).done(function(json){
+    apiRequest('PUT', 'netuserman/' + encodeURI(cn) + '/groups', data).done(function(json){
         if(json.code === 204)
-            window.location.replace(baseURI + 'netuserman/view/' + guid + '?SUCCESS=Groups updated');
+            window.location.replace(baseURI + 'netuserman/view/' + cn + '?SUCCESS=Groups updated');
         else
             unveil();
     });
@@ -170,11 +170,11 @@ function modifyGroups(guid)
     return false;
 }
 
-function deleteUser(guid)
+function deleteUser(cn)
 {
     veil();
 
-    apiRequest('DELETE', 'netuserman/' + guid, {}).done(function(json){
+    apiRequest('DELETE', 'netuserman/' + encodeURI(cn), {}).done(function(json){
         if(json.code === 204)
             window.location.replace(baseURI + 'netuserman/search?SUCCESS=User deleted');
         else
@@ -187,7 +187,7 @@ function createUser()
     veil();
     apiRequest('POST', 'netuserman', getCreateForm()).done(function(json){
         if(json.code === 201)
-            window.location.replace(baseURI + 'netuserman/view/' + json.data.objectguid + '?SUCCESS=User created');
+            window.location.replace(baseURI + 'netuserman/view/' + json.data.cn + '?SUCCESS=User created');
         else
             unveil();
     });
