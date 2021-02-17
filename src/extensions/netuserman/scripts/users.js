@@ -94,7 +94,7 @@ function search()
 
             $('#results').mlTable({
                 header: ['Common Name', 'Display Name', 'Title', 'Description', 'Disabled'],
-                linkColumn: 1,
+                linkColumn: 0,
                 href: baseURI + 'netuserman/view/',
                 refs: refs,
                 rows: rows,
