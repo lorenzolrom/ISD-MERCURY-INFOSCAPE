@@ -130,10 +130,12 @@ function resetPassword(cn)
 
     let password = document.getElementById('password').value;
     let confirm = document.getElementById('confirm').value;
+    let mustChange = document.getElementById('mustChange').checked;
 
     apiRequest('PUT', 'netuserman/' + encodeURI(cn) + '/password', {
         password: password,
-        confirm: confirm
+        confirm: confirm,
+        mustChange: mustChange
     }).done(function(json){
         if(json.code === 204)
         {
